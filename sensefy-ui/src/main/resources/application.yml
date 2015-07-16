@@ -2,7 +2,8 @@ debug:
 security:
   user:
     password: password
-  sessions: ALWAYS  
+  sessions: ALWAYS
+  ignored: /css/**,/js/**,/favicon.ico,/webjars/**
 zuul:
   routes:
     service:
@@ -20,6 +21,7 @@ spring:
       home:
         secure: false
         path: /,/**/*.html,/**/*.js,/**/*.css
+      loginPath: /logins
     client:
       accessTokenUri: http://localhost:8090/ua/oauth/token
       userAuthorizationUri: http://localhost:8090/ua/oauth/authorize

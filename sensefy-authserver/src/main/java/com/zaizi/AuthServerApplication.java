@@ -2,27 +2,30 @@ package com.zaizi;
 
 import java.security.Principal;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration.WebMvcAutoConfigurationAdapter;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 @SpringBootApplication
-@RestController
+@Controller
+@SessionAttributes("authorizationRequest")
 @EnableResourceServer
 public class AuthServerApplication extends WebMvcAutoConfigurationAdapter {
 
@@ -31,8 +34,38 @@ public class AuthServerApplication extends WebMvcAutoConfigurationAdapter {
 	}
 
 	@RequestMapping("/user")
+	@ResponseBody
 	public Principal user(Principal user) {
 		return user;
+	}
+
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController("/login").setViewName("login");
+		//registry.addViewController("/oauth/confirm_access").setViewName("authorize");
+		
+	}
+
+	@Configuration
+	@Order(-10)
+	protected static class LoginConfig extends WebSecurityConfigurerAdapter {
+
+		@Autowired
+		private AuthenticationManager authenticationManager;
+
+		@Override
+		protected void configure(HttpSecurity http) throws Exception {
+
+			http.formLogin().loginPage("/login").permitAll().and().requestMatchers()
+					.antMatchers("/login", "/oauth/authorize", "/oauth/confirm_access").and().authorizeRequests()
+					.anyRequest().authenticated();
+
+		}
+
+		@Override
+		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+			auth.parentAuthenticationManager(authenticationManager);
+		}
 	}
 
 	@Configuration
@@ -45,40 +78,14 @@ public class AuthServerApplication extends WebMvcAutoConfigurationAdapter {
 		@Override
 		public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
 			endpoints.authenticationManager(authenticationManager);
-			endpoints.addInterceptor(new HandlerInterceptor() {
-				
-				@Override
-				public boolean preHandle(HttpServletRequest req, HttpServletResponse rs, Object arg2) throws Exception {
-					rs.setHeader("Access-Control-Allow-Origin", "*");
-	                rs.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-	                rs.setHeader("Access-Control-Max-Age", "360000");
-	                rs.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-	                
 
-	                return true;
-				}
-				
-				@Override
-				public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView arg3)
-						throws Exception {
-					// TODO Auto-generated method stub
-					
-				}
-				
-				@Override
-				public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)
-						throws Exception {
-					// TODO Auto-generated method stub
-					
-				}
-			});
-			
 		}
 
 		@Override
 		public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 			clients.inMemory().withClient("sensefy").secret("sensefysecret")
 					.authorizedGrantTypes("authorization_code", "refresh_token", "password").scopes("openid");
+
 		}
 	}
 }

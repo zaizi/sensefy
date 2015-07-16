@@ -10,8 +10,8 @@
 
 	<modules>
 		<module>sensefy-authserver</module>
-		
 		<module>sensefy-ui</module>
+		<module>sensefy-resource</module>
 	</modules>
 	
 </project>

@@ -6,7 +6,7 @@
       'ngSanitize',
       'ngRoute',
       'pascalprecht.translate'
-  ]).constant('SensefyAPIUrl', 'http://localhost:8080/auth/').constant('SensefyTokenCreatePath', 'token').constant('SensefySemanticSearchKeywordBased', 'search/keywordSearch').constant('SensefyEntityDrivenSearch', 'search/entityDrivenSearch').constant('SensefyGetEntitiesByDoc', 'search/showEntitiesByDocId').constant('SensefyPreviewDoc', 'search/docs/preview').constant('SensefySmartAutocompletePhase1', 'search/autocomplete/1').constant('SensefySmartAutocompletePhase2', 'search/autocomplete/2').constant('SensefySmartAutocompletePhase3', 'search/autocomplete/3').constant('SensefyDocsPreview', 'search/docs/preview').constant('SensefySortOptions', [
+  ]).constant('SensefyAPIUrl', 'http://localhost:8080/').constant('SensefyTokenCreatePath', 'token').constant('SensefySemanticSearchKeywordBased', 'search/keywordSearch').constant('SensefyEntityDrivenSearch', 'search/entityDrivenSearch').constant('SensefyGetEntitiesByDoc', 'search/showEntitiesByDocId').constant('SensefyPreviewDoc', 'search/docs/preview').constant('SensefySmartAutocompletePhase1', 'search/autocomplete/1').constant('SensefySmartAutocompletePhase2', 'search/autocomplete/2').constant('SensefySmartAutocompletePhase3', 'search/autocomplete/3').constant('SensefyDocsPreview', 'search/docs/preview').constant('SensefySortOptions', [
     {
       'id': 1,
       'sortOption': 'Relevance',
@@ -67,7 +67,11 @@
       'txtDocumentTitles': 'Document titles',
       'txtDocumentSuggestions': 'Suggestions',
       'txtNoSuggestions': 'No suggestions',
-      'txtDocumentsFound': 'Showing results {{docStart}}-{{docStart+docPerPage}} of {{documents}}.',//Showing results 1-10 of 1404.
+      'txtDocumentsFound': 'Showing results {{docStart}}-{{docStart+docPerPage}} of {{documents}}.',// Showing
+																									// results
+																									// 1-10
+																									// of
+																									// 1404.
       'txtDocumentsCountFound': 'documents found',
       'txtNoDocumentsFound': 'No documents found.',
       'txtDidYouMean': 'Did you mean:',
@@ -1730,7 +1734,7 @@
               if (restorePagination || $scope.currentPage === 1) {
                 $scope.documents = response.data.searchResults.documents || [];
               } else {
-                $scope.documents = $scope.documents.concat(response.data.searchResults.documents);//response.data.searchResults.documents;
+                $scope.documents = $scope.documents.concat(response.data.searchResults.documents);// response.data.searchResults.documents;
               }
               processHighlightInfo($scope.documents, response.data.searchResults.highlight);
               $scope.totalDocuments = response.data.searchResults.numFound;
@@ -2143,13 +2147,10 @@
         $scope.resultContent = document.content;
         $scope.documentPrevName = document.name;
           /*
-        return modalInstance = $modal.open({
-          templateUrl: 'views/content.html',
-          controller: 'ModalInstanceCtrl',
-          size: size,
-          scope: $scope
-        });
-          */
+			 * return modalInstance = $modal.open({ templateUrl:
+			 * 'views/content.html', controller: 'ModalInstanceCtrl', size:
+			 * size, scope: $scope });
+			 */
       };
       $scope.open = function(document, size) {
         var modalInstance;
@@ -2197,13 +2198,10 @@
           $scope.previewNotSupported = true;
         }
           /*
-        return modalInstance = $modal.open({
-          templateUrl: 'views/preview.html',
-          controller: 'ModalInstanceCtrl',
-          size: size,
-          scope: $scope
-        });
-          */
+			 * return modalInstance = $modal.open({ templateUrl:
+			 * 'views/preview.html', controller: 'ModalInstanceCtrl', size:
+			 * size, scope: $scope });
+			 */
       };
 
       if ($scope.queryTerm !== '') {
@@ -2294,13 +2292,10 @@
         $scope.resultContent = document.content;
         $scope.documentPrevName = document.name;
           /*
-        return modalInstance = $modal.open({
-          templateUrl: 'views/content.html',
-          controller: 'ModalInstanceCtrl',
-          size: size,
-          scope: $scope
-        });
-          */
+			 * return modalInstance = $modal.open({ templateUrl:
+			 * 'views/content.html', controller: 'ModalInstanceCtrl', size:
+			 * size, scope: $scope });
+			 */
       };
       $scope.open = function(document, size) {
         var childScope, modalInstance;
@@ -2516,7 +2511,26 @@
           $log.info('url called is ' + SensefyAPIUrl + path);
           $log.info('data : ' + JSON.stringify(data));
           $log.info('params :' + JSON.stringify(params));
-          $http({
+          
+          $http.get(SensefyAPIUrl+'user').success(function(data, status, headers, config) {
+         
+            return deferred.resolve({
+                    data: data,
+                    status: status,
+                    headers: headers,
+                    config: config});
+                  
+      	}).error(function(data, status, headers, config) {
+        return deferred.reject({
+          data: data,
+          status: status,
+          headers: headers,
+          config: config
+        });
+      });
+          
+          
+        /*  $http({
             method: method,
             headers: headers,
             transformRequest: angular.identity,
@@ -2533,13 +2547,14 @@
             });
           }).error(function(data, status, headers, config) {
         	  $log.info("error");
+        	  $log.info("Data : "+ JSON.stringify(config));
             return deferred.reject({
               data: data,
               status: status,
               headers: headers,
               config: config
             });
-          });
+          });*/
           return deferred.promise;
         },
         "delete": function(path, data, params, headers) {
@@ -3109,16 +3124,16 @@
           span.on('keyup', function(event) {
             if ((event != null ? event.keyCode : void 0) === 13) {
               scope.showSuggestions = false;
-              //if (scope.queryTerm.length !== 0) {
+              // if (scope.queryTerm.length !== 0) {
                 angular.element('body').removeClass('ggl');
-              //}
+              // }
               return suggestionsWrapper.fadeOut();
             }
           });
           span.on('click', function() {
-            //if (scope.queryTerm.length !== 0) {
+            // if (scope.queryTerm.length !== 0) {
             angular.element('body').removeClass('ggl');
-            //}
+            // }
           });
           scope.$on('titleSelected', function() {
             return angular.element('body').removeClass('ggl');
@@ -3234,12 +3249,9 @@
           style.innerHTML += '#sensefy .' + cssClassName + ' .channel-d {color: ' + colorArray[scope.$index] + ';}';
           style.innerHTML += '.' + cssClassName + ' i.file, .'+cssClassName+' .hover-result {color: ' + colorArray[scope.$index] + ';}';
           /*
-          element.bind("dragleave", onDragEnd)
-          element.bind("drop", (e) ->
-            onDragEnd(e)
-            loadFile e.originalEvent.dataTransfer.files[0]
-          )
-          */
+			 * element.bind("dragleave", onDragEnd) element.bind("drop", (e) ->
+			 * onDragEnd(e) loadFile e.originalEvent.dataTransfer.files[0] )
+			 */
 
           return document.getElementsByTagName('head')[0].appendChild(style);
         }
@@ -3254,12 +3266,9 @@
           cssRelationClassName = attrs.datasourceRelation.replace(RegExp(' ', 'g'), '');
           return element.attr('class', 'link item  document  ' + cssRelationClassName);
           /*
-          element.bind("dragleave", onDragEnd)
-          element.bind("drop", (e) ->
-            onDragEnd(e)
-            loadFile e.originalEvent.dataTransfer.files[0]
-          )
-          */
+			 * element.bind("dragleave", onDragEnd) element.bind("drop", (e) ->
+			 * onDragEnd(e) loadFile e.originalEvent.dataTransfer.files[0] )
+			 */
 
         }
       };

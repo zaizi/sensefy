@@ -14,9 +14,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.security.oauth2.sso.EnableOAuth2Sso;
 import org.springframework.cloud.security.oauth2.sso.OAuth2SsoConfigurerAdapter;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
@@ -26,6 +27,7 @@ import org.springframework.web.util.WebUtils;
 @SpringBootApplication
 @EnableZuulProxy
 @EnableOAuth2Sso
+@ComponentScan
 public class SensefySearchUiApplication {
 
 	public static void main(String[] args) {
@@ -38,18 +40,15 @@ public class SensefySearchUiApplication {
 
 		@Override
 		public void configure(HttpSecurity http) throws Exception {
-			http.authorizeRequests().antMatchers("index.html", "/search.html").permitAll().anyRequest().authenticated().and().addFilterBefore(getCors(),BasicAuthenticationFilter.class);
-					
+			http.authorizeRequests().antMatchers("/ss").permitAll().anyRequest().authenticated().and()
+					.csrf().csrfTokenRepository(csrfTokenRepository()).and()
+					.addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
 
 		}
 
 		@Override
 		public void match(RequestMatchers matchers) {
 			matchers.anyRequest();
-		}
-		
-		private Filter getCors(){
-			return new SimpleCORSFilter();
 		}
 
 		private Filter csrfHeaderFilter() {
