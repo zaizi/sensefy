@@ -21,13 +21,13 @@ spring:
       home:
         secure: false
         path: /,/**/*.html,/**/*.js,/**/*.css
-      loginPath: /logins
+#      loginPath: /
     client:
       accessTokenUri: http://localhost:8090/ua/oauth/token
       userAuthorizationUri: http://localhost:8090/ua/oauth/authorize
       clientId: sensefy
       clientSecret: sensefysecret
-      clientAuthenticationScheme: form
+#      clientAuthenticationScheme: form
     resource:
       userInfoUri: http://localhost:8090/ua/user
       preferTokenInfo: false
