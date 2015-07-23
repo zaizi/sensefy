@@ -42,6 +42,7 @@ public class AuthServerApplication{
 			clients.inMemory().withClient("sensefy").secret("sensefysecret")
 					.authorizedGrantTypes("authorization_code", "refresh_token", "password").scopes("openid");
 
+			
 		}
 	}
 }
