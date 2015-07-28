@@ -1,6 +1,7 @@
 package com.zaizi;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.net.URI;
 import java.util.regex.Matcher;
@@ -31,7 +32,7 @@ public class AuthServerApplicationTests {
 
 	@Value("${local.server.port}")
 	private int port;
-	@Value("${local.server.contextPath}")
+	@Value("${server.contextPath}")
 	private String contextPath;
 
 	private RestTemplate template = new TestRestTemplate();
