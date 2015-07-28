@@ -11,7 +11,8 @@
         'ngResource',
         'ngSanitize',
         'ngRoute',
-        'pascalprecht.translate'
+        'pascalprecht.translate',
+        'auth'
     ]).
         constant('SensefyAPIUrl', 'http://localhost:8080/SensefySearchAPI/sensefy/').
         constant('SensefyTokenCreatePath', 'token/create').
@@ -1036,7 +1037,7 @@
             }).when('/imgSearch', {
                 templateUrl: 'views/imgSearch.html',
                 controller: 'ImageSearchController'
-            }).otherwise;
+            }).otherwise
             ({
                 redirectTo: '/login'
             });
@@ -1045,8 +1046,8 @@
             return delete $httpProvider.defaults.headers.common['X-Requested-With'];
         }
     ]).run([
-        '$rootScope', '$location', '$window', '$http', '$translate',
-        function ($rootScope, $location, $window, $http, $translate) {
+        '$rootScope', '$location', '$window', '$http', '$translate', 'auth',
+        function ($rootScope, $location, $window, $http, $translate, auth) {
             return $rootScope.$on('$routeChangeStart',
                 function (event, next, current) {
                     $rootScope.loading = true;
@@ -1055,6 +1056,7 @@
                         $location.path('/login');
                         $location.search($location.search());
                     }
+                    auth.init('/', '/login', '/login');
                     return window.translate = $translate;
                 }
             );
@@ -1125,8 +1127,8 @@
         'localStorageServiceProvider', function (localStorageServiceProvider) {
             return localStorageServiceProvider.setPrefix('sensefy');
         }
-    ]).controller('SearchController', ['$scope', '$location', 'dataSources', '$rootScope', 'SemanticSearchService', 'SensefyFacetsPerGroup', 'SensefySortOptions', 'PDFViewerService', 'SensefyAPIUrl', 'SensefyDocsPreview', 'localStorageService', 'ApiService', 'SensefyPreviewDoc',
-        function ($scope, $location, dataSources, $rootScope, SemanticSearchService, SensefyFacetsPerGroup, SensefySortOptions, pdf, SensefyAPIUrl, SensefyDocsPreview, localStorageService, ApiService, SensefyPreviewDoc) {
+    ]).controller('SearchController', ['$scope', '$location', 'dataSources', '$rootScope', 'SemanticSearchService', 'SensefyFacetsPerGroup', 'SensefySortOptions', 'PDFViewerService', 'SensefyAPIUrl', 'SensefyDocsPreview', 'localStorageService', 'ApiService', 'SensefyPreviewDoc', 'auth',
+        function ($scope, $location, dataSources, $rootScope, SemanticSearchService, SensefyFacetsPerGroup, SensefySortOptions, pdf, SensefyAPIUrl, SensefyDocsPreview, localStorageService, ApiService, SensefyPreviewDoc, auth) {
             var FILTER_LABEL_SEPARATOR, addMissingFacets, allSource, cleanLocationSearchParameters, entityMap, escapeHtmlExceptB, fillLocationSearchParameters, getActiveSource, getDataSourceByValue, initDataSources, parseFacets, parseSimpleFacet, processHighlightInfo, removeCluster, removeFilter, resetSelectedValues, HTMLtagCleaner;
             FILTER_LABEL_SEPARATOR = '$$';
             angular.element('.ui.dropdown.top-right-menu').dropdown();
@@ -1163,6 +1165,7 @@
                     $scope.errors['loginMessage'] = 'errorExpiredSession';
                 }
                 $location.path('/login');
+                auth.clear;
             };
 
             allSource = {
@@ -2277,6 +2280,94 @@
     ]);
 
 }).call(this);
+'use strict';
+
+angular.module('auth', []).factory(
+    'auth',
+
+    function($rootScope, $http, $location) {
+
+        var enter = function() {
+            if ($location.path() != auth.loginPath) {
+                auth.path = $location.path();
+                if (!auth.authenticated) {
+                    $location.path(auth.loginPath);
+                }
+            }
+        };
+
+        var auth = {
+
+            authenticated : false,
+
+            loginPath : '/login',
+            logoutPath : '/login',
+            homePath : '/',
+            path : $location.path(),
+
+            authenticate : function(credentials, callback) {
+
+                var headers = credentials && credentials.username ? {
+                    authorization : "Basic " + btoa(credentials.username + ":" + credentials.password)
+                } : {};
+                auth.authenticated = true;
+                console.log('auth true')
+                callback && callback(auth.authenticated);
+                $location.path(auth.path==auth.loginPath ? auth.homePath : auth.path);
+/*
+                $http.get('user', {
+                    headers : headers
+                }).success(function(data) {
+                    if (data.name) {
+                        auth.authenticated = true;
+                    } else {
+                        auth.authenticated = false;
+                    }
+                    callback && callback(auth.authenticated);
+                    $location.path(auth.path==auth.loginPath ? auth.homePath : auth.path);
+                }).error(function() {
+                    auth.authenticated = false;
+                    callback && callback(false);
+                });
+*/
+            },
+
+            clear : function() {
+                $location.path(auth.loginPath);
+                auth.authenticated = false;
+                $http.post(auth.logoutPath, {}).success(function() {
+                    console.log("Logout succeeded");
+                }).error(function(data) {
+                    console.log("Logout failed");
+                });
+            },
+
+            init : function(homePath, loginPath, logoutPath) {
+
+                auth.homePath = homePath;
+                auth.loginPath = loginPath;
+                auth.logoutPath = logoutPath;
+
+                /*
+                auth.authenticate({}, function(authenticated) {
+                    if (authenticated) {
+                        $location.path(auth.path);
+                    }
+                });
+                */
+
+                // Guard route changes and switch to login page if unauthenticated
+                $rootScope.$on('$routeChangeStart', function() {
+                    //enter();
+                });
+
+            }
+
+        };
+
+        return auth;
+
+    });
 (function () {
     angular.module('SensefyServices', []).factory('ApiService', [
         'SensefyAPIUrl', '$http', '$q',

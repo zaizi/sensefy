@@ -1,46 +1,28 @@
-/**
- * 
- */
+angular
+		.module('hello', [ 'ngRoute', 'auth', 'home', 'message', 'navigation' ])
+		.config(
 
-angular.module('hello', [ 'ngRoute' ]).config(function($routeProvider) {
+				function($routeProvider, $httpProvider, $locationProvider) {
 
-	$routeProvider.when('/', {
-		templateUrl : 'home.html',
-		controller : 'home'
-	}).otherwise('/');
+					$locationProvider.html5Mode(true);
 
-}).controller('navigation',
+					$routeProvider.when('/', {
+						templateUrl : 'js/home/home.html',
+						controller : 'home'
+					}).when('/message', {
+						templateUrl : 'js/message/message.html',
+						controller : 'message'
+					}).when('/login', {
+						templateUrl : 'js/navigation/login.html',
+						controller : 'navigation'
+					}).otherwise('/');
 
-function($rootScope, $scope, $http, $location, $route) {
+					$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-	$scope.tab = function(route) {
-		return $route.current && route === $route.current.controller;
-	};
+				}).run(function(auth) {
 
-	$http.get('user').success(function(data) {
-		if (data.name) {
-			$rootScope.authenticated = true;
-		} else {
-			$rootScope.authenticated = false;
-		}
-	}).error(function() {
-		$rootScope.authenticated = false;
-	});
+			// Initialize auth module with the home page and login/logout path
+			// respectively
+			auth.init('/', '/login', '/logout');
 
-	$scope.credentials = {};
-
-	$scope.logout = function() {
-		$http.post('logout', {}).success(function() {
-			$rootScope.authenticated = false;
-			$location.path("/");
-		}).error(function(data) {
-			console.log("Logout failed")
-			$rootScope.authenticated = false;
 		});
-	}
-
-}).controller('home', function($scope, $http) {
-	$http.get('service/').success(function(data) {
-		$scope.greeting = data;
-	})
-});

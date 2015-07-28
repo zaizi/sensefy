@@ -1,10 +1,10 @@
 <!doctype html><!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]>
 <html class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]>
-<html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]--><head><meta charset="utf-8"><title>Sensefy Search</title><meta name="description" content=""><meta name="viewport" content="width=device-width"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="stylesheet" href="styles/vendor.css"><!--link rel="stylesheet" href="../bower_components/semantic/dist/semantic.min.css" --><link rel="stylesheet" href="styles/main.css"><base href="/"><body ng-app="SensefySemanticSearch" ng-controller="RootController" id="sensefy"><!--[if lt IE 7]>
+<html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]--><head><meta charset="utf-8"><title>Sensefy Search</title><meta name="description" content=""><meta name="viewport" content="width=device-width"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="stylesheet" href="styles/vendor.css"><!--link rel="stylesheet" href="../bower_components/semantic/dist/semantic.min.css" --><link rel="stylesheet" href="styles/main.css"><base href="/login"><body ng-app="hello" ng-cloak="" class="ng-cloak" id="sensefy"><!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
-<![endif]--><div class="ui page grid wrapper" ng-view=""></div><div ng-include="'views/layout/footer.html'"></div><!-- Google Analytics: change UA-XXXXX-X to be your site's ID --><script>(function (i, s, o, g, r, a, m) {
+<![endif]--><div ng-controller="navigation" class="container"><ul class="nav nav-pills" role="tablist"><li ng-class="{active:tab('home')}"><a href="/">home</a></li><!-- <li ng-class="{active:tab('message')}"><a href="/message">message</a> --></li><li><a href="/login">login</a></li><li ng-show="authenticated()"><a href="" ng-click="logout()">logout</a></li></ul></div><div class="ui page grid wrapper" ng-view=""></div><div ng-include="'views/layout/footer.html'"></div><!-- Google Analytics: change UA-XXXXX-X to be your site's ID --><script>(function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
         i[r] = i[r] || function () {
             (i[r].q = i[r].q || []).push(arguments)
@@ -20,4 +20,14 @@
     ga('send', 'pageview');</script><!--[if lt IE 9]>
 <script src="bower_components/es5-shim/es5-shim.js"></script>
 <script src="bower_components/json3/lib/json3.min.js"></script>
-<![endif]--><script src="scripts/vendor.js"></script><script src="scripts/vendor.worker.js"></script><script src="scripts/dynamic-locale.js"></script><script src="scripts/infinite-scroll.js"></script><script src="scripts/scripts.js"></script>
+<![endif]--><script src="scripts/vendor.js"></script><!-- build:js({.tmp,app}) scripts/scripts.js
+<script src="assets/scripts/configuration/main.js"></script>
+<script src="assets/scripts/controllers/root.js"></script>
+<script src="assets/scripts/controllers/search.js"></script>
+<script src="assets/scripts/controllers/login.js"></script>
+<script src="assets/scripts/auth/auth.js"></script>
+<script src="assets/scripts/services/main.js"></script>
+<script src="assets/scripts/directives/main.js"></script>
+<script src="assets/scripts/filters/main.js"></script>
+<script src="assets/scripts/x/main.js"></script>
+--><!-- endbuild --><script src="js/auth/auth.js" type="text/javascript"></script><script src="js/home/home.js" type="text/javascript"></script><script src="js/message/message.js" type="text/javascript"></script><script src="js/navigation/navigation.js" type="text/javascript"></script><script src="js/hello.js" type="text/javascript"></script>

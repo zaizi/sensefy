@@ -17,12 +17,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @ComponentScan
 @SessionAttributes("authorizationRequest")
 @EnableResourceServer
-public class AuthServerApplication{
+public class AuthServerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AuthServerApplication.class, args);
 	}
-
 
 	@Configuration
 	@EnableAuthorizationServer
@@ -42,7 +41,6 @@ public class AuthServerApplication{
 			clients.inMemory().withClient("sensefy").secret("sensefysecret")
 					.authorizedGrantTypes("authorization_code", "refresh_token", "password").scopes("openid");
 
-			
 		}
 	}
 }

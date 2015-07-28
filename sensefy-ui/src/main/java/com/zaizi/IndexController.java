@@ -1,5 +1,6 @@
 package com.zaizi;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,7 +13,28 @@ public class IndexController {
 		// Forward to home page so that route is preserved.
 		return "forward:/";
 	}
+	
+	@RequestMapping("/logout")
+	public String logout(){
+		SecurityContextHolder.clearContext();
+		return "forward:/login";
+	}
 
+	/*@RequestMapping("/lg/logout")
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    
+	    auth.setAuthenticated(false);
+	      if (auth != null){    
+	         SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
+	         logoutHandler.logout(request, response, auth);
+	         logoutHandler.setInvalidateHttpSession(true);
+	         logoutHandler.setClearAuthentication(true);
+	         SecurityContextHolder.clearContext();
+	      }
+	    SecurityContextHolder.getContext().setAuthentication(null);
+	    return "forward:/";
+	}*/
 	
 	/*protected static class Resource extends WebSecurityConfigurerAdapter{
 		@Override
