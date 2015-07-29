@@ -29,20 +29,20 @@ angular.module('auth', []).factory(
 										+ credentials.password)
 					} : {};
 
-					//$http.get('user', {
-					//	headers : headers
-					//}).success(function(data) {
-					//	if (data.name) {
+					$http.get('user', {
+						headers : headers
+					}).success(function(data) {
+						if (data.name) {
 							auth.authenticated = true;
-					//	} else {
-					//		auth.authenticated = false;
-					//	}
-						//callback && callback(auth.authenticated);
+						} else {
+							auth.authenticated = false;
+						}
+						callback && callback(auth.authenticated);
 						$location.path(auth.path==auth.loginPath ? auth.homePath : auth.path);
-					//}).error(function() {
-					//	auth.authenticated = false;
-				    //	callback && callback(false);
-					//});
+					}).error(function() {
+						auth.authenticated = false;
+				    	callback && callback(false);
+					});
 
 				},
 
