@@ -13,11 +13,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.security.oauth2.sso.EnableOAuth2Sso;
+import org.springframework.cloud.security.oauth2.sso.OAuth2SsoConfigurerAdapter;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
@@ -28,7 +28,8 @@ import org.springframework.web.util.WebUtils;
 @SpringBootApplication
 @EnableZuulProxy
 @ComponentScan
-@PropertySource({"classpath:oauth2.properties","classpath:application.yml"})
+@EnableOAuth2Sso
+@PropertySource({"classpath:application.yml"})
 public class SensefySearchUiApplication {
 
 	public static void main(String[] args) {
@@ -37,7 +38,7 @@ public class SensefySearchUiApplication {
 
 	@Configuration
 	@EnableOAuth2Sso
-	protected static class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+	protected static class SecurityConfiguration extends OAuth2SsoConfigurerAdapter {
 
 		@Override
 		public void configure(HttpSecurity http) throws Exception {
@@ -47,6 +48,11 @@ public class SensefySearchUiApplication {
 					.addFilterAfter(csrfHeaderFilter(), CsrfFilter.class).logout().deleteCookies("remove")
 					.invalidateHttpSession(false);
 
+		}
+		
+		@Override
+		public void match(RequestMatchers matchers) {
+			matchers.anyRequest();
 		}
 
 		
