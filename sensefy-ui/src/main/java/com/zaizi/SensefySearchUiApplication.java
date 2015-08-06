@@ -13,11 +13,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.security.oauth2.sso.EnableOAuth2Sso;
-import org.springframework.cloud.security.oauth2.sso.OAuth2SsoConfigurerAdapter;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
@@ -27,8 +27,8 @@ import org.springframework.web.util.WebUtils;
 
 @SpringBootApplication
 @EnableZuulProxy
-@EnableOAuth2Sso
 @ComponentScan
+@PropertySource({"classpath:oauth2.properties","classpath:application.yml"})
 public class SensefySearchUiApplication {
 
 	public static void main(String[] args) {
@@ -36,8 +36,8 @@ public class SensefySearchUiApplication {
 	}
 
 	@Configuration
-	@EnableWebSecurity
-	protected static class SecurityConfiguration extends OAuth2SsoConfigurerAdapter {
+	@EnableOAuth2Sso
+	protected static class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 		@Override
 		public void configure(HttpSecurity http) throws Exception {
@@ -49,20 +49,19 @@ public class SensefySearchUiApplication {
 
 		}
 
-		@Override
-		public void match(RequestMatchers matchers) {
-			matchers.anyRequest();
-
-		}
+		
 
 		private Filter csrfHeaderFilter() {
 			return new OncePerRequestFilter() {
 
 				@Override
-				protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
-						FilterChain filterChain) throws ServletException, IOException {
-					CsrfToken csrf = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
+				protected void doFilterInternal(HttpServletRequest request,
+						HttpServletResponse response, FilterChain filterChain)
+						throws ServletException, IOException {
+					CsrfToken csrf = (CsrfToken) request
+							.getAttribute(CsrfToken.class.getName());
 					if (csrf != null) {
+
 						Cookie cookie = WebUtils.getCookie(request, "XSRF-TOKEN");
 						String token = csrf.getToken();
 						if (cookie == null || token != null && !token.equals(cookie.getValue())) {
@@ -74,6 +73,7 @@ public class SensefySearchUiApplication {
 							response.setHeader("Access-Control-Max-Age", "3600");
 							response.setHeader("Access-Control-Allow-Headers", "x-requested-with");
 						}
+
 					}
 					filterChain.doFilter(request, response);
 				}

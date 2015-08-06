@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 
 	// Match everything without a suffix (so not a static resource)
+
 	@RequestMapping(value = "/{[path:[^\\.]*}")
 	public String redirect() {
 		// Forward to home page so that route is preserved.
@@ -19,5 +20,6 @@ public class IndexController {
 		SecurityContextHolder.clearContext();
 		return "forward:/login";
 	}
+
 
 }

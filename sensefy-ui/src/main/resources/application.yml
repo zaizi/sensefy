@@ -16,7 +16,7 @@ zuul:
       path: /auth/**
       url: http://localhost:8090/ua
 spring:
-  profiles: default
+#  profiles: default
   oauth2:
     sso:
       home:
@@ -28,8 +28,8 @@ spring:
       userAuthorizationUri: http://localhost:8090/ua/oauth/authorize
       clientId: sensefy
       clientSecret: sensefysecret
-#      clientAuthenticationScheme: form
-#      pre-established-redirect-uri: /loginresponse
+      clientAuthenticationScheme: form
+      pre-established-redirect-uri: /loginresponse
     resource:
       userInfoUri: http://localhost:8090/ua/user
       preferTokenInfo: false
