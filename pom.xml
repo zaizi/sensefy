@@ -4,7 +4,7 @@
 
 	<groupId>com.zaizi</groupId>
 	<artifactId>sensefy</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>2.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Sensefy UI Server</name>
 
