@@ -19,6 +19,7 @@ angular.module('auth', []).factory(
 				loginPath : '/login',
 				logoutPath : '/logout',
 				homePath : '/',
+                searchPath: '/search',
 				path : $location.path(),
 
 				authenticate : function(credentials, callback) {
@@ -38,10 +39,12 @@ angular.module('auth', []).factory(
 							auth.authenticated = false;
 						}
 						callback && callback(auth.authenticated);
-						$location.path(auth.path==auth.loginPath ? auth.homePath : auth.path);
+                    $location.path(auth.path==auth.loginPath ? auth.homePath : auth.path);
+                    console.log(auth.path +' = '+ auth.loginPath)
+						$location.path(auth.path==auth.loginPath ? auth.homePath : auth.searchPath);
 					}).error(function() {
 						auth.authenticated = false;
-				    	callback && callback(false);
+				   	callback && callback(false);
 					});
 
 				},

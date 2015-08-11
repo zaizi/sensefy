@@ -11,7 +11,7 @@
 	<modules>
 		<module>sensefy-authserver</module>
 		<module>sensefy-ui</module>
-		<module>sensefy-resource</module>
+		<module>sensefy-api</module>
 	</modules>
-	
+
 </project>

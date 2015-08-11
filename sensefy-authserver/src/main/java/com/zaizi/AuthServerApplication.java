@@ -39,7 +39,7 @@ public class AuthServerApplication {
 		@Override
 		public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 			clients.inMemory().withClient("sensefy").secret("sensefysecret")
-					.authorizedGrantTypes("authorization_code", "refresh_token", "password").scopes("openid");
+					.authorizedGrantTypes("authorization_code", "refresh_token", "password").scopes("openid").autoApprove(true);
 
 		}
 	}
