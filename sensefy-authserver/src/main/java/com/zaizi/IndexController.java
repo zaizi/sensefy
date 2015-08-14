@@ -8,10 +8,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 @Component
 @Controller
+@SessionAttributes("authorizationRequest")
 public class IndexController extends WebMvcAutoConfigurationAdapter {
 
 	@RequestMapping("/user")

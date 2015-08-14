@@ -7,7 +7,7 @@ security:
 zuul:
   routes:
     resource:
-      path: /resource/**
+      path: /service/api/**
       url: http://localhost:9000
     user:
       path: /user/**
@@ -15,21 +15,29 @@ zuul:
     oauth:
       path: /auth/**
       url: http://localhost:8090/ua
+    logout:
+      path: /logout
+      url: http://localhost:8090/ua/logout
 spring:
 #  profiles: default
   oauth2:
     sso:
-      home:
-        secure: false
-        path: /**/*.html,/**/*.js,/**/*.css,/**/*.jpg,/**/*.png,/**/*.ico
+      logout-uri: http://localhost:8090/ua/logout
+      logout-redirect: true
       loginPath: /login
+      home:
+        secure: true
+#        path: /**/*.html,/**/*.js,/**/*.css,/**/*.jpg,/**/*.png,/**/*.ico
     client:
       accessTokenUri: http://localhost:8090/ua/oauth/token
       userAuthorizationUri: http://localhost:8090/ua/oauth/authorize
       clientId: sensefy
       clientSecret: sensefysecret
-#     clientAuthenticationScheme: form
-      pre-established-redirect-uri: /loginresponse
+#      scope: openid
+#      grant-type: authorization_code
+#      clientAuthenticationScheme: form
+#      pre-established-redirect-uri: http://localhost:8080
+#      use-current-uri: true
     resource:
       userInfoUri: http://localhost:8090/ua/user
       preferTokenInfo: false

@@ -8,9 +8,13 @@ angular.module('search', ['ngRoute', 'auth']).controller('search', ['$scope', '$
     }
 
     $scope.logout = function(){
-        auth.clear;
+    	
+    	auth.clear;
         console.log('logout fired');
-        $location.path('/login');
+        $location.path('/logout');
+        
+        
+        
     };
 
     if($scope.authenticated) {

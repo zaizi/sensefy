@@ -50,13 +50,17 @@ angular.module('auth', []).factory(
 				},
 
 				clear : function() {
-					$location.path(auth.loginPath);
+					
 					auth.authenticated = false;
-					$http.post(auth.logoutPath, {}).success(function() {
-						console.log("Logout succeeded");
-					}).error(function(data) {
-						console.log("Logout failed");
-					});
+
+					$location.path(auth.logoutPath).replace();
+					$location.path(auth.loginPath);
+//					$http.get(auth.logoutPath, {}).success(function() {
+//						console.log("Logout succeeded");
+//					}).error(function(data) {
+//						console.log("Logout failed");
+//					});
+//					$location.path(auth.logoutPath).reload();
 				},
 
 				init : function(homePath, loginPath, logoutPath) {
