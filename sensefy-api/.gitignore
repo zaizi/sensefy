@@ -3,4 +3,4 @@
 .project
 target/**
 .springBeans
-/target
+sensefy.api.iml
