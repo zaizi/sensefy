@@ -1,8 +1,14 @@
 package com.zaizi.solr.querybuilder;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.List;
+
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
+
+import com.zaizi.dto.SensefyUser;
 
 /**
  * This class add the security modeling in the Solr Query building this
@@ -20,11 +26,8 @@ public class SecurityQueryBuilder {
 	// TODO : Temproryly removed sensefy token since it need to have a different
 	// way of getting ACLS **public static String getSecurityFilterQuery(
 	// SensefyToken sensefyToken )
-	public static String getSecurityFilterQuery() {
-		String userName = ""; //sensefyToken.getUser().getUserId();
-		List<String> userAcls = Arrays.asList("","");  //sensefyToken.getUserAcl();
-		List<String> domainUserAcls = Arrays.asList("","");  //sensefyToken.getDomainAcl();
-		return buildUserAclsFilterQuery(userAcls, domainUserAcls, userName);
+	public static String getSecurityFilterQuery(SensefyUser user) {
+		return buildUserAclsFilterQuery(user.getUserAcl(), user.getDomainAcl(), user.getUsername());
 	}
 
 	/**

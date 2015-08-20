@@ -24,6 +24,11 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * Unit tests for OAuth Server
+ * @author mfahiz
+ * @since 2.0
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = AuthServerApplication.class)
 @WebAppConfiguration

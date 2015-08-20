@@ -1,5 +1,6 @@
 package com.zaizi.service;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Map;
 
@@ -52,7 +53,7 @@ public class SearchService extends SolrService {
 	}
 	
 	
-	public SearchResponse getSearchResponse(String query, String fields, String filters, int start, Integer rows, String order, boolean facet, boolean spellcheck, boolean clustering,String clusterSort,boolean security) {
+	public SearchResponse getSearchResponse(String query, String fields, String filters, int start, Integer rows, String order, boolean facet, boolean spellcheck, boolean clustering,String clusterSort,boolean security,Principal user) {
 		SearchResponse response = new SearchResponse();
 		
 		
@@ -67,7 +68,7 @@ public class SearchService extends SolrService {
                 facetConfiguration= facetConfigurers.getFacetConfiguration();
             SolrQuery documentsQuery = QueryBuilder.getSolrQuery(query, fields, facet,
                     facetConfiguration, filters, start, rows, order, security, spellcheck,
-                    clustering);
+                    clustering,user);
 
             QueryResponse primaryIndexResponse;
             primaryIndexResponse = this.getPrimaryIndex().query(documentsQuery);
