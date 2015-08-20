@@ -21,6 +21,7 @@ public class IndexController extends WebMvcAutoConfigurationAdapter {
 	public Principal user(Principal user) {
 		return user;
 	}
+	
 
 	@RequestMapping("/logout")
 	public void logout(){
