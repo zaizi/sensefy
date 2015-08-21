@@ -24,6 +24,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import com.zaizi.sensefy.auth.AuthServerApplication;
+
 /**
  * Unit tests for OAuth Server
  * @author mfahiz
