@@ -6,7 +6,7 @@
 	<artifactId>sensefy</artifactId>
 	<version>2.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>Sensefy UI Server</name>
+	<name>Sensefy Applicatiom</name>
 
 
 	<parent>
@@ -15,20 +15,69 @@
 		<version>1.2.5.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	
+
 	<modules>
-		<module>sensefy-authserver</module>
 		<module>sensefy-ui</module>
+		<module>sensefy-authserver</module>
 		<module>sensefy-api</module>
 	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<type>pom</type>
+				<version>1.0.2.RELEASE</version>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.zaizi</groupId>
+				<artifactId>sensefy.ui</artifactId>
+				<version>2.0.1-SNAPSHOT</version>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.zaizi</groupId>
+				<artifactId>sensefy.authserver</artifactId>
+				<version>2.0.1-SNAPSHOT</version>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.zaizi</groupId>
+				<artifactId>sensefy.api</artifactId>
+				<version>2.0.1-SNAPSHOT</version>
+				<scope>import</scope>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<groupId>com.zaizi</groupId>
+						<artifactId>sensefy.ui</artifactId>
+						<version>2.0.1-SNAPSHOT</version>
+					</dependency>
+					<dependency>
+						<groupId>com.zaizi</groupId>
+						<artifactId>sensefy.authserver</artifactId>
+						<version>2.0.1-SNAPSHOT</version>
+					</dependency>
+					<dependency>
+						<groupId>com.zaizi</groupId>
+						<artifactId>sensefy.api</artifactId>
+						<version>2.0.1-SNAPSHOT</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
