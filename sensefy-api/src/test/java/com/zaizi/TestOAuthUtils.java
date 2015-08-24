@@ -13,8 +13,11 @@ public class TestOAuthUtils
 {
     public static final String OAUTH2_SERVER_USER_INFO_URI = "http://localhost:8090/ua/user";
     public static final String OAUTH2_SERVER_ACCESS_TOKEN_URI = "http://localhost:8090/ua/oauth/token";
-    public static final String ZAIZI_USER_PWD = "zaizi321#$%";
-    public static final String ZAIZI_USER = "zaizi1";
+
+    public static final String ZAIZI_USER = "admin";
+    public static final String ZAIZI_USER_PWD = "ulibranxi";
+
+    private static final Map<String, String> userOAuth2Tokens = new HashMap<>();
 
     public static void addOAuth2AccessTokenToHeader(final HttpHeaders headers, String accessToken)
     {
@@ -28,9 +31,15 @@ public class TestOAuthUtils
 
     public static String getOAuth2AccessToken(String userName, String password)
     {
-        Map<String, String> oAuth2Config = getOAuth2Config(userName, password);
-        OAuth2Details oauthDetails = OAuthUtils.createOAuthDetails(oAuth2Config);
-        return OAuthUtils.getAccessToken(oauthDetails);
+        String oath2Token = userOAuth2Tokens.get(userName);
+        if (oath2Token == null)
+        {
+            Map<String, String> oAuth2Config = getOAuth2Config(userName, password);
+            OAuth2Details oauthDetails = OAuthUtils.createOAuthDetails(oAuth2Config);
+            oath2Token = OAuthUtils.getAccessToken(oauthDetails);
+            userOAuth2Tokens.put(userName, oath2Token);
+        }
+        return oath2Token;
     }
 
     public static Map<String, String> getOAuth2Config(String userName, String password)
