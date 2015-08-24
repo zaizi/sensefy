@@ -19,7 +19,8 @@ import org.springframework.web.client.RestTemplate;
  * @author Antonio David Perez Morales <aperez@zaizi.com>
  * 
  */
-// @Qualifier("alfrescoLoginService")
+// @EnableAutoConfiguration
+// @ConfigurationProperties("sensefy.authentication.alfresco")
 @Component
 public class AlfrescoLoginService implements InitializingBean
 {
@@ -29,7 +30,7 @@ public class AlfrescoLoginService implements InitializingBean
      * Default Alfresco Endpoint
      * </p>
      */
-    private static final String DEFAULT_ALFRESCO_ENDPOINT =  "http://localhost:8080/alfresco";
+    private static final String DEFAULT_ALFRESCO_ENDPOINT = "http://localhost:8080/alfresco";
 
     /**
      * <p>

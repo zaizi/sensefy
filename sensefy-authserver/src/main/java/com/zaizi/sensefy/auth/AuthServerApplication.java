@@ -31,93 +31,103 @@ import com.zaizi.sensefy.auth.user.acl.ACLRequester;
 @SpringBootApplication
 @ComponentScan
 @EnableResourceServer
-public class AuthServerApplication {
+public class AuthServerApplication
+{
 
-	public static void main(String[] args) {
-		SpringApplication.run(AuthServerApplication.class, args);
-	}
+    public static void main(String[] args)
+    {
+        SpringApplication.run(AuthServerApplication.class, args);
+    }
 
-	@Configuration
-	@EnableAuthorizationServer
-	protected static class OAuth2Config extends AuthorizationServerConfigurerAdapter {
+    @Configuration
+    @EnableAuthorizationServer
+    protected static class OAuth2Config extends AuthorizationServerConfigurerAdapter
+    {
 
-		@Autowired
-		private AuthenticationManager authenticationManager;
+        @Autowired
+        private AuthenticationManager authenticationManager;
 
-		private boolean doInitAuthMan = true;
+        private boolean doInitAuthMan = true;
 
-		@Autowired
-		private ACLRequester aclRequester;
+        @Autowired
+        private ACLRequester aclRequester;
 
-		/*
-		 * Domain for windows shares. Used to retrieve the ACLs from users (with
-		 * and without domain)
-		 */
-		@Value("${sensefy.shares.domains}")
-		private String sharesDomain;
+        @Autowired
+        private AlfrescoLoginService alfrescoLoginService;
 
-		@Override
-		public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-			if (doInitAuthMan) {
-				AbstractUserDetailsAuthenticationProvider ap = new AbstractUserDetailsAuthenticationProvider() {
+        /*
+         * Domain for windows shares. Used to retrieve the ACLs from users (with and without domain)
+         */
+        @Value("${sensefy.shares.domains}")
+        private String sharesDomain;
 
-					@Override
-					protected UserDetails retrieveUser(String username,
-							UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
-						boolean login = new AlfrescoLoginService().login(username,
-								(String) authentication.getCredentials());
-						if (login) {
-							SensefyUser user = new SensefyUser(username, (String) authentication.getCredentials(),
-									Arrays.asList(new SimpleGrantedAuthority("USER"),
-											new SimpleGrantedAuthority("ROLE_USER")));
+        @Override
+        public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception
+        {
+            if (doInitAuthMan)
+            {
+                AbstractUserDetailsAuthenticationProvider ap = new AbstractUserDetailsAuthenticationProvider()
+                {
 
-							if (sharesDomain != null && !sharesDomain.isEmpty()) {
-								List<String> domains = new LinkedList<String>();
-								domains.add(sharesDomain);
-								user.setDomains(domains);
-							}
+                    @Override
+                    protected UserDetails retrieveUser(String username,
+                            UsernamePasswordAuthenticationToken authentication) throws AuthenticationException
+                    {
+                        boolean login = alfrescoLoginService.login(username, (String) authentication.getCredentials());
+                        if (login)
+                        {
+                            SensefyUser user = new SensefyUser(username, (String) authentication.getCredentials(),
+                                    Arrays.asList(new SimpleGrantedAuthority("USER"), new SimpleGrantedAuthority(
+                                            "ROLE_USER")));
 
-							user.initAcls(aclRequester);
+                            if (sharesDomain != null && !sharesDomain.isEmpty())
+                            {
+                                List<String> domains = new LinkedList<String>();
+                                domains.add(sharesDomain);
+                                user.setDomains(domains);
+                            }
 
-							return user;
+                            user.initAcls(aclRequester);
 
-							// return new User(username, (String)
-							// authentication.getCredentials(), Arrays.asList(
-							// new SimpleGrantedAuthority("USER"), new
-							// SimpleGrantedAuthority("ROLE_USER")));
-						}
-						return null;
-					}
+                            return user;
 
-					@Override
-					protected void additionalAuthenticationChecks(UserDetails userDetails,
-							UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
-					}
-				};
+                            // return new User(username, (String)
+                            // authentication.getCredentials(), Arrays.asList(
+                            // new SimpleGrantedAuthority("USER"), new
+                            // SimpleGrantedAuthority("ROLE_USER")));
+                        }
+                        return null;
+                    }
 
-				ProviderManager pm = (ProviderManager) authenticationManager;
-				List<AuthenticationProvider> providers = pm.getProviders();
-				providers.clear();
-				providers.add(ap);
+                    @Override
+                    protected void additionalAuthenticationChecks(UserDetails userDetails,
+                            UsernamePasswordAuthenticationToken authentication) throws AuthenticationException
+                    {
+                    }
+                };
 
-				doInitAuthMan = false;
-			}
+                ProviderManager pm = (ProviderManager) authenticationManager;
+                List<AuthenticationProvider> providers = pm.getProviders();
+                providers.clear();
+                providers.add(ap);
 
-			endpoints.authenticationManager(authenticationManager);
-		}
+                doInitAuthMan = false;
+            }
 
-		@Override
-		public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+            endpoints.authenticationManager(authenticationManager);
+        }
 
-			clients.inMemory().withClient("sensefy").secret("sensefysecret")
-					.authorizedGrantTypes("authorization_code", "refresh_token", "password").scopes("openid")
-					.autoApprove(true)//.redirectUris("http://localhost:8080","oauthsample://authorize","https://localhost:8080")
-					.and()
-					.withClient("sensefyMobile")
-					.secret("sensefyMobileSecret").authorizedGrantTypes("authorization_code", "client_credentials")
-					.authorities("ROLE_CLIENT").scopes("read", "trust").redirectUris("http://localhost:8080","oauthsample://authorize");
+        @Override
+        public void configure(ClientDetailsServiceConfigurer clients) throws Exception
+        {
 
-		}
+            clients.inMemory().withClient("sensefy").secret("sensefysecret").authorizedGrantTypes("authorization_code",
+                    "refresh_token", "password").scopes("openid").autoApprove(true)// .redirectUris("http://localhost:8080","oauthsample://authorize","https://localhost:8080")
+            .and().withClient("sensefyMobile").secret("sensefyMobileSecret").authorizedGrantTypes("authorization_code",
+                    "client_credentials").authorities("ROLE_CLIENT").scopes("read", "trust").redirectUris(
+                    "http://localhost:8080", "oauthsample://authorize");
 
-	}
+        }
+
+    }
 }

@@ -29,11 +29,11 @@ import com.zaizi.sensefy.api.controller.ServiceController;
 @IntegrationTest("server.port:0")
 public class SensefyResourceApplicationTests
 {
-    public static final String CREDENDIAL_HEADER_SEPARATOR = ":";
-    public static final String CREDENDIAL_HEADER_KEY = "authorization";
-    public static final String CREDENDIAL_HEADER_PREFIX_VALUE = "Basic ";
-    public static final String alfrescoUser = "zuser1";
-    public static final String alfrescoPwd = "zaizi321#$%";
+    // public static final String CREDENDIAL_HEADER_SEPARATOR = ":";
+    // public static final String CREDENDIAL_HEADER_KEY = "authorization";
+    // public static final String CREDENDIAL_HEADER_PREFIX_VALUE = "Basic ";
+    // public static final String alfrescoUser = "zuser1";
+    // public static final String alfrescoPwd = "zaizi321#$%";
 
     @Value("${local.server.port}")
     private int port;
