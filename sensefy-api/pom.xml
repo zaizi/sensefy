@@ -75,11 +75,11 @@
 			</exclusions>
 		</dependency>
 		<!-- Utility Dependencies -->
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 			<version>${httpclient.version}</version>
-		</dependency> -->
+		</dependency>
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
