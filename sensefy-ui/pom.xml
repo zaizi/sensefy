@@ -125,8 +125,110 @@
 							</resources>
 						</configuration>
 					</execution>
+					<execution>
+						<id>include-ui</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.basedir}/src/main/resources/static</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.basedir}/src/main/ui-source/dist</directory>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
+			<!-- <plugin> <groupId>pl.allegro</groupId> <artifactId>grunt-maven-plugin</artifactId> 
+				<version>1.4.1</version> <configuration> <bowerExecutable>${project.basedir}/src/main/ui-source/node_modules/bower/bin/bower</bowerExecutable> 
+				<gruntExecutable>${project.basedir}/src/main/ui-source/node_modules/grunt-cli/bin/grunt</gruntExecutable> 
+				<runGruntWithNode>true</runGruntWithNode> <jsSourceDirectory>${project.basedir}/src/main/ui-source</jsSourceDirectory> 
+				<gruntBuildDirectory>${project.basedir}/src/main/ui-source</gruntBuildDirectory> 
+				</configuration> <executions> <execution> <goals> <goal>npm</goal> <goal>bower</goal> 
+				<goal>grunt</goal> </goals> </execution> </executions> </plugin> -->
+
+
+
+			<plugin>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>0.0.25</version>
+				<executions>
+					<execution>
+						<id>bootstrap-install-node-and-npm</id>
+						<goals>
+							<goal>install-node-and-npm</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<nodeVersion>v0.12.2</nodeVersion>
+							<npmVersion>2.12.1</npmVersion>
+							<skipTests>true</skipTests>
+							<workingDirectory>${project.basedir}/src/main/ui-source</workingDirectory>
+							<installDirectory>${project.basedir}/src/main/ui-source</installDirectory>
+							<!--<nodeDownloadRoot>${project.basedir}/src/main/ui-source</nodeDownloadRoot> 
+								<npmDownloadRoot>${project.basedir}/src/main/ui-source</npmDownloadRoot> 
+								<downloadRoot>${project.basedir}/src/main/ui-source</downloadRoot> -->
+
+						</configuration>
+					</execution>
+					<execution>
+						<id>npm-install</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+
+							<workingDirectory>${project.basedir}/src/main/ui-source</workingDirectory>
+							<installDirectory>${project.basedir}/src/main/ui-source</installDirectory>
+							<arguments>install --allow-root</arguments>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>bower install</id>
+						<goals>
+							<goal>bower</goal>
+						</goals>
+
+						<configuration>
+							<workingDirectory>${project.basedir}/src/main/ui-source</workingDirectory>
+							<installDirectory>${project.basedir}/src/main/ui-source</installDirectory>
+
+							<arguments>install</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>grunt-build</id>
+						<goals>
+							<goal>grunt</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<workingDirectory>${project.basedir}/src/main/ui-source</workingDirectory>
+							<installDirectory>${project.basedir}/src/main/ui-source</installDirectory>
+							<outputdir>${project.basedir}/src/main/ui-source</outputdir>
+							<arguments>build</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- <plugin> <groupId>com.github.eirslett</groupId> <artifactId>frontend-maven-plugin</artifactId> 
+				<version>0.0.23</version> optional <configuration> <workingDirectory>${project.basedir}/src/main/ui-source</workingDirectory> 
+				<outputdir>${project.basedir}/src/main/resources/static</outputdir> </configuration> 
+				<executions> <execution> <id>install node and npm</id> <goals> <goal>install-node-and-npm</goal> 
+				</goals> <configuration> <nodeVersion>v0.12.2</nodeVersion> <npmVersion>2.7.6</npmVersion> 
+				</configuration> </execution> <execution> <id>npm install</id> <goals> <goal>npm</goal> 
+				</goals> Optional configuration which provides for running any npm command 
+				<configuration> <arguments>install</arguments> </configuration> </execution> 
+				<execution> <id>npm run build</id> <goals> <goal>npm</goal> </goals> <configuration> 
+				<arguments>run build</arguments> </configuration> </execution> <execution> 
+				<id>bower install</id> <goals> <goal>bower</goal> </goals> <configuration> 
+				<arguments>install</arguments> </configuration> </execution> </executions> 
+				</plugin> -->
 			<plugin>
 				<groupId>ro.isdc.wro4j</groupId>
 				<artifactId>wro4j-maven-plugin</artifactId>

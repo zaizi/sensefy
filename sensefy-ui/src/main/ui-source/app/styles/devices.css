@@ -1,0 +1,200 @@
+/*
+    #   by Sameera @ zaizi.com
+    #   for Sensefy Search
+    #   main css file to handle devices(iPhone and iPad)
+*/
+
+/* Portrait */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 480px)
+    /*and (-webkit-min-device-pixel-ratio: 2)*/
+and (orientation: portrait) {
+    /*  login state */
+    /*.ui.grid > #loginState.column.row > .column[class*="five wide"] {
+        width: 10% !important;
+    }
+
+    .ui.grid > #loginState.column.row > .column[class*="six wide"] {
+        width: 80% !important;
+    }*/
+
+    #loginState .form {
+        margin-top: 16px;
+    }
+
+    /*  login state END */
+    /*  search landing  */
+    #sensefy.ggl #header img.open {
+        display: none;
+    }
+
+    .mob {
+        display: block;
+        float: left;
+        margin: 9px;
+        width: 40px;
+    }
+
+    #menu > a.item {
+        display: none;
+    }
+
+    #sensefy input.prompt {
+        width: 230px;
+    }
+
+    #sensefy .ser-btn {
+        padding: 0.75em 0.5em;
+    }
+
+    #header {
+        position: relative;
+    }
+
+    .ggl .search-header {
+        top: 100px;
+    }
+
+    .ggl .search-header {
+        left: 0;
+        margin-left: 3px;
+        margin-top: 0;
+        position: absolute !important;
+        width: 326px;
+    }
+
+    /*  search landing END  */
+}
+
+/* Landscape */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 480px)
+    /*and (-webkit-min-device-pixel-ratio: 2)*/
+and (orientation: landscape) {
+    /*  login state */
+    /*.ui.grid > #loginState.column.row > .column[class*="five wide"] {
+        width: 10% !important;
+    }
+
+    .ui.grid > #loginState.column.row > .column[class*="six wide"] {
+        width: 80% !important;
+    }*/
+
+    #loginState .form {
+        margin-top: 16px;
+    }
+
+    /*  login state END */
+    /*  search landing  */
+    #sensefy.ggl #header img.open {
+        display: none;
+    }
+
+    .mob {
+        display: block;
+        float: left;
+        margin: 9px;
+        width: 40px;
+    }
+
+    #menu > a.item {
+        display: none;
+    }
+
+    #sensefy input.prompt {
+        width: 230px;
+    }
+
+    #sensefy .ser-btn {
+        padding: 0.75em 0.5em;
+    }
+
+    #header {
+        position: relative;
+    }
+
+    .ggl .search-header {
+        top: 115px;
+    }
+
+    .ggl .search-header {
+        margin-left: 17px;
+        margin-top: 0;
+        position: absolute !important;
+        width: 326px;
+    }
+
+    /*  search landing END*/
+}
+
+/* Tab Portrait */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait)
+    /*and (-webkit-min-device-pixel-ratio: 1)    */ {
+    /*#header.ui.menu .item {
+        padding: 0.928571em 0.5em;
+    }*/
+    #header .item {
+        padding: 0.928571em 0.5em;
+    }
+
+    #sensefy .ser-btn {
+        padding: 0.75em 0.5em
+    }
+
+    #sensefy input.prompt {
+        width: 218px
+    }
+
+    .search-header {
+        margin-left: 4px;
+    }
+
+    #sensefy #header img.open {
+        height: 39px;
+        margin: 16px 0;
+        padding: 0;
+        width: 175px;
+    }
+
+    .ggl #header {
+        position: relative;
+    }
+
+    .ggl .search-header {
+        position: absolute !important;
+        left: 0;
+        margin-left: 18%;
+        margin-top: 0;
+        width: 430px;
+    }
+
+    .segment {
+        padding: 0.5em 0;
+    }
+
+    .group-facet ul {
+        padding: 4px;
+    }
+
+    .facets .entity-label {
+        max-width: 100px
+    }
+
+}
+
+/* Tab Landscape */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape)
+    /*and (-webkit-min-device-pixel-ratio: 1)*/ {
+    .facets .entity-label {
+        max-width: 136px;
+    }
+}
+

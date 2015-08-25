@@ -1,0 +1,52 @@
+<i class="caret right icon hover-result"></i>
+<div class="content info">
+    <i class="file outline icon c-word" ng-class="pickDocIcon('{{document.mimetype}}')" ng-if="document.mimetype"></i>
+
+
+
+    <ng-switch on="normalSearch" ng-if="document.name != null && document.name != ''">
+        <a target="_blank" ng-href="{{document.url}}" tabindex="0" class="header title">
+            <span ng-switch-default ng-bind-html="document.hls.name[0]"></span>
+        </a>
+    </ng-switch>
+
+    <span class="gray italic f-size12" ng-if="document.size" title="{{'data.size'|translate}}" ng-bind="humanReadableSize(document.size)"></span>
+
+    <div class="meta-breadcrumb channel-l italic" ng-if="document.path">
+        <a class="channel-d underline" ng-href="{{document.path}}" ng-bind="urlTruncate('{{document.path}}')"></a>
+    </div>
+
+    <div class="content-wrapper" ng-if="document.hls.content && document.hls.content.length > 0" ng-click="open(document, 'lg')">
+        <ng-switch on="normalSearch">
+            <div ng-switch-when="true">
+                <div class="content snippet">
+                    <span ng-bind-html="document.hls.content[0].trim()"></span>
+                </div>
+            </div>
+            <div ng-switch-default>
+                <div class="content excerpt">
+                    {{ document.content[0].trim() | excerpt:300}}
+                </div>
+            </div>
+        </ng-switch>
+    </div>
+
+    <div class="metadata mgray clearfix">
+        <div class="meta-info-create italic">
+            <span class="underline mgray"  ng-if="document.author != null && document.author != '' && document.author.length > 0">
+                <span title="{{'data.author' | translate}}" ng-bind="document.author[0]"></span>
+            </span>
+            <span ng-if="document.ds_creation_date != null && document.ds_creation_date != ''">
+                 created on  <span title="{{'data.created' | translate}}" ng-bind="dateTimeFormatter(document.ds_creation_date)"></span>
+            </span>
+        </div>
+        <div class="meta-info-modify italic">
+            <span ng-if="document.ds_last_modifier">
+                <span class="underline mgray" title="{{'data.modifier'|translate}}" ng-bind="document.ds_last_modifier"></span>
+            </span>
+            <span ng-if="document.ds_last_modified">
+                 modified on  <span title="{{'data.modified'|translate}}" ng-bind="dateTimeFormatter(document.ds_last_modified)"></span>
+            </span>
+        </div>
+    </div>
+</div>

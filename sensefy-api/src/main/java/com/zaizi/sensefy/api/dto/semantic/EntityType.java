@@ -1,9 +1,10 @@
 package com.zaizi.sensefy.api.dto.semantic;
 
+import java.util.List;
+
 import javax.ws.rs.QueryParam;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-import java.util.List;
 
 /**
  * It models the Entity Type concept
