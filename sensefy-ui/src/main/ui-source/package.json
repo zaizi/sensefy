@@ -43,4 +43,4 @@
   "scripts": {
     "test": "grunt test"
   }
-}
+ }

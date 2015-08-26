@@ -12,3 +12,4 @@ etc
 node
 npm.tar.gz
 .tmp
+static/**/*

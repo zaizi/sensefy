@@ -97,6 +97,9 @@
 						<groupId>com.github.eirslett</groupId>
 						<artifactId>frontend-maven-plugin</artifactId>
 						<version>0.0.25</version>
+						<configuration>
+						<skipTests>true</skipTests>
+						</configuration>
 						<executions>
 							<execution>
 								<id>bootstrap-install-node-and-npm</id>
@@ -157,6 +160,26 @@
 							</execution>
 						</executions>
 					</plugin>
+					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>include-ui</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.basedir}/src/main/resources/static</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${project.basedir}/src/main/ui-source/dist</directory>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
 				</plugins>
 			</build>
 
@@ -182,47 +205,13 @@
 						<goals>
 							<goal>repackage</goal>
 						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<executions>
-					<execution>
-						<!-- Serves *only* to filter the wro.xml so it can get an absolute 
-							path for the project -->
-						<id>copy-resources</id>
-						<phase>validate</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/wro</outputDirectory>
-							<resources>
-								<resource>
-									<directory>src/main/wro</directory>
-									<filtering>true</filtering>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-					<execution>
-						<id>include-ui</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.basedir}/src/main/resources/static</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${project.basedir}/src/main/ui-source/dist</directory>
-								</resource>
-							</resources>
+							<classifier>exec</classifier>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
+
 
 		</plugins>
 	</build>
