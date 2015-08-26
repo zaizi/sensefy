@@ -1,0 +1,5 @@
+<div ng-click="entitySelected(entity)">
+	<img class="image" ng-src="{{entity.thumbnail[0] || 'img/missing.jpg'}}"/>
+	<span class="text" ng-bind-html="entity.label | highlight:queryTerm"></span>
+	<span class="type">{{entity.notable_type[0] || ""}}</span>
+</div>

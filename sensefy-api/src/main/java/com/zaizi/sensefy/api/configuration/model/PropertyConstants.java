@@ -1,7 +1,3 @@
-/**
- * @author Fahiz Mohamed
- * @since  
- */
 package com.zaizi.sensefy.api.configuration.model;
 
 /**

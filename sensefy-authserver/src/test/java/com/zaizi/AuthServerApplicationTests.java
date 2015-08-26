@@ -75,8 +75,8 @@ public class AuthServerApplicationTests {
 				String.class);
 		String csrf = getCsrf(response.getBody());
 		MultiValueMap<String, String> form = new LinkedMultiValueMap<String, String>();
-		form.set("username", "user");
-		form.set("password", "password");
+		form.set("username", "admin");
+		form.set("password", "ulibraxi");
 		form.set("_csrf", csrf);
 		HttpHeaders headers = new HttpHeaders();
 		headers.put("COOKIE", response.getHeaders().get("Set-Cookie"));

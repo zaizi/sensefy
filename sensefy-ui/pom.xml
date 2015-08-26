@@ -60,11 +60,8 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-remote-shell</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>angularjs</artifactId>
-			<version>1.3.8</version>
-		</dependency>
+		<!-- <dependency> <groupId>org.webjars</groupId> <artifactId>angularjs</artifactId> 
+			<version>1.3.8</version> </dependency> -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -90,6 +87,106 @@
 		</dependencies>
 	</dependencyManagement>
 
+	<profiles>
+
+		<profile>
+			<id>build-frontend</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.github.eirslett</groupId>
+						<artifactId>frontend-maven-plugin</artifactId>
+						<version>0.0.25</version>
+						<configuration>
+						<skipTests>true</skipTests>
+						</configuration>
+						<executions>
+							<execution>
+								<id>bootstrap-install-node-and-npm</id>
+								<goals>
+									<goal>install-node-and-npm</goal>
+								</goals>
+								<phase>generate-resources</phase>
+								<configuration>
+									<nodeVersion>v0.12.2</nodeVersion>
+									<npmVersion>2.12.1</npmVersion>
+									<skipTests>true</skipTests>
+									<workingDirectory>${project.basedir}/src/main/ui-source</workingDirectory>
+									<installDirectory>${project.basedir}/src/main/ui-source</installDirectory>
+									<!--<nodeDownloadRoot>${project.basedir}/src/main/ui-source</nodeDownloadRoot> 
+										<npmDownloadRoot>${project.basedir}/src/main/ui-source</npmDownloadRoot> 
+										<downloadRoot>${project.basedir}/src/main/ui-source</downloadRoot> -->
+
+								</configuration>
+							</execution>
+							<execution>
+								<id>npm-install</id>
+								<goals>
+									<goal>npm</goal>
+								</goals>
+								<configuration>
+
+									<workingDirectory>${project.basedir}/src/main/ui-source</workingDirectory>
+									<installDirectory>${project.basedir}/src/main/ui-source</installDirectory>
+									<arguments>install --allow-root</arguments>
+								</configuration>
+							</execution>
+
+							<execution>
+								<id>bower install</id>
+								<goals>
+									<goal>bower</goal>
+								</goals>
+
+								<configuration>
+									<workingDirectory>${project.basedir}/src/main/ui-source</workingDirectory>
+									<installDirectory>${project.basedir}/src/main/ui-source</installDirectory>
+
+									<arguments>install</arguments>
+								</configuration>
+							</execution>
+							<execution>
+								<id>grunt-build</id>
+								<goals>
+									<goal>grunt</goal>
+								</goals>
+								<phase>generate-resources</phase>
+								<configuration>
+									<workingDirectory>${project.basedir}/src/main/ui-source</workingDirectory>
+									<installDirectory>${project.basedir}/src/main/ui-source</installDirectory>
+									<outputdir>${project.basedir}/src/main/ui-source</outputdir>
+									<arguments>build</arguments>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>include-ui</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.basedir}/src/main/resources/static</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${project.basedir}/src/main/ui-source/dist</directory>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+
+
+		</profile>
+	</profiles>
+
 	<build>
 		<resources>
 			<resource>
@@ -103,68 +200,19 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
 				<executions>
 					<execution>
-						<!-- Serves *only* to filter the wro.xml so it can get an absolute 
-							path for the project -->
-						<id>copy-resources</id>
-						<phase>validate</phase>
 						<goals>
-							<goal>copy-resources</goal>
+							<goal>repackage</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/wro</outputDirectory>
-							<resources>
-								<resource>
-									<directory>src/main/wro</directory>
-									<filtering>true</filtering>
-								</resource>
-							</resources>
+							<classifier>exec</classifier>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>ro.isdc.wro4j</groupId>
-				<artifactId>wro4j-maven-plugin</artifactId>
-				<version>${wro4j.version}</version>
-				<executions>
-					<execution>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<wroManagerFactory>ro.isdc.wro.maven.plugin.manager.factory.ConfigurableWroManagerFactory</wroManagerFactory>
-					<cssDestinationFolder>${project.build.directory}/generated-resources/static/css</cssDestinationFolder>
-					<jsDestinationFolder>${project.build.directory}/generated-resources/static/js</jsDestinationFolder>
-					<wroFile>${project.build.directory}/wro/wro.xml</wroFile>
-					<extraConfigFile>${basedir}/src/main/wro/wro.properties</extraConfigFile>
-					<contextFolder>${basedir}/src/main/wro</contextFolder>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>org.webjars</groupId>
-						<artifactId>jquery</artifactId>
-						<version>2.1.1</version>
-					</dependency>
-					<dependency>
-						<groupId>org.webjars</groupId>
-						<artifactId>angularjs</artifactId>
-						<version>1.3.8</version>
-					</dependency>
-					<dependency>
-						<groupId>org.webjars</groupId>
-						<artifactId>bootstrap</artifactId>
-						<version>3.2.0</version>
-					</dependency>
-				</dependencies>
-			</plugin>
+
+
 		</plugins>
 	</build>
 

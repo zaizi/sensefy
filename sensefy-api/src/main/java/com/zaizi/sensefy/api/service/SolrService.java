@@ -29,7 +29,7 @@ import com.zaizi.sensefy.api.exception.SensefyException;
  *        previous (@since 1.4) implementation </i></b>
  */
 @Configuration
-@PropertySource(value="classpath:/solr.properties")
+@PropertySource(value={"classpath:/solr.properties"})
 public class SolrService {
 	private static final Logger logger = LoggerFactory.getLogger(SolrService.class);
 

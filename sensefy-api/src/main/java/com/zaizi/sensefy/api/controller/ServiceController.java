@@ -48,11 +48,43 @@ public class ServiceController extends WebMvcAutoConfigurationAdapter {
 
 	}
 
+	/**
+	 * Provides a classic keyword search approach on our primaryIndex. This
+	 * index contains the documents extracted from the original data sources.
+	 * This service will return a set of documents relevant to the query
+	 * submitted.
+	 * 
+	 * @param query
+	 *            The keyword based query
+	 * @param fields
+	 *            The list of fields to return in the output documents
+	 * @param filters
+	 *            A filter query to obtain a subset of the documents relevant to
+	 *            the main query
+	 * @param facet
+	 *            If enabled the relevant results will contain the facet
+	 *            countings
+	 * @param start
+	 *            The first document to return in the list of relevant documents
+	 * @param rows
+	 *            The number of documents to return
+	 * @param order
+	 *            The sorting order for the results : <field> <direction> eg:
+	 *            title_sort desc
+	 * @param spellcheck
+	 *            If enabled the result will return a suggestion for a mispelled
+	 *            query
+	 * @param clustering
+	 * @param sensefyToken
+	 *            The Sensefy Token that contains relevant information for the
+	 *            user running the query @return A json representation of the
+	 *            list of relevant documents for the input query
+	 */
 	@RequestMapping(value = "/keywordSearch", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON })
 	public @ResponseBody SearchResponse keywordBasedSearch(@RequestParam String query, @RequestParam String fields,
-			@RequestParam String filters, @RequestParam boolean facet, @RequestParam(required = true) int start,
+			@RequestParam String filters, @RequestParam boolean facet, @RequestParam int start,
 			@RequestParam Integer rows, @RequestParam String order, @RequestParam boolean spellcheck,
-			@RequestParam boolean clustering, @RequestParam String clusteringSort, Principal user) {
+			@RequestParam boolean clustering, @RequestParam(required = false) String clusteringSort, Principal user) {
 
 		logger.info("Keyword search");
 		return searchService.getSearchResponse(query, fields, filters, start, rows, order, facet, spellcheck,
