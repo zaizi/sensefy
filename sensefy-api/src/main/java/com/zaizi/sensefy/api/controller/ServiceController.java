@@ -121,6 +121,23 @@ public class ServiceController extends WebMvcAutoConfigurationAdapter {
 		return smartSearch.complete1Full(termToComplete, numberOfSuggestions, true, semantic, user);
 	}
 
+	/**
+	 * GET method for the Second phase .<br>
+	 * After the first selection of an entity type, this service autocompletes
+	 * user digits with a property of that entity type
+	 *
+	 * @param termToComplete
+	 *            The term the user is typing, a property for an entity type is
+	 *            expected
+	 * @param entityTypeId
+	 *            The entity type id already selected from the previous phase
+	 * @param numberOfSuggestions
+	 *            The number of suggestions requested
+	 * @param sensefyToken
+	 *            The Sensefy Token that contains relevant information for the
+	 *            user running the query
+	 * @return The autocompleted properties for the selected entity type
+	 */
 	@RequestMapping(value = "/autocomplete/2", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON })
 	public AutoCompleteResponse complete2(@RequestParam String termToComplete, @RequestParam String entityTypeId,
 			@RequestParam Integer numberOfSuggestions, Principal user) {
@@ -128,6 +145,27 @@ public class ServiceController extends WebMvcAutoConfigurationAdapter {
 		return smartSearch.complete2(termToComplete, entityTypeId, numberOfSuggestions, user);
 	}
 
+	/**
+	 * GET method for the Third phase .<br>
+	 * After the first selection of an entity type, a second selection of a
+	 * property,this service autocompletes the user digits with a value for that
+	 * property in the specific entity type
+	 *
+	 * @param termToComplete
+	 *            The term the user is typing, a property for an entity type is
+	 *            expected
+	 * @param entityTypeId
+	 *            The entity type id already selected from the previous phase
+	 * @param entityAttributeField
+	 *            The entity type attribute already selected
+	 * @param numberOfSuggestions
+	 *            The number of suggestions requested
+	 * @param sensefyToken
+	 *            The Sensefy Token that contains relevant information for the
+	 *            user running the query
+	 * @return The autocompleted attributes for the selected property of the
+	 *         entity type
+	 */
 	@RequestMapping(value = "/autocomplete/3", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON })
 	public AutoCompleteResponse complete3(@RequestParam String termToComplete, @RequestParam String entityTypeId,
 			@RequestParam String entityAttributeField, @RequestParam Integer numberOfSuggestions, Principal user) {
