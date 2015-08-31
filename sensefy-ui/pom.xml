@@ -6,7 +6,7 @@
 	<groupId>com.zaizi</groupId>
 	<artifactId>sensefy.ui</artifactId>
 	<version>2.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>${packaging.type}</packaging>
 
 	<name>sensefy-searchUI</name>
 	<description>sensefy search UI </description>
@@ -22,9 +22,23 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<wro4j.version>1.7.6</wro4j.version>
+		<tomcat.version>7.0.52</tomcat.version>
+		<packaging.type>jar</packaging.type>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<version>9.2.11.v20150529</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>9.2.11.v20150529</version>
+			<scope>compile</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-oauth2</artifactId>
@@ -88,6 +102,18 @@
 	</dependencyManagement>
 
 	<profiles>
+		<profile>
+			<id>run</id>
+			<properties>
+				<packaging.type>war</packaging.type>
+			</properties>
+		</profile>
+		<profile>
+			<id>war</id>
+			<properties>
+				<packaging.type>war</packaging.type>
+			</properties>
+		</profile>
 
 		<profile>
 			<id>build-frontend</id>
@@ -98,7 +124,7 @@
 						<artifactId>frontend-maven-plugin</artifactId>
 						<version>0.0.25</version>
 						<configuration>
-						<skipTests>true</skipTests>
+							<skipTests>true</skipTests>
 						</configuration>
 						<executions>
 							<execution>
@@ -215,6 +241,7 @@
 
 		</plugins>
 	</build>
+
 
 	<repositories>
 		<repository>

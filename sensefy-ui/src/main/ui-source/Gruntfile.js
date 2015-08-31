@@ -5,7 +5,9 @@
  #   local server to preview
  #   build the files
  */
+
 'use strict';
+
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
@@ -13,19 +15,24 @@
 // 'test/spec/**/*.js'
 var modRewrite = require('connect-modrewrite');
 module.exports = function (grunt) {
+
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
+
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
+
     // Define the configuration for all the tasks
     grunt
         .initConfig({
+
             // Project settings
             yeoman: {
                 // configurable paths
                 app: require('./bower.json').appPath || 'app',
                 dist: 'dist'
             },
+
             // Watches files for changes and runs tasks based on the changed
             // files
             watch: {
@@ -54,6 +61,7 @@ module.exports = function (grunt) {
                         '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}']
                 }
             },
+
             // The actual grunt server settings
             connect: {
                 options: {
@@ -70,6 +78,7 @@ module.exports = function (grunt) {
                             '<%= yeoman.app %>/../'],
                         middleware: function (connect, options) {
                             var middlewares = [];
+
                             middlewares
                                 .push(modRewrite(['!/api|/assets|\\.png|\\.jpg|\\.gif|\\.html|\\.js|\\.css|\\woff|\\ttf|\\swf$ /index.html']));
                             options.base.forEach(function (base) {
@@ -93,6 +102,7 @@ module.exports = function (grunt) {
                     }
                 }
             },
+
             // Make sure code styles are up to par and there are no obvious
             // mistakes
             jshint: {
@@ -137,6 +147,7 @@ module.exports = function (grunt) {
                     src: ['<%= yeoman.app %>/styles/*.css']
                 }
             },
+
             // Empties folders to start fresh
             clean: {
                 dist: {
@@ -148,6 +159,7 @@ module.exports = function (grunt) {
                 },
                 server: '<%= yeoman.app %>/assets'
             },
+
             // Add vendor prefixed styles
             autoprefixer: {
                 options: {
@@ -163,6 +175,7 @@ module.exports = function (grunt) {
                     }]
                 }
             },
+
             // Automatically inject Bower components into the app
             bowerInstall: {
                 app: {
@@ -170,6 +183,7 @@ module.exports = function (grunt) {
                     ignorePath: '<%= yeoman.app %>/'
                 }
             },
+
             // Compiles CoffeeScript to JavaScript
             javascripts: {
                 options: {
@@ -179,9 +193,9 @@ module.exports = function (grunt) {
                 dist: {
                     files: [{
                         expand: true,
-                        cwd: '<%= yeoman.app %>/js',
+                        cwd: '<%= yeoman.app %>/scripts',
                         src: '**/*.js',
-                        dest: 'app/assets/scripts',
+                        dest: '<%= yeoman.app %>/assets/scripts',
                         ext: '.js'
                     }]
                 },
@@ -195,6 +209,7 @@ module.exports = function (grunt) {
                     }]
                 }
             },
+
             // Renames files for browser caching purposes
             rev: {
                 dist: {
@@ -207,6 +222,7 @@ module.exports = function (grunt) {
                     }
                 }
             },
+
             // Reads HTML for usemin blocks to enable smart builds that
             // automatically
             // concat, minify and revision files. Creates configurations in
@@ -227,6 +243,7 @@ module.exports = function (grunt) {
                     }
                 }
             },
+
             // Performs rewrites based on rev and the useminPrepare
             // configuration
             usemin: {
@@ -236,6 +253,7 @@ module.exports = function (grunt) {
                     assetsDirs: ['<%= yeoman.dist %>']
                 }
             },
+
             imagemin: {
                 dist: {
                     files: [{
@@ -251,6 +269,7 @@ module.exports = function (grunt) {
                     }]
                 }
             },
+
             svgmin: {
                 dist: {
                     files: [{
@@ -261,6 +280,7 @@ module.exports = function (grunt) {
                     }]
                 }
             },
+
             htmlmin: {
                 dist: {
                     options: {
@@ -277,6 +297,7 @@ module.exports = function (grunt) {
                     }]
                 }
             },
+
             // ngmin tries to make the code safe for minification
             // automatically by
             // using the Angular long form for dependency injection. It
@@ -293,6 +314,7 @@ module.exports = function (grunt) {
                     }]
                 }
             },
+
             // Replace Google CDN references
             cdnify: {
                 dist: {
@@ -312,6 +334,7 @@ module.exports = function (grunt) {
                                                                    // output!
                 }
             },
+
             // Copies remaining files to places other tasks can use
             copy: {
                 dist: {
@@ -370,13 +393,15 @@ module.exports = function (grunt) {
                     src: '*.*'
                 }
             },
+
             // Run some tasks in parallel to speed up the build process
             concurrent: {
                 server: ['copy:scripts', 'copy:concatjs', 'copy:styles'],
                 test: ['copy:scripts', 'copy:styles'],
-                dist: ['copy:javascripts', 'copy:styles', 'imagemin',
+                dist: ['copy:scripts', 'copy:javascripts', 'copy:styles', 'imagemin',
                     'svgmin']
             },
+
             // By default, your `index.html`'s <!-- Usemin block --> will
             // take care of
             // minification. These next options are pre-configured if you do
@@ -405,10 +430,12 @@ module.exports = function (grunt) {
                 dist: {}
             }
         });
+
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
             return grunt.task.run(['build', 'connect:dist:keepalive']);
         }
+
         grunt.task.run(['clean:server', 'bowerInstall', 'concurrent:server',
             'autoprefixer', 'csslint:lax', 'jshint', 'connect:livereload',
             'watch']);
@@ -416,6 +443,7 @@ module.exports = function (grunt) {
         // 'yellow', 'rainbow']
         grunt.log.warn('Server up and running...'['blue'].bold);
     });
+
     grunt
         .registerTask(
         'server',
@@ -424,19 +452,25 @@ module.exports = function (grunt) {
                 .warn('The `server` task has been deprecated. Use `grunt serve` to start a server.'['yellow'].bold);
             grunt.task.run(['serve:' + target]);
         });
+
     grunt.registerTask('test', ['clean:server', 'concurrent:test',
         'autoprefixer', 'connect:test', 'karma']);
+
     grunt.registerTask('build', ['clean:dist', 'bowerInstall',
-        'useminPrepare', 'concurrent:dist', 'autoprefixer', 'concat',
+        'useminPrepare', 'concurrent:dist', 'autoprefixer',
+        'concat',
         'ngmin',
         'copy:dist',
         'cdnify',
-            //'cssmin', 'uglify', 'csslint:lax',
-            //'jshint',
-        // 'copy:javascripts',
-        // 'rev',
+        'cssmin',
+        //'uglify',
+        'csslint:lax',
+        //'jshint',
+            // 'copy:javascripts',
+            // 'rev',
         'usemin',
-            //'htmlmin'
+        //'htmlmin'
     ]);
+
     grunt.registerTask('default', ['newer:jshint', 'test', 'build']);
 };
