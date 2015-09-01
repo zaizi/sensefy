@@ -1,12 +1,12 @@
 (function () {
     'use strict';
-    angular.module('SensefyFilters', []).filter('excerpt', function () {
+    angular.module('SensefyFilters', []).filter("excerpt", function () {
         return function (text, numCharacters, end) {
             if (numCharacters == null) {
                 numCharacters = 100;
             }
             if (end == null) {
-                end = '...';
+                end = "...";
             }
             if (text.length > numCharacters) {
                 return text.substring(0, numCharacters) + end;
@@ -14,14 +14,14 @@
                 return text;
             }
         };
-    }).filter('highlight', function () {
+    }).filter("highlight", function () {
         return function (text, textToHighlight, element, clazz) {
             var escapeText, hlPieces, resultText;
             if (element == null) {
-                element = 'span';
+                element = "span";
             }
             if (clazz == null) {
-                clazz = 'hl';
+                clazz = "hl";
             }
             escapeText = function (text) {
                 var charToEscape, i, newText, _i, _len;
@@ -64,15 +64,13 @@
             }
             return result;
         };
-    }).filter("sanitizeIdForURI", [
-        '$window',
-        function ($window) {
-            return function (identifier) {
-                var encoded, regExp;
-                encoded = $window.encodeURI(identifier);
-                regExp = new RegExp("\/", "g");
-                return encoded.replace(regExp, '[SL]');
-            };
-        }
-    ]);
-}.call(this));
+    }).filter("sanitizeIdForURI", function ($window) {
+        return function (identifier) {
+            var encoded, regExp;
+            encoded = $window.encodeURI(identifier);
+            regExp = new RegExp("\/", "g");
+            return encoded.replace(regExp, '[SL]');
+        };
+    });
+
+}).call(this);

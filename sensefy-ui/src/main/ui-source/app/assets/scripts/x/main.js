@@ -7,17 +7,20 @@
 (function () {
     angular.module('SensefySemanticSearch', [
         'SensefyConfiguration',
-        'RootController',
-        'SearchController',
-        'LoginController',
+        'SensefyControllers',
         'SensefyDirectives',
         'SensefyFilters',
         'SensefyServices',
         'ngAnimate',
-        'rzModule',
         'ngPDFViewer',
-        'angularify.semantic.dropdown',
-        'angularUtils.directives.dirPagination']).config([
+        'auth'
+
+        //,
+        //'ui.bootstrap',
+        //'rzModule',
+        //'ngPDFViewer',
+        //'infinite-scroll'
+    ]).config([
         '$provide', function ($provide) {
             return $provide.decorator('pdfviewerDirective', [
                 '$delegate', function ($delegate) {
@@ -29,4 +32,5 @@
             ]);
         }
     ]);
-}.call(this));
+
+}).call(this);

@@ -61,12 +61,8 @@ spring:
 #      preferTokenInfo: false      
 endpoints:
   jmx:
-    unique-names: true      
-      
+    unique-names: true
 logging:
   level:
     org.springframework.security: DEBUG
     org.springframework.web: DEBUG
-    
-    
-    

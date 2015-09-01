@@ -6,65 +6,59 @@
 
 (function () {
     window.translate = null;
-    angular.module('SensefyConfiguration', [
-        'ngCookies',
-        'ngResource',
-        'ngSanitize',
-        'ngRoute',
-        'pascalprecht.translate',
-        'auth'
-    ]).
-        constant('SensefyAPIUrl', 'http://localhost:8080/SensefySearchAPI/sensefy/').
-        constant('SensefyTokenCreatePath', 'token/create').
-        constant('SensefySemanticSearchKeywordBased', 'search/keywordSearch').
-        constant('SensefyEntityDrivenSearch', 'search/entityDrivenSearch').
-        constant('SensefyGetEntitiesByDoc', 'search/showEntitiesByDocId').
-        constant('SensefyPreviewDoc', 'search/docs/preview').
-        constant('SensefySmartAutocompletePhase1', 'search/autocomplete/1').
-        constant('SensefySmartAutocompletePhase2', 'search/autocomplete/2').
-        constant('SensefySmartAutocompletePhase3', 'search/autocomplete/3').
-        constant('SensefyDocsPreview', 'search/docs/preview').
-        constant('SensefySortOptions', [
-        {
-            'id': 1,
-            'sortOption': 'Relevance',
-            'sortId': 'score',
-            'defaultSort': 'DESC'
-        }, {
-            'id': 2,
-            'sortOption': 'Name',
-            'sortId': 'name_sort',
-            'defaultSort': 'ASC'
-        }, {
-            'id': 3,
-            'sortOption': 'Title',
-            'sortId': 'title_sort',
-            'defaultSort': 'ASC'
-        }, {
-            'id': 4,
-            'sortOption': 'Created',
-            'sortId': 'ds_creation_date',
-            'defaultSort': 'DESC'
-        }, {
-            'id': 5,
-            'sortOption': 'Modified',
-            'sortId': 'ds_last_modified',
-            'defaultSort': 'DESC'
-        }, {
-            'id': 6,
-            'sortOption': 'Creator',
-            'sortId': 'ds_creator_sort',
-            'defaultSort': 'ASC'
-        }, {
-            'id': 7,
-            'sortOption': 'Modifier',
-            'sortId': 'ds_last_modifier_sort',
-            'defaultSort': 'ASC'
-        }
-    ]).
-        constant('SensefyMlt', 'search/docs/mlt').
-        constant('SensefyFacetsPerGroup', 2).
-        constant('SensefyTranslations', {
+
+    angular.module('SensefyConfiguration', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'pascalprecht.translate'])
+        .constant('SensefyAPIUrl', 'http://localhost:8080/service/api/')
+        .constant('SensefyTokenCreatePath', 'token/create')
+        .constant('SensefySemanticSearchKeywordBased', 'keywordSearch')
+        .constant('SensefyEntityDrivenSearch', 'entityDrivenSearch')
+        .constant('SensefyGetEntitiesByDoc', 'showEntitiesByDocId')
+        .constant('SensefyPreviewDoc', 'docs/preview')
+        .constant('SensefySmartAutocompletePhase1', 'autocomplete/1')
+        .constant('SensefySmartAutocompletePhase2', 'autocomplete/2')
+        .constant('SensefySmartAutocompletePhase3', 'autocomplete/3')
+        .constant('SensefyDocsPreview', 'docs/preview')
+        .constant('SensefySortOptions', [
+            {
+                'id': 1,
+                'sortOption': 'Relevance',
+                'sortId': 'score',
+                'defaultSort': 'DESC'
+            }, {
+                'id': 2,
+                'sortOption': 'Name',
+                'sortId': 'name_sort',
+                'defaultSort': 'ASC'
+            }, {
+                'id': 3,
+                'sortOption': 'Title',
+                'sortId': 'title_sort',
+                'defaultSort': 'ASC'
+            }, {
+                'id': 4,
+                'sortOption': 'Created',
+                'sortId': 'ds_creation_date',
+                'defaultSort': 'DESC'
+            }, {
+                'id': 5,
+                'sortOption': 'Modified',
+                'sortId': 'ds_last_modified',
+                'defaultSort': 'DESC'
+            }, {
+                'id': 6,
+                'sortOption': 'Creator',
+                'sortId': 'ds_creator_sort',
+                'defaultSort': 'ASC'
+            }, {
+                'id': 7,
+                'sortOption': 'Modifier',
+                'sortId': 'ds_last_modifier_sort',
+                'defaultSort': 'ASC'
+            }
+        ])
+        .constant('SensefyMlt', 'docs/mlt')
+        .constant('SensefyFacetsPerGroup', 2)
+        .constant('SensefyTranslations', {
             'en-us': {
                 'language': 'Language',
                 'english': 'English',
@@ -973,93 +967,92 @@
                 'zu': 'Zulu',
                 'Unknown': 'Desconocido'
             }
-    })
-        .config([
-        '$routeProvider', '$httpProvider', '$locationProvider', '$translateProvider', 'SensefyTranslations', '$sceProvider',
-        function ($routeProvider, $httpProvider, $locationProvider, $translateProvider, SensefyTranslations, $sceProvider) {
-            var data, lang;
-            $locationProvider.html5Mode(true);
-            $sceProvider.enabled(false);
-            for (lang in SensefyTranslations) {
-                data = SensefyTranslations[lang];
-                $translateProvider.translations(lang, data);
-            }
-            $translateProvider.preferredLanguage('en-us');
-            $routeProvider.when('/', {
-                templateUrl: 'views/search.html',
-                controller: 'SearchController',
-                reloadOnSearch: false,
-                resolve: {
-                    dataSources: function ($q, $rootScope, SemanticSearchService, $location) {
-                        var deferrer;
-                        deferrer = $q.defer();
-                        if ($rootScope.user !== void 0) {
-                            SemanticSearchService.search('*:*', $rootScope.user.token, 0, 0, "*", [], true).then(function (response) {
+        }).config([
+            '$routeProvider', '$httpProvider', '$translateProvider', 'SensefyTranslations', '$sceProvider', '$locationProvider',
+            function ($routeProvider, $httpProvider, $translateProvider, SensefyTranslations, $sceProvider, $locationProvider) {
+                var data, lang;
+                $locationProvider.html5Mode(true);
+                $sceProvider.enabled(false);
+                for (lang in SensefyTranslations) {
+                    data = SensefyTranslations[lang];
+                    $translateProvider.translations(lang, data);
+                }
+                $translateProvider.preferredLanguage('en-us');
+                $routeProvider.when('/', {
+                    templateUrl: 'views/login/login.html',
+                    controller: 'LoginController'
+                }).when('/search', {
+                    templateUrl: 'views/search.html',
+                    controller: 'SearchController',
+                    reloadOnSearch: false,
+                    resolve: {
+                        dataSources: function ($q, $rootScope, SemanticSearchService, $location) {
+                            var deferrer;
+                            deferrer = $q.defer();
+                            //if ($rootScope.user !== void 0) {
+                            SemanticSearchService.search('*:*', 0, 0, "*", [], true).then(function (response) {
+                                console.log(response)
                                 return deferrer.resolve(response);
                             }, function (response) {
                                 deferrer.reject;
                                 return $location.path("/");
                             });
-                        }
-                        return deferrer.promise;
-                    }
-                }
-            }).when('/login', {
-                templateUrl: 'views/login.html',
-                controller: 'LoginController'
-            }).when('/mlt/:docId', {
-                templateUrl: 'views/mlt.html',
-                controller: 'MltController',
-                resolve: {
-                    document: function ($window, $rootScope, $route, SemanticSearchService, $location, $q) {
-                        var deferrer, docId, regExp;
-                        regExp = new RegExp("\\[SL\\]", "g");
-                        docId = $route.current.params.docId.replace(regExp, '/');
-                        if (docId.substring(0, 4) === "Sent") {
-                            docId = $window.encodeURIComponent(docId);
-                            docId = docId.replace('%2F', '/', 'g');
-                        }
-                        deferrer = $q.defer();
-                        if ($rootScope.user !== void 0) {
-                            SemanticSearchService.search('id:"' + docId + '"', $rootScope.user.token, 0, 1).then(function (response) {
-                                return deferrer.resolve(response);
-                            }, function (response) {
-                                deferrer.reject;
-                                return $location.path('/login');
-                            });
+                            //}
                             return deferrer.promise;
                         }
                     }
-                }
-            }).when('/preview/:docId', {
-                templateUrl: 'views/preview.html',
-                controller: 'PreviewController'
-            }).when('/imgSearch', {
-                templateUrl: 'views/imgSearch.html',
-                controller: 'ImageSearchController'
-            }).otherwise
-            ({
-                redirectTo: '/login'
-            });
-            $httpProvider.defaults.useXDomain = true;
-            $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-            return delete $httpProvider.defaults.headers.common['X-Requested-With'];
-        }
-    ]).run([
-        '$rootScope', '$location', '$window', '$http', '$translate', 'auth',
-        function ($rootScope, $location, $window, $http, $translate, auth) {
-            return $rootScope.$on('$routeChangeStart',
-                function (event, next, current) {
-                    $rootScope.loading = true;
-                    $rootScope.searchParameters = $rootScope.searchParameters || $location.search();
-                    if ($rootScope.user === void 0) {//next.originalPath !== '/login' &&
-                        $location.path('/login');
-                        $location.search($location.search());
+                }).when('/mlt/:docId', {
+                    templateUrl: 'views/mlt.html',
+                    controller: 'MltController',
+                    resolve: {
+                        document: function ($window, $rootScope, $route, SemanticSearchService, $location, $q) {
+                            var deferrer, docId, regExp;
+                            regExp = new RegExp("\\[SL\\]", "g");
+                            docId = $route.current.params.docId.replace(regExp, '/');
+                            if (docId.substring(0, 4) === "Sent") {
+                                docId = $window.encodeURIComponent(docId);
+                                docId = docId.replace('%2F', '/', 'g');
+                            }
+                            deferrer = $q.defer();
+                            if ($rootScope.user !== void 0) {
+                                SemanticSearchService.search('id:"' + docId + '"', $rootScope.user.token, 0, 1).then(function (response) {
+                                    return deferrer.resolve(response);
+                                }, function (response) {
+                                    deferrer.reject;
+                                    return $location.path("/");
+                                });
+                                return deferrer.promise;
+                            }
+                        }
                     }
-                    //auth.init('/', '/login', '/login');
-                    return window.translate = $translate;
-                }
-            );
-        }
-    ]);
-}.call(this));
+                }).when('/preview/:docId', {
+                    templateUrl: 'views/preview.html',
+                    controller: 'PreviewController'
+                }).when('/imgSearch', {
+                    templateUrl: 'views/imgSearch.html',
+                    controller: 'ImageSearchController'
+                }).otherwise
+                ({
+                    redirectTo: '/'
+                });
+                $httpProvider.defaults.useXDomain = true;
+                //$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+                return delete $httpProvider.defaults.headers.common['X-Requested-With'];
+            }
+        ]).run([
+            '$rootScope', '$location', '$window', '$http', '$translate', 'auth',
+            function ($rootScope, $location, $window, $http, $translate, auth) {
+                auth.init('/', '/login', '/logout');
+                /*return $rootScope.$on('$routeChangeStart', function(event, next, current) {
+                 $rootScope.loading = true;
+                 $rootScope.searchParameters = $rootScope.searchParameters || $location.search();
+                 if (next.originalPath !== "/login" && $rootScope.user === void 0) {
+                 $location.path("/");
+                 $location.search($location.search());
+                 }
+                 return window.translate = $translate;
+                 });*/
+            }
+        ]);
+
+}).call(this);

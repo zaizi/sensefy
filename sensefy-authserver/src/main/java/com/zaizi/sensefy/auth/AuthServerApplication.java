@@ -53,7 +53,7 @@ public class AuthServerApplication extends SpringBootServletInitializer {
 		// server.getConnectors()[0].setRequestHeaderSize(requestHeaderSize);
 
 		WebAppContext webapp = new WebAppContext();
-		webapp.setContextPath("/api");
+		webapp.setContextPath("/auth");
 		webapp.setDescriptor(location.toExternalForm() + "/WEB-INF/web.xml");
 		webapp.setServer(server);
 		webapp.setWar(location.toExternalForm());

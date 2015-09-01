@@ -29,7 +29,7 @@
     <!-- endbuild -->
     <base href="/">
 </head>
-<body ng-app="sensefyApp" ng-cloak class="ng-cloak" id="sensefy">
+<body ng-app="SensefySemanticSearch" ng-cloak class="ng-cloak" id="sensefy">
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -73,7 +73,7 @@
 <script src="bower_components/json3/lib/json3.min.js"></script>
 <![endif]-->
 
-<!-- build:js scripts/vendors.min.js -->
+<!-- build:js scripts/vendors.js -->
 <!-- bower:js -->
 <script src="../bower_components/es5-shim/es5-shim.js"></script>
 <script src="../bower_components/jquery/dist/jquery.js"></script>
@@ -95,22 +95,30 @@
 <script src="../bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
 <script src="../bower_components/ng-pdfviewer/ng-pdfviewer.js"></script>
 <script src="../bower_components/pdfjs-dist/build/pdf.js"></script>
-<script src="../bower_components/pdfjs-dist/build/pdf.worker.js"></script>
-<script src="../bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
 <script src="../bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
 <script src="../bower_components/angular-utils-pagination/dirPagination.js"></script>
 <!-- endbower -->
 <script src="assets/scripts/detect.js" type="text/javascript"></script>
 <!-- endbuild -->
 
+<!-- build:js scripts/vendor.worker.js -->
+<script src="../bower_components/pdfjs-dist/build/pdf.worker.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/dynamic-locale.js -->
+<script src="../bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+<!-- endbuild -->
 
 
-<!-- build:js scripts/main.min.js-->
-<script src="assets/scripts/auth/auth.js" type="text/javascript"></script>
-<script src="assets/scripts/home/home.js" type="text/javascript"></script>
-<script src="assets/scripts/search/search.js" type="text/javascript"></script>
-<script src="assets/scripts/login/login.js" type="text/javascript"></script>
-<script src="assets/scripts/app.js" type="text/javascript"></script>
+
+<!-- build:js scripts/main.js-->
+<script src="assets/scripts/auth/auth.js"></script>
+<script src="assets/scripts/configuration/main.js"></script>
+<script src="assets/scripts/controllers/main.js"></script>
+<script src="assets/scripts/services/main.js"></script>
+<script src="assets/scripts/directives/main.js"></script>
+<script src="assets/scripts/filters/main.js"></script>
+<script src="assets/scripts/x/main.js"></script>
 <!-- endbuild -->
 </body>
 </html>

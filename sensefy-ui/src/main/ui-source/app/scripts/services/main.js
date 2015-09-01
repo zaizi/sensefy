@@ -112,7 +112,7 @@
         'SensefySemanticSearchKeywordBased', 'SensefyEntityDrivenSearch', 'SensefyGetEntitiesByDoc', 'ApiService',
         function (SensefySemanticSearchKeywordBased, SensefyEntityDrivenSearch, SensefyGetEntitiesByDoc, ApiService) {
             return {
-                search: function (query, token, start, rows, fields, filter, facet, sort, clustering) {
+                search: function (query, start, rows, fields, filter, facet, sort, clustering) {
                     if (start == null) {
                         start = 0;
                     }
@@ -130,6 +130,9 @@
                     }
                     if (sort == null) {
                         sort = "";
+                    }
+                    if (clustering == null) {
+                        clustering = false;
                     }
                     if (angular.isArray(filter)) {
                         filter = filter.join(",");
@@ -138,17 +141,15 @@
                         query: query,
                         start: start,
                         rows: rows,
-                        filter: filter,
+                        filters: filter,
                         fields: fields,
                         facet: facet,
                         order: sort,
                         spellcheck: true,
                         clustering: clustering
-                    }, {
-                        token: token
                     });
                 },
-                searchByEntity: function (entityId, token, start, rows, fields, filter, facet, sort, clustering) {
+                searchByEntity: function (entityId, start, rows, fields, filter, facet, sort, clustering) {
                     if (start == null) {
                         start = 0;
                     }
@@ -166,6 +167,9 @@
                     }
                     if (sort == null) {
                         sort = "";
+                    }
+                    if (clustering == null) {
+                        clustering = false;
                     }
                     if (angular.isArray(filter)) {
                         filter = filter.join(",");
@@ -179,11 +183,9 @@
                         facet: facet,
                         order: sort,
                         clustering: clustering
-                    }, {
-                        token: token
                     });
                 },
-                searchByEntityQuery: function (entityType, entityAttribute, entityAttributeValue, token, start, rows, fields, filter, facet, sort, clustering) {
+                searchByEntityQuery: function (entityType, entityAttribute, entityAttributeValue, start, rows, fields, filter, facet, sort, clustering) {
                     if (start == null) {
                         start = 0;
                     }
@@ -201,6 +203,9 @@
                     }
                     if (sort == null) {
                         sort = "";
+                    }
+                    if (clustering == null) {
+                        clustering = false;
                     }
                     if (angular.isArray(filter)) {
                         filter = filter.join(",");
@@ -216,11 +221,9 @@
                         facet: facet,
                         order: sort,
                         clustering: clustering
-                    }, {
-                        token: token
                     });
                 },
-                searchByEntityType: function (entityTypeId, token, start, rows, fields, filter, facet, sort, clustering) {
+                searchByEntityType: function (entityTypeId, start, rows, fields, filter, facet, sort, clustering) {
                     if (start == null) {
                         start = 0;
                     }
@@ -238,6 +241,9 @@
                     }
                     if (sort == null) {
                         sort = "";
+                    }
+                    if (clustering == null) {
+                        clustering = false;
                     }
                     if (angular.isArray(filter)) {
                         filter = filter.join(",");
@@ -251,11 +257,9 @@
                         facet: facet,
                         order: sort,
                         clustering: clustering
-                    }, {
-                        token: token
                     });
                 },
-                getEntities: function (docId, token, start, rows, fields, filter, facet, sort, clustering) {
+                getEntities: function (docId, start, rows, fields, filter, facet, sort, clustering) {
                     if (start == null) {
                         start = 0;
                     }
@@ -274,6 +278,9 @@
                     if (sort == null) {
                         sort = "";
                     }
+                    if (clustering == null) {
+                        clustering = false;
+                    }
                     return ApiService.get(SensefyGetEntitiesByDoc, {}, {
                         docId: docId,
                         start: start,
@@ -283,8 +290,6 @@
                         facet: facet,
                         order: sort,
                         clustering: clustering
-                    }, {
-                        token: token
                     });
                 }
             };
@@ -293,18 +298,16 @@
         'SensefySmartAutocompletePhase1', 'SensefySmartAutocompletePhase2', 'SensefySmartAutocompletePhase3', 'ApiService',
         function (SensefySmartAutocompletePhase1, SensefySmartAutocompletePhase2, SensefySmartAutocompletePhase3, ApiService) {
             return {
-                phase1: function (termToComplete, token, numberOfSuggestions) {
+                phase1: function (termToComplete, numberOfSuggestions) {
                     if (numberOfSuggestions == null) {
                         numberOfSuggestions = 3;
                     }
                     return ApiService.get(SensefySmartAutocompletePhase1, {}, {
                         termToComplete: termToComplete,
                         numberOfSuggestions: numberOfSuggestions
-                    }, {
-                        token: token
                     });
                 },
-                phase2: function (entityTypeId, termToComplete, token, numberOfSuggestions) {
+                phase2: function (entityTypeId, termToComplete, numberOfSuggestions) {
                     if (numberOfSuggestions == null) {
                         numberOfSuggestions = 3;
                     }
@@ -312,11 +315,9 @@
                         entityTypeId: entityTypeId,
                         termToComplete: termToComplete,
                         numberOfSuggestions: numberOfSuggestions
-                    }, {
-                        token: token
                     });
                 },
-                phase3: function (entityTypeId, entityTypeAttribute, termToComplete, token, numberOfSuggestions) {
+                phase3: function (entityTypeId, entityTypeAttribute, termToComplete, numberOfSuggestions) {
                     if (numberOfSuggestions == null) {
                         numberOfSuggestions = 3;
                     }
@@ -325,8 +326,6 @@
                         entityAttributeField: entityTypeAttribute,
                         termToComplete: termToComplete,
                         numberOfSuggestions: numberOfSuggestions
-                    }, {
-                        token: token
                     });
                 }
             };
@@ -335,7 +334,7 @@
         'SensefyMlt', 'ApiService',
         function (SensefyMlt, ApiService) {
             return {
-                getSimilarDocuments: function (docId, token, fields, rows) {
+                getSimilarDocuments: function (docId, fields, rows) {
                     if (fields == null) {
                         fields = "*";
                     }
@@ -346,8 +345,6 @@
                         docId: docId,
                         fields: fields,
                         rows: rows
-                    }, {
-                        token: token
                     });
                 }
             };
@@ -356,13 +353,10 @@
         'SensefyImageSearchPath', 'ApiService',
         function (SensefyImageSearchPath, ApiService) {
             return {
-                search: function (file, field, token) {
+                search: function (file, field) {
                     var formData, params;
                     if (field == null) {
                         field = null;
-                    }
-                    if (token == null) {
-                        token = null;
                     }
                     formData = new FormData();
                     formData.append("file", file);
@@ -377,4 +371,5 @@
             };
         }
     ]);
-}.call(this));
+
+}).call(this);

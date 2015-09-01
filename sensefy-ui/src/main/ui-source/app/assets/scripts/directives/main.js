@@ -12,193 +12,195 @@
                 templateUrl: 'views/directive/sensefy-autocomplete/sensefy-autocomplete.html',
                 replace: true,
                 scope: {
-                    queryTerm: '=',
-                    queryFunction: '&'
+                    queryTerm: "=",
+                    queryFunction: "&"
                 },
-                controller: [
-                    '$scope',
-                    'SemanticSearchService',
-                    'SmartAutocompleteService',
-                    function ($scope, SemanticSearchService, SmartAutocompleteService) {
-                        var phase1, phase2, phase3;
-                        $scope.suggestions = {};
-                        $scope.showSuggestions = false;
-                        $scope.selectedEntityTypeAttribute = null;
-                        $scope.selectedEntityTypeAttributeValue = null;
-                        $scope.selectedEntity = null;
-                        $scope.selectedEntityType = null;
-                        $scope.autocompletePhase = 'phase1';
-                        $scope.selectedTitleIndex = -1;
-                        $scope.originalAutocompleteQueryTerm = '';
-                        $scope.autocomplete = function ($event) {
-                            if ($event == null) {
-                                $event = null;
+                controller: function ($scope, SemanticSearchService, SmartAutocompleteService) {
+                    var phase1, phase2, phase3;
+                    $scope.suggestions = {};
+                    $scope.showSuggestions = false;
+                    $scope.selectedEntityTypeAttribute = null;
+                    $scope.selectedEntityTypeAttributeValue = null;
+                    $scope.selectedEntity = null;
+                    $scope.selectedEntityType = null;
+                    $scope.autocompletePhase = "phase1";
+                    $scope.selectedTitleIndex = -1;
+                    $scope.originalAutocompleteQueryTerm = "";
+                    $scope.autocomplete = function ($event) {
+                        if ($event == null) {
+                            $event = null;
+                        }
+                        if ($event !== null) {
+                            $event.stopPropagation();
+                        }
+                        console.log('authcomplete started');
+                        if (($event != null ? $event.keyCode : void 0) === 13) {
+                            if ($scope.selectedTitleIndex >= 0) {
+                                $scope.titleSelected($scope.suggestions.titles[$scope.selectedTitleIndex]);
+                                console.log('title selected')
+                            } else {
+                                console.log('$scope.queryFunction();')
+                                $scope.queryFunction();
                             }
-                            if ($event !== null) {
-                                $event.stopPropagation();
+                            if ($scope.queryTerm.length !== 0) {
+                                angular.element('header').removeClass('ggl');
                             }
-                            if (($event != null ? $event.keyCode : void 0) === 13) {
-                                if ($scope.selectedTitleIndex >= 0) {
-                                    $scope.titleSelected($scope.suggestions.titles[$scope.selectedTitleIndex]);
-                                } else {
-                                    $scope.queryFunction();
-                                }
-                                if ($scope.queryTerm.length !== 0) {
-                                    angular.element('header').removeClass('ggl');
-                                }
+                            return;
+                        }
+                        if (($event != null ? $event.keyCode : void 0) !== 40 && ($event != null ? $event.keyCode : void 0) !== 38) {
+                            switch ($scope.autocompletePhase) {
+                                case "phase1":
+                                    phase1();
+                                    break;
+                                case "phase2":
+                                    phase2();
+                                    break;
+                                case "phase3":
+                                    phase3();
+                                    break;
+                                default:
+                                    return;
+                            }
+                        }
+                        var regex = /(<([^>]+)>)/ig,
+                            body = $scope.queryTerm,
+                            clnresult = body.replace(regex, "");
+                        console.log('clnresult ' + clnresult)
+                        return $scope.queryTerm = clnresult;
+                    };
+                    phase1 = function () {
+                        if ($scope.queryTerm.length === 0) {
+                            return 0;
+                        }
+                        $scope.originalAutocompleteQueryTerm = $scope.queryTerm;
+                        return SmartAutocompleteService.phase1($scope.queryTerm).then(function (response) {
+                            if (response.data.header.status !== 200) {
                                 return;
                             }
-                            if (($event != null ? $event.keyCode : void 0) !== 40 && ($event != null ? $event.keyCode : void 0) !== 38) {
-                                switch ($scope.autocompletePhase) {
-                                    case 'phase1':
-                                        phase1();
-                                        break;
-                                    case 'phase2':
-                                        phase2();
-                                        break;
-                                    case 'phase3':
-                                        phase3();
-                                        break;
-                                    default:
-                                        return;
-                                }
+                            $scope.selectedTitleIndex = -1;
+                            if (response.data.responseContent.entities) {
+                                $scope.suggestions['entities'] = response.data.responseContent.entities;
                             }
-                            return $scope.queryTerm = $scope.queryTerm;
-                        };
-                        phase1 = function () {
-                            if ($scope.queryTerm.length === 0) {
-                                return 0;
+                            if (response.data.responseContent.entityTypes) {
+                                $scope.suggestions['entityTypes'] = response.data.responseContent.entityTypes;
                             }
-                            $scope.originalAutocompleteQueryTerm = $scope.queryTerm;
-                            return SmartAutocompleteService.phase1($scope.queryTerm, $scope.$parent.user.token).then(function (response) {
-                                if (response.data.header.status !== 200) {
-                                    return;
-                                }
-                                $scope.selectedTitleIndex = -1;
-                                if (response.data.responseContent.entities) {
-                                    $scope.suggestions['entities'] = response.data.responseContent.entities;
-                                }
-                                if (response.data.responseContent.entityTypes) {
-                                    $scope.suggestions['entityTypes'] = response.data.responseContent.entityTypes;
-                                }
-                                if (response.data.responseContent.titles) {
-                                    $scope.suggestions['titles'] = response.data.responseContent.titles;
-                                }
-                                if (response.data.responseContent.suggestions) {
-                                    return $scope.suggestions['suggestions'] = response.data.responseContent.suggestions;
-                                }
-                            }, function (response) {
-                                return $scope.$parent.logout();
-                            });
-                        };
-                        phase2 = function () {
-                            return SmartAutocompleteService.phase2($scope.selectedEntityType.hierarchy.join(','), $scope.queryTerm, $scope.$parent.user.token).then(function (response) {
-                                if (response.data.responseContent.entities) {
-                                    $scope.suggestions['entities'] = response.data.responseContent.entities;
-                                }
-                                if (response.data.responseContent.entityTypes) {
-                                    $scope.suggestions['entityTypes'] = response.data.responseContent.entityTypes;
-                                }
-                                if (response.data.responseContent.suggestions) {
-                                    return $scope.suggestions['suggestions'] = response.data.responseContent.suggestions;
-                                }
-                            }, function (response) {
-                                return $scope.$parent.logout();
-                            });
-                        };
-                        phase3 = function () {
-                            return SmartAutocompleteService.phase3($scope.selectedEntityType.id, $scope.selectedEntityTypeAttribute, $scope.queryTerm, $scope.$parent.user.token).then(function (response) {
-                                if (response.data.responseContent.entities) {
-                                    $scope.suggestions['entities'] = response.data.responseContent.entities;
-                                }
-                                if (response.data.responseContent.entityTypes) {
-                                    $scope.suggestions['entityTypes'] = response.data.responseContent.entityTypes;
-                                }
-                                if (response.data.responseContent.suggestions) {
-                                    return $scope.suggestions['suggestions'] = response.data.responseContent.suggestions;
-                                }
-                            }, function (response) {
-                                return $scope.$parent.logout();
-                            });
-                        };
-                        $scope.entitySelected = function (entity) {
-                            $scope.selectedEntity = entity;
-                            $scope.queryTerm = entity.label;
-                            return $scope.$emit('entitySelected', entity);
-                        };
-                        $scope.entityTypeSelected = function (entityType) {
-                            $scope.selectedEntityType = entityType;
-                            $scope.selectedEntity = null;
-                            $scope.suggestions = {};
-                            $scope.queryTerm = '';
-                            $scope.autocompletePhase = 'phase2';
-                            $scope.$emit('entityTypeSelected', entityType);
-                            return $scope.autocomplete();
-                        };
-                        $scope.entityTypeAttributeSelected = function (attribute) {
-                            $scope.selectedEntityTypeAttribute = attribute;
-                            $scope.suggestions = {};
-                            $scope.autocompletePhase = 'phase3';
-                            $scope.queryTerm = '';
-                            $scope.$emit('entityTypeAttributeSelected', attribute);
-                            return $scope.autocomplete();
-                        };
-                        $scope.entityTypeAttributeValueSelected = function (value) {
-                            $scope.selectedEntityTypeAttributeValue = value;
-                            $scope.suggestions = {};
-                            $scope.queryTerm = '';
-                            $scope.selectedEntity = null;
-                            $scope.autocompletePhase = '';
-                            return $scope.$emit('entityTypeAttributeValueSelected', $scope.selectedEntityTypeAttribute, $scope.selectedEntityTypeAttributeValue);
-                        };
-                        $scope.titleSelected = function (title) {
-                            $scope.queryTerm = title.document_suggestion;
-                            return $scope.$emit('titleSelected', title);
-                        };
-                        $scope.suggestionSelected = function (suggestion) {
-                            $scope.queryTerm = suggestion;
-                            return $scope.$emit('suggestionSelected', suggestion);
-                        };
-                        $scope.cleanSuggestions = function () {
-                            return $scope.suggestions = {};
-                        };
-                        $scope.cleanEntityType = function () {
-                            $scope.selectedEntityType = null;
-                            $scope.selectedEntityTypeAttribute = null;
-                            $scope.selectedEntityTypeAttributeValue = null;
-                            $scope.queryTerm = "";
-                            $scope.autocompletePhase = "phase1";
-                            return $scope.$emit("entityTypeCleaned");
-                        };
-                        $scope.cleanEntityTypeAttribute = function () {
-                            $scope.selectedEntityTypeAttribute = null;
-                            $scope.selectedEntityTypeAttributeValue = null;
-                            $scope.queryTerm = '';
-                            $scope.autocompletePhase = 'phase2';
-                            return $scope.$emit('entityTypeAttributeCleaned');
-                        };
-                        return $scope.cleanEntityTypeAttributeValue = function () {
-                            $scope.selectedEntityTypeAttributeValue = null;
-                            $scope.queryTerm = '';
-                            $scope.autocompletePhase = 'phase3';
-                            return $scope.$emit('entityTypeAttributeValueCleaned');
-                        };
-                    }
-                ],
+                            if (response.data.responseContent.titles) {
+                                $scope.suggestions['titles'] = response.data.responseContent.titles;
+                            }
+                            if (response.data.responseContent.suggestions) {
+                                return $scope.suggestions['suggestions'] = response.data.responseContent.suggestions;
+                            }
+                        }, function (response) {
+                            return $scope.$parent.logout();
+                        });
+                    };
+                    phase2 = function () {
+                        return SmartAutocompleteService.phase2($scope.selectedEntityType.hierarchy.join(","), $scope.queryTerm).then(function (response) {
+                            if (response.data.responseContent.entities) {
+                                $scope.suggestions['entities'] = response.data.responseContent.entities;
+                            }
+                            if (response.data.responseContent.entityTypes) {
+                                $scope.suggestions['entityTypes'] = response.data.responseContent.entityTypes;
+                            }
+                            if (response.data.responseContent.suggestions) {
+                                return $scope.suggestions['suggestions'] = response.data.responseContent.suggestions;
+                            }
+                        }, function (response) {
+                            return $scope.$parent.logout();
+                        });
+                    };
+                    phase3 = function () {
+                        return SmartAutocompleteService.phase3($scope.selectedEntityType.id, $scope.selectedEntityTypeAttribute, $scope.queryTerm).then(function (response) {
+                            if (response.data.responseContent.entities) {
+                                $scope.suggestions['entities'] = response.data.responseContent.entities;
+                            }
+                            if (response.data.responseContent.entityTypes) {
+                                $scope.suggestions['entityTypes'] = response.data.responseContent.entityTypes;
+                            }
+                            if (response.data.responseContent.suggestions) {
+                                return $scope.suggestions['suggestions'] = response.data.responseContent.suggestions;
+                            }
+                        }, function (response) {
+                            return $scope.$parent.logout();
+                        });
+                    };
+                    $scope.entitySelected = function (entity) {
+                        $scope.selectedEntity = entity;
+                        $scope.queryTerm = entity.label;
+                        return $scope.$emit('entitySelected', entity);
+                    };
+                    $scope.entityTypeSelected = function (entityType) {
+                        $scope.selectedEntityType = entityType;
+                        $scope.selectedEntity = null;
+                        $scope.suggestions = {};
+                        $scope.queryTerm = "";
+                        $scope.autocompletePhase = "phase2";
+                        $scope.$emit("entityTypeSelected", entityType);
+                        return $scope.autocomplete();
+                    };
+                    $scope.entityTypeAttributeSelected = function (attribute) {
+                        $scope.selectedEntityTypeAttribute = attribute;
+                        $scope.suggestions = {};
+                        $scope.autocompletePhase = "phase3";
+                        $scope.queryTerm = "";
+                        $scope.$emit("entityTypeAttributeSelected", attribute);
+                        return $scope.autocomplete();
+                    };
+                    $scope.entityTypeAttributeValueSelected = function (value) {
+                        $scope.selectedEntityTypeAttributeValue = value;
+                        $scope.suggestions = {};
+                        $scope.queryTerm = "";
+                        $scope.selectedEntity = null;
+                        $scope.autocompletePhase = "";
+                        return $scope.$emit("entityTypeAttributeValueSelected", $scope.selectedEntityTypeAttribute, $scope.selectedEntityTypeAttributeValue);
+                    };
+                    $scope.titleSelected = function (title) {
+                        $scope.queryTerm = title.document_suggestion;
+                        return $scope.$emit("titleSelected", title);
+                    };
+                    $scope.suggestionSelected = function (suggestion) {
+                        $scope.queryTerm = suggestion;
+                        return $scope.$emit("suggestionSelected", suggestion);
+                    };
+                    $scope.cleanSuggestions = function () {
+                        return $scope.suggestions = {};
+                    };
+                    $scope.cleanEntityType = function () {
+                        $scope.selectedEntityType = null;
+                        $scope.selectedEntityTypeAttribute = null;
+                        $scope.selectedEntityTypeAttributeValue = null;
+                        $scope.queryTerm = "";
+                        $scope.autocompletePhase = "phase1";
+                        return $scope.$emit("entityTypeCleaned");
+                    };
+                    $scope.cleanEntityTypeAttribute = function () {
+                        $scope.selectedEntityTypeAttribute = null;
+                        $scope.selectedEntityTypeAttributeValue = null;
+                        $scope.queryTerm = "";
+                        $scope.autocompletePhase = "phase2";
+                        return $scope.$emit("entityTypeAttributeCleaned");
+                    };
+                    return $scope.cleanEntityTypeAttributeValue = function () {
+                        $scope.selectedEntityTypeAttributeValue = null;
+                        $scope.queryTerm = "";
+                        $scope.autocompletePhase = "phase3";
+                        return $scope.$emit("entityTypeAttributeValueCleaned");
+                    };
+                },
                 link: function (scope, element, attrs) {
                     var fontSize, getWidthFilters, input, originalPaddingLeft, placeholder, span, suggestionsWrapper;
-                    input = element.find('input');
-                    span = element.find('div.ser-btn');
+                    input = element.find("input");
+                    span = element.find("span.search-btn");
                     originalPaddingLeft = input.css('paddingLeft');
                     fontSize = input.css('fontSize');
                     fontSize = parseInt(fontSize.substring(0, fontSize.length - 2));
                     placeholder = input.attr('placeholder');
-                    suggestionsWrapper = element.find('.suggestions-wrapper');
+                    suggestionsWrapper = element.find(".suggestions-wrapper");
                     $timeout(function () {
                         return input.focus();
                     }, 0);
                     input.on('focus', function () {
-                        if (scope.autocompletePhase !== '') {
+                        if (scope.autocompletePhase !== "") {
                             return suggestionsWrapper.fadeIn();
                         }
                     });
@@ -248,16 +250,16 @@
                     span.on('keyup', function (event) {
                         if ((event != null ? event.keyCode : void 0) === 13) {
                             scope.showSuggestions = false;
-                            //if (scope.queryTerm.length !== 0) {
-                            angular.element('body').removeClass('ggl');
-                            //}
+                            if (scope.queryTerm.length !== 0) {
+                                angular.element('body').removeClass('ggl');
+                            }
                             return suggestionsWrapper.fadeOut();
                         }
                     });
                     span.on('click', function () {
-                        //if (scope.queryTerm.length !== 0) {
-                        angular.element('body').removeClass('ggl');
-                        //}
+                        if (scope.queryTerm.length !== 0) {
+                            angular.element('body').removeClass('ggl');
+                        }
                     });
                     scope.$on('titleSelected', function () {
                         return angular.element('body').removeClass('ggl');
@@ -366,12 +368,12 @@
                     element.attr('class', cssClassName);
                     style = document.createElement('style');
                     style.type = 'text/css';
-                    style.innerHTML += '.data-sources a.' + cssClassName + '{ background-color:' + colorArrayLight[scope.$index] + '; border-left:3px solid ' + colorArray[scope.$index] + ';  }';
-                    style.innerHTML += '.data-sources a.active.' + cssClassName + '{ background-color:' + colorArray[scope.$index] + '; border-left:3px solid ' + colorArray[scope.$index] + '; }';
-                    style.innerHTML += '#se-results .document.' + cssClassName + '{ border-left:2px solid ' + colorArrayLightRelation[scope.$index] + '; }';
-                    style.innerHTML += '#se-results .document.' + cssClassName + ':hover { border-left:2px solid ' + colorArray[scope.$index] + '; }';
-                    style.innerHTML += '#sensefy .' + cssClassName + ' .channel-d {color: ' + colorArray[scope.$index] + ';}';
-                    style.innerHTML += '.' + cssClassName + ' i.file, .' + cssClassName + ' .hover-result {color: ' + colorArray[scope.$index] + ';}';
+                    style.innerHTML += '#sensefy .sources a.' + cssClassName + '{ background-color:' + colorArrayLight[scope.$index] + '; border-left:3px solid ' + colorArray[scope.$index] + '!important; }';
+                    style.innerHTML += '#sensefy .sources a.active.' + cssClassName + '{ background-color:' + colorArray[scope.$index] + '; border-left:3px solid ' + colorArray[scope.$index] + '!important; }';
+                    style.innerHTML += '.document.' + cssClassName + '{ border-left:2px solid ' + colorArrayLightRelation[scope.$index] + '!important;}';
+                    style.innerHTML += '.document.' + cssClassName + ':hover { border-left:2px solid ' + colorArray[scope.$index] + '; }';
+                    style.innerHTML += '.document.' + cssClassName + ':hover .hover-result{ color: ' + colorArray[scope.$index] + '; }';
+                    
                     /*
                      element.bind("dragleave", onDragEnd)
                      element.bind("drop", (e) ->
@@ -404,4 +406,5 @@
             };
         }
     ]);
-}.call(this));
+
+}).call(this);
