@@ -41,8 +41,8 @@ spring:
     resource:
       userInfoUri: http://localhost:9099/auth/user
       preferTokenInfo: false
-  application:
-    name: sensefy-ui
+  jmx:
+    enabled: false
 #spring:
 #  oauth2:
 #    sso:
