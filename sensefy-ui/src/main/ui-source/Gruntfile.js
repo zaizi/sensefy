@@ -179,9 +179,9 @@ module.exports = function (grunt) {
                 dist: {
                     files: [{
                         expand: true,
-                        cwd: '<%= yeoman.app %>/js',
+                        cwd: '<%= yeoman.app %>/scripts',
                         src: '**/*.js',
-                        dest: 'app/assets/scripts',
+                        dest: '<%= yeoman.app %>/assets/scripts',
                         ext: '.js'
                     }]
                 },
@@ -365,8 +365,8 @@ module.exports = function (grunt) {
                 },
                 fonts: {
                     expand: true,
-                    cwd: '<%= yeoman.app %>/fonts',
-                    dest: '<%= yeoman.app %>/assets/fonts',
+                    cwd: '<%= yeoman.app %>/styles/themes/default/assets/fonts',
+                    dest: '<%= yeoman.dist %>/styles/themes/default/assets/fonts',
                     src: '*.*'
                 }
             },
@@ -374,7 +374,7 @@ module.exports = function (grunt) {
             concurrent: {
                 server: ['copy:scripts', 'copy:concatjs', 'copy:styles'],
                 test: ['copy:scripts', 'copy:styles'],
-                dist: ['copy:javascripts', 'copy:styles', 'imagemin',
+                dist: ['copy:scripts', 'copy:javascripts', 'copy:styles', 'copy:fonts', 'imagemin',
                     'svgmin']
             },
             // By default, your `index.html`'s <!-- Usemin block --> will
@@ -431,7 +431,9 @@ module.exports = function (grunt) {
         'ngmin',
         'copy:dist',
         'cdnify',
-            //'cssmin', 'uglify', 'csslint:lax',
+        'cssmin',
+        //'uglify',
+        'csslint:lax',
             //'jshint',
         // 'copy:javascripts',
         // 'rev',

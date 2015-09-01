@@ -24,13 +24,13 @@
                     <p translate="{{errors.loginMessageCaptcha}}"></p>
                 </div>
             </div>
-            <form role="form" novalidate ng-submit="doLogin()" name="loginform">
+            <form role="form" novalidate ng-submit="login()" name="loginform">
             <div class="field">
                 <label for="username" translate="txtUsername"></label>
                 <div class="ui left icon input">
                     <i class="user icon"></i>
-                    <input type="text" id="username" name="username" placeholder="{{'txtUsername' | translate }}" ng-model="user.username" required
-                           ng-keyup="$event.keyCode == 13 ? doLogin() : null" autofocus="autofocus">
+                    <input type="text" id="username" name="username" placeholder="{{'txtUsername' | translate }}" ng-model="credentials.username" required
+                           ng-keyup="$event.keyCode == 13 ? login() : null" autofocus="autofocus">
                 </div>
             </div>
             <div class="field">
@@ -38,7 +38,7 @@
                 <div class="ui left icon input">
                     <i class="lock icon"></i>
                     <input type="password" id="password" name="password"
-                           placeholder="{{'txtPassword' | translate}}" ng-model="user.password" required ng-keyup="$event.keyCode == 13 ? doLogin() : null">
+                           placeholder="{{'txtPassword' | translate}}" ng-model="credentials.password" required ng-keyup="$event.keyCode == 13 ? login() : null">
                 </div>
             </div>
             <div class="field" ng-show="isCaptcha">
