@@ -4,3 +4,5 @@
 .DS_Store
 sensefy.iml
 target/
+derby.log
+logs/manifoldcf.log
