@@ -1,8 +1,6 @@
 package com.zaizi.sensefy.ui;
 
 import java.io.IOException;
-import java.net.URL;
-import java.security.ProtectionDomain;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -11,12 +9,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.webapp.WebAppContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.security.oauth2.sso.EnableOAuth2Sso;
 import org.springframework.cloud.security.oauth2.sso.OAuth2SsoConfigurerAdapter;
@@ -32,41 +26,12 @@ import org.springframework.web.util.WebUtils;
 @SpringBootApplication
 @EnableZuulProxy
 @EnableOAuth2Sso
-public class SensefySearchUiApplication extends SpringBootServletInitializer {
+public class SensefySearchUiApplicationJar {
 
 	public static void main(String[] args) {
 		// SpringApplication.run(SensefySearchUiApplication.class, args);
 
-		SpringApplication.run(SensefySearchUiApplication.class, args);
-		int port = Integer.parseInt(System.getProperty("jetty.port", "8080"));
-		int requestHeaderSize = Integer.parseInt(System.getProperty("jetty.header.size", "65536"));
-		Server server = new Server(port);
-		ProtectionDomain domain = SensefySearchUiApplication.class.getProtectionDomain();
-		URL location = domain.getCodeSource().getLocation();
-
-		// Set request header size
-		// server.getConnectors()[0].setRequestHeaderSize(requestHeaderSize);
-
-		WebAppContext webapp = new WebAppContext();
-		webapp.setContextPath("/ui");
-		webapp.setDescriptor(location.toExternalForm() + "/WEB-INF/web.xml");
-		webapp.setServer(server);
-		webapp.setWar(location.toExternalForm());
-
-		// (Optional) Set the directory the war will extract to.
-		// If not set, java.io.tmpdir will be used, which can cause problems
-		// if the temp directory gets cleaned periodically.
-		// Your build scripts should remove this directory between deployments
-		// webapp.setTempDirectory(new File("/path/to/webapp-directory"));
-
-		server.setHandler(webapp);
-		try {
-			server.start();
-			server.join();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		SpringApplication.run(SensefySearchUiApplicationJar.class, args);
 
 	}
 
@@ -80,28 +45,6 @@ public class SensefySearchUiApplication extends SpringBootServletInitializer {
 					.addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
 
 		}
-
-		// @Override
-		// public void configure(HttpSecurity http) throws Exception {
-		//
-		//// http.authorizeRequests().anyRequest().authenticated().and().csrf()
-		//// .csrfTokenRepository(csrfTokenRepository()).and()
-		//// .addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
-		//
-		// http.authorizeRequests().antMatchers("/login",
-		// "/").permitAll().anyRequest()
-		// .authenticated().and().csrf().csrfTokenRepository(csrfTokenRepository()).and()
-		// .addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
-		//
-		// /*
-		// * http.authorizeRequests().antMatchers("/login").permitAll().
-		// * anyRequest().hasRole("USER").and().csrf()
-		// * .csrfTokenRepository(csrfTokenRepository()).and()
-		// * .addFilterAfter(csrfHeaderFilter(),
-		// * CsrfFilter.class).logout().deleteCookies("remove")
-		// * .invalidateHttpSession(false);
-		// */
-		// }
 
 		@Override
 		public void match(RequestMatchers matchers) {
@@ -146,17 +89,6 @@ public class SensefySearchUiApplication extends SpringBootServletInitializer {
 
 		}
 
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.springframework.boot.context.web.SpringBootServletInitializer#
-	 * configure(org.springframework.boot.builder.SpringApplicationBuilder)
-	 */
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return builder.sources(SensefySearchUiApplication.class);
 	}
 
 }

@@ -25,6 +25,7 @@
 		<tomcat.version>7.0.52</tomcat.version>
 		<wro4j.version>1.7.8</wro4j.version>
 		<packaging.type>jar</packaging.type>
+		<sensefy.auth.main.class>com.zaizi.sensefy.auth.AuthServerApplicationJar</sensefy.auth.main.class>
 	</properties>
 
 	<dependencies>
@@ -169,6 +170,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>${sensefy.auth.main.class}</mainClass>
+				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
@@ -201,12 +205,14 @@
 			<id>run</id>
 			<properties>
 				<packaging.type>war</packaging.type>
+				<sensefy.auth.main.class>com.zaizi.sensefy.auth.AuthServerApplication</sensefy.auth.main.class>
 			</properties>
 		</profile>
 		<profile>
 			<id>war</id>
 			<properties>
 				<packaging.type>war</packaging.type>
+				<sensefy.auth.main.class>com.zaizi.sensefy.auth.AuthServerApplication</sensefy.auth.main.class>
 			</properties>
 		</profile>
 	</profiles>

@@ -31,6 +31,7 @@
 		<hk2.version>2.2.0</hk2.version>
 		<tomcat.version>7.0.52</tomcat.version>
 		<packaging.type>jar</packaging.type>
+		<sensefy.api.main.class>com.zaizi.sensefy.api.SensefyResourceApplicationJar</sensefy.api.main.class>
 	</properties>
 
 	<dependencyManagement>
@@ -304,12 +305,14 @@
 			<id>run</id>
 			<properties>
 				<packaging.type>war</packaging.type>
+				<sensefy.api.main.class>com.zaizi.sensefy.api.SensefyResourceApplication</sensefy.api.main.class>
 			</properties>
 		</profile>
 		<profile>
 			<id>war</id>
 			<properties>
 				<packaging.type>war</packaging.type>
+				<sensefy.api.main.class>com.zaizi.sensefy.api.SensefyResourceApplication</sensefy.api.main.class>
 			</properties>
 		</profile>
 	</profiles>
@@ -317,9 +320,13 @@
 
 	<build>
 		<plugins>
+		
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>${sensefy.api.main.class}</mainClass>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
