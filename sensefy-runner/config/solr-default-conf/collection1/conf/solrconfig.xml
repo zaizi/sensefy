@@ -83,6 +83,9 @@
 
   <lib dir="../../../contrib/velocity/lib" regex=".*\.jar" />
   <lib dir="../../../dist/" regex="solr-velocity-\d.*\.jar" />
+  
+  
+
 
   <!-- an exact 'path' can be used instead of a 'dir' to specify a 
        specific jar file.  This will cause a serious error to be logged 
@@ -1474,7 +1477,7 @@
            A commercial algorithm Lingo3G (needs to be installed separately) is defined as:
            * com.carrotsearch.lingo3g.Lingo3GClusteringAlgorithm
         -->
-      <str name="carrot.algorithm">org.carrot2.clustering.lingo.LingoClusteringAlgorithm</str>
+      <str name="carrot.algorithm">org.carrot2.clustering.stc.STCClusteringAlgorithm</str>
 
       <!-- Override location of the clustering algorithm's resources 
            (attribute definitions and lexical resources).
