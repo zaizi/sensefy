@@ -560,34 +560,7 @@
 						</executions>
 					</plugin>
 					<!-- SolrConfig.xml path replacer Starts -->
-					<!--<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-resources-plugin</artifactId>
-						<version>2.7</version>
-						<executions>
-							<execution>
-								<id>copy-resources</id>
-								
-								<phase>process-resources</phase>
-								<goals>
-									<goal>copy-resources</goal>
-								</goals>
-								<configuration>
-									<outputDirectory>${sensefy.solr.home}</outputDirectory>
-									<resources>
-										<resource>
-											<directory>${basedir}/solr/</directory>
-											<filtering>false</filtering>
-											<includes>
-												<include>primaryIndex/</include>
-											</includes>
-										</resource>
-									</resources>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				 <plugin>
+					<plugin>
 						<groupId>com.google.code.maven-replacer-plugin</groupId>
 						<artifactId>replacer</artifactId>
 						<version>1.5.3</version>
@@ -620,10 +593,30 @@
 								</replacement>
 							</replacements>
 						</configuration>
-					</plugin> -->	
-					
-					
+					</plugin>
+
+					<plugin>
+						<groupId>com.coderplus.maven.plugins</groupId>
+						<artifactId>copy-rename-maven-plugin</artifactId>
+						<version>1.0</version>
+						<executions>
+							<execution>
+								<id>rename-file</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>rename</goal>
+								</goals>
+								<configuration>
+									<sourceFile>${project.build.directory}/tomcat/webapps/mcf-combined-service.war</sourceFile>
+									<destinationFile>${project.build.directory}/tomcat/webapps/mcf.war</destinationFile>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+
 					<!-- SolrConfig.xml path replacer Ends -->
+
 					<!-- Tomcat deployment -->
 					<plugin>
 						<groupId>org.apache.tomcat.maven</groupId>
