@@ -18,6 +18,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;
@@ -125,7 +126,10 @@ public class AuthServerApplication extends SpringBootServletInitializer {
 							// new SimpleGrantedAuthority("USER"), new
 							// SimpleGrantedAuthority("ROLE_USER")));
 						}
-						return null;
+						setHideUserNotFoundExceptions(true);
+						throw new BadCredentialsException("User not found or invalid credentials");
+						
+						//return null;
 					}
 
 					@Override
