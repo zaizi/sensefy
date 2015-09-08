@@ -102,6 +102,7 @@
 	</dependencies>
 
 	<profiles>
+
 		<profile>
 			<id>run</id>
 			<build>
@@ -419,6 +420,10 @@
 						</executions>
 					</plugin>
 
+
+
+
+					<!-- Copy Solr resources -->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-resources-plugin</artifactId>
@@ -450,54 +455,6 @@
 									<overwrite>true</overwrite>
 								</configuration>
 							</execution>
-						</executions>
-					</plugin>
-
-
-
-					<!-- SolrConfig.xml path replacer Starts -->
-					<plugin>
-						<groupId>com.google.code.maven-replacer-plugin</groupId>
-						<artifactId>replacer</artifactId>
-						<version>1.5.3</version>
-						<executions>
-							<execution>
-								<phase>prepare-package</phase>
-								<goals>
-									<goal>replace</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<file>${sensefy.solr.home}/primaryIndex/conf/solrconfig.xml</file>
-							<replacements>
-								<replacement>
-									<token>../../../contrib/clustering/lib/</token>
-									<value>${sensefy.solr.lib.dir}/</value>
-								</replacement>
-								<replacement>
-									<token>../../../contrib/langid/lib</token>
-									<value>${sensefy.solr.lib.dir}</value>
-								</replacement>
-								<replacement>
-									<token>../../../dist/</token>
-									<value>${sensefy.solr.lib.dir}/</value>
-								</replacement>
-								<replacement>
-									<token>../../../contrib/extraction/lib</token>
-									<value>${sensefy.solr.lib.dir}</value>
-								</replacement>
-							</replacements>
-						</configuration>
-					</plugin>
-
-					<!-- Copy Solr resources -->
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-resources-plugin</artifactId>
-						<version>2.7</version>
-						<executions>
-
 							<execution>
 								<id>copy-tomcat-resources</id>
 								<!-- here the phase you need -->
@@ -608,6 +565,7 @@
 					</plugin>
 
 
+
 					<plugin>
 						<groupId>com.coderplus.maven.plugins</groupId>
 						<artifactId>copy-rename-maven-plugin</artifactId>
@@ -630,6 +588,31 @@
 
 					<!-- SolrConfig.xml path replacer Ends -->
 
+
+
+
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.3</version>
+						<configuration>
+							<source />
+							<target />
+						</configuration>
+					</plugin>
+
+
+					<!-- SolrConfig.xml path replacer Starts -->
+					<!-- <plugin> <groupId>com.google.code.maven-replacer-plugin</groupId> 
+						<artifactId>replacer</artifactId> <version>1.5.3</version> <executions> <execution> 
+						<phase>prepare-package</phase> <goals> <goal>replace</goal> </goals> </execution> 
+						</executions> <configuration> <file>${sensefy.solr.home}/primaryIndex/conf/solrconfig.xml</file> 
+						<replacements> <replacement> <token>../../../contrib/clustering/lib/</token> 
+						<value>${sensefy.solr.lib.dir}/</value> </replacement> <replacement> <token>../../../contrib/langid/lib</token> 
+						<value>${sensefy.solr.lib.dir}</value> </replacement> <replacement> <token>../../../dist/</token> 
+						<value>${sensefy.solr.lib.dir}/</value> </replacement> <replacement> <token>../../../contrib/extraction/lib</token> 
+						<value>${sensefy.solr.lib.dir}</value> </replacement> </replacements> </configuration> 
+						</plugin> -->
+				
 					<!-- Tomcat deployment -->
 					<plugin>
 						<groupId>org.apache.tomcat.maven</groupId>
@@ -660,18 +643,6 @@
 							</execution>
 						</executions>
 					</plugin>
-
-
-					<plugin>
-						<artifactId>maven-compiler-plugin</artifactId>
-						<version>3.3</version>
-						<configuration>
-							<source />
-							<target />
-						</configuration>
-					</plugin>
-
-
 
 
 				</plugins>
