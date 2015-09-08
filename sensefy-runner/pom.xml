@@ -455,6 +455,42 @@
 
 
 
+					<!-- SolrConfig.xml path replacer Starts -->
+					<plugin>
+						<groupId>com.google.code.maven-replacer-plugin</groupId>
+						<artifactId>replacer</artifactId>
+						<version>1.5.3</version>
+						<executions>
+							<execution>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>replace</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<file>${sensefy.solr.home}/primaryIndex/conf/solrconfig.xml</file>
+							<replacements>
+								<replacement>
+									<token>../../../contrib/clustering/lib/</token>
+									<value>${sensefy.solr.lib.dir}/</value>
+								</replacement>
+								<replacement>
+									<token>../../../contrib/langid/lib</token>
+									<value>${sensefy.solr.lib.dir}</value>
+								</replacement>
+								<replacement>
+									<token>../../../dist/</token>
+									<value>${sensefy.solr.lib.dir}/</value>
+								</replacement>
+								<replacement>
+									<token>../../../contrib/extraction/lib</token>
+									<value>${sensefy.solr.lib.dir}</value>
+								</replacement>
+							</replacements>
+						</configuration>
+					</plugin>
+
 					<!-- Copy Solr resources -->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
@@ -625,41 +661,7 @@
 						</executions>
 					</plugin>
 
-					<!-- SolrConfig.xml path replacer Starts -->
-					<plugin>
-						<groupId>com.google.code.maven-replacer-plugin</groupId>
-						<artifactId>replacer</artifactId>
-						<version>1.5.3</version>
-						<executions>
-							<execution>
-								<phase>prepare-package</phase>
-								<goals>
-									<goal>replace</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<file>${sensefy.solr.home}/primaryIndex/conf/solrconfig.xml</file>
-							<replacements>
-								<replacement>
-									<token>../../../contrib/clustering/lib/</token>
-									<value>${sensefy.solr.lib.dir}/</value>
-								</replacement>
-								<replacement>
-									<token>../../../contrib/langid/lib</token>
-									<value>${sensefy.solr.lib.dir}</value>
-								</replacement>
-								<replacement>
-									<token>../../../dist/</token>
-									<value>${sensefy.solr.lib.dir}/</value>
-								</replacement>
-								<replacement>
-									<token>../../../contrib/extraction/lib</token>
-									<value>${sensefy.solr.lib.dir}</value>
-								</replacement>
-							</replacements>
-						</configuration>
-					</plugin>
+
 					<plugin>
 						<artifactId>maven-compiler-plugin</artifactId>
 						<version>3.3</version>
