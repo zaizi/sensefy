@@ -18,7 +18,7 @@
 	<lib dir="../../../contrib/clustering/lib/" regex=".*\.jar" />
 	<lib dir="../../../dist/" regex="solr-clustering-\d.*\.jar" />
 	<lib dir="../../../contrib/clustering/lib/" regex="carrot2-mini-\d.*\.jar" />
-	<lib dir="../../../contrib/extraction/lib" />
+	<lib dir="../../../contrib/extraction/lib" regex=".*\.jar" />
 
 	<!-- <lib dir="../../../sensefy-instance/solr/lib/" regex=".*\.jar" /> <lib 
 		dir="../../../sensefy-instance/solr/lib/" regex="solr-cell-\d.*\.jar" /> 

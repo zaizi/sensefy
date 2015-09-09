@@ -563,6 +563,42 @@
 							</execution>
 						</executions>
 					</plugin>
+					<plugin>
+						<groupId>com.google.code.maven-replacer-plugin</groupId>
+						<artifactId>replacer</artifactId>
+						<version>1.5.3</version>
+						<executions>
+							<execution>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>replace</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+
+							<detail>true</detail>
+							<file>${sensefy.solr.home}/primaryIndex/conf/solrconfig.xml</file>
+							<replacements>
+								<replacement>
+									<token>../../../contrib/clustering/lib/</token>
+									<value>${sensefy.solr.lib.dir}/</value>
+								</replacement>
+								<replacement>
+									<token>../../../contrib/langid/lib</token>
+									<value>${sensefy.solr.lib.dir}</value>
+								</replacement>
+								<replacement>
+									<token>../../../dist/</token>
+									<value>${sensefy.solr.lib.dir}/</value>
+								</replacement>
+								<replacement>
+									<token>../../../contrib/extraction/lib</token>
+									<value>${sensefy.solr.lib.dir}</value>
+								</replacement>
+							</replacements>
+						</configuration>
+					</plugin>
 
 
 
@@ -612,7 +648,7 @@
 						<value>${sensefy.solr.lib.dir}/</value> </replacement> <replacement> <token>../../../contrib/extraction/lib</token> 
 						<value>${sensefy.solr.lib.dir}</value> </replacement> </replacements> </configuration> 
 						</plugin> -->
-				
+
 					<!-- Tomcat deployment -->
 					<plugin>
 						<groupId>org.apache.tomcat.maven</groupId>
