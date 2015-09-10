@@ -38,6 +38,7 @@
 		<sensefy.solr.default.conf>${sensefy.config.home}/solr-default-conf</sensefy.solr.default.conf>
 		<sensefy.tomcat.conf>config/tomcat-conf</sensefy.tomcat.conf>
 		<sensefy.ui.server.conf>${sensefy.config.home}/sensefy-ui-conf/</sensefy.ui.server.conf>
+		<sensefy.version>2.0.1-SNAPSHOT</sensefy.version>
 		<sensefy.api.server.conf>${sensefy.config.home}/sensefy-api/</sensefy.api.server.conf>
 
 
@@ -64,7 +65,7 @@
 		<dependency>
 			<groupId>com.zaizi</groupId>
 			<artifactId>sensefy.api</artifactId>
-			<version>2.0.1-SNAPSHOT</version>
+			<version>${sensefy.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
@@ -80,7 +81,7 @@
 		<dependency>
 			<groupId>com.zaizi</groupId>
 			<artifactId>sensefy.authserver</artifactId>
-			<version>2.0.1-SNAPSHOT</version>
+			<version>${sensefy.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
@@ -91,7 +92,7 @@
 		<dependency>
 			<groupId>com.zaizi</groupId>
 			<artifactId>sensefy.ui</artifactId>
-			<version>2.0.1-SNAPSHOT</version>
+			<version>${sensefy.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
@@ -387,21 +388,21 @@
 
 											<groupId>com.zaizi</groupId>
 											<artifactId>sensefy.api</artifactId>
-											<version>2.0.1-SNAPSHOT</version>
+											<version>${sensefy.version}</version>
 											<type>war</type>
 											<outputDirectory>${project.build.directory}/tomcat/webapps/api</outputDirectory>
 										</artifactItem>
 										<artifactItem>
 											<groupId>com.zaizi</groupId>
 											<artifactId>sensefy.authserver</artifactId>
-											<version>2.0.1-SNAPSHOT</version>
+											<version>${sensefy.version}</version>
 											<type>war</type>
 											<outputDirectory>${project.build.directory}/tomcat/webapps/auth</outputDirectory>
 										</artifactItem>
 										<artifactItem>
 											<groupId>com.zaizi</groupId>
 											<artifactId>sensefy.ui</artifactId>
-											<version>2.0.1-SNAPSHOT</version>
+											<version>${sensefy.version}</version>
 											<excludes>
 											</excludes>
 											<type>war</type>
@@ -655,7 +656,8 @@
 						<artifactId>tomcat7-maven-plugin</artifactId>
 						<version>2.3-SNAPSHOT</version>
 						<configuration>
-
+							<enableNaming>false</enableNaming>
+							<finalName>sensefy-${version}.jar</finalName>
 							<port>${tomcat.port}</port>
 							<path>/</path>
 							<ignorePackaging>true</ignorePackaging>
@@ -674,6 +676,7 @@
 							<execution>
 								<goals>
 									<goal>run</goal>
+									<goal>exec-war</goal>
 								</goals>
 								<phase>install</phase>
 							</execution>
@@ -685,6 +688,92 @@
 			</build>
 		</profile>
 
+		<profile>
+			<id>build-jar</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.tomcat.maven</groupId>
+						<artifactId>tomcat7-maven-plugin</artifactId>
+						<version>2.3-SNAPSHOT</version>
+						<executions>
+							<execution>
+								<id>tomcat-run</id>
+								<goals>
+									<goal>exec-war-only</goal>
+								</goals>
+								<phase>package</phase>
+								<configuration>
+							
+									<warRunDependencies>
+										<warRunDependency>
+											<contextPath>/auth</contextPath>
+											<contextXml></contextXml>
+											
+											<dependency>
+												<groupId>com.zaizi</groupId>
+												<artifactId>sensefy.authserver</artifactId>
+												<version>${sensefy.version}</version>
+												<type>war</type>
+												
+											</dependency>
+
+										</warRunDependency>
+										<warRunDependency>
+											<contextPath>/</contextPath>
+											<contextXml></contextXml>
+											
+											<dependency>
+												<groupId>com.zaizi</groupId>
+												<artifactId>sensefy.ui</artifactId>
+												<version>${sensefy.version}</version>
+												<type>war</type>
+												
+											</dependency>
+
+										</warRunDependency>
+										<warRunDependency>
+										
+										
+											<contextPath>/api</contextPath>
+											<contextXml></contextXml>
+											
+											<dependency>
+												<groupId>com.zaizi</groupId>
+												<artifactId>sensefy.api</artifactId>
+												<version>${sensefy.version}</version>
+												<type>war</type>
+												
+											</dependency>
+
+										</warRunDependency>
+									</warRunDependencies>
+									<!-- <path>/</path>--> 
+									<enableNaming>true</enableNaming> 
+									<finalName>sensefy-${version}.jar</finalName>
+									
+									<httpPort>${tomcat.port}</httpPort>
+									<charset>utf-8</charset><!-- 
+									<serverXml>${sensefy.tomcat.conf}/server.xml</serverXml> -->
+									<!-- <systemProperties>
+										<solr.solr.home>${sensefy.solr.home}</solr.solr.home>
+										<sensefy.conf.dir>${sensefy.conf.dir}</sensefy.conf.dir>
+										<spring.config.location>${spring.config.location}</spring.config.location>
+										<org.apache.manifoldcf.configfile>${sensefy.basepath}/manifold/example/properties.xml</org.apache.manifoldcf.configfile>
+									</systemProperties> -->
+									<additionalClasspathDirs>
+										<additionalClasspathDir>${spring.config.location}</additionalClasspathDir>
+									</additionalClasspathDirs>
+									
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+
+		</profile>
 
 	</profiles>
 

@@ -8,3 +8,5 @@ derby.log
 logs/manifoldcf.log
 manifoldcf.log.1
 write.lock
+.extract
+.factorypath

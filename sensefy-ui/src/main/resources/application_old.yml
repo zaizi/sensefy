@@ -8,29 +8,29 @@ zuul:
   routes:
     resource:
       path: /service/api/**
-      url: http://localhost:9099/api
+      url: http://localhost:9000
     user:
       path: /user/**
-      url: http://localhost:9099/auth/user
+      url: http://localhost:8090/ua/user
     oauth:
       path: /auth/**
-      url: http://localhost:9099/auth
+      url: http://localhost:8090/ua
     logout:
       path: /logout
-      url: http://localhost:9099/auth/logout
+      url: http://localhost:8090/ua/logout
 spring:
 #  profiles: default
   oauth2:
     sso:
-      logout-uri: http://localhost:9099/auth/logout
+      logout-uri: http://localhost:8090/ua/logout
       logout-redirect: true
       loginPath: /login
       home:
         secure: true
 #        path: /**/*.html,/**/*.js,/**/*.css,/**/*.jpg,/**/*.png,/**/*.ico
     client:
-      accessTokenUri: http://localhost:9099/auth/oauth/token
-      userAuthorizationUri: http://localhost:9099/auth/oauth/authorize
+      accessTokenUri: http://localhost:8090/ua/oauth/token
+      userAuthorizationUri: http://localhost:8090/ua/oauth/authorize
       clientId: sensefy
       clientSecret: sensefysecret
 #      scope: openid
@@ -39,10 +39,8 @@ spring:
 #      pre-established-redirect-uri: http://localhost:8080
 #      use-current-uri: true
     resource:
-      userInfoUri: http://localhost:9099/auth/user
+      userInfoUri: http://localhost:8090/ua/user
       preferTokenInfo: false
-  jmx:
-    enabled: false
 #spring:
 #  oauth2:
 #    sso:
@@ -59,10 +57,12 @@ spring:
 #    resource:
 #      userInfoUri: http://localhost:8090/ua/user
 #      preferTokenInfo: false      
-endpoints:
-  jmx:
-    unique-names: true
+      
+      
 logging:
   level:
     org.springframework.security: DEBUG
     org.springframework.web: DEBUG
+    
+    
+    
