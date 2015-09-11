@@ -22,7 +22,7 @@ spring:
 #  profiles: default
   oauth2:
     sso:
-      logout-uri: http://localhost:9099/auth/logout
+      logout-uri: http://localhost:8090/ua/logout
       logout-redirect: true
       loginPath: /login
       home:

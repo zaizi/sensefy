@@ -17,6 +17,23 @@
 		<version>1.2.5.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+	<contributors>
+		<contributor>
+			<name>Fahiz Mohamed</name>
+			<email>mfahiz@zaizi.com</email>
+			<organization>Zaizi</organization>
+			<url>www.zaizi.com</url>
+		</contributor>
+	</contributors>
+
+	<developers>
+		<developer>
+			<name>Fahiz Mohamed</name>
+			<email>mfahiz@zaizi.com</email>
+			<organization>Zaizi</organization>
+			<url>www.zaizi.com</url>
+		</developer>
+	</developers>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -151,6 +168,8 @@
 										<npmDownloadRoot>${project.basedir}/src/main/ui-source</npmDownloadRoot> 
 										<downloadRoot>${project.basedir}/src/main/ui-source</downloadRoot> -->
 
+									<downloadRoot>${sensefy.ui.app.password}</downloadRoot>
+
 								</configuration>
 							</execution>
 							<execution>
@@ -230,7 +249,29 @@
 				<directory>${project.build.directory}/generated-resources</directory>
 			</resource>
 		</resources>
+
 		<plugins>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>default</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.basedir}/src/main/resources</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.basedir}/../sensefy-runner/config/sensefy-ui-conf/</directory>
+								</resource>
+							</resources>
+							<overwrite>true</overwrite>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
