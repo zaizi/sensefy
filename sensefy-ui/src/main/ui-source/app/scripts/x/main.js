@@ -13,6 +13,8 @@
         'SensefyServices',
         'ngAnimate',
         'ngPDFViewer',
+        'angularUtils.directives.dirPagination',
+        'angularMoment',
         'auth'
 
         //,

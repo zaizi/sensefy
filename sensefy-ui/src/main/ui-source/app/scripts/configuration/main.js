@@ -8,16 +8,22 @@
     window.translate = null;
 
     angular.module('SensefyConfiguration', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'pascalprecht.translate'])
-        .constant('SensefyAPIUrl', 'http://localhost:8080/service/api/')
+        .constant('SensefyAPIUrl', 'http://localhost:9099/service/api/')
         .constant('SensefyTokenCreatePath', 'token/create')
         .constant('SensefySemanticSearchKeywordBased', 'keywordSearch')
         .constant('SensefyEntityDrivenSearch', 'entityDrivenSearch')
         .constant('SensefyGetEntitiesByDoc', 'showEntitiesByDocId')
         .constant('SensefyPreviewDoc', 'docs/preview')
+        .constant('DEBUGmode', true)   //  Sensefy debuger mode is enabled with Boolean:true;
         .constant('SensefySmartAutocompletePhase1', 'autocomplete/1')
         .constant('SensefySmartAutocompletePhase2', 'autocomplete/2')
         .constant('SensefySmartAutocompletePhase3', 'autocomplete/3')
         .constant('SensefyDocsPreview', 'docs/preview')
+        .constant('SensefyMlt', 'docs/mlt')
+        .constant('SensefyFacetsPerGroup', 2)
+        .constant('SensefyUNIXdate', 1000)
+        .constant('SensefySearchLogin', 'http://localhost:9099/auth/logout')
+        .constant('SensefySearchIsSemantic', true)
         .constant('SensefySortOptions', [
             {
                 'id': 1,
@@ -56,13 +62,18 @@
                 'defaultSort': 'ASC'
             }
         ])
-        .constant('SensefyMlt', 'docs/mlt')
-        .constant('SensefyFacetsPerGroup', 2)
         .constant('SensefyTranslations', {
             'en-us': {
                 'language': 'Language',
                 'english': 'English',
                 'spanish': 'Spanish',
+                'settings': 'Settings',
+                'savesearch': 'Save Search',
+                'savealerts': 'Save Alerts',
+                'sharesearch': 'Share Search',
+                'sortby': 'Sort by',
+                'relevance': 'Relevance',
+                'filterby': 'Filter by',
                 'All': 'All',
                 'txtUsername': 'Username',
                 'txtPassword': 'Password',
@@ -78,13 +89,13 @@
                 'errorAPINotAvailable': 'Sensefy API is not available at this moment',
                 'txtEnterTextToSearch': 'Please enter text to search',
                 'txtEntities': 'Entities',
-                'txtEntityTypes': 'EntityTypes',
+                'txtEntityTypes': 'Entity Types',
                 'txtDocumentTitles': 'Document titles',
                 'txtDocumentSuggestions': 'Suggestions',
                 'txtNoSuggestions': 'No suggestions',
                 'txtDocumentsFound': 'Showing results {{docStart}}-{{docStart+docPerPage}} of {{documents}}.',//Showing results 1-10 of 1404.
                 'txtDocumentsCountFound': 'documents found',
-                'txtNoDocumentsFound': 'No documents found.',
+                'txtNoDocumentsFound': 'No document found.',
                 'txtDidYouMean': 'Did you mean:',
                 'txtSortByTitle': 'Sort by Title',
                 'txtSimilarityOfDocuments': 'Similarity of Documents',
@@ -113,7 +124,6 @@
                 'Title': 'Title',
                 'Created': 'Created',
                 'Modified': 'Modified',
-                'Creator': 'Creator',
                 'Modifier': 'Modifier',
                 'txtBackBtn': 'Back',
                 'txtLanguages': 'Sensefy offered in ',
@@ -517,6 +527,14 @@
                 'language': 'Idioma',
                 'english': 'Inglés',
                 'spanish': 'Español',
+                'settings': '-Settings-',
+                'resultsperpage': '-Results per page-',
+                'savesearch': '-Save Search-',
+                'savealerts': '-Save Alerts-',
+                'sharesearch': '-Share Search-',
+                'sortby': '-Sort by-',
+                'relevance': '-Relevance-',
+                'filterby': '-Filter by-',
                 'All': 'Todos',
                 'txtUsername': 'Nombre de usuario',
                 'txtPassword': 'Contraseña',
@@ -567,7 +585,6 @@
                 'Title': 'Título',
                 'Created': 'Creado',
                 'Modified': 'Modificado',
-                'Creator': 'Creador',
                 'Modifier': 'Modificador',
                 'txtBackBtn': 'Atrás',
                 'txtLanguages': 'Sensefy disponible en ',
@@ -968,39 +985,48 @@
                 'Unknown': 'Desconocido'
             }
         }).config([
-            '$routeProvider', '$httpProvider', '$translateProvider', 'SensefyTranslations', '$sceProvider', '$locationProvider',
-            function ($routeProvider, $httpProvider, $translateProvider, SensefyTranslations, $sceProvider, $locationProvider) {
+            '$routeProvider', '$httpProvider', '$translateProvider', 'SensefyTranslations', '$sceProvider', '$locationProvider', 'SensefySearchLogin',
+            function ($routeProvider, $httpProvider, $translateProvider, SensefyTranslations, $sceProvider, $locationProvider, SensefySearchLogin) {
                 var data, lang;
                 $locationProvider.html5Mode(true);
                 $sceProvider.enabled(false);
+
                 for (lang in SensefyTranslations) {
                     data = SensefyTranslations[lang];
                     $translateProvider.translations(lang, data);
                 }
                 $translateProvider.preferredLanguage('en-us');
-                $routeProvider.when('/', {
+
+                $routeProvider.when('/login', {
                     templateUrl: 'views/login/login.html',
                     controller: 'LoginController'
-                }).when('/search', {
+                }).when('/', {
                     templateUrl: 'views/search.html',
                     controller: 'SearchController',
                     reloadOnSearch: false,
                     resolve: {
                         dataSources: function ($q, $rootScope, SemanticSearchService, $location) {
                             var deferrer;
-                            deferrer = $q.defer();
-                            //if ($rootScope.user !== void 0) {
-                            SemanticSearchService.search('*:*', 0, 0, "*", [], true).then(function (response) {
-                                console.log(response)
-                                return deferrer.resolve(response);
-                            }, function (response) {
-                                deferrer.reject;
-                                return $location.path("/");
-                            });
-                            //}
-                            return deferrer.promise;
+                            //if ($rootScope.user !== null || $rootScope.user !== undefined) {
+                            if ($rootScope.user !== null) {
+                                deferrer = $q.defer();
+                                SemanticSearchService.search('*:*', 0, 0, "*", [], true).then(function (response) {
+                                    return deferrer.resolve(response);
+                                }, function (response) {
+                                    deferrer.reject;
+                                    document.location.href = SensefySearchLogin;
+                                });
+
+                                return deferrer.promise;
+                            }
+                            else{
+                                document.location.href = SensefySearchLogin;
+                            }
                         }
                     }
+                }).when('/browser', {
+                    templateUrl: 'views/browser.html',
+                    controller: 'RepoBrowserController'
                 }).when('/mlt/:docId', {
                     templateUrl: 'views/mlt.html',
                     controller: 'MltController',

@@ -117,8 +117,7 @@ module.exports = function (grunt) {
                 ignore_warning: {
                     options: {
                         '-W030': true
-                    },
-                    src: ['<%= yeoman.app %>/assets/scripts/search/search.js']
+                    }
                 }
             },
             // Make sure code styles are up to par and there are no obvious
@@ -302,14 +301,8 @@ module.exports = function (grunt) {
             // Removing logs (console logs) from production
             removelogging: {
                 dist: {
-                    src: "<%= yeoman.dist %>'/scripts/main.min.js" // Each
-                                                                   // file
-                                                                   // will
-                                                                   // be
-                                                                   // overwritten
-                                                                   // with
-                                                                   // the
-                                                                   // output!
+                    src: "<%= yeoman.dist %>'/scripts/main.min.js"
+                    // Each file will be overwritten with the output!
                 }
             },
             // Copies remaining files to places other tasks can use
@@ -350,18 +343,18 @@ module.exports = function (grunt) {
                     dest: '<%= yeoman.app %>/assets/scripts',
                     src: '{,*/}*.js'
                 },
+                javascripts: {
+                    expand: true,
+                    cwd: '.tmp/concat/scripts',
+                    dest: '<%= yeoman.dist %>/scripts',
+                    src: '*.js'
+                },
                 concatjs: {
                     expand: true,
                     cwd: '<%= yeoman.app %>/scripts',
                     src: '**/*.js',
                     dest: '.tmp/scripts',
                     ext: '.js'
-                },
-                javascripts: {
-                    expand: true,
-                    cwd: '.tmp/concat/scripts',
-                    dest: '<%= yeoman.dist %>/scripts',
-                    src: '*.js'
                 },
                 fonts: {
                     expand: true,
@@ -393,11 +386,11 @@ module.exports = function (grunt) {
                 dist: {
                     options: {
                         mangle: false,
-                        beautify: true
+                        beautify: false
                     },
                     files: {
-                        '<%= yeoman.dist %>/scripts/vendors.min.js': ['.tmp/concat/scripts/vendor.js'],
-                        '<%= yeoman.dist %>/scripts/main.min.js': ['.tmp/concat/scripts/scripts.js']
+                        '<%= yeoman.dist %>/scripts/vendors.js': ['.tmp/concat/scripts/vendor.js'],
+                        '<%= yeoman.dist %>/scripts/main.js': ['.tmp/concat/scripts/scripts.js']
                     }
                 }
             },
@@ -405,7 +398,8 @@ module.exports = function (grunt) {
                 dist: {}
             }
         });
-    grunt.registerTask('serve', function (target) {
+    grunt.registerTask('serve',
+        function (target) {
         if (target === 'dist') {
             return grunt.task.run(['build', 'connect:dist:keepalive']);
         }
@@ -416,9 +410,7 @@ module.exports = function (grunt) {
         // 'yellow', 'rainbow']
         grunt.log.warn('Server up and running...'['blue'].bold);
     });
-    grunt
-        .registerTask(
-        'server',
+    grunt.registerTask('server',
         function (target) {
             grunt.log
                 .warn('The `server` task has been deprecated. Use `grunt serve` to start a server.'['yellow'].bold);
@@ -427,18 +419,21 @@ module.exports = function (grunt) {
     grunt.registerTask('test', ['clean:server', 'concurrent:test',
         'autoprefixer', 'connect:test', 'karma']);
     grunt.registerTask('build', ['clean:dist', 'bowerInstall',
-        'useminPrepare', 'concurrent:dist', 'autoprefixer', 'concat',
+        'useminPrepare',
+        'concurrent:dist',
+        'autoprefixer',
+        'concat',
         'ngmin',
         'copy:dist',
         'cdnify',
         'cssmin',
-        //'uglify',
         'csslint:lax',
-            //'jshint',
+        'jshint',
         // 'copy:javascripts',
         // 'rev',
         'usemin',
-            //'htmlmin'
+        //'uglify',
+        'htmlmin'
     ]);
     grunt.registerTask('default', ['newer:jshint', 'test', 'build']);
 };

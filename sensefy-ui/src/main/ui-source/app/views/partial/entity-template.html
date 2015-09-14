@@ -1,5 +1,44 @@
-<div ng-click="entitySelected(entity)">
-	<img class="image" ng-src="{{entity.thumbnail[0] || 'img/missing.jpg'}}"/>
-	<span class="text" ng-bind-html="entity.label | highlight:queryTerm"></span>
-	<span class="type">{{entity.notable_type[0] || ""}}</span>
+<div class="et-table et-wrapper">
+    <div class="et-row" ng-if="entity.is_place==true">
+        <div class="et-cell et-label-wrap">
+            <span class="et-label">Places - Entity Template</span>
+        </div>
+        <div class="et-cell et-value-wrap">
+            <div class="et-value">
+                <div ng-click="entitySelected(entity)">
+                    <img class="image" ng-src="{{entity.thumbnail[0] || 'images/missing.jpg'}}"/>
+                    <span class="text" ng-bind-html="entity.label | highlight:queryTerm"></span>
+                    <span class="type">{{entity.notable_type[0] || ""}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="et-row" ng-if="entity.is_person==true">
+        <div class="et-cell et-label-wrap">
+            <span class="et-label">Peoples</span>
+        </div>
+        <div class="et-cell et-value-wrap">
+            <div class="et-value">
+                <div ng-click="entitySelected(entity)">
+                    <img class="image" ng-src="{{entity.thumbnail[0] || 'images/missing.jpg'}}"/>
+                    <span class="text" ng-bind-html="entity.label | highlight:queryTerm"></span>
+                    <span class="type">{{entity.notable_type[0] || ""}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="et-row" ng-if="entity.is_organization==true">
+        <div class="et-cell et-label-wrap">
+            <span class="et-label">Organisations</span>
+        </div>
+        <div class="et-cell et-value-wrap">
+            <div class="et-value">
+                <div ng-click="entitySelected(entity)">
+                    <img class="image" ng-src="{{entity.thumbnail[0] || 'images/missing.jpg'}}"/>
+                    <span class="text" ng-bind-html="entity.label | highlight:queryTerm"></span>
+                    <span class="type">{{entity.notable_type[0] || ""}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

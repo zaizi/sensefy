@@ -29,7 +29,7 @@
     <!-- endbuild -->
     <base href="/">
 </head>
-<body ng-app="SensefySemanticSearch" ng-cloak class="ng-cloak" id="sensefy">
+<body ng-app="SensefySemanticSearch" ng-cloak class="ng-cloak" id="sensefy" ng-controller="RootController">
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -97,6 +97,9 @@
 <script src="../bower_components/pdfjs-dist/build/pdf.js"></script>
 <script src="../bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
 <script src="../bower_components/angular-utils-pagination/dirPagination.js"></script>
+<script src="../bower_components/moment/moment.js"></script>
+<script src="../bower_components/angular-moment/angular-moment.js"></script>
+<script src="../bower_components/d3/d3.js"></script>
 <!-- endbower -->
 <script src="assets/scripts/detect.js" type="text/javascript"></script>
 <!-- endbuild -->
@@ -119,6 +122,7 @@
 <script src="assets/scripts/directives/main.js"></script>
 <script src="assets/scripts/filters/main.js"></script>
 <script src="assets/scripts/x/main.js"></script>
+<script src="assets/scripts/x/interactions.js"></script>
 <!-- endbuild -->
 </body>
 </html>

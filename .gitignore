@@ -31,3 +31,5 @@ sensefy-ui/src/main/ui-source/app/assets/scripts/filters/main.js
 sensefy-ui/src/main/ui-source/app/assets/scripts/services/main.js
 sensefy-ui/src/main/ui-source/app/assets/scripts/x/interactions.js
 sensefy-ui/src/main/ui-source/app/assets/scripts/x/main.js
+sensefy-ui/src/main/ui-source/.idea/*
+sensefy-ui/src/main/ui-source/app/assets/*

@@ -22,10 +22,20 @@
                 return localStorageServiceProvider.setPrefix('sensefy');
             }
         ]).controller('RootController', [
-            '$injector', '$scope', '$location', '$window', '$rootScope', '$translate', 'tmhDynamicLocale', 'localStorageService', function ($injector, $scope, $location, $window, $rootScope, $translate, tmhDynamicLocale, localStorageService) {
+            '$http', '$injector', '$scope', '$location', '$window', '$rootScope', '$translate', 'tmhDynamicLocale', 'localStorageService', 'auth', 'SensefySearchLogin', 'DEBUGmode',
+            function ($http, $injector, $scope, $location, $window, $rootScope, $translate, tmhDynamicLocale, localStorageService, auth, SensefySearchLogin, DEBUGmode) {
+
+                if(!auth.authenticated){
+                    auth.clear;
+                    document.location.href = SensefySearchLogin;
+                }
+
                 $scope.errors = {};
                 tmhDynamicLocale.set('en-us');
-                $scope.$on('userLogged', function (event, data) {
+
+                $scope.user = null;
+
+                /*$scope.$on('userLogged', function (event, data) {
                     $rootScope.credentials = {
                         username: data.user,
                         token: data.token
@@ -33,26 +43,38 @@
                     controllersModule.value("token", data.token);
                     $location.path("/search");
                     return $location.search($location.search());
+                });*/
+                $http.get('/user/').success(function(data) {
+                    if(DEBUGmode) {
+                        console.log('rootcontroller and user GET request fired')
+                    }
+                    $scope.user = data.name;
                 });
+
                 $scope.changeLanguage = function (lang) {
-                    if (lang == null) {
+                    if (lang === null) {
                         lang = 'en-us';
                     }
                     tmhDynamicLocale.set(lang);
                     return $translate.use(lang);
                 };
-                if (localStorageService.get('token') !== null && localStorageService.get('user') !== null) {
+                /*if (localStorageService.get('token') !== null && localStorageService.get('user') !== null) {
                     return $scope.$emit('userLogged', {
                         user: localStorageService.get('user'),
                         token: localStorageService.get('token')
                     });
-                }
+                }*/
             }
         ]).controller('LoginController', [
-            '$scope', 'LoginService', 'localStorageService', 'auth', function ($scope, LoginService, localStorageService, auth) {
-                $scope.credentials = {};
+            '$scope', 'LoginService', 'localStorageService', 'auth', 'SensefySearchLogin', 'DEBUGmode',
+            function ($scope, LoginService, localStorageService, auth, SensefySearchLogin, DEBUGmode) {
 
-                $scope.nickName = $scope.credentials.username
+                if(!auth.authenticated){
+                    auth.clear;
+                    document.location.href = SensefySearchLogin;
+                }
+
+                $scope.credentials = {};
 
                 $scope.tab = function (route) {
                     return $route.current && route === $route.current.controller;
@@ -62,14 +84,16 @@
                     return auth.authenticated;
                 };
 
+                $scope.currentLanguage = ' : English';
+
                 $scope.login = function () {
-                    console.log(12312321)
+                    if(DEBUGmode) {
+                        console.log('user login ' + JSON.stringify($scope.credentials))
+                    }
                     auth.authenticate($scope.credentials, function (authenticated) {
                         if (authenticated) {
-                            console.log("Login succeeded - login page");
                             $scope.error = false;
                         } else {
-                            console.log("Login failed - login page");
                             $scope.error = true;
                         }
                     });
@@ -145,38 +169,39 @@
                  */
             }
         ]).controller('SearchController', [
-            '$scope', '$http', '$location', 'dataSources', '$rootScope', 'SemanticSearchService', 'SensefyFacetsPerGroup', 'SensefySortOptions', 'PDFViewerService', 'SensefyAPIUrl', 'SensefyDocsPreview', 'localStorageService', 'ApiService', 'SensefyPreviewDoc', 'auth',
-            function ($scope, $http, $location, dataSources, $rootScope, SemanticSearchService, SensefyFacetsPerGroup, SensefySortOptions, pdf, SensefyAPIUrl, SensefyDocsPreview, localStorageService, ApiService, SensefyPreviewDoc, auth) {
+            '$scope', '$http', '$location', 'dataSources', '$rootScope', 'SemanticSearchService', 'SensefyFacetsPerGroup', 'SensefySortOptions', 'PDFViewerService', 'SensefyAPIUrl', 'SensefyDocsPreview', 'localStorageService', 'ApiService', 'SensefyPreviewDoc', 'auth', 'tmhDynamicLocale', '$translate', 'SensefySearchLogin', 'SensefyUNIXdate', 'DEBUGmode',
+            function ($scope, $http, $location, dataSources, $rootScope, SemanticSearchService, SensefyFacetsPerGroup, SensefySortOptions, pdf, SensefyAPIUrl, SensefyDocsPreview, localStorageService, ApiService, SensefyPreviewDoc, auth, tmhDynamicLocale, $translate, SensefySearchLogin, SensefyUNIXdate, DEBUGmode) {
                 var FILTER_LABEL_SEPARATOR, HTMLtagCleaner, addMissingFacets, allSource, cleanLocationSearchParameters, entityMap, escapeHtmlExceptB, fillLocationSearchParameters, getActiveSource, getDataSourceByValue, initDataSources, parseFacets, parseSimpleFacet, processHighlightInfo, removeCluster, removeFilter, resetSelectedValues;
                 FILTER_LABEL_SEPARATOR = "$$";
+
                 $scope.authenticated = function () {
-                    console.log('authenticated');
                     return auth.authenticated;
                 };
 
+                if(!auth.authenticated){
+                    auth.clear;
+                    document.location.href = SensefySearchLogin;
+                }
+
                 $scope.logout = function () {
                     auth.clear;
-                    console.log('logout fired');
-                    $location.path('/login');
+                    document.location.href = SensefySearchLogin;
                 };
 
                 if ($scope.authenticated) {
-                    $http.get('/resource/').success(function (data) {
-                        $scope.greeting = data;
-                    });
-                    var myVar;
+                    var addGGLclass;
 
-                    myVar = setTimeout(function () {
+                    addGGLclass = setTimeout(function () {
                         angular.element('body').addClass('ggl');
-                        console.log('Timeout id fired');
-                        clearTimeout(myVar);
+                        clearTimeout(addGGLclass);
                     }, 20);
 
                 }
                 else {
-                    $location.path('/login');
+                    document.location.href = SensefySearchLogin;
                 }
 
+                $scope.currentLanguage = ' : English';
 
                 angular.element('.ui.menu .dropdown')
                     .dropdown({
@@ -190,13 +215,42 @@
 
                 angular.element('.dropdown.input-select').dropdown({
                     onChange: function (value, text, $selectedItem) {
-                        $scope.setSorting(value);
-                        console.log('selected value from input-select ' + value);
+                        var sortOptions = value.split(",");
+                        $scope.setSorting(sortOptions[0].trim(), sortOptions[1].trim());
                     }
                 });
 
+                if(!dataSources){
+                    return false;
+                }
 
-                console.log('in side the search ctrl 000111222333444');
+                $http.get('/user/').success(function(data) {
+                    $scope.user = data.name;
+                    $scope.nickName = data.name;
+                });
+
+
+                $scope.changeLanguage = function (lang) {
+                    var langInfo = ' : English';
+                    if (lang === null) {
+                        lang = 'en-us';
+                    }
+                    switch(lang){
+                        case 'en-us':
+                            langInfo = ' : English';
+                            break;
+                        case 'es-es':
+                            langInfo = ' : Spanish';
+                            break;
+                        default:
+                            langInfo = ' : English';
+                    }
+                    $scope.currentLanguage = langInfo;
+                    tmhDynamicLocale.set(lang);
+                    return $translate.use(lang);
+                };
+
+
                 /*
                  $scope.logout = function (error) {
                  if (error == null) {
@@ -223,25 +277,65 @@
                     active: true
                 };
                 $scope.allOccurrence = 0;
-                initDataSources = function () {
-                    var facet, sources, _i, _len, _ref, allOccurrence, _lenK;
+                initDataSources = function (isForce) {
+                    if (isForce == null) {
+                        isForce = false;
+                    }
+                    var facet, sources, _i, _k, _len, _ref, allOccurrence, _lenK;
                     sources = [];
-                    _ref = dataSources.data.facets;
-                    console.log('_ref ' + _ref)
-                    $scope.sources = [];
-                    $scope.allOccurrence = 0;
-                    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-                        facet = _ref[_i];
-                        if (facet.label === 'Data Source') {
-                            sources = facet.facetItems;
-                            for (_k = 0, _lenK = sources.length; _k < _lenK; _k++) {
-                                $scope.allOccurrence += eval(sources[_k].occurrence);
+                    if(dataSources.data.facets && !isForce){
+                        if(DEBUGmode){
+                            console.log('dataSources.data.facets '+JSON.stringify(dataSources.data.facets))
+                        }
+                        _ref = dataSources.data.facets;
+                        $scope.sources = [];
+                        $scope.allOccurrence = 0;
+                        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                            facet = _ref[_i];
+                            if (facet.label === 'Data Source') {
+                                sources = facet.facetItems;
+                                for (_k = 0, _lenK = sources.length; _k < _lenK; _k++) {
+                                    $scope.allOccurrence += eval(sources[_k].occurrence);
+                                }
                             }
                         }
+                        allSource.occurrence = $scope.allOccurrence;
+                        sources.unshift(allSource);
+                        if(DEBUGmode){
+                            console.log('dataSources.data.facets -> sources '+JSON.stringify(sources))
+                        }
+                        return $scope.sources = sources;
                     }
-                    allSource.occurrence = $scope.allOccurrence;
-                    sources.unshift(allSource);
-                    return $scope.sources = sources;
+
+                    if($scope.responsedData && isForce){
+                        if(DEBUGmode){
+                            console.log('$scope.responsedData.facets '+JSON.stringify($scope.responsedData.facets))
+                        }
+                        $scope.sources = [];
+
+                        _ref = $scope.responsedData.facets;
+                        $scope.sources = [];
+                        $scope.allOccurrence = 0;
+                        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                            facet = _ref[_i];
+                            if (facet.label === 'Data Source') {
+                                sources = facet.facetItems;
+                                for (_k = 0, _lenK = sources.length; _k < _lenK; _k++) {
+                                    $scope.allOccurrence += eval(sources[_k].occurrence);
+                                }
+                            }
+                        }
+                        allSource.occurrence = $scope.allOccurrence;
+                        sources.unshift(allSource);
+
+                        if(DEBUGmode){
+                            console.log('$scope.responsedData.facets -> sources '+JSON.stringify(sources))
+                        }
+
+                        return $scope.sources = sources;
+                    }
+
+
                 };
                 getActiveSource = function (defaultSource) {
                     var active, s, _i, _len, _ref;
@@ -249,16 +343,18 @@
                         defaultSource = allSource;
                     }
                     _ref = $scope.sources;
-                    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-                        s = _ref[_i];
-                        if (s.active === true) {
-                            active = s;
+                    if(_ref) {
+                        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                            s = _ref[_i];
+                            if (s.active === true) {
+                                active = s;
+                            }
                         }
-                    }
-                    if (active) {
-                        return active;
-                    } else {
-                        return defaultSource;
+                        if (active) {
+                            return active;
+                        } else {
+                            return defaultSource;
+                        }
                     }
                 };
                 getDataSourceByValue = function (sources, value) {
@@ -412,16 +508,18 @@
                 $scope.selectedEntityTypeAttributeValue = null;
                 $scope.selectedTitle = null;
                 $scope.totalDocuments = -1;
-                $scope.documentsPerPage = 5;
+                $scope.documentsPerPage = 10;
+                $scope.documentsOffsetStart = 1;
                 $scope.currentPage = 1;
                 $scope.collatedQuery = null;
                 $scope.sorting = null;
                 $scope.titleSorting = "";
-                $scope.maxSize = 5;
+                $scope.maxSize = 7;
                 $scope.searching = false;
                 $scope.sortings = SensefySortOptions;
                 $scope.selectSortings = $scope.sortings[0];
                 $scope.isFacetSelect = [];
+                $scope.responsedData = [];
 
 
                 angular.element('.ui.dropdown.pe-itemsPerPage').dropdown({
@@ -448,13 +546,15 @@
                     var activeSource;
                     $scope.filters = [];
                     activeSource = getActiveSource();
-                    if (activeSource.filter !== '') {
-                        $scope.filters.push(activeSource.filter);
+                    if(activeSource){
+                        if (activeSource.filter !== '') {
+                            $scope.filters.push(activeSource.filter);
+                        }
+                        angular.forEach($scope.filtersToShow, function (filter, index) {
+                            return $scope.isFacetSelect[filter.value] = false;
+                        });
+                        return $scope.filtersToShow = [];
                     }
-                    angular.forEach($scope.filtersToShow, function (filter, index) {
-                        return $scope.isFacetSelect[filter.value] = false;
-                    });
-                    return $scope.filtersToShow = [];
                 };
                 $scope.setActiveSource = function (source, runQuery) {
                     var activeSource, pos, s, _i, _len, _ref;
@@ -462,25 +562,27 @@
                         runQuery = true;
                     }
                     activeSource = getActiveSource();
-                    if (source.value !== activeSource.value) {
-                        pos = $scope.filters.indexOf(activeSource.filter);
-                        if (pos >= 0) {
-                            $scope.filters.splice(pos, 1) >= 0;
-                        }
-                        _ref = $scope.sources;
-                        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-                            s = _ref[_i];
-                            s.active = false;
-                        }
-                        source.active = true;
-                        if (source.filter !== '') {
-                            $scope.filters.push(source.filter);
-                        }
-                        if (runQuery) {
-                            fillLocationSearchParameters();
-                        }
-                        if (runQuery) {
-                            return $scope.runCurrentQuery(false);
+                    if(activeSource) {
+                        if (source.value !== activeSource.value) {
+                            pos = $scope.filters.indexOf(activeSource.filter);
+                            if (pos >= 0) {
+                                $scope.filters.splice(pos, 1) >= 0;
+                            }
+                            _ref = $scope.sources;
+                            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                                s = _ref[_i];
+                                s.active = false;
+                            }
+                            source.active = true;
+                            if (source.filter !== '') {
+                                $scope.filters.push(source.filter);
+                            }
+                            if (runQuery) {
+                                fillLocationSearchParameters();
+                            }
+                            if (runQuery) {
+                                return $scope.runCurrentQuery(false);
+                            }
                         }
                     }
                 };
@@ -488,11 +590,11 @@
                     if (sortId === null || sortId === '') {
                         sortId = 'score';
                     }
-                    if (sortType === null) {
+                    if (sortType === null || sortType === 'undefined') {
                         sortType = 'DESC';
                     }
                     $scope.titleSorting = sortId + ' ' + sortType;
-                    $scope.sorting = sortType.trim();
+                    //$scope.sorting = sortType.trim();
                     $scope.updateDocumentOffset(true);
                     return $scope.runCurrentQuery(false);
                 };
@@ -526,8 +628,6 @@
                     $scope.updateDocumentOffset(runQuery);
                     if (runQuery) {
                         fillLocationSearchParameters();
-                    }
-                    if (runQuery) {
                         return $scope.runCurrentQuery(false, false);
                     }
                 };
@@ -539,14 +639,21 @@
                     }
                     fillLocationSearchParameters();
                     $scope.updateDocumentOffset(true);
-                    return $scope.runCurrentQuery(false, true);
+                    $scope.runCurrentQuery(false, true);
                 };
                 $scope.addFilter = function (facetItem, facetLabel, runQuery) {
                     var filter, pos;
                     if (runQuery == null) {
                         runQuery = true;
                     }
+
+                    if(DEBUGmode){
+                        console.log('facetItem '+JSON.stringify(facetItem))
+
+                        console.log('facetItem.filter '+JSON.stringify(facetItem.filter))
+                    }
                     pos = $scope.filters.indexOf(facetItem.filter);
+
                     if (pos >= 0) {
                         removeFilter(facetItem);
                         return false;
@@ -559,12 +666,15 @@
                         };
                         $scope.filters.push(filter.value);
                         $scope.filtersToShow.push(filter);
+
+                        if(DEBUGmode) {
+                            console.log('$scope.filters ' + JSON.stringify($scope.filters))
+                            console.log('$scope.filtersToShow ' + JSON.stringify($scope.filtersToShow))
+                        }
                     }
                     $scope.updateDocumentOffset(runQuery);
                     if (runQuery) {
                         fillLocationSearchParameters();
-                    }
-                    if (runQuery) {
                         $scope.runCurrentQuery(false);
                     }
                     return $scope.isFacetSelect[facetItem.filter] = true;
@@ -616,7 +726,7 @@
                     }
                     $scope.facets = {};
                     $scope.updateDocumentOffset(removeFilters);
-                    return SemanticSearchService.search('id:"' + $scope.selectedTitle.id + '"', $scope.user.token, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true).then(function (response) {
+                    return SemanticSearchService.search('id:"' + $scope.selectedTitle.id + '"', $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true).then(function (response) {
                         $scope.documents = response.data.searchResults.documents || [];
                         processHighlightInfo($scope.documents, response.data.searchResults.highlight);
                         $scope.selectedEntity = response.data.searchResults.entity || $scope.selectedEntity;
@@ -642,7 +752,7 @@
                     }
                     $scope.facets = {};
                     $scope.updateDocumentOffset(removeFilters);
-                    return SemanticSearchService.search('"' + $scope.queryTerm + '"', $scope.user.token, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true).then(function (response) {
+                    return SemanticSearchService.search('"' + $scope.queryTerm + '"', $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true).then(function (response) {
                         $scope.documents = response.data.searchResults.documents || [];
                         processHighlightInfo($scope.documents, response.data.searchResults.highlight);
                         $scope.selectedEntity = response.data.searchResults.entity || $scope.selectedEntity;
@@ -666,14 +776,14 @@
                     }
                     $scope.facets = {};
                     $scope.updateDocumentOffset(removeFilters);
-                    return SemanticSearchService.searchByEntity($scope.selectedEntity.id, $scope.user.token, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true).then(function (response) {
+                    return SemanticSearchService.searchByEntity($scope.selectedEntity.id, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true).then(function (response) {
                         $scope.documents = response.data.searchResults.documents || [];
                         $scope.selectedEntity = response.data.searchResults.entity || $scope.selectedEntity;
                         $scope.totalDocuments = response.data.searchResults.numFound;
                         //initDataSources(response.data);
                         return parseFacets(response.data);
                     }, function (response) {
-                        return $scope.logout();
+                        //return $scope.logout();
                     });
                 };
                 $scope.entityTypeSelected = function (entityType, removeFilters) {
@@ -689,14 +799,14 @@
                     $scope.selectedEntity = null;
                     $scope.queryTerm = '';
                     $scope.updateDocumentOffset(removeFilters);
-                    return SemanticSearchService.searchByEntityType($scope.selectedEntityType.id, $scope.user.token, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true).then(function (response) {
+                    return SemanticSearchService.searchByEntityType($scope.selectedEntityType.id, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true).then(function (response) {
                         $scope.documents = response.data.searchResults.documents || [];
                         $scope.selectedEntityType = response.data.searchResults.entityType || $scope.selectedEntityType;
                         $scope.totalDocuments = response.data.searchResults.numFound;
                         //initDataSources(response.data);
                         return parseFacets(response.data);
                     }, function (response) {
-                        return $scope.logout();
+                        //return $scope.logout();
                     });
                 };
                 $scope.entityTypeAttributeSelected = function (entityTypeAttribute, removeFilters) {
@@ -718,7 +828,7 @@
                     $scope.selectedEntityTypeAttributeValue = value;
                     $scope.selectedEntity = null;
                     $scope.updateDocumentOffset(removeFilters);
-                    return SemanticSearchService.searchByEntityQuery($scope.selectedEntityType.id, $scope.selectedEntityTypeAttribute, $scope.selectedEntityTypeAttributeValue, $scope.user.token, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true).then(function (response) {
+                    return SemanticSearchService.searchByEntityQuery($scope.selectedEntityType.id, $scope.selectedEntityTypeAttribute, $scope.selectedEntityTypeAttributeValue, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true).then(function (response) {
                         $scope.documents = response.data.searchResults.documents || [];
                         $scope.selectedEntityType = response.data.searchResults.entityType || $scope.selectedEntityType;
                         $scope.totalDocuments = response.data.searchResults.numFound;
@@ -737,7 +847,6 @@
                         cluster = false;
                     }
                     $scope.searching = true;
-                    console.log('$scope.queryTerm.length ' + $scope.queryTerm.length)
                     if ($scope.queryTerm.length > 0) {
                         $scope.normalSearch = true;
                         $scope.collatedQuery = null;
@@ -756,40 +865,47 @@
                         } else {
                             apiQuery = $scope.queryTerm;
                         }
-                        console.log('$scope.credentials ' + $scope.credentials)
                         if (auth.authenticated) {
-                            console.log('inside the query function')
                             angular.element('#sensefy').removeClass('ggl');
                             SemanticSearchService.search(apiQuery, $scope.documentsOffsetStart, $scope.documentsPerPage, $scope.searchOptions.fields, $scope.filters, true, $scope.titleSorting, clustering = cluster).then(function (response) {
-                                console.log('response.data.searchResults.documents ' + response.data);
+
+                                $scope.responsedData = response.data;
+
+                                if(response.data.searchResults === null){
+                                    if(DEBUGmode){
+                                        console.log('response.data.searchResults as NULL')
+                                    }
+                                    return
+                                }
+
                                 if (restorePagination || $scope.currentPage === 1) {
-                                    console.log('results inside the IF')
                                     $scope.documents = response.data.searchResults.documents || [];
                                 } else {
-                                    console.log('inside the ELSE')
                                     $scope.documents = $scope.documents.concat(response.data.searchResults.documents);
                                 }
                                 processHighlightInfo($scope.documents, response.data.searchResults.highlight);
                                 $scope.totalDocuments = response.data.searchResults.numFound;
                                 if ($scope.totalDocuments > 0) {
 
-                                    var myVar1;
+                                    var addGGLclass2;
 
-                                    myVar1 = setTimeout(function () {
+                                    addGGLclass2 = setTimeout(function () {
                                         angular.element('#sensefy').removeClass('ggl');
-                                        console.log('25 Timeout id fired');
-                                        clearTimeout(myVar1);
+                                        clearTimeout(addGGLclass2);
                                     }, 25);
 
                                     //angular.element('#sensefy').removeClass('ggl');
                                 }
 
-                                console.log('$scope.totalDocuments ' + $scope.totalDocuments)
                                 if (response.data.searchResults.collationQuery) {
                                     $scope.collatedQuery = response.data.searchResults.collationQuery;
                                 }
                                 //initDataSources(response.data);
                                 parseFacets(response.data);
+                                if(DEBUGmode){
+                                    console.log('initDataSources is fired at Query()')
+                                }
+                                initDataSources(true);
                                 $scope.searching = false;
                                 if ($scope.clusterSelectedSize !== '') {
                                     if ($scope.clusterSelectedSize > $scope.totalDocuments) {
@@ -853,7 +969,7 @@
                     if ($scope.selectedEntityTypeAttribute && $scope.selectedEntityTypeAttributeValue) {
                         filters.push($scope.selectedEntityTypeAttribute + ':"' + $scope.selectedEntityTypeAttributeValue + '"');
                     }
-                    return SemanticSearchService.getEntities(document.id, $scope.user.token, 0, 10, "id,label,thumbnail", filters.join(" AND ")).then(function (response) {
+                    return SemanticSearchService.getEntities(document.id, 0, 10, "id,label,thumbnail", filters.join(" AND ")).then(function (response) {
                         return document.entities = response.data.searchResults.documents || [];
                     }, function (response) {
                         document.entities = [];
@@ -1083,7 +1199,9 @@
                         return size.toFixed(2) + ' ' + sizes[i - 1];
                     }
                 };
+                /*
                 $scope.dateTimeFormatter = function (date) {
+
                     var dateUI = '';
                     var pubDate = new Date(date);
                     var toDay = new Date();
@@ -1100,6 +1218,8 @@
 
                     var newTime = '', timeSign = '';
                     var dateTime = date.split("T");
+
+                    console.log('dateTime '+dateTime)
 
                     var date = dateTime[0].split("-");
                     var time = dateTime[1].split(":");
@@ -1136,6 +1256,36 @@
 
                     return dateUI;
                 };
+                */
+
+                $scope.dateTimeFormatter = function(unixtime){
+                    var timestamp = moment.unix(unixtime/SensefyUNIXdate);
+                    return timestamp.fromNow(); //  return date or time based on himunalized
+                };
+
+                $scope.dateTimeFormatterAcc = function(unixtime){
+                    var timestampAcc = moment.unix(unixtime/SensefyUNIXdate);
+                    return timestampAcc.utc().format("YYYY-MM-DD HH:mm"); //    return date or time based on UTC
+                };
+
+                var mobDSswitchFlag = true;
+                $scope.mobDSswitch = function(){
+                    if(DEBUGmode) {
+                        console.log('mobDSswitchFlag');
+                    }
+                    if(mobDSswitchFlag){
+                        angular.element('.ui.menu.ds .content').show();
+                        angular.element('.ui.menu.ds .content').addClass('pe-ds-switch');
+                        mobDSswitchFlag = false;
+                    }
+                    else{
+                        angular.element('.ui.menu.ds .content').removeClass('pe-ds-switch');
+                        angular.element('.ui.menu.ds .content').hide();
+                        mobDSswitchFlag = true;
+                    }
+                };
+
+
                 $scope.urlTruncate = function (fullStr, strLen, separator) {
                     if (fullStr.length <= strLen) return fullStr;
 
@@ -1266,8 +1416,14 @@
                 }
 
                 return $scope.hightlight = function ($event) {
-                    return console.log($event.currentTarget);
+                    //return console.log($event.currentTarget);
                 };
+            }
+        ]).controller('RepoBrowserController', ['$scope', '$location','DEBUGmode',
+            function($scope, $location, DEBUGmode){
+                if(DEBUGmode){
+                    console.log('RepoBrowserController');
+                }
             }
         ]).controller('MltController', [
             '$scope', '$location', 'document', 'SemanticSearchService', 'SemanticMoreLikeThisService', '$translate', 'PDFViewerService', 'SensefyAPIUrl', 'SensefyDocsPreview', 'ApiService', 'SensefyPreviewDoc', '$rootScope', function ($scope, $location, document, SemanticSearchService, SemanticMoreLikeThisService, $translate, pdf, SensefyAPIUrl, SensefyDocsPreview, ApiService, SensefyPreviewDoc, $rootScope) {

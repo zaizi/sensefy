@@ -12,14 +12,14 @@
                     <i class="dropdown icon"></i>
 
                     <div class="menu">
-                        <a class="item">Language</a>
+                        <a class="item" translate="language"></a>
                         <a class="item indent" ng-click="changeLanguage('en-us')" translate="english"></a>
                         <a class="item indent" ng-click="changeLanguage('es-es')" translate="spanish"></a>
 
                         <div class="ui divider"></div>
                         <div class="item">
                             <i class="dropdown icon" tabindex="0"></i>
-                            <span class="text">Settings</span>
+                            <span class="text" translate="settings"></span>
 
                             <div class="menu transition hidden">
                                 <div class="item">Personal</div>
@@ -27,22 +27,26 @@
                             </div>
                         </div>
                         <div class="ui divider"></div>
-                        <a class="item" ng-click="logout(false)" translate="logout"></a>
+                        <a class="item" ng-click="logout()" translate="logout"></a>
+                        <!--a class="item" href="/logout" target="_self" translate="logout"></a-->
                     </div>
                 </div>
-                <a class="item"><span>Language: </span>&nbsp;<span ng-bind="currentLanguage"></span></a>
+                <a class="item"><span translate="language"></span>&nbsp;<span ng-bind="currentLanguage"></span></a>
             </div>
         </div>
     </div>
 </div>
+        <!--a href="#browser">File browser</a-->
 
 <div class="one column row ds-wrapper" ng-show="(totalDocuments && totalDocuments > 0)">
     <div class="sixteen wide column data-sources">
         <div class="ui collapsible menu ds">
-            <div class="container">
-                <div class="header"><a class="left floated item brand"></a>
-
-                    <div class="ui mini right floated button"><i class="list icon"></i></div>
+            <div class="container-wrap">
+                <div class="header">
+                    <a class="left floated item brand"></a>
+                    <div class="ui mini right floated button pe-ds-btn" ng-click="mobDSswitch()">
+                        <i class="list icon"></i>
+                    </div>
                 </div>
                 <div class="content ds-bar">
                     <div class="ui tabular menu sources" id="ds-tabs">
@@ -51,8 +55,8 @@
                            ng-class="{active: source.active}"
                            ng-click="setActiveSource(source)" tabindex="0"
                            class="item {{source.value}}">
-                            <span translate="{{source.value}}"></span>
-                            <sup class="ds-value" title="1404 results" translate="{{source.occurrence}}"
+                            <span class="labelinfo" translate="{{source.value}}"></span>
+                            <sup class="ds-value" title="{{source.occurrence}} results" translate="{{source.occurrence}}"
                                  ng-show="source.occurrence"></sup>
                         </a>
                     </div>
@@ -70,7 +74,7 @@
             <div class="ui items">
                 <div class="ui item">
                     <div class="num-found">
-                        <span class="num-found" translate="txtDocumentsFound"
+                        <span translate="txtDocumentsFound"
                               translate-values="{ documents: totalDocuments,  docStart:documentsOffsetStart, docPerPage: documentsPerPage}"
                               ng-show="totalDocuments >=0"></span>
                     </div>
@@ -94,20 +98,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="results-info ui left floated">Results per page</div>
+                        <div class="results-info ui left floated" translate="resultsperpage"></div>
                         <div class="ui settings right floated">
                             <div tabindex="0" class="ui yellow top left pointing dropdown icon button">
                                 <i class="settings icon"></i>
 
                                 <div tabindex="-1" class="menu transition hidden">
                                     <div class="item">
-                                        <a href="#">Save Search</a>
+                                        <a href="#" translate="savesearch"></a>
                                     </div>
                                     <div class="item">
-                                        <a href="#">Search Alerts</a>
+                                        <a href="#" translate="savealerts"></a>
                                     </div>
                                     <div class="item">
-                                        <a href="#">Share Search</a>
+                                        <a href="#" translate="sharesearch"></a>
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +125,7 @@
         <div class="ui divider" ng-show="documents.length > 0"></div>
 
         <div class="ui divided items documents">
-            <!--div class="link item  document"
+            <div class="link item  document"
                  dir-paginate="document in documents  | itemsPerPage: documentsPerPage" style="position: relative;"
                  ng-show="documents.length > 0"
                  ng-click="highlight();"
@@ -129,18 +133,17 @@
                  data-datasource-relation="{{document.data_source}}"
                  pagination-id="mainResults"
                  total-items="totalDocuments"
-                 current-page="currentPage"-->
-            <div class="link item  document"
-                 ng-repeat="document in documents" style="position: relative;"
-                 ng-show="documents.length > 0"
-                 ng-click="highlight();"
-                 data-result-set="{{document.data_source}}"
-                 data-datasource-relation="{{document.data_source}}"
-                 pagination-id="mainResults"
-                 total-items="totalDocuments"
                  current-page="currentPage">
+                <!--div class="link item  document"
+                     ng-repeat="document in documents" style="position: relative;"
+                     ng-show="documents.length > 0"
+                     ng-click="highlight();"
+                     data-result-set="{{document.data_source}}"
+                     data-datasource-relation="{{document.data_source}}"
+                     pagination-id="mainResults"
+                     total-items="totalDocuments"
+                     current-page="currentPage"-->
                 <i class="caret right icon hover-result"></i>
-
                 <div class="content info">
                     <i class="file outline icon c-word" ng-class="pickDocIcon('{{document.mimetype}}')"
                        ng-if="document.mimetype"></i>
@@ -182,7 +185,7 @@
                             <span title="{{'data.author' | translate}}" ng-bind="document.author[0]"></span>
                         </span>
                         <span ng-if="document.ds_creation_date != null && document.ds_creation_date != ''">
-                             created  <span title="{{'data.created' | translate}}"
+                             created  <span title="{{dateTimeFormatterAcc(document.ds_creation_date)}}"
                                             ng-bind="dateTimeFormatter(document.ds_creation_date)"></span>
                         </span>
                         </div>
@@ -192,7 +195,7 @@
                                   ng-bind="document.ds_last_modifier"></span>
                         </span>
                         <span ng-if="document.ds_last_modified">
-                             modified  <span title="{{'data.modified'|translate}}"
+                             modified  <span title="{{dateTimeFormatterAcc(document.ds_last_modified)}}"
                                              ng-bind="dateTimeFormatter(document.ds_last_modified)"></span>
                         </span>
                         </div>
@@ -217,17 +220,18 @@
         <dir-pagination-controls
                 pagination-id="mainResults"
                 boundary-links="true"
-                template-url="bower_components/angular-utils-pagination/dirPagination.tpl.html"
+                template-url="views/directive/pagination/dirPagination.tpl.html"
                 max-size="maxSize"
-                on-page-change="setCurrentPage(currentPage)"></dir-pagination-controls>
+                on-page-change="setCurrentPage(currentPage)"
+                ng-show="documents.length > 0"></dir-pagination-controls>
 
     </div>
 
     <div class="ui four wide column rhr" ng-show="documents.length > 0">
-        <div class="ui label sort-by">Sort by</div>
+        <div class="ui label sort-by" translate="sortby"></div>
         <div class="ui yellow searchable floating dropdown labeled icon button sorting input-select" tabindex="0">
             <i class="filter icon"></i>
-            <span class="text" ng-model="selectSortings">Relevance</span>
+            <span class="text" ng-model="selectSortings" translate="relevance"></span>
 
             <div class="menu" tabindex="-1">
                 <!--div class="header"> Sorting options </div
@@ -252,7 +256,7 @@
         </div>
 
         <div class="ui segment">
-            <div class="ui top attached label">Filter by</div>
+            <div class="ui top attached label" translate="filterby"></div>
             <div class="facets-wrapper">
 
             </div>

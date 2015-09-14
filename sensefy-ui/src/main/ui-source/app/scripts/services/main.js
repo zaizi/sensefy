@@ -1,7 +1,7 @@
 (function () {
     angular.module('SensefyServices', []).factory('ApiService', [
-        'SensefyAPIUrl', '$http', '$q',
-        function (SensefyAPIUrl, $http, $q) {
+        'SensefyAPIUrl', '$http', '$q', 'SensefySearchIsSemantic',
+        function (SensefyAPIUrl, $http, $q, SensefySearchIsSemantic) {
             return {
                 request: function (method, path, data, params, headers) {
                     var deferred;
@@ -64,7 +64,7 @@
                     if (headers == null) {
                         headers = {};
                     }
-                    params.semantic = false;
+                    params.semantic = SensefySearchIsSemantic;
                     return this.request('GET', path, data, params, headers);
                 },
                 post: function (path, data, params, headers) {
@@ -112,7 +112,7 @@
         'SensefySemanticSearchKeywordBased', 'SensefyEntityDrivenSearch', 'SensefyGetEntitiesByDoc', 'ApiService',
         function (SensefySemanticSearchKeywordBased, SensefyEntityDrivenSearch, SensefyGetEntitiesByDoc, ApiService) {
             return {
-                search: function (query, start, rows, fields, filter, facet, sort, clustering) {
+                search: function (query, start, rows, fields, filters, facet, sort, clustering) {
                     if (start == null) {
                         start = 0;
                     }
@@ -122,8 +122,8 @@
                     if (fields == null) {
                         fields = "*";
                     }
-                    if (filter == null) {
-                        filter = [];
+                    if (filters == null) {
+                        filters = [];
                     }
                     if (facet == null) {
                         facet = true;
@@ -134,14 +134,14 @@
                     if (clustering == null) {
                         clustering = false;
                     }
-                    if (angular.isArray(filter)) {
-                        filter = filter.join(",");
+                    if (angular.isArray(filters)) {
+                        filters = filters.join(",");
                     }
                     return ApiService.get(SensefySemanticSearchKeywordBased, {}, {
                         query: query,
                         start: start,
                         rows: rows,
-                        filters: filter,
+                        filters: filters,
                         fields: fields,
                         facet: facet,
                         order: sort,
@@ -149,7 +149,7 @@
                         clustering: clustering
                     });
                 },
-                searchByEntity: function (entityId, start, rows, fields, filter, facet, sort, clustering) {
+                searchByEntity: function (entityId, start, rows, fields, filters, facet, sort, clustering) {
                     if (start == null) {
                         start = 0;
                     }
@@ -159,8 +159,8 @@
                     if (fields == null) {
                         fields = "*";
                     }
-                    if (filter == null) {
-                        filter = [];
+                    if (filters == null) {
+                        filters = [];
                     }
                     if (facet == null) {
                         facet = true;
@@ -171,21 +171,21 @@
                     if (clustering == null) {
                         clustering = false;
                     }
-                    if (angular.isArray(filter)) {
-                        filter = filter.join(",");
+                    if (angular.isArray(filters)) {
+                        filters = filters.join(",");
                     }
                     return ApiService.get(SensefyEntityDrivenSearch, {}, {
                         entityId: entityId,
                         start: start,
                         rows: rows,
-                        filter: filter,
+                        filters: filters,
                         fields: fields,
                         facet: facet,
                         order: sort,
                         clustering: clustering
                     });
                 },
-                searchByEntityQuery: function (entityType, entityAttribute, entityAttributeValue, start, rows, fields, filter, facet, sort, clustering) {
+                searchByEntityQuery: function (entityType, entityAttribute, entityAttributeValue, start, rows, fields, filters, facet, sort, clustering) {
                     if (start == null) {
                         start = 0;
                     }
@@ -195,8 +195,8 @@
                     if (fields == null) {
                         fields = "*";
                     }
-                    if (filter == null) {
-                        filter = [];
+                    if (filters == null) {
+                        filters = [];
                     }
                     if (facet == null) {
                         facet = true;
@@ -207,8 +207,8 @@
                     if (clustering == null) {
                         clustering = false;
                     }
-                    if (angular.isArray(filter)) {
-                        filter = filter.join(",");
+                    if (angular.isArray(filters)) {
+                        filters = filters.join(",");
                     }
                     return ApiService.get(SensefyEntityDrivenSearch, {}, {
                         entityType: entityType,
@@ -216,14 +216,14 @@
                         entityAttributeValue: entityAttributeValue,
                         start: start,
                         rows: rows,
-                        filter: filter,
+                        filters: filters,
                         fields: fields,
                         facet: facet,
                         order: sort,
                         clustering: clustering
                     });
                 },
-                searchByEntityType: function (entityTypeId, start, rows, fields, filter, facet, sort, clustering) {
+                searchByEntityType: function (entityTypeId, start, rows, fields, filters, facet, sort, clustering) {
                     if (start == null) {
                         start = 0;
                     }
@@ -233,8 +233,8 @@
                     if (fields == null) {
                         fields = "*";
                     }
-                    if (filter == null) {
-                        filter = [];
+                    if (filters == null) {
+                        filters = [];
                     }
                     if (facet == null) {
                         facet = true;
@@ -245,21 +245,21 @@
                     if (clustering == null) {
                         clustering = false;
                     }
-                    if (angular.isArray(filter)) {
-                        filter = filter.join(",");
+                    if (angular.isArray(filters)) {
+                        filters = filters.join(",");
                     }
                     return ApiService.get(SensefyEntityDrivenSearch, {}, {
                         entityType: entityTypeId,
                         start: start,
                         rows: rows,
-                        filter: filter,
+                        filters: filters,
                         fields: fields,
                         facet: facet,
                         order: sort,
                         clustering: clustering
                     });
                 },
-                getEntities: function (docId, start, rows, fields, filter, facet, sort, clustering) {
+                getEntities: function (docId, start, rows, fields, filters, facet, sort, clustering) {
                     if (start == null) {
                         start = 0;
                     }
@@ -269,8 +269,8 @@
                     if (fields == null) {
                         fields = "*";
                     }
-                    if (filter == null) {
-                        filter = [];
+                    if (filters == null) {
+                        filters = [];
                     }
                     if (facet == null) {
                         facet = true;
@@ -285,7 +285,7 @@
                         docId: docId,
                         start: start,
                         rows: rows,
-                        filter: filter,
+                        filters: filters,
                         fields: fields,
                         facet: facet,
                         order: sort,

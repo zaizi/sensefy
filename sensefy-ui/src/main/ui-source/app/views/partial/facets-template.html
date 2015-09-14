@@ -5,7 +5,7 @@
 
 	<ul>
 		<li class="group-value" ng-repeat="facetItem in facet.facetItems" ng-class="{overFacets: $index>SensefyFacetsPerGroupMin, hiddenFacet:!facetToggle}">
-            <span class="entity-label" ng-click="addFilter(facetItem)" tabindex="0">
+            <span class="entity-label" ng-click="addFilter(facetItem, facet.label)" tabindex="0">
                 <i class="file outline icon" ng-class="pickDocIcon('{{facetItem.value}}')" ng-if="facet.label !== null && facet.label==='Mimetype'"></i>
                 <i class="check icon check-icon" ng-show="isFacetSelect[facetItem.filter]"></i>
 
