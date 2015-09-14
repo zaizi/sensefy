@@ -20,7 +20,7 @@
         <div class="ui six wide column form segment">
 
             <div id="header" class="ui inverted blue menu mgn-btm-xl">
-                <img alt="Sensefy Logo" src="css/SensefyLogo.png">
+                <img alt="Sensefy Logo" src="css/sensefylogo.png">
             </div>
 			<#if RequestParameters['error']??>
 			

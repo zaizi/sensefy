@@ -20,6 +20,7 @@
 		<module>sensefy-authserver</module>
 		<module>sensefy-ui</module>
 		<module>sensefy-api</module>
+		<module>sensefy-runner</module>
 	</modules>
 
 	<build>

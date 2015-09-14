@@ -6,7 +6,7 @@
 	<groupId>com.zaizi</groupId>
 	<artifactId>sensefy.ui</artifactId>
 	<version>2.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>${packaging.type}</packaging>
 
 	<name>sensefy-searchUI</name>
 	<description>sensefy search UI </description>
@@ -17,14 +17,46 @@
 		<version>1.2.5.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+	<contributors>
+		<contributor>
+			<name>Fahiz Mohamed</name>
+			<email>mfahiz@zaizi.com</email>
+			<organization>Zaizi</organization>
+			<url>www.zaizi.com</url>
+		</contributor>
+	</contributors>
+
+	<developers>
+		<developer>
+			<name>Fahiz Mohamed</name>
+			<email>mfahiz@zaizi.com</email>
+			<organization>Zaizi</organization>
+			<url>www.zaizi.com</url>
+		</developer>
+	</developers>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<wro4j.version>1.7.6</wro4j.version>
+		<tomcat.version>7.0.52</tomcat.version>
+		<packaging.type>jar</packaging.type>
+		<sensefy.ui.main.class>com.zaizi.sensefy.ui.SensefySearchUiApplicationJar</sensefy.ui.main.class>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<version>9.2.11.v20150529</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>9.2.11.v20150529</version>
+			<scope>compile</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-oauth2</artifactId>
@@ -88,6 +120,25 @@
 	</dependencyManagement>
 
 	<profiles>
+		<profile>
+			<id>run</id>
+			<properties>
+				<packaging.type>war</packaging.type>
+				<sensefy.ui.main.class>com.zaizi.sensefy.ui.SensefySearchUiApplication</sensefy.ui.main.class>
+			</properties>
+		</profile>
+		<profile>
+			<id>war</id>
+			<properties>
+				<packaging.type>war</packaging.type>
+				<sensefy.ui.main.class>com.zaizi.sensefy.ui.SensefySearchUiApplication</sensefy.ui.main.class>
+			</properties>
+			<activation>
+				<property>
+					<name>build-frontend</name>
+				</property>
+			</activation>
+		</profile>
 
 		<profile>
 			<id>build-frontend</id>
@@ -98,7 +149,7 @@
 						<artifactId>frontend-maven-plugin</artifactId>
 						<version>0.0.25</version>
 						<configuration>
-						<skipTests>true</skipTests>
+							<skipTests>true</skipTests>
 						</configuration>
 						<executions>
 							<execution>
@@ -116,6 +167,8 @@
 									<!--<nodeDownloadRoot>${project.basedir}/src/main/ui-source</nodeDownloadRoot> 
 										<npmDownloadRoot>${project.basedir}/src/main/ui-source</npmDownloadRoot> 
 										<downloadRoot>${project.basedir}/src/main/ui-source</downloadRoot> -->
+
+									<downloadRoot>${sensefy.ui.app.password}</downloadRoot>
 
 								</configuration>
 							</execution>
@@ -196,10 +249,35 @@
 				<directory>${project.build.directory}/generated-resources</directory>
 			</resource>
 		</resources>
+
 		<plugins>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>default</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.basedir}/src/main/resources</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.basedir}/../sensefy-runner/config/sensefy-ui-conf/</directory>
+								</resource>
+							</resources>
+							<overwrite>true</overwrite>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>${sensefy.ui.main.class}</mainClass>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
@@ -215,6 +293,7 @@
 
 		</plugins>
 	</build>
+
 
 	<repositories>
 		<repository>
