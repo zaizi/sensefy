@@ -1,0 +1,9 @@
+sensefy-instance
+.project
+.settings/**
+.settings
+.DS_Store
+sensefy.iml
+target/
+.classpath
+derby.log

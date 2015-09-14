@@ -6,7 +6,7 @@
 	<groupId>com.zaizi</groupId>
 	<artifactId>sensefy.api</artifactId>
 	<version>2.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>${packaging.type}</packaging>
 
 	<name>sensefy-api</name>
 	<description>resource</description>
@@ -29,6 +29,9 @@
 		<!-- <jetty.version>8.1.5.v20120716</jetty.version> -->
 		<guice.version>3.0</guice.version>
 		<hk2.version>2.2.0</hk2.version>
+		<tomcat.version>7.0.52</tomcat.version>
+		<packaging.type>jar</packaging.type>
+		<sensefy.api.main.class>com.zaizi.sensefy.api.SensefyResourceApplicationJar</sensefy.api.main.class>
 	</properties>
 
 	<dependencyManagement>
@@ -94,7 +97,7 @@
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
-			
+
 		</dependency>
 		<dependency>
 			<groupId>commons-validator</groupId>
@@ -127,7 +130,7 @@
 					<artifactId>log4j</artifactId>
 					<groupId>log4j</groupId>
 				</exclusion>
-				
+
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -297,12 +300,61 @@
 		</dependency>
 	</dependencies>
 
+	<profiles>
+		<profile>
+			<id>run</id>
+			<properties>
+				<packaging.type>war</packaging.type>
+				<sensefy.api.main.class>com.zaizi.sensefy.api.SensefyResourceApplication</sensefy.api.main.class>
+			</properties>
+		</profile>
+		<profile>
+			<id>war</id>
+			<properties>
+				<packaging.type>war</packaging.type>
+				<sensefy.api.main.class>com.zaizi.sensefy.api.SensefyResourceApplication</sensefy.api.main.class>
+			</properties>
+		</profile>
+	</profiles>
+
 
 	<build>
 		<plugins>
 			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>default</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.basedir}/src/main/resources</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.basedir}/../sensefy-runner/config/sensefy-api/</directory>
+									<filtering>true</filtering>
+									<includes>
+										<include>config/</include>
+										<include>templates/</include>
+										<include>application.properties</include>
+										<include>solr.properties</include>
+									</includes>
+								</resource>
+							</resources>
+							<overwrite>true</overwrite>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>${sensefy.api.main.class}</mainClass>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

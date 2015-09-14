@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.zaizi.sensefy.api.dto.response.search.AutoCompleteResponse;
 import com.zaizi.sensefy.api.dto.response.search.SearchResponse;
 import com.zaizi.sensefy.api.service.SearchService;
+import com.zaizi.sensefy.api.service.SemanticSearchService;
 import com.zaizi.sensefy.api.service.SolrSmartAutoCompleteService;
 
 /**
@@ -40,6 +41,9 @@ public class ServiceController extends WebMvcAutoConfigurationAdapter {
 
 	@Autowired
 	private SolrSmartAutoCompleteService smartSearch;
+
+	@Autowired
+	private SemanticSearchService simSearchService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
@@ -171,5 +175,97 @@ public class ServiceController extends WebMvcAutoConfigurationAdapter {
 			@RequestParam String entityAttributeField, @RequestParam Integer numberOfSuggestions, Principal user) {
 		logger.info("Autocomplete search Phase 3");
 		return smartSearch.complete3(termToComplete, entityTypeId, entityAttributeField, numberOfSuggestions, user);
+	}
+
+	/**
+	 * Returns a set of relevant documents to an entity or an entity group in
+	 * input<br>
+	 * Is possible to search for a specific entity instance, for an entity type
+	 * and possibly an entity type with some specific attribute<br>
+	 * This service is called with the information retrieved from the Smart
+	 * Autocomplete phases.
+	 * 
+	 * @param entityId
+	 *            The unique id for the entity of interest
+	 * @param entityType
+	 *            The unique id for the entity type of interest
+	 * @param entityAttribute
+	 *            An attribute for the entity type in input eg. nationality for
+	 *            the entity type: person
+	 * @param entityAttributeValue
+	 *            A value of interest for the entity attribute in input eg.
+	 *            italian for the attribute nationality
+	 * @param fields
+	 *            The list of fields to return in the output documents
+	 * @param filters
+	 *            A filter query to obtain a subset of the documents relevant to
+	 *            the main query
+	 * @param start
+	 *            The first document to return in the list of relevant documents
+	 * @param rows
+	 *            The number of documents to return
+	 * @param order
+	 *            The sorting order for the results : <field> <direction> eg:
+	 *            title_sort desc
+	 * @param facet
+	 *            If enabled the relevant results will contain the facet
+	 *            countings
+	 * @param security
+	 *            If enabled the relevant results will be filtered based on user
+	 *            permissions
+	 * @param sensefyToken
+	 *            The Sensefy Token that contains relevant information for the
+	 *            user running the query
+	 * @return A json representation of the list of relevant documents for the
+	 *         input query
+	 */
+	@RequestMapping(value = "/entityDrivenSearch", method = RequestMethod.GET, produces = {
+			MediaType.APPLICATION_JSON })
+	public SearchResponse entityDrivenSearch(@RequestParam String entityId, @RequestParam(required=false) String entityType,
+			@RequestParam(required=false) String entityAttribute, @RequestParam(required=false) String entityAttributeValue,
+			@RequestParam String fields, @RequestParam String filters, @RequestParam int start,
+			@RequestParam Integer rows, @RequestParam String order, @RequestParam boolean facet,
+			@RequestParam boolean security, Principal user, @RequestParam boolean clustering) {
+		logger.info("Entity Driven Search");
+		return simSearchService.entityDrivenSearch(entityId, entityType, entityAttribute, entityAttributeValue, fields,
+				filters, start, rows, order, facet, security, user, clustering);
+
+	}
+
+	/**
+	 * Returns all the entities occurring in a document in input.<br>
+	 * If a selection over the entities was placed with a filter, the entities
+	 * returned will be filtered accordingly to that.
+	 *
+	 * @param docId
+	 *            The unique id for the document in input
+	 * @param fields
+	 *            The list of fields to return in the output documents
+	 * @param filters
+	 *            A filter query to obtain a subset of the documents relevant to
+	 *            the main query
+	 * @param start
+	 *            The first document to return in the list of relevant documents
+	 * @param rows
+	 *            The number of documents to return
+	 * @param sort
+	 *            The sorting order for the results : <field> <direction> eg:
+	 *            title_sort desc
+	 * @param security
+	 *            If enabled the relevant results will be filtered based on user
+	 *            permissions
+	 * @param sensefyToken
+	 *            The Sensefy Token that contains relevant information for the
+	 *            user running the query
+	 * @return A json representation of the list of relevant entities for the
+	 *         input document id
+	 */
+	@RequestMapping(value = "/showEntitiesByDocId", method = RequestMethod.GET, produces = {
+			MediaType.APPLICATION_JSON })
+	public SearchResponse showEntitiesByDocId(@RequestParam String docId, @RequestParam(required=false) String fields,
+			@RequestParam String filters, @RequestParam int start, @RequestParam Integer rows,
+			@RequestParam String sort, @RequestParam boolean security, Principal user) {
+		logger.info("Show Entities By Doc Id");
+		return simSearchService.showEntitiesByDocId(docId, fields, filters, start, rows, sort, security, user);
 	}
 }

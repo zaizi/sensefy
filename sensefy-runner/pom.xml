@@ -1,0 +1,818 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>sensefy.application</groupId>
+	<artifactId>runner</artifactId>
+	<version>2.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>runner</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<sensefy.basepath>${project.parent.basedir}/${sensefy.instance.folder}</sensefy.basepath>
+		<manifoldcf.version>1.8</manifoldcf.version>
+		<manifold.artifact.version>1.8.1</manifold.artifact.version>
+		<tomcat.host>localhost</tomcat.host>
+		<tomcat.port>9099</tomcat.port>
+		<yeoman.maven.plugin.version>0.4</yeoman.maven.plugin.version>
+		<!-- Sensefy server -->
+		<sensefy.server>http://${tomcat.host}:${tomcat.port}</sensefy.server>
+		<!-- Sensefy Admin API endpoint property used to configure the endpoint 
+			used by the Admin UI -->
+		<sensefy.adminapi.endpoint>${sensefy.server}</sensefy.adminapi.endpoint>
+		<!-- Sensefy Search API endpoint property used to configure the endpoint 
+			used by the Search UI -->
+		<sensefy.searchapi.endpoint>${sensefy.server}/api</sensefy.searchapi.endpoint>
+		<sensefy.instance.folder>sensefy-instance</sensefy.instance.folder>
+		<sensefy.basepath>${project.basedir}/${sensefy.instance.folder}</sensefy.basepath>
+		<!-- Sensefy Solr Home property used as home directory for Solr -->
+		<sensefy.solr.home>${sensefy.basepath}/solr/home</sensefy.solr.home>
+		<!-- Sensefy Solr Lib property used to specify the lib directory used by 
+			Solr -->
+		<sensefy.solr.lib.dir>${sensefy.basepath}/solr/lib</sensefy.solr.lib.dir>
+		<sensefy.config.home>${project.basedir}/config</sensefy.config.home>
+		<sensefy.auth.server.config>${sensefy.config.home}/sensefy-auth-conf/</sensefy.auth.server.config>
+		<sensefy.solr.default.conf>${sensefy.config.home}/solr-default-conf</sensefy.solr.default.conf>
+		<sensefy.tomcat.conf>config/tomcat-conf</sensefy.tomcat.conf>
+		<sensefy.ui.server.conf>${sensefy.config.home}/sensefy-ui-conf/</sensefy.ui.server.conf>
+		<sensefy.version>2.0.1-SNAPSHOT</sensefy.version>
+		<sensefy.api.server.conf>${sensefy.config.home}/sensefy-api/</sensefy.api.server.conf>
+
+
+
+		<spring.config.location>file:${sensefy.basepath}/configuration/application.properties</spring.config.location>
+		<sensefy.conf.dir>${sensefy.basepath}/configuration</sensefy.conf.dir>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- <dependency> <groupId>org.springframework.cloud</groupId> <artifactId>spring-cloud-starter-parent</artifactId> 
+			<version>Angel.SR3</version> <type>pom</type> </dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot</artifactId>
+			<version>1.2.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>com.zaizi</groupId>
+			<artifactId>sensefy.api</artifactId>
+			<version>${sensefy.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.zaizi</groupId>
+			<artifactId>sensefy.authserver</artifactId>
+			<version>${sensefy.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.zaizi</groupId>
+			<artifactId>sensefy.ui</artifactId>
+			<version>${sensefy.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+
+		<profile>
+			<id>run</id>
+			<build>
+				<plugins>
+
+					<!-- Dependencies processing -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<version>2.10</version>
+						<executions>
+							<execution>
+								<id>copy-dependencies</id>
+								<phase>package</phase>
+								<goals>
+									<goal>copy</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<!-- Artifacts for Extract Update Handler -->
+										<artifactItem>
+											<groupId>org.apache.solr</groupId>
+											<artifactId>solr-cell</artifactId>
+											<version>4.9.0</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.james</groupId>
+											<artifactId>apache-mime4j-core</artifactId>
+											<version>0.7.2</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.james</groupId>
+											<artifactId>apache-mime4j-dom</artifactId>
+											<version>0.7.2</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.aspectj</groupId>
+											<artifactId>aspectjrt</artifactId>
+											<version>1.6.11</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.bouncycastle</groupId>
+											<artifactId>bcmail-jdk15</artifactId>
+											<version>1.45</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.bouncycastle</groupId>
+											<artifactId>bcprov-jdk15</artifactId>
+											<version>1.45</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>de.l3s.boilerpipe</groupId>
+											<artifactId>boilerpipe</artifactId>
+											<version>1.1.0</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.commons</groupId>
+											<artifactId>commons-compress</artifactId>
+											<version>1.7</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>dom4j</groupId>
+											<artifactId>dom4j</artifactId>
+											<version>1.6.1</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.pdfbox</groupId>
+											<artifactId>fontbox</artifactId>
+											<version>1.8.4</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>com.ibm.icu</groupId>
+											<artifactId>icu4j</artifactId>
+											<version>53.1</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>com.googlecode.mp4parser</groupId>
+											<artifactId>isoparser</artifactId>
+											<version>1.0-RC-1</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>jdom</groupId>
+											<artifactId>jdom</artifactId>
+											<version>1.0</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.pdfbox</groupId>
+											<artifactId>jempbox</artifactId>
+											<version>1.8.4</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>com.uwyn</groupId>
+											<artifactId>jhighlight</artifactId>
+											<version>1.0</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>com.googlecode.juniversalchardet</groupId>
+											<artifactId>juniversalchardet</artifactId>
+											<version>1.0.3</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>com.drewnoakes</groupId>
+											<artifactId>metadata-extractor</artifactId>
+											<version>2.6.2</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.pdfbox</groupId>
+											<artifactId>pdfbox</artifactId>
+											<version>1.8.4</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.poi</groupId>
+											<artifactId>poi</artifactId>
+											<version>3.10.1</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.poi</groupId>
+											<artifactId>poi-ooxml</artifactId>
+											<version>3.10.1</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.poi</groupId>
+											<artifactId>poi-ooxml-schemas</artifactId>
+											<version>3.10.1</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.poi</groupId>
+											<artifactId>poi-scratchpad</artifactId>
+											<version>3.10.1</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>rome</groupId>
+											<artifactId>rome</artifactId>
+											<version>0.9</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.ccil.cowan.tagsoup</groupId>
+											<artifactId>tagsoup</artifactId>
+											<version>1.2.1</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.tika</groupId>
+											<artifactId>tika-core</artifactId>
+											<version>1.5</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.tika</groupId>
+											<artifactId>tika-parsers</artifactId>
+											<version>1.5</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.tika</groupId>
+											<artifactId>tika-xmp</artifactId>
+											<version>1.5</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.gagravarr</groupId>
+											<artifactId>vorbis-java-core</artifactId>
+											<version>0.1</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.gagravarr</groupId>
+											<artifactId>vorbis-java-tika</artifactId>
+											<version>0.1</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>xerces</groupId>
+											<artifactId>xercesImpl</artifactId>
+											<version>2.9.1</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.xmlbeans</groupId>
+											<artifactId>xmlbeans</artifactId>
+											<version>2.6.0</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>com.adobe.xmp</groupId>
+											<artifactId>xmpcore</artifactId>
+											<version>5.1.2</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.tukaani</groupId>
+											<artifactId>xz</artifactId>
+											<version>1.4</version>
+										</artifactItem>
+										<!-- Artifacts for Clustering -->
+										<artifactItem>
+											<groupId>org.apache.solr</groupId>
+											<artifactId>solr-clustering</artifactId>
+											<version>4.9.0</version>
+											<overWrite>false</overWrite>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.carrot2.attributes</groupId>
+											<artifactId>attributes-binder</artifactId>
+											<version>1.2.1</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>com.carrotsearch</groupId>
+											<artifactId>hppc</artifactId>
+											<version>0.5.2</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.codehaus.jackson</groupId>
+											<artifactId>jackson-mapper-asl</artifactId>
+											<version>1.9.13</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.mahout</groupId>
+											<artifactId>mahout-math</artifactId>
+											<version>0.6</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.carrot2</groupId>
+											<artifactId>carrot2-mini</artifactId>
+											<version>3.9.0</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.codehaus.jackson</groupId>
+											<artifactId>jackson-core-asl</artifactId>
+											<version>1.9.13</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.mahout</groupId>
+											<artifactId>mahout-collections</artifactId>
+											<version>1.0</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.simpleframework</groupId>
+											<artifactId>simple-xml</artifactId>
+											<version>2.7</version>
+										</artifactItem>
+										<!-- Artifacts for LangID -->
+										<artifactItem>
+											<groupId>org.apache.solr</groupId>
+											<artifactId>solr-langid</artifactId>
+											<version>4.9.0</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>com.cybozu.labs</groupId>
+											<artifactId>langdetect</artifactId>
+											<version>1.1-20120112</version>
+										</artifactItem>
+										<artifactItem>
+											<groupId>net.arnx</groupId>
+											<artifactId>jsonic</artifactId>
+											<version>1.2.7</version>
+										</artifactItem>
+									</artifactItems>
+									<outputDirectory>${sensefy.solr.lib.dir}</outputDirectory>
+									<overWriteReleases>false</overWriteReleases>
+									<overWriteSnapshots>true</overWriteSnapshots>
+								</configuration>
+							</execution>
+							<execution>
+								<id>default-cli</id>
+								<phase>package</phase>
+								<goals>
+									<goal>unpack</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+											<groupId>org.zaizi.sensefy</groupId>
+											<artifactId>manifold-artifact</artifactId>
+											<version>${manifold.artifact.version}</version>
+											<type>zip</type>
+											<outputDirectory>${sensefy.basepath}/manifold</outputDirectory>
+										</artifactItem>
+									</artifactItems>
+								</configuration>
+							</execution>
+							<execution>
+								<id>unpack-apis</id>
+								<phase>package</phase>
+								<goals>
+									<goal>unpack</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+
+											<groupId>com.zaizi</groupId>
+											<artifactId>sensefy.api</artifactId>
+											<version>${sensefy.version}</version>
+											<type>war</type>
+											<outputDirectory>${project.build.directory}/tomcat/webapps/api</outputDirectory>
+										</artifactItem>
+										<artifactItem>
+											<groupId>com.zaizi</groupId>
+											<artifactId>sensefy.authserver</artifactId>
+											<version>${sensefy.version}</version>
+											<type>war</type>
+											<outputDirectory>${project.build.directory}/tomcat/webapps/auth</outputDirectory>
+										</artifactItem>
+										<artifactItem>
+											<groupId>com.zaizi</groupId>
+											<artifactId>sensefy.ui</artifactId>
+											<version>${sensefy.version}</version>
+											<excludes>
+											</excludes>
+											<type>war</type>
+											<outputDirectory>${project.build.directory}/tomcat/webapps/ui</outputDirectory>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.solr</groupId>
+											<artifactId>solr</artifactId>
+											<version>4.9.0</version>
+											<type>war</type>
+											<outputDirectory>${project.build.directory}/tomcat/webapps/solr</outputDirectory>
+										</artifactItem>
+									</artifactItems>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+
+
+
+					<!-- Copy Solr resources -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-resources-plugin</artifactId>
+						<version>2.7</version>
+						<executions>
+							<execution>
+								<id>copy-resources-solr</id>
+								<!-- here the phase you need -->
+								<phase>process-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${sensefy.solr.home}</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${sensefy.solr.default.conf}</directory>
+											<filtering>false</filtering>
+											<includes>
+												<include>collection1/</include>
+												<include>entity/</include>
+												<include>entityType/</include>
+												<include>primaryIndex/</include>
+												<include>primaryIndex_analytics/</include>
+												<include>solr.xml</include>
+											</includes>
+										</resource>
+									</resources>
+									<overwrite>true</overwrite>
+								</configuration>
+							</execution>
+							<execution>
+								<id>copy-tomcat-resources</id>
+								<!-- here the phase you need -->
+								<phase>process-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${sensefy.basepath}/manifold-run/</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${basedir}/manifold/</directory>
+											<filtering>true</filtering>
+											<includes>
+												<include>*-combined.sh</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+							<execution>
+								<id>copy-manifold-wars</id>
+								<!-- here the phase you need -->
+								<phase>package</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.directory}/tomcat/webapps</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${sensefy.basepath}/manifold/web/war</directory>
+											<filtering>false</filtering>
+											<includes>
+												<include>mcf-combined-service.war</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+							<execution>
+								<id>copy-search-api-property</id>
+								<phase>package</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.directory}/tomcat/webapps/api/WEB-INF/classes</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${sensefy.api.server.conf}</directory>
+											<filtering>true</filtering>
+											<includes>
+												<include>config/</include>
+												<include>templates/</include>
+												<include>application.properties</include>
+												<include>solr.properties</include>
+											</includes>
+										</resource>
+									</resources>
+									<overwrite>true</overwrite>
+								</configuration>
+							</execution>
+							<execution>
+								<id>copy-auth-server-property</id>
+								<phase>package</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.directory}/tomcat/webapps/auth/WEB-INF/classes</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${sensefy.auth.server.config}</directory>
+											<filtering>true</filtering>
+											<includes>
+												<include>application.properties</include>
+											</includes>
+										</resource>
+									</resources>
+									<overwrite>true</overwrite>
+
+								</configuration>
+							</execution>
+
+							<execution>
+								<id>copy-sensefy-ui-property</id>
+								<phase>package</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.directory}/tomcat/webapps/ui/WEB-INF/classes</outputDirectory>
+
+									<resources>
+										<resource>
+											<directory>${sensefy.ui.server.conf}</directory>
+											<filtering>true</filtering>
+											<includes>
+												<include>application.yml</include>
+											</includes>
+										</resource>
+									</resources>
+									<overwrite>true</overwrite>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>com.google.code.maven-replacer-plugin</groupId>
+						<artifactId>replacer</artifactId>
+						<version>1.5.3</version>
+						<executions>
+							<execution>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>replace</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+
+							<detail>true</detail>
+							<file>${sensefy.solr.home}/primaryIndex/conf/solrconfig.xml</file>
+							<replacements>
+								<replacement>
+									<token>../../../contrib/clustering/lib/</token>
+									<value>${sensefy.solr.lib.dir}/</value>
+								</replacement>
+								<replacement>
+									<token>../../../contrib/langid/lib</token>
+									<value>${sensefy.solr.lib.dir}</value>
+								</replacement>
+								<replacement>
+									<token>../../../dist/</token>
+									<value>${sensefy.solr.lib.dir}/</value>
+								</replacement>
+								<replacement>
+									<token>../../../contrib/extraction/lib</token>
+									<value>${sensefy.solr.lib.dir}</value>
+								</replacement>
+							</replacements>
+						</configuration>
+					</plugin>
+
+
+
+					<plugin>
+						<groupId>com.coderplus.maven.plugins</groupId>
+						<artifactId>copy-rename-maven-plugin</artifactId>
+						<version>1.0</version>
+						<executions>
+							<execution>
+								<id>rename-file</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>rename</goal>
+								</goals>
+								<configuration>
+									<sourceFile>${project.build.directory}/tomcat/webapps/mcf-combined-service.war</sourceFile>
+									<destinationFile>${project.build.directory}/tomcat/webapps/mcf.war</destinationFile>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+
+					<!-- SolrConfig.xml path replacer Ends -->
+
+
+
+
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.3</version>
+						<configuration>
+							<source />
+							<target />
+						</configuration>
+					</plugin>
+
+
+					<!-- SolrConfig.xml path replacer Starts -->
+					<!-- <plugin> <groupId>com.google.code.maven-replacer-plugin</groupId> 
+						<artifactId>replacer</artifactId> <version>1.5.3</version> <executions> <execution> 
+						<phase>prepare-package</phase> <goals> <goal>replace</goal> </goals> </execution> 
+						</executions> <configuration> <file>${sensefy.solr.home}/primaryIndex/conf/solrconfig.xml</file> 
+						<replacements> <replacement> <token>../../../contrib/clustering/lib/</token> 
+						<value>${sensefy.solr.lib.dir}/</value> </replacement> <replacement> <token>../../../contrib/langid/lib</token> 
+						<value>${sensefy.solr.lib.dir}</value> </replacement> <replacement> <token>../../../dist/</token> 
+						<value>${sensefy.solr.lib.dir}/</value> </replacement> <replacement> <token>../../../contrib/extraction/lib</token> 
+						<value>${sensefy.solr.lib.dir}</value> </replacement> </replacements> </configuration> 
+						</plugin> -->
+
+					<!-- Tomcat deployment -->
+					<plugin>
+						<groupId>org.apache.tomcat.maven</groupId>
+						<artifactId>tomcat7-maven-plugin</artifactId>
+						<version>2.3-SNAPSHOT</version>
+						<configuration>
+							<enableNaming>false</enableNaming>
+							<finalName>sensefy-${version}.jar</finalName>
+							<port>${tomcat.port}</port>
+							<path>/</path>
+							<ignorePackaging>true</ignorePackaging>
+							<serverXml>${sensefy.tomcat.conf}/server.xml</serverXml>
+							<systemProperties>
+								<solr.solr.home>${sensefy.solr.home}</solr.solr.home>
+								<sensefy.conf.dir>${sensefy.conf.dir}</sensefy.conf.dir>
+								<spring.config.location>${spring.config.location}</spring.config.location>
+								<org.apache.manifoldcf.configfile>${sensefy.basepath}/manifold/example/properties.xml</org.apache.manifoldcf.configfile>
+							</systemProperties>
+							<additionalClasspathDirs>
+								<additionalClasspathDir>${spring.config.location}</additionalClasspathDir>
+							</additionalClasspathDirs>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>run</goal>
+									<goal>exec-war</goal>
+								</goals>
+								<phase>install</phase>
+							</execution>
+						</executions>
+					</plugin>
+
+
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>build-jar</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.tomcat.maven</groupId>
+						<artifactId>tomcat7-maven-plugin</artifactId>
+						<version>2.3-SNAPSHOT</version>
+						<executions>
+							<execution>
+								<id>tomcat-run</id>
+								<goals>
+									<goal>exec-war-only</goal>
+								</goals>
+								<phase>package</phase>
+								<configuration>
+							
+									<warRunDependencies>
+										<warRunDependency>
+											<contextPath>/auth</contextPath>
+											<contextXml></contextXml>
+											
+											<dependency>
+												<groupId>com.zaizi</groupId>
+												<artifactId>sensefy.authserver</artifactId>
+												<version>${sensefy.version}</version>
+												<type>war</type>
+												
+											</dependency>
+
+										</warRunDependency>
+										<warRunDependency>
+											<contextPath>/</contextPath>
+											<contextXml></contextXml>
+											
+											<dependency>
+												<groupId>com.zaizi</groupId>
+												<artifactId>sensefy.ui</artifactId>
+												<version>${sensefy.version}</version>
+												<type>war</type>
+												
+											</dependency>
+
+										</warRunDependency>
+										<warRunDependency>
+										
+										
+											<contextPath>/api</contextPath>
+											<contextXml></contextXml>
+											
+											<dependency>
+												<groupId>com.zaizi</groupId>
+												<artifactId>sensefy.api</artifactId>
+												<version>${sensefy.version}</version>
+												<type>war</type>
+												
+											</dependency>
+
+										</warRunDependency>
+									</warRunDependencies>
+									<!-- <path>/</path>--> 
+									<enableNaming>true</enableNaming> 
+									<finalName>sensefy-${version}.jar</finalName>
+									
+									<httpPort>${tomcat.port}</httpPort>
+									<charset>utf-8</charset><!-- 
+									<serverXml>${sensefy.tomcat.conf}/server.xml</serverXml> -->
+									<!-- <systemProperties>
+										<solr.solr.home>${sensefy.solr.home}</solr.solr.home>
+										<sensefy.conf.dir>${sensefy.conf.dir}</sensefy.conf.dir>
+										<spring.config.location>${spring.config.location}</spring.config.location>
+										<org.apache.manifoldcf.configfile>${sensefy.basepath}/manifold/example/properties.xml</org.apache.manifoldcf.configfile>
+									</systemProperties> -->
+									<additionalClasspathDirs>
+										<additionalClasspathDir>${spring.config.location}</additionalClasspathDir>
+									</additionalClasspathDirs>
+									
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+
+		</profile>
+
+	</profiles>
+
+
+
+
+
+
+	<repositories>
+		<repository>
+			<id>spring-snapshots</id>
+			<url>http://repo.spring.io/libs-snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-snapshots-local</id>
+			<name>Spring Snapshots</name>
+			<url>http://repo.spring.io/libs-snapshot-local</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>http://repo.spring.io/libs-milestone-local</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-releases</id>
+			<name>Spring Releases</name>
+			<url>http://repo.spring.io/libs-release-local</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+</project>

@@ -4,6 +4,12 @@
 .DS_Store
 sensefy.iml
 target/
+derby.log
+logs/manifoldcf.log
+manifoldcf.log.1
+write.lock
+.extract
+.factorypath
 sensefy-ui/src/main/ui-source/.idea/cssxfire.xml
 sensefy-ui/src/main/ui-source/.idea/dictionaries/sthilakasiri.xml
 sensefy-ui/src/main/ui-source/.idea/encodings.xml
