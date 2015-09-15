@@ -229,6 +229,7 @@
 											<directory>${project.basedir}/src/main/ui-source/dist</directory>
 										</resource>
 									</resources>
+									<overwrite>true</overwrite>
 								</configuration>
 							</execution>
 						</executions>
