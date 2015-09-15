@@ -13,3 +13,4 @@ node
 npm.tar.gz
 .tmp
 **/static/**/*
+/sensefy-ui/src/main/ui-source/app/asserts/**/*
