@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.zaizi.sensefy.api.configuration.model.RequestURI;
 import com.zaizi.sensefy.api.dto.response.search.AutoCompleteResponse;
 import com.zaizi.sensefy.api.dto.response.search.SearchResponse;
 import com.zaizi.sensefy.api.service.SearchService;
@@ -30,7 +31,6 @@ import com.zaizi.sensefy.api.service.SolrSmartAutoCompleteService;
  * @author mfahiz
  * @since 2.0
  */
-
 @RestController
 public class ServiceController extends WebMvcAutoConfigurationAdapter {
 
@@ -84,7 +84,7 @@ public class ServiceController extends WebMvcAutoConfigurationAdapter {
 	 *            user running the query @return A json representation of the
 	 *            list of relevant documents for the input query
 	 */
-	@RequestMapping(value = "/keywordSearch", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON })
+	@RequestMapping(value = RequestURI.KEYWORD_SEARCH, method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON })
 	public @ResponseBody SearchResponse keywordBasedSearch(@RequestParam String query, @RequestParam String fields,
 			@RequestParam String filters, @RequestParam boolean facet, @RequestParam int start,
 			@RequestParam Integer rows, @RequestParam String order, @RequestParam boolean spellcheck,
@@ -118,7 +118,7 @@ public class ServiceController extends WebMvcAutoConfigurationAdapter {
 	 *            user running the query
 	 * @return the list of different types of suggestions
 	 */
-	@RequestMapping(value = "/autocomplete/1", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON })
+	@RequestMapping(value = RequestURI.AUTOCOMPLETE_1, method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON })
 	public AutoCompleteResponse complete1(@RequestParam String termToComplete,
 			@RequestParam Integer numberOfSuggestions, @RequestParam boolean semantic, Principal user) {
 		logger.info("Autocomplete search Phase 1");
@@ -142,7 +142,7 @@ public class ServiceController extends WebMvcAutoConfigurationAdapter {
 	 *            user running the query
 	 * @return The autocompleted properties for the selected entity type
 	 */
-	@RequestMapping(value = "/autocomplete/2", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON })
+	@RequestMapping(value = RequestURI.AUTOCOMPLETE_2, method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON })
 	public AutoCompleteResponse complete2(@RequestParam String termToComplete, @RequestParam String entityTypeId,
 			@RequestParam Integer numberOfSuggestions, Principal user) {
 		logger.info("Autocomplete search Phase 2");
@@ -170,7 +170,7 @@ public class ServiceController extends WebMvcAutoConfigurationAdapter {
 	 * @return The autocompleted attributes for the selected property of the
 	 *         entity type
 	 */
-	@RequestMapping(value = "/autocomplete/3", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON })
+	@RequestMapping(value = RequestURI.AUTOCOMPLETE_3, method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON })
 	public AutoCompleteResponse complete3(@RequestParam String termToComplete, @RequestParam String entityTypeId,
 			@RequestParam String entityAttributeField, @RequestParam Integer numberOfSuggestions, Principal user) {
 		logger.info("Autocomplete search Phase 3");
@@ -219,7 +219,7 @@ public class ServiceController extends WebMvcAutoConfigurationAdapter {
 	 * @return A json representation of the list of relevant documents for the
 	 *         input query
 	 */
-	@RequestMapping(value = "/entityDrivenSearch", method = RequestMethod.GET, produces = {
+	@RequestMapping(value = RequestURI.ENTITY_DRIVEN_SEARCH, method = RequestMethod.GET, produces = {
 			MediaType.APPLICATION_JSON })
 	public SearchResponse entityDrivenSearch(@RequestParam String entityId, @RequestParam(required=false) String entityType,
 			@RequestParam(required=false) String entityAttribute, @RequestParam(required=false) String entityAttributeValue,
@@ -260,7 +260,7 @@ public class ServiceController extends WebMvcAutoConfigurationAdapter {
 	 * @return A json representation of the list of relevant entities for the
 	 *         input document id
 	 */
-	@RequestMapping(value = "/showEntitiesByDocId", method = RequestMethod.GET, produces = {
+	@RequestMapping(value = RequestURI.SHOW_ENTITY_BY_DOCID, method = RequestMethod.GET, produces = {
 			MediaType.APPLICATION_JSON })
 	public SearchResponse showEntitiesByDocId(@RequestParam String docId, @RequestParam(required=false) String fields,
 			@RequestParam String filters, @RequestParam int start, @RequestParam Integer rows,
