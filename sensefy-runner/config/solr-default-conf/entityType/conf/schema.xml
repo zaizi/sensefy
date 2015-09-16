@@ -6,7 +6,7 @@
    <field name="_root_" type="string" indexed="true" stored="true"/>
    <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
    <field name="type" type="text_suggestion" indexed="true" stored="true" multiValued="true" termVectors="true"/>
-   <field name="attributes" type="string" indexed="false" stored="true" multiValued="true" docValues="true"/>
+   <field name="attributes" type="string" indexed="true" stored="true" multiValued="true" docValues="true"/>
    <field name="hierarchy" type="string" indexed="true" stored="true" required="false" multiValued="true" />
    <field name="occurrences" type="int" indexed="true" stored="true" required="false" multiValued="false" />
    <field name="_version_" type="long" indexed="true" stored="true"/>

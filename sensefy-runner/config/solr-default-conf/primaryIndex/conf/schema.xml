@@ -96,6 +96,11 @@
     -->
   <field name="smlt_entities" type="string" indexed="true" stored="true" multiValued="true" termVectors="true"/>
   <field name="smlt_entity_types" type="string" indexed="true" stored="true" multiValued="true" termVectors="true"/>
+  
+  <field name="is_person" type="boolean" indexed="true" stored="true"/>
+  <field name="is_organization" type="boolean" indexed="true" stored="true"/>
+  <field name="is_place" type="boolean" indexed="true" stored="true"/>
+	
 
   <!-- Solr Default fields-->
   <field name="_version_" type="long" indexed="true" stored="true"/>

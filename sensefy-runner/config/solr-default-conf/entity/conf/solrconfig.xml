@@ -26,7 +26,6 @@
 
   <directoryFactory name="DirectoryFactory"
                     class="${solr.directoryFactory:solr.NRTCachingDirectoryFactory}"/>
-
   <codecFactory class="solr.SchemaCodecFactory"/>
 
   <schemaFactory class="ClassicIndexSchemaFactory"/>
@@ -129,11 +128,37 @@
        -->
   </requestHandler>
 
-    <initParams path="/update/**,/query,/select,/tvrh,/elevate,/spell">
-        <lst name="defaults">
-            <str name="df">text</str>
-        </lst>
-    </initParams>
+  <initParams path="/update/**,/query,/select,/tvrh,/elevate,/spell">
+     <lst name="defaults">
+        <str name="df">text</str>
+     </lst>
+  </initParams>
+  
+  <!-- for back compat with clients using /update/json and /update/csv -->
+  <requestHandler name="/update/json" class="solr.JsonUpdateRequestHandler">
+    <lst name="defaults">
+      <str name="stream.contentType">application/json</str>
+    </lst>
+  </requestHandler>
+  <requestHandler name="/update/csv" class="solr.CSVRequestHandler">
+    <lst name="defaults">
+      <str name="stream.contentType">application/csv</str>
+    </lst>
+  </requestHandler>
+
+  <requestHandler name="/update/extract"
+                  startup="lazy"
+                  class="solr.extraction.ExtractingRequestHandler">
+    <lst name="defaults">
+      <str name="lowernames">true</str>
+      <str name="uprefix">ignored_</str>
+
+      <!-- capture link hrefs but ignore div attributes -->
+      <str name="captureAttr">true</str>
+      <str name="fmap.a">links</str>
+      <str name="fmap.div">ignored_</str>
+    </lst>
+  </requestHandler>
 
   <requestHandler name="/analysis/field"
                   startup="lazy"
