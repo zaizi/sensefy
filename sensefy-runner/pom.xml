@@ -603,6 +603,8 @@
 
 
 
+
+
 					<plugin>
 						<groupId>com.coderplus.maven.plugins</groupId>
 						<artifactId>copy-rename-maven-plugin</artifactId>
@@ -657,7 +659,7 @@
 						<version>2.3-SNAPSHOT</version>
 						<configuration>
 							<enableNaming>false</enableNaming>
-							<finalName>sensefy-${version}.jar</finalName>
+							<finalName>sensefy-${project.version}.jar</finalName>
 							<port>${tomcat.port}</port>
 							<path>/</path>
 							<ignorePackaging>true</ignorePackaging>
@@ -687,7 +689,6 @@
 				</plugins>
 			</build>
 		</profile>
-
 		<profile>
 			<id>build-jar</id>
 			<build>
@@ -704,67 +705,64 @@
 								</goals>
 								<phase>package</phase>
 								<configuration>
-							
+
 									<warRunDependencies>
 										<warRunDependency>
 											<contextPath>/auth</contextPath>
 											<contextXml></contextXml>
-											
+
 											<dependency>
 												<groupId>com.zaizi</groupId>
 												<artifactId>sensefy.authserver</artifactId>
 												<version>${sensefy.version}</version>
 												<type>war</type>
-												
+
 											</dependency>
 
 										</warRunDependency>
 										<warRunDependency>
 											<contextPath>/</contextPath>
 											<contextXml></contextXml>
-											
+
 											<dependency>
 												<groupId>com.zaizi</groupId>
 												<artifactId>sensefy.ui</artifactId>
 												<version>${sensefy.version}</version>
 												<type>war</type>
-												
+
 											</dependency>
 
 										</warRunDependency>
 										<warRunDependency>
-										
-										
+
+
 											<contextPath>/api</contextPath>
 											<contextXml></contextXml>
-											
+
 											<dependency>
 												<groupId>com.zaizi</groupId>
 												<artifactId>sensefy.api</artifactId>
 												<version>${sensefy.version}</version>
 												<type>war</type>
-												
+
 											</dependency>
 
 										</warRunDependency>
 									</warRunDependencies>
-									<!-- <path>/</path>--> 
-									<enableNaming>true</enableNaming> 
-									<finalName>sensefy-${version}.jar</finalName>
-									
+									<!-- <path>/</path> -->
+									<enableNaming>true</enableNaming>
+									<finalName>sensefy-${project.version}.jar</finalName>
+
 									<httpPort>${tomcat.port}</httpPort>
-									<charset>utf-8</charset><!-- 
-									<serverXml>${sensefy.tomcat.conf}/server.xml</serverXml> -->
-									<!-- <systemProperties>
-										<solr.solr.home>${sensefy.solr.home}</solr.solr.home>
-										<sensefy.conf.dir>${sensefy.conf.dir}</sensefy.conf.dir>
-										<spring.config.location>${spring.config.location}</spring.config.location>
-										<org.apache.manifoldcf.configfile>${sensefy.basepath}/manifold/example/properties.xml</org.apache.manifoldcf.configfile>
-									</systemProperties> -->
+									<charset>utf-8</charset><!-- <serverXml>${sensefy.tomcat.conf}/server.xml</serverXml> -->
+									<!-- <systemProperties> <solr.solr.home>${sensefy.solr.home}</solr.solr.home> 
+										<sensefy.conf.dir>${sensefy.conf.dir}</sensefy.conf.dir> <spring.config.location>${spring.config.location}</spring.config.location> 
+										<org.apache.manifoldcf.configfile>${sensefy.basepath}/manifold/example/properties.xml</org.apache.manifoldcf.configfile> 
+										</systemProperties> -->
 									<additionalClasspathDirs>
 										<additionalClasspathDir>${spring.config.location}</additionalClasspathDir>
 									</additionalClasspathDirs>
-									
+
 								</configuration>
 							</execution>
 						</executions>
