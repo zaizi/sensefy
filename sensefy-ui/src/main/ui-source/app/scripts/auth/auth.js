@@ -56,9 +56,9 @@ angular.module('auth', []).factory(
                 $location.path(auth.loginPath);
                 auth.authenticated = false;
                 $http.post(auth.logoutPath, {}).success(function() {
-                    console.log("Logout succeeded");
+                    //  console.log("Logout succeeded");
                 }).error(function(data) {
-                    console.log("Logout failed");
+                    //  console.log("Logout failed");
                 });
             },
 

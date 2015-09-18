@@ -1,10 +1,21 @@
-<div class="entity-information facets" ng-show="selectedEntity != null">
+<!-- div class="entity-information facets" ng-show="selectedEntity != null">
 	<header>{{selectedEntity.label}}</header>
 	<div>
 		<img class="image" ng-src="{{selectedEntity.thumbnail[0] || 'images/missing.jpg'}}"/>
 		<div class="text">{{selectedEntity.label}}</div>
 		<div class="type">{{selectedEntity.notable_type}}</div>
 	</div>
+</div -->
+
+<div class="group-facet facets entity-information"
+     ng-show="selectedEntity != null">
+    <header translate="{{selectedEntity.label | translate}}"></header>
+
+    <div class="entity-info-brief">
+        <img class="image" ng-src="{{selectedEntity.thumbnail[0] || 'images/missing.jpg'}}"/>
+        <div class="text">{{selectedEntity.label}}</div>
+        <div class="type">{{selectedEntity.notable_type}}</div>
+    </div>
 </div>
 
 <!-- <div class="entity-type-information facets" ng-show="selectedEntityType != null">

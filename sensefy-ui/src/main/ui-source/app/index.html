@@ -34,14 +34,6 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
-<!--div ng-controller="navigation" class="container">
-    <ul class="nav nav-pills" role="tablist">
-        <li ng-class="{active:tab('home')}"><a href="/searchsui/">home</a></li>
-        <li ng-class="{active:tab('message')}"><a href="/searchsui/message">message</a></li>
-        <li><a href="/searchsui/login">login</a></li>
-        <li ng-show="authenticated()"><a href="" ng-click="logout()">logout</a></li>
-    </ul>
-</div-->
 
 <div class="ui page grid wrapper" ng-view>
 
@@ -101,7 +93,6 @@
 <script src="../bower_components/angular-moment/angular-moment.js"></script>
 <script src="../bower_components/d3/d3.js"></script>
 <!-- endbower -->
-<script src="assets/scripts/detect.js" type="text/javascript"></script>
 <!-- endbuild -->
 
 <!-- build:js scripts/vendor.worker.js -->

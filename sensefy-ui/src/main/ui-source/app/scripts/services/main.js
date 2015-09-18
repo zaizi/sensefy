@@ -149,7 +149,7 @@
                         clustering: clustering
                     });
                 },
-                searchByEntity: function (entityId, start, rows, fields, filters, facet, sort, clustering) {
+                searchByEntity: function (entityId, start, rows, fields, filters, facet, sort, clustering, security) {
                     if (start == null) {
                         start = 0;
                     }
@@ -170,6 +170,9 @@
                     }
                     if (clustering == null) {
                         clustering = false;
+                    }
+                    if (security == null){
+                        security = true;
                     }
                     if (angular.isArray(filters)) {
                         filters = filters.join(",");
@@ -182,10 +185,11 @@
                         fields: fields,
                         facet: facet,
                         order: sort,
-                        clustering: clustering
+                        clustering: clustering,
+                        security: security
                     });
                 },
-                searchByEntityQuery: function (entityType, entityAttribute, entityAttributeValue, start, rows, fields, filters, facet, sort, clustering) {
+                searchByEntityQuery: function (entityType, entityAttribute, entityAttributeValue, start, rows, fields, filters, facet, sort, clustering, security) {
                     if (start == null) {
                         start = 0;
                     }
@@ -206,6 +210,9 @@
                     }
                     if (clustering == null) {
                         clustering = false;
+                    }
+                    if (security == null){
+                        security = true;
                     }
                     if (angular.isArray(filters)) {
                         filters = filters.join(",");
@@ -220,10 +227,11 @@
                         fields: fields,
                         facet: facet,
                         order: sort,
-                        clustering: clustering
+                        clustering: clustering,
+                        security: security
                     });
                 },
-                searchByEntityType: function (entityTypeId, start, rows, fields, filters, facet, sort, clustering) {
+                searchByEntityType: function (entityTypeId, start, rows, fields, filters, facet, sort, clustering, security) {
                     if (start == null) {
                         start = 0;
                     }
@@ -244,6 +252,9 @@
                     }
                     if (clustering == null) {
                         clustering = false;
+                    }
+                    if (security == null){
+                        security = true;
                     }
                     if (angular.isArray(filters)) {
                         filters = filters.join(",");
@@ -256,10 +267,11 @@
                         fields: fields,
                         facet: facet,
                         order: sort,
-                        clustering: clustering
+                        clustering: clustering,
+                        security: security
                     });
                 },
-                getEntities: function (docId, start, rows, fields, filters, facet, sort, clustering) {
+                getEntities: function (docId, start, rows, fields, filters, facet, sort, clustering, security) {
                     if (start == null) {
                         start = 0;
                     }
@@ -281,6 +293,9 @@
                     if (clustering == null) {
                         clustering = false;
                     }
+                    if (security == null){
+                        security = true;
+                    }
                     return ApiService.get(SensefyGetEntitiesByDoc, {}, {
                         docId: docId,
                         start: start,
@@ -289,7 +304,8 @@
                         fields: fields,
                         facet: facet,
                         order: sort,
-                        clustering: clustering
+                        clustering: clustering,
+                        security: security
                     });
                 }
             };

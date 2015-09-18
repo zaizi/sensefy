@@ -63,7 +63,7 @@
                         var regex = /(<([^>]+)>)/ig,
                             body = $scope.queryTerm,
                             clnresult = body.replace(regex, "");
-                        return $scope.queryTerm = clnresult;
+                        $scope.queryTerm = clnresult;
                     };
                     phase1 = function () {
                         if ($scope.queryTerm.length === 0) {
@@ -98,7 +98,7 @@
                                 return $scope.suggestions['suggestions'] = response.data.responseContent.suggestions;
                             }
                         }, function (response) {
-                            return $scope.$parent.logout();
+                            $scope.$parent.logout();
                         });
                     };
                     phase2 = function () {
@@ -116,7 +116,7 @@
                                 return $scope.suggestions['suggestions'] = response.data.responseContent.suggestions;
                             }
                         }, function (response) {
-                            return $scope.$parent.logout();
+                            $scope.$parent.logout();
                         });
                     };
                     phase3 = function () {
@@ -134,13 +134,14 @@
                                 return $scope.suggestions['suggestions'] = response.data.responseContent.suggestions;
                             }
                         }, function (response) {
-                            return $scope.$parent.logout();
+                            $scope.$parent.logout();
                         });
                     };
                     $scope.entitySelected = function (entity) {
                         $scope.selectedEntity = entity;
                         $scope.queryTerm = entity.label;
-                        return $scope.$emit('entitySelected', entity);
+                        angular.element('body').removeClass('ggl');
+                        $scope.$emit('entitySelected', entity);
                     };
                     $scope.entityTypeSelected = function (entityType) {
                         $scope.selectedEntityType = entityType;
@@ -149,7 +150,7 @@
                         $scope.queryTerm = "";
                         $scope.autocompletePhase = "phase2";
                         $scope.$emit("entityTypeSelected", entityType);
-                        return $scope.autocomplete();
+                        $scope.autocomplete();
                     };
                     $scope.entityTypeAttributeSelected = function (attribute) {
                         $scope.selectedEntityTypeAttribute = attribute;
@@ -157,7 +158,7 @@
                         $scope.autocompletePhase = "phase3";
                         $scope.queryTerm = "";
                         $scope.$emit("entityTypeAttributeSelected", attribute);
-                        return $scope.autocomplete();
+                        $scope.autocomplete();
                     };
                     $scope.entityTypeAttributeValueSelected = function (value) {
                         $scope.selectedEntityTypeAttributeValue = value;
@@ -165,18 +166,18 @@
                         $scope.queryTerm = "";
                         $scope.selectedEntity = null;
                         $scope.autocompletePhase = "";
-                        return $scope.$emit("entityTypeAttributeValueSelected", $scope.selectedEntityTypeAttribute, $scope.selectedEntityTypeAttributeValue);
+                        $scope.$emit("entityTypeAttributeValueSelected", $scope.selectedEntityTypeAttribute, $scope.selectedEntityTypeAttributeValue);
                     };
                     $scope.titleSelected = function (title) {
                         $scope.queryTerm = title.document_suggestion;
-                        return $scope.$emit("titleSelected", title);
+                        $scope.$emit("titleSelected", title);
                     };
                     $scope.suggestionSelected = function (suggestion) {
                         $scope.queryTerm = suggestion;
-                        return $scope.$emit("suggestionSelected", suggestion);
+                        $scope.$emit("suggestionSelected", suggestion);
                     };
                     $scope.cleanSuggestions = function () {
-                        return $scope.suggestions = {};
+                        $scope.suggestions = {};
                     };
                     $scope.cleanEntityType = function () {
                         $scope.selectedEntityType = null;
@@ -184,37 +185,37 @@
                         $scope.selectedEntityTypeAttributeValue = null;
                         $scope.queryTerm = "";
                         $scope.autocompletePhase = "phase1";
-                        return $scope.$emit("entityTypeCleaned");
+                        $scope.$emit("entityTypeCleaned");
                     };
                     $scope.cleanEntityTypeAttribute = function () {
                         $scope.selectedEntityTypeAttribute = null;
                         $scope.selectedEntityTypeAttributeValue = null;
                         $scope.queryTerm = "";
                         $scope.autocompletePhase = "phase2";
-                        return $scope.$emit("entityTypeAttributeCleaned");
+                        $scope.$emit("entityTypeAttributeCleaned");
                     };
-                    return $scope.cleanEntityTypeAttributeValue = function () {
+                    $scope.cleanEntityTypeAttributeValue = function () {
                         $scope.selectedEntityTypeAttributeValue = null;
                         $scope.queryTerm = "";
                         $scope.autocompletePhase = "phase3";
-                        return $scope.$emit("entityTypeAttributeValueCleaned");
+                        $scope.$emit("entityTypeAttributeValueCleaned");
                     };
                 },
                 link: function (scope, element, attrs) {
-                    var fontSize, getWidthFilters, input, originalPaddingLeft, placeholder, span, suggestionsWrapper;
+                    var fontSize, getWidthFilters, input, originalPaddingLeft, placeholder, btn, suggestionsWrapper;
                     input = element.find("input");
-                    span = element.find("span.search-btn");
+                    btn = element.find("span.search-btn");
                     originalPaddingLeft = input.css('paddingLeft');
                     fontSize = input.css('fontSize');
                     fontSize = parseInt(fontSize.substring(0, fontSize.length - 2));
                     placeholder = input.attr('placeholder');
                     suggestionsWrapper = element.find(".suggestions-wrapper");
                     $timeout(function () {
-                        return input.focus();
+                        input.focus();
                     }, 0);
                     input.on('focus', function () {
                         if (scope.autocompletePhase !== "") {
-                            return suggestionsWrapper.fadeIn();
+                            suggestionsWrapper.fadeIn();
                         }
                     });
                     input.on('blur', function () {
@@ -223,7 +224,7 @@
                             scope.suggestions.titles[scope.selectedTitleIndex].selected = false;
                         }
                         scope.selectedTitleIndex = -1;
-                        return suggestionsWrapper.fadeOut();
+                        suggestionsWrapper.fadeOut();
                     });
                     input.on('keyup', function (event) {
                         var maxTitles, valid;
@@ -237,7 +238,9 @@
                             angular.element('body').removeClass('ggl');
                         }
                         if (event.keyCode === 40 || event.keyCode === 38) {
-                            console.log('sdfdsf sdfds fds')
+                            if(DEBUGmode) {
+                                console.log('Started pressing up or down arrow keys.');
+                            }
                             valid = scope.suggestions.titles !== null && scope.suggestions.titles !== void 0 && scope.suggestions.titles.length > 0;
                             if (!valid) {
                                 return;
@@ -258,9 +261,9 @@
                                     body = scope.suggestions.titles[scope.selectedTitleIndex].document_suggestion,
                                     clnresult = body.replace(regex, "");
                                 scope.queryTerm = clnresult;
-
-
-                                console.log('scope.queryTerm scope.selectedTitleIndex >=0 '+scope.queryTerm)
+                                if(DEBUGmode) {
+                                    console.log('scope.queryTerm scope.selectedTitleIndex >=0, this appears on search box ' + scope.queryTerm);
+                                }
                             }
                             if (scope.selectedTitleIndex === -1) {
 
@@ -268,22 +271,23 @@
                                     body = scope.originalAutocompleteQueryTerm,
                                     clnresult = body.replace(regex, "");
                                 scope.queryTerm = clnresult;
-
-                                console.log('scope.queryTerm scope.selectedTitleIndex === -1 '+scope.queryTerm)
+                                if(DEBUGmode) {
+                                    console.log('scope.queryTerm scope.selectedTitleIndex === -1, this appears on search box ' + scope.queryTerm);
+                                }
                             }
-                            return scope.$digest();
+                            scope.$digest();
                         }
                     });
-                    span.on('keyup', function (event) {
+                    btn.on('keyup', function (event) {
                         if ((event != null ? event.keyCode : void 0) === 13) {
                             scope.showSuggestions = false;
                             if (scope.queryTerm.length !== 0) {
                                 angular.element('body').removeClass('ggl');
                             }
-                            return suggestionsWrapper.fadeOut();
+                            suggestionsWrapper.fadeOut();
                         }
                     });
-                    span.on('click', function () {
+                    btn.on('click', function () {
                         if (scope.queryTerm.length !== 0) {
                             angular.element('body').removeClass('ggl');
                         }
@@ -298,7 +302,7 @@
                         var filtersWidth;
                         suggestionsWrapper.fadeIn();
                         filtersWidth = getWidthFilters();
-                        return scope.style = "padding-left: " + filtersWidth + "px";
+                        scope.style = "padding-left: " + filtersWidth + "px";
                     });
                     scope.$on('entityTypeAttributeSelected', function (event) {
                         var filtersWidth;
@@ -363,21 +367,21 @@
                     onImageDrop = $parse(attrs.onImageDrop);
                     onDragOver = function (e) {
                         e.preventDefault();
-                        return $(element).addClass("drag-over");
+                        $(element).addClass("drag-over");
                     };
                     onDragEnd = function (e) {
                         e.preventDefault();
-                        return $(element).removeClass("drag-over");
+                        $(element).removeClass("drag-over");
                     };
                     loadFile = function (file) {
                         scope.uploadedFile = file;
-                        return scope.$apply(onImageDrop(scope));
+                        scope.$apply(onImageDrop(scope));
                     };
                     $(element).bind("dragover", onDragOver);
                     element.bind("dragleave", onDragEnd);
                     return element.bind("drop", function (e) {
                         onDragEnd(e);
-                        return loadFile(e.originalEvent.dataTransfer.files[0]);
+                        loadFile(e.originalEvent.dataTransfer.files[0]);
                     });
                 }
             };

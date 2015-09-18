@@ -22,8 +22,11 @@
         .constant('SensefyMlt', 'docs/mlt')
         .constant('SensefyFacetsPerGroup', 2)
         .constant('SensefyUNIXdate', 1000)
-        .constant('SensefySearchLogin', 'http://localhost:9099/auth/logout')
+        .constant('SensefySearchLogin', 'http://localhost:9099/logout')
         .constant('SensefySearchIsSemantic', true)
+        .constant('SensefySearchIsClustering', true)
+        .constant('SensefyDocSecurity', true)
+        .constant('SensefySearchResponseFailedIsLogout', true)
         .constant('SensefySortOptions', [
             {
                 'id': 1,
@@ -93,7 +96,7 @@
                 'txtDocumentTitles': 'Document titles',
                 'txtDocumentSuggestions': 'Suggestions',
                 'txtNoSuggestions': 'No suggestions',
-                'txtDocumentsFound': 'Showing results {{docStart}}-{{docStart+docPerPage}} of {{documents}}.',//Showing results 1-10 of 1404.
+                'txtDocumentsFound': 'Showing results {{docStart}}-{{docEnd}} of {{documents}}.',//Showing results 1-10 of 1404.
                 'txtDocumentsCountFound': 'documents found',
                 'txtNoDocumentsFound': 'No document found.',
                 'txtDidYouMean': 'Did you mean:',
@@ -985,8 +988,8 @@
                 'Unknown': 'Desconocido'
             }
         }).config([
-            '$routeProvider', '$httpProvider', '$translateProvider', 'SensefyTranslations', '$sceProvider', '$locationProvider', 'SensefySearchLogin',
-            function ($routeProvider, $httpProvider, $translateProvider, SensefyTranslations, $sceProvider, $locationProvider, SensefySearchLogin) {
+            '$routeProvider', '$httpProvider', '$translateProvider', 'SensefyTranslations', '$sceProvider', '$locationProvider', 'SensefySearchLogin', 'SensefySearchResponseFailedIsLogout', 'DEBUGmode',
+            function ($routeProvider, $httpProvider, $translateProvider, SensefyTranslations, $sceProvider, $locationProvider, SensefySearchLogin, SensefySearchResponseFailedIsLogout, DEBUGmode) {
                 var data, lang;
                 $locationProvider.html5Mode(true);
                 $sceProvider.enabled(false);
@@ -1008,7 +1011,7 @@
                         dataSources: function ($q, $rootScope, SemanticSearchService, $location) {
                             var deferrer;
                             //if ($rootScope.user !== null || $rootScope.user !== undefined) {
-                            if ($rootScope.user !== null) {
+                            if ($rootScope.user !== null || $rootScope.user !== undefined) {
                                 deferrer = $q.defer();
                                 SemanticSearchService.search('*:*', 0, 0, "*", [], true).then(function (response) {
                                     return deferrer.resolve(response);
@@ -1020,7 +1023,13 @@
                                 return deferrer.promise;
                             }
                             else{
-                                document.location.href = SensefySearchLogin;
+                                if(SensefySearchResponseFailedIsLogout){
+                                    //$scope.$parent.logout();
+                                    document.location.href = SensefySearchLogin;
+                                    if(DEBUGmode){
+                                        console.log('dataSources: function ($q, $rootScope, SemanticSearchService, $location) is fired, but FAILED');
+                                    }
+                                }
                             }
                         }
                     }

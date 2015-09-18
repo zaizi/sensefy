@@ -2,15 +2,15 @@
     <div class="row">
         <div class="cell info">
 
-            <!--ng-switch>
+            <ng-switch>
                 <span ng-if="entity.name != null && entity.name != ''">
                     <span class="text" ng-switch-when="true" ng-bind-html="entity.name | highlight:queryTerm"></span>
                     <span class="text" ng-switch-default ng-bind-html="entity.label | highlight:queryTerm"></span>
                 </span>
-            </ng-switch-->
+            </ng-switch>
 
 
-            <span class="text" ng-bind-html="entity.label | highlight:queryTerm"></span>
+            <!--span class="text" ng-bind-html="entity.label | highlight:queryTerm"></span-->
             <!--span class="type">{{entity.jobTitle || ""}}</span-->
         </div>
         <div class="cell img" ng-show="entity.thumbnail[0]">

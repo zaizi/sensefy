@@ -35,21 +35,17 @@
 
                 $scope.user = null;
 
-                /*$scope.$on('userLogged', function (event, data) {
-                    $rootScope.credentials = {
-                        username: data.user,
-                        token: data.token
-                    };
-                    controllersModule.value("token", data.token);
-                    $location.path("/search");
-                    return $location.search($location.search());
-                });*/
                 $http.get('/user/').success(function(data) {
-                    if(DEBUGmode) {
-                        console.log('rootcontroller and user GET request fired')
-                    }
                     $scope.user = data.name;
+                    if(DEBUGmode) {
+                        console.log('rootcontroller and user GET request fired -> $scope.user '+$scope.user)
+                        console.log('rootcontroller and user GET request fired -> data.name '+data.name)
+                    }
                 });
+
+                /*$rootScope.user = {
+                    username: $scope.user
+                };*/
 
                 $scope.changeLanguage = function (lang) {
                     if (lang === null) {
@@ -58,12 +54,6 @@
                     tmhDynamicLocale.set(lang);
                     return $translate.use(lang);
                 };
-                /*if (localStorageService.get('token') !== null && localStorageService.get('user') !== null) {
-                    return $scope.$emit('userLogged', {
-                        user: localStorageService.get('user'),
-                        token: localStorageService.get('token')
-                    });
-                }*/
             }
         ]).controller('LoginController', [
             '$scope', 'LoginService', 'localStorageService', 'auth', 'SensefySearchLogin', 'DEBUGmode',
@@ -75,10 +65,6 @@
                 }
 
                 $scope.credentials = {};
-
-                $scope.tab = function (route) {
-                    return $route.current && route === $route.current.controller;
-                };
 
                 $scope.authenticated = function () {
                     return auth.authenticated;
@@ -100,77 +86,10 @@
                 };
 
                 $scope.logout = auth.clear;
-
-                /*
-                 $scope.user = {};
-                 $scope.loginError = false;
-                 $scope.doingLogin = false;
-                 $scope.timezone = jstz.determine().name();
-                 $scope.isCaptcha = false;
-                 $scope.captchaImgSrc = '';
-                 angular.element('#username').focus();
-                 return $scope.doLogin = function () {
-                 if (!$scope.user.username || $scope.user.username === null || $scope.user.username === '' || !$scope.user.password || $scope.user.password === null || $scope.user.password === '') {
-                 $scope.errors['login'] = true;
-                 $scope.errors['loginMessage'] = 'errorBadUsernameOrPassword';
-                 if ($scope.user.captcha === void 0 && $scope.isCaptcha) {
-                 $scope.errors['loginCaptcha'] = true;
-                 return $scope.errors['loginMessageCaptcha'] = 'errorBadUsernameOrPasswordOrCaptcha';
-                 } else {
-                 return $scope.errors['loginCaptcha'] = false;
-                 }
-                 } else {
-                 $scope.doingLogin = true;
-                 if ($scope.user.captcha === void 0 && $scope.isCaptcha) {
-                 $scope.errors['loginCaptcha'] = true;
-                 $scope.errors['loginMessageCaptcha'] = 'errorBadUsernameOrPasswordOrCaptcha';
-                 $scope.errors['login'] = false;
-                 return false;
-                 } else {
-                 $scope.errors['loginCaptcha'] = false;
-                 }
-                 return LoginService.login($scope.user.username, $scope.user.password, {
-                 timezone: $scope.timezone,
-                 captcha: $scope.user.captcha
-                 }).then(function (response) {
-                 $scope.doingLogin = false;
-                 if (response.data.captchaImage === null && response.data.error === null && response.data.token.value !== '') {
-                 $scope.isCaptcha = false;
-                 $scope.captchaImgSrc = '';
-                 $scope.errors['login'] = false;
-                 localStorageService.set('token', response.data.token.value);
-                 localStorageService.set('user', $scope.user.username);
-                 return $scope.$emit('userLogged', {
-                 user: localStorageService.get('user'),
-                 token: localStorageService.get('token')
-                 });
-                 } else if (response.data.captchaImage === null && response.data.error.msg !== null && response.data.token === null) {
-                 $scope.errors['login'] = true;
-                 $scope.errors['loginMessage'] = response.data.error.msg;
-                 $scope.isCaptcha = false;
-                 $scope.errors['loginCatcha'] = false;
-                 return $scope.captchaImgSrc = '';
-                 } else if (response.data.captchaImage !== null && response.data.error.msg !== null && response.data.token === null) {
-                 $scope.errors['login'] = true;
-                 $scope.errors['loginMessage'] = response.data.error.msg;
-                 $scope.errors['loginCatcha'] = false;
-                 $scope.isCaptcha = true;
-                 return $scope.captchaImgSrc = response.data.captchaImage;
-                 }
-                 }, function (response) {
-                 $scope.doingLogin = false;
-                 $scope.errors['login'] = true;
-                 if (response.status !== 200) {
-                 return $scope.errors['loginMessage'] = 'errorAPINotAvailable';
-                 }
-                 });
-                 }
-                 };
-                 */
             }
         ]).controller('SearchController', [
-            '$scope', '$http', '$location', 'dataSources', '$rootScope', 'SemanticSearchService', 'SensefyFacetsPerGroup', 'SensefySortOptions', 'PDFViewerService', 'SensefyAPIUrl', 'SensefyDocsPreview', 'localStorageService', 'ApiService', 'SensefyPreviewDoc', 'auth', 'tmhDynamicLocale', '$translate', 'SensefySearchLogin', 'SensefyUNIXdate', 'DEBUGmode',
-            function ($scope, $http, $location, dataSources, $rootScope, SemanticSearchService, SensefyFacetsPerGroup, SensefySortOptions, pdf, SensefyAPIUrl, SensefyDocsPreview, localStorageService, ApiService, SensefyPreviewDoc, auth, tmhDynamicLocale, $translate, SensefySearchLogin, SensefyUNIXdate, DEBUGmode) {
+            '$scope', '$http', '$location', 'dataSources', '$rootScope', 'SemanticSearchService', 'SensefyFacetsPerGroup', 'SensefySortOptions', 'PDFViewerService', 'SensefyAPIUrl', 'SensefyDocsPreview', 'localStorageService', 'ApiService', 'SensefyPreviewDoc', 'auth', 'tmhDynamicLocale', '$translate', 'SensefySearchLogin', 'SensefyUNIXdate', 'DEBUGmode', 'SensefyDocSecurity', 'SensefySearchResponseFailedIsLogout',
+            function ($scope, $http, $location, dataSources, $rootScope, SemanticSearchService, SensefyFacetsPerGroup, SensefySortOptions, pdf, SensefyAPIUrl, SensefyDocsPreview, localStorageService, ApiService, SensefyPreviewDoc, auth, tmhDynamicLocale, $translate, SensefySearchLogin, SensefyUNIXdate, DEBUGmode, SensefyDocSecurity, SensefySearchResponseFailedIsLogout) {
                 var FILTER_LABEL_SEPARATOR, HTMLtagCleaner, addMissingFacets, allSource, cleanLocationSearchParameters, entityMap, escapeHtmlExceptB, fillLocationSearchParameters, getActiveSource, getDataSourceByValue, initDataSources, parseFacets, parseSimpleFacet, processHighlightInfo, removeCluster, removeFilter, resetSelectedValues;
                 FILTER_LABEL_SEPARATOR = "$$";
 
@@ -195,7 +114,6 @@
                         angular.element('body').addClass('ggl');
                         clearTimeout(addGGLclass);
                     }, 20);
-
                 }
                 else {
                     document.location.href = SensefySearchLogin;
@@ -250,22 +168,6 @@
                     return $translate.use(lang);
                 };
 
-
-                /*
-                 $scope.logout = function (error) {
-                 if (error == null) {
-                 error = true;
-                 }
-                 angular.element('body').addClass('ggl');
-                 $scope.user = void 0;
-                 localStorageService.clearAll();
-                 if (error) {
-                 $scope.errors['login'] = true;
-                 $scope.errors['loginMessage'] = 'errorExpiredSession';
-                 }
-                 $location.path('/');
-                 };
-                 */
                 if (Object.keys($location.search()).length !== 0) {
                     angular.element('header').removeClass('ggl');
                 }
@@ -281,11 +183,11 @@
                     if (isForce == null) {
                         isForce = false;
                     }
-                    var facet, sources, _i, _k, _len, _ref, allOccurrence, _lenK;
+                    var facet, sources, _i, _k, _len, _ref, _lenK;
                     sources = [];
                     if(dataSources.data.facets && !isForce){
                         if(DEBUGmode){
-                            console.log('dataSources.data.facets '+JSON.stringify(dataSources.data.facets))
+                            console.log('initDataSources -> dataSources.data.facets '+ dataSources.data.facets)
                         }
                         _ref = dataSources.data.facets;
                         $scope.sources = [];
@@ -302,14 +204,14 @@
                         allSource.occurrence = $scope.allOccurrence;
                         sources.unshift(allSource);
                         if(DEBUGmode){
-                            console.log('dataSources.data.facets -> sources '+JSON.stringify(sources))
+                            console.log('initDataSources -> dataSources.data.facets -> sources '+ sources)
                         }
                         return $scope.sources = sources;
                     }
 
                     if($scope.responsedData && isForce){
                         if(DEBUGmode){
-                            console.log('$scope.responsedData.facets '+JSON.stringify($scope.responsedData.facets))
+                            console.log('initDataSources -> $scope.responsedData.facets '+$scope.responsedData.facets)
                         }
                         $scope.sources = [];
 
@@ -329,13 +231,11 @@
                         sources.unshift(allSource);
 
                         if(DEBUGmode){
-                            console.log('$scope.responsedData.facets -> sources '+JSON.stringify(sources))
+                            console.log('initDataSources -> $scope.responsedData.facets -> sources '+sources)
                         }
 
                         return $scope.sources = sources;
                     }
-
-
                 };
                 getActiveSource = function (defaultSource) {
                     var active, s, _i, _len, _ref;
@@ -510,6 +410,7 @@
                 $scope.totalDocuments = -1;
                 $scope.documentsPerPage = 10;
                 $scope.documentsOffsetStart = 1;
+                $scope.documentsOffsetEnd = 10;
                 $scope.currentPage = 1;
                 $scope.collatedQuery = null;
                 $scope.sorting = null;
@@ -598,14 +499,7 @@
                     $scope.updateDocumentOffset(true);
                     return $scope.runCurrentQuery(false);
                 };
-                /*
-                 * $scope.setSorting = function(sortType) {
-                 $scope.titleSorting = $scope.selectSortings.sortId + ' ' + sortType;
-                 $scope.sorting = sortType;
-                 $scope.updateDocumentOffset(true);
-                 return $scope.runCurrentQuery(false);
-                 };
-                 * */
+
                 $scope.addCluster = function (clusterItem, runQuery) {
                     var cpos;
                     if (runQuery == null) {
@@ -649,7 +543,6 @@
 
                     if(DEBUGmode){
                         console.log('facetItem '+JSON.stringify(facetItem))
-
                         console.log('facetItem.filter '+JSON.stringify(facetItem.filter))
                     }
                     pos = $scope.filters.indexOf(facetItem.filter);
@@ -696,12 +589,31 @@
                     $scope.runCurrentQuery(false);
                     return $scope.isFacetSelect[filter.filter] = false;
                 };
-                HTMLtagCleaner = function (riichHtml) {
+                HTMLtagCleaner = function (richHtml) {
                     var body, regex, result;
                     regex = /(<([^>]+)>)/ig;
-                    body = riichHtml;
-                    result = body.replace(regex, "");
+                    if(DEBUGmode){
+                        console.log('HTMLtagCleaner -> richHtml '+richHtml);
+                    }
+                    if(richHtml!==null && richHtml !== undefined){
+                        body = richHtml;
+                        result = body.replace(regex, "");
+                    }
+                    else{
+                        result = '';
+                    }
                     return result;
+                };
+                $scope.isEntitySuggesionLabel = false;
+                $scope.nameOrLabel = function (input){
+                    if(input != null && input != ''){
+                        $scope.showEntitySuggesionLabel = false;
+                        return true;
+                    }
+                    else{
+                        $scope.showEntitySuggesionLabel = true;
+                        return false;
+                    }
                 };
                 $scope.updateDocumentOffset = function (restoreCurrentPage) {
                     if (restoreCurrentPage == null) {
@@ -710,7 +622,17 @@
                     if (restoreCurrentPage) {
                         $scope.currentPage = 1;
                     }
-                    return $scope.documentsOffsetStart = ($scope.currentPage - 1) * $scope.documentsPerPage;
+                    $scope.documentsOffsetStart = ($scope.currentPage - 1) * $scope.documentsPerPage;
+                    if($scope.documentsOffsetStart==0){
+                        $scope.documentsOffsetStart = 1
+                    }
+
+                    if($scope.documentsOffsetStart == 1){
+                        $scope.documentsOffsetEnd = $scope.documentsPerPage;
+                    }
+                    else{
+                        $scope.documentsOffsetEnd = $scope.documentsOffsetStart + $scope.documentsPerPage;
+                    }
                 };
                 $scope.titleSelected = function (title, removeFilters) {
                     var clustering;
@@ -726,16 +648,22 @@
                     }
                     $scope.facets = {};
                     $scope.updateDocumentOffset(removeFilters);
-                    return SemanticSearchService.search('id:"' + $scope.selectedTitle.id + '"', $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true).then(function (response) {
+                    return SemanticSearchService.search('id:"' + $scope.selectedTitle.id + '"', $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true).then(
+                    function (response) {
                         $scope.documents = response.data.searchResults.documents || [];
                         processHighlightInfo($scope.documents, response.data.searchResults.highlight);
                         $scope.selectedEntity = response.data.searchResults.entity || $scope.selectedEntity;
                         $scope.totalDocuments = response.data.searchResults.numFound;
                         parseFacets(response.data);
-                        //initDataSources(response.data);
-                        return $scope.searching = false;
-                    }, function (response) {
-                        return $scope.logout();
+                        $scope.searching = false;
+                    },
+                    function (response) {
+                        if(SensefySearchResponseFailedIsLogout){
+                            $scope.logout();
+                            if(DEBUGmode){
+                                console.log('$scope.titleSelected = function (title, removeFilters) is fired, but FAILED');
+                            }
+                        }
                     });
                 };
                 $scope.suggestionSelected = function (suggestion, removeFilters) {
@@ -752,61 +680,84 @@
                     }
                     $scope.facets = {};
                     $scope.updateDocumentOffset(removeFilters);
-                    return SemanticSearchService.search('"' + $scope.queryTerm + '"', $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true).then(function (response) {
+                    return SemanticSearchService.search('"' + $scope.queryTerm + '"', $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true).then(
+                    function (response) {
                         $scope.documents = response.data.searchResults.documents || [];
                         processHighlightInfo($scope.documents, response.data.searchResults.highlight);
                         $scope.selectedEntity = response.data.searchResults.entity || $scope.selectedEntity;
                         $scope.totalDocuments = response.data.searchResults.numFound;
                         parseFacets(response.data);
-                        //initDataSources(response.data);
-                        return $scope.searching = false;
-                    }, function (response) {
-                        return $scope.logout();
+                        $scope.searching = false;
+                    },
+                    function (response) {
+                        if(SensefySearchResponseFailedIsLogout){
+                            //$scope.logout();
+                            if(DEBUGmode){
+                                console.log('$scope.suggestionSelected = function (suggestion, removeFilters) is fired, but FAILED');
+                            }
+                        }
                     });
                 };
                 $scope.entitySelected = function (entity, removeFilters) {
-                    var clustering;
+                    var clustering, security;
                     if (removeFilters == null) {
                         removeFilters = true;
                     }
                     $scope.normalSearch = false;
+                    $scope.searching = true;
                     $scope.selectedEntity = entity;
                     if (removeFilters) {
                         $scope.cleanFilters();
                     }
                     $scope.facets = {};
+                    $scope.queryTerm = HTMLtagCleaner(entity.label);
                     $scope.updateDocumentOffset(removeFilters);
-                    return SemanticSearchService.searchByEntity($scope.selectedEntity.id, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true).then(function (response) {
+                    return SemanticSearchService.searchByEntity($scope.selectedEntity.id, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true, security=SensefyDocSecurity).then(
+                    function (response) {
                         $scope.documents = response.data.searchResults.documents || [];
                         $scope.selectedEntity = response.data.searchResults.entity || $scope.selectedEntity;
                         $scope.totalDocuments = response.data.searchResults.numFound;
-                        //initDataSources(response.data);
                         return parseFacets(response.data);
-                    }, function (response) {
-                        //return $scope.logout();
+                    },
+                    function (response) {
+                        if(SensefySearchResponseFailedIsLogout){
+                            //$scope.logout();
+                            if(DEBUGmode){
+                                console.log('$scope.entitySelected = function (entity, removeFilters) is fired, but FAILED');
+                            }
+                        }
                     });
                 };
                 $scope.entityTypeSelected = function (entityType, removeFilters) {
-                    var clustering;
+                    var clustering, security;
                     if (removeFilters == null) {
                         removeFilters = true;
                     }
                     $scope.normalSearch = false;
+                    $scope.searching = true;
                     $scope.selectedEntityType = entityType;
                     if (removeFilters) {
                         $scope.cleanFilters();
                     }
                     $scope.selectedEntity = null;
-                    $scope.queryTerm = '';
+                    $scope.queryTerm = HTMLtagCleaner(entityType.label);
                     $scope.updateDocumentOffset(removeFilters);
-                    return SemanticSearchService.searchByEntityType($scope.selectedEntityType.id, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true).then(function (response) {
+                    var encodedURI = encodeURIComponent($scope.selectedEntityType.id);
+                    return SemanticSearchService.searchByEntityType(encodedURI,$scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true, security = SensefyDocSecurity).then(
+                    function (response) {
                         $scope.documents = response.data.searchResults.documents || [];
                         $scope.selectedEntityType = response.data.searchResults.entityType || $scope.selectedEntityType;
                         $scope.totalDocuments = response.data.searchResults.numFound;
-                        //initDataSources(response.data);
-                        return parseFacets(response.data);
-                    }, function (response) {
-                        //return $scope.logout();
+                        parseFacets(response.data);
+                        $scope.searching = false;
+                    },
+                    function (response) {
+                        if(SensefySearchResponseFailedIsLogout){
+                            //$scope.logout();
+                            if(DEBUGmode){
+                                console.log('$scope.entityTypeSelected = function (entityType, removeFilters) is fired, but FAILED');
+                            }
+                        }
                     });
                 };
                 $scope.entityTypeAttributeSelected = function (entityTypeAttribute, removeFilters) {
@@ -816,7 +767,7 @@
                     $scope.normalSearch = false;
                     $scope.selectedEntityTypeAttribute = entityTypeAttribute;
                     if (removeFilters) {
-                        return $scope.cleanFilters();
+                        //return $scope.cleanFilters();
                     }
                 };
                 $scope.entityTypeAttributeValueSelected = function (value, removeFilters) {
@@ -835,7 +786,7 @@
                         //initDataSources(response.data);
                         return parseFacets(response.data);
                     }, function (response) {
-                        return $scope.logout();
+                        //return $scope.logout();
                     });
                 };
                 $scope.query = function (restorePagination, cluster) {
@@ -893,14 +844,11 @@
                                         angular.element('#sensefy').removeClass('ggl');
                                         clearTimeout(addGGLclass2);
                                     }, 25);
-
-                                    //angular.element('#sensefy').removeClass('ggl');
                                 }
 
                                 if (response.data.searchResults.collationQuery) {
                                     $scope.collatedQuery = response.data.searchResults.collationQuery;
                                 }
-                                //initDataSources(response.data);
                                 parseFacets(response.data);
                                 if(DEBUGmode){
                                     console.log('initDataSources is fired at Query()')
@@ -1008,57 +956,57 @@
                     resetSelectedValues();
                     $scope.entitySelected(entity);
                     cleanLocationSearchParameters();
-                    return fillLocationSearchParameters();
+                    fillLocationSearchParameters();
                 });
                 $scope.$on('entityTypeSelected', function (event, entityType) {
                     resetSelectedValues();
                     $scope.entityTypeSelected(entityType);
                     cleanLocationSearchParameters();
-                    return fillLocationSearchParameters();
+                    fillLocationSearchParameters();
                 });
                 $scope.$on('entityTypeAttributeSelected', function (event, entityTypeAttribute) {
                     $scope.entityTypeAttributeSelected(entityTypeAttribute);
                     cleanLocationSearchParameters();
-                    return fillLocationSearchParameters();
+                    fillLocationSearchParameters();
                 });
                 $scope.$on('entityTypeAttributeValueSelected', function (event, attribute, value) {
                     $scope.entityTypeAttributeValueSelected(value);
                     cleanLocationSearchParameters();
-                    return fillLocationSearchParameters();
+                    fillLocationSearchParameters();
                 });
                 $scope.$on('titleSelected', function (event, title) {
                     resetSelectedValues();
                     $scope.titleSelected(title);
                     cleanLocationSearchParameters();
-                    return fillLocationSearchParameters();
+                    fillLocationSearchParameters();
                 });
                 $scope.$on('suggestionSelected', function (event, suggestion) {
                     resetSelectedValues();
                     $scope.queryTerm = suggestion;
                     cleanLocationSearchParameters();
-                    return fillLocationSearchParameters();
+                    fillLocationSearchParameters();
                 });
                 $scope.$on('entityTypeCleaned', function () {
                     $scope.selectedEntityType = null;
                     $scope.selectedEntityTypeAttribute = null;
                     $scope.selectedEntityTypeAttributeValue = null;
-                    return $scope.queryTerm = "";
+                    $scope.queryTerm = '';
                 });
                 $scope.$on('entityTypeAttributeCleaned', function () {
                     $scope.selectedEntityTypeAttribute = null;
                     $scope.selectedEntityTypeAttributeValue = null;
-                    return $scope.queryTerm = "";
+                     $scope.queryTerm = '';
                 });
                 $scope.$on('entityTypeAttributeCleaned', function () {
                     $scope.selectedEntityTypeAttributeValue = null;
-                    return $scope.queryTerm = "";
+                    $scope.queryTerm = '';
                 });
                 resetSelectedValues = function () {
                     $scope.selectedEntity = null;
                     $scope.selectedEntityType = null;
                     $scope.selectedEntityTypeAttribute = null;
                     $scope.selectedEntityTypeAttributeValue = null;
-                    return $scope.selectedTitle = null;
+                    $scope.selectedTitle = null;
                 };
                 cleanLocationSearchParameters = function () {
                     $location.search('query', null);
@@ -1068,7 +1016,10 @@
                     $location.search('entityTypeAttributeValue', null);
                     $location.search('title', null);
                     $location.search('source', null);
-                    return $location.search('filters', null);
+                    $location.search('filters', null);
+                    if(DEBUGmode){
+                        console.log('$location.search cleanLocationSearchParameters '+JSON.stringify($location.search()))
+                    }
                 };
                 fillLocationSearchParameters = function () {
                     var filters;
@@ -1102,6 +1053,9 @@
                     if (filters.length > 0) {
                         return $location.search('filters', filters.join(','));
                     }
+                    if(DEBUGmode){
+                        console.log('$location.search -> fillLocationSearchParameters '+JSON.stringify($location.search()))
+                    }
                 };
                 $scope.cleanSearchParameters = function () {
                     resetSelectedValues();
@@ -1124,7 +1078,7 @@
                     $scope.sorting = null;
                     $scope.titleSorting = '';
                     $scope.isFacetSelect = [];
-                    return $location.path('/search');
+                    $location.path('/search');
                 };
                 $scope.initialize = function () {
                     var entity, params, parsedFilters;
@@ -1175,17 +1129,17 @@
                             }
                         });
                     }
-                    return $scope.runCurrentQuery();
+                    $scope.runCurrentQuery();
                 };
                 $scope.initialize();
                 $scope.$on('$locationChangeSuccess', function (event) {
                     $scope.cleanFilters();
-                    return $scope.initialize();
+                    $scope.initialize();
                 });
                 $scope.logoClick = function () {
                     $scope.cleanFilters();
                     window.history.go(-1);
-                    return $scope.queryTerm = '';
+                    $scope.queryTerm = '';
                 };
                 $scope.SensefyFacetsPerGroupMin = SensefyFacetsPerGroup;
                 $scope.humanReadableSize = function (size) {

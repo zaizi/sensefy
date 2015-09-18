@@ -203,22 +203,7 @@ sub, sup {
     font-size: 14px;
 }
 
-#sensefy .ser-btn {
-    border-radius: 0 0.2857rem 0.2857rem 0;
-    margin-left: -4px;
-    z-index: 2;
-    position: relative;
-    padding: 0.75em 1.5em;
-    margin-right: 0;
-}
 
-html.chrome #sensefy .ser-btn {
-    top: -5px;
-}
-
-html.safari #sensefy .ser-btn {
-    top: -6px;
-}
 
 #sensefy #search-comp {
     margin-top: 128px
@@ -256,6 +241,10 @@ html.safari #sensefy .ser-btn {
 .suggestions-wrapper .header:first-child {
     margin-top: 0;
     border-radius: 3px 3px 0 0;
+}
+
+.suggestions-wrapper .et.header:first-child{
+    border-radius: 0;
 }
 
 .suggestions-wrapper .header:last-child {
@@ -389,13 +378,23 @@ html.safari #sensefy .ser-btn {
     font-weight: bold;
     padding: 3% 5%;
 }
-
+.entity-information{
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid rgba(34, 36, 38, 0.1) !important;
+    border-radius: 0.285714rem;
+    box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.1);
+    padding: 8px;
+}
 .entity-information .image {
-    left: 11px;
-    max-height: 70px;
     max-width: 70px;
-    position: absolute;
-    top: 10px;
+    height: auto;
+    margin-bottom: 8px;
+}
+
+.entity-information.facets header {
+    border-bottom: 1px solid #59AFE1;
+    margin-bottom: 8px;
+    padding: 2px 0;
 }
 
 .group-facet {
@@ -482,6 +481,7 @@ html.safari #sensefy .ser-btn {
     border-bottom: 2px solid #ccc;
     margin-bottom: 16px;
     padding-bottom: 16px;
+    margin-top:12px;
 }
 
 .stats .ui.items {
@@ -863,6 +863,13 @@ table {
     float: left;
 }
 
+.chrome #sensefy #header img.open {
+    padding: 0;
+    width: 200px;
+    height: 44px;
+    margin: 12px 8px;
+}
+
 .mob {
     display: none
 }
@@ -899,6 +906,15 @@ table {
 #sensefy .ser-btn {
     margin-left: -3px;
     border-radius: 0 0.2857rem 0.2857rem 0;
+    z-index: 2;
+    position: relative;
+    padding: 0.75em 1.5em;
+    margin-right: 0;
+}
+
+
+html.safari #sensefy .ser-btn {
+    top: -6px;
 }
 
 #sensefy .ui.search > .results {
@@ -1405,6 +1421,7 @@ and (orientation: landscape)
     border-bottom: 1px solid #ececec;
     width: 25%;
     vertical-align: top;
+    cursor: default;
 }
 .entities-wrapper .et-value-wrap{
     border-left: 1px solid #ececec;
@@ -1423,7 +1440,12 @@ and (orientation: landscape)
     padding: 4px;
     border-bottom: 1px solid #ececec;
     position:relative;
+    cursor: pointer;
 }
+.entities-wrapper .et-value:hover, .suggestions-wrapper li.suggestion:hover{
+    background: #e7f6fd;
+}
+.entities-wrapper .entity.suggestion:hover{background: #fff;}
 .entities-wrapper .et-value:last-child{
     border-bottom: none;
 }

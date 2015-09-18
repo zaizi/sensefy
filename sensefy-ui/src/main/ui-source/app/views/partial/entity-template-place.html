@@ -2,7 +2,6 @@
     <div class="row">
         <div class="cell info">
             <span class="text" ng-bind-html="entity.label | highlight:queryTerm"></span>
-            <span class="type">{{entity.jobTitle || ""}}</span>
         </div>
         <div class="cell img" ng-show="entity.thumbnail[0]">
             <img class="image" ng-src="{{entity.thumbnail[0]}}"/>

@@ -75,7 +75,7 @@
                 <div class="ui item">
                     <div class="num-found">
                         <span translate="txtDocumentsFound"
-                              translate-values="{ documents: totalDocuments,  docStart:documentsOffsetStart, docPerPage: documentsPerPage}"
+                              translate-values="{ documents: totalDocuments,  docStart:documentsOffsetStart, docPerPage: documentsPerPage, docEnd:documentsOffsetEnd}"
                               ng-show="totalDocuments >=0"></span>
                     </div>
 
@@ -126,7 +126,7 @@
 
         <div class="ui divided items documents">
             <div class="link item  document"
-                 dir-paginate="document in documents  | itemsPerPage: documentsPerPage" style="position: relative;"
+                 dir-paginate="document in documents  | itemsPerPage: documentsPerPage"
                  ng-show="documents.length > 0"
                  ng-click="highlight();"
                  data-result-set="{{document.data_source}}"
@@ -223,11 +223,15 @@
                 template-url="views/directive/pagination/dirPagination.tpl.html"
                 max-size="maxSize"
                 on-page-change="setCurrentPage(currentPage)"
-                ng-show="documents.length > 0"></dir-pagination-controls>
+                ng-show="documents.length > 0">
+        </dir-pagination-controls>
 
     </div>
 
     <div class="ui four wide column rhr" ng-show="documents.length > 0">
+
+        <div ng-include="'views/partial/entity-info-template.html'"></div>
+
         <div class="ui label sort-by" translate="sortby"></div>
         <div class="ui yellow searchable floating dropdown labeled icon button sorting input-select" tabindex="0">
             <i class="filter icon"></i>
@@ -260,7 +264,6 @@
             <div class="facets-wrapper">
 
             </div>
-            <div ng-include="'views/partial/entity-info-template.html'"></div>
             <div ng-include="'views/partial/facets-template.html'"></div>
         </div>
     </div>

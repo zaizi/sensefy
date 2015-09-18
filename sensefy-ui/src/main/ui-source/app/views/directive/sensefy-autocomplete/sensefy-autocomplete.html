@@ -29,7 +29,7 @@
             </ul>
             <ul class="entities-wrapper"
                 ng-show="suggestions.entities">
-                <li class="header" translate="txtEntities"></li>
+                <li class="header et" translate="txtEntities"></li>
                 <li class="entity suggestion" entity-is-available entity-data-set="{{suggestions.entities}}">
                     <div class="et-table et-wrapper">
                         <div class="et-row one">
@@ -68,13 +68,13 @@
                     </div>
                 </li>
             </ul>
-            <ul class="entity-types-wrapper"
+            <!-- ul class="entity-types-wrapper"
                 ng-show="suggestions.entityTypes">
                 <li class="header" translate="txtEntityTypes"></li>
                 <li class="entity-type suggestion"
                     ng-repeat="entityType in suggestions.entityTypes"
                     ng-include="'views/partial/entity-type-template.html'"></li>
-            </ul>
+            </ul -->
             <ul class="no-suggestions"
                 ng-hide="suggestions.entities.length > 0 ||
                     suggestions.entityTypes.length > 0 ||
