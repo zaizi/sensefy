@@ -3,6 +3,7 @@ package com.zaizi.sensefy.api.service;
 import java.net.MalformedURLException;
 import java.security.Principal;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -55,12 +56,11 @@ public class SemanticSearchService extends SolrService {
 	public void setFacetConfigurer(FacetConfigurer facetConfigurer) {
 		this.facetConfigurer = facetConfigurer;
 	}
+	// this field stores in each entity all the document ids containing the entity
+	protected static final String DOC_ID_FIELD = "doc_ids";
+	protected static final String ENTITY_DRIVEN_HIGHLIGH_FIELD = "label";
+	   protected static final String ENTITY_DRIVEN_HIGHLIGH_QUERY_PARAM = "hl.q";
 
-	protected static final String DOC_ID_FIELD = "doc_ids";// this field stores
-															// in each entity
-															// all the document
-															// ids containing
-															// the entity */
 
 	public SemanticSearchService() {
 	}
@@ -140,16 +140,24 @@ public class SemanticSearchService extends SolrService {
 			SolrDocument extractedEntity = getEntity(entityId);
 			responseContent.setEntity(extractedEntity);
 
-			// retrieve the entity type
-			EntityType extractedEntityType = getEntityType(entityType);
-			responseContent.setEntityType(extractedEntityType);
+//			// retrieve the entity type
+//			EntityType extractedEntityType = getEntityType(entityType);
+//			responseContent.setEntityType(extractedEntityType);
 
-			queryResponse = this.getPrimaryIndex().query(solrQuery);
+			String labelVal = (String) extractedEntity.getFieldValue(ENTITY_DRIVEN_HIGHLIGH_FIELD);
+			logger.debug("Entity label for the entity driven search : " + labelVal);
+			solrQuery.set(ENTITY_DRIVEN_HIGHLIGH_QUERY_PARAM, labelVal);
+			queryResponse = this.getPrimaryIndex().query(solrQuery);			
+		    //get the highlights
+			 Map<String, Map<String, List<String>>> highlightingSnippets = queryResponse.getHighlighting();
+			
 			SolrDocumentList docsRetrievedFromEntity = queryResponse.getResults();
 			FacetParser.parseFacets(queryResponse, response, facetConfigurer.getFacetConfiguration());
 			responseContent.setStart(start);
 			responseContent.setNumFound(docsRetrievedFromEntity.getNumFound());
 			responseContent.setDocuments(docsRetrievedFromEntity);
+			responseContent.setHighlight(highlightingSnippets);
+			
 			response.setSearchResults(responseContent);
 		} catch (SensefyException e) {
 			processAPIException(response, e, "[Entity Driven Search] Error - stacktrace follows", 400,

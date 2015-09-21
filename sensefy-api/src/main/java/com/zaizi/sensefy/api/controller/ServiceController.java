@@ -221,7 +221,7 @@ public class ServiceController extends WebMvcAutoConfigurationAdapter {
 	 */
 	@RequestMapping(value = RequestURI.ENTITY_DRIVEN_SEARCH, method = RequestMethod.GET, produces = {
 			MediaType.APPLICATION_JSON })
-	public SearchResponse entityDrivenSearch(@RequestParam String entityId, @RequestParam(required=false) String entityType,
+	public SearchResponse entityDrivenSearch(@RequestParam(required=false) String entityId, @RequestParam(required=false) String entityType,
 			@RequestParam(required=false) String entityAttribute, @RequestParam(required=false) String entityAttributeValue,
 			@RequestParam String fields, @RequestParam String filters, @RequestParam int start,
 			@RequestParam Integer rows, @RequestParam String order, @RequestParam boolean facet,
