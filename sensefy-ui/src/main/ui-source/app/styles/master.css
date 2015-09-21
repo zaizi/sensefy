@@ -473,21 +473,6 @@ sub, sup {
     content: ''
 }
 
-.column .filters {
-    margin-top: 32px;
-}
-
-.group-facet.facets {
-    border-bottom: 2px solid #ccc;
-    margin-bottom: 16px;
-    padding-bottom: 16px;
-    margin-top:12px;
-}
-
-.stats .ui.items {
-    margin-top: 0
-}
-
 div.num-found {
     display: inline-block;
     margin-top: 8px;
@@ -947,7 +932,9 @@ html.safari #sensefy .ser-btn {
     border-bottom: 2px solid #ccc;
     margin-bottom: 16px;
     padding-bottom: 16px;
+    margin-top:17px;
 }
+
 
 .stats .ui.items {
     margin-top: 0

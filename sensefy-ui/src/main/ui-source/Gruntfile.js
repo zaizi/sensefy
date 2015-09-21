@@ -400,16 +400,16 @@ module.exports = function (grunt) {
         });
     grunt.registerTask('serve',
         function (target) {
-        if (target === 'dist') {
-            return grunt.task.run(['build', 'connect:dist:keepalive']);
-        }
-        grunt.task.run(['clean:server', 'bowerInstall', 'concurrent:server',
-            'autoprefixer', 'csslint:lax', 'jshint', 'connect:livereload',
-            'watch']);
-        // ['white', 'black', 'grey', 'blue', 'cyan', 'green', 'magenta', 'red',
-        // 'yellow', 'rainbow']
-        grunt.log.warn('Server up and running...'['blue'].bold);
-    });
+            if (target === 'dist') {
+                return grunt.task.run(['build', 'connect:dist:keepalive']);
+            }
+            grunt.task.run(['clean:server', 'bowerInstall', 'concurrent:server',
+                'autoprefixer', 'csslint:lax', 'jshint', 'connect:livereload',
+                'watch']);
+            // ['white', 'black', 'grey', 'blue', 'cyan', 'green', 'magenta', 'red',
+            // 'yellow', 'rainbow']
+            grunt.log.warn('Server up and running...'['blue'].bold);
+        });
     grunt.registerTask('server',
         function (target) {
             grunt.log

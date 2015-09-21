@@ -36,7 +36,7 @@
         </div>
     </div>
 </div>
-        <!--a href="#browser">File browser</a-->
+<!--a href="#browser">File browser</a-->
 
 <div class="one column row ds-wrapper" ng-show="(totalDocuments && totalDocuments > 0)">
     <div class="sixteen wide column data-sources">
@@ -44,6 +44,7 @@
             <div class="container-wrap">
                 <div class="header">
                     <a class="left floated item brand"></a>
+
                     <div class="ui mini right floated button pe-ds-btn" ng-click="mobDSswitch()">
                         <i class="list icon"></i>
                     </div>
@@ -56,7 +57,8 @@
                            ng-click="setActiveSource(source)" tabindex="0"
                            class="item {{source.value}}">
                             <span class="labelinfo" translate="{{source.value}}"></span>
-                            <sup class="ds-value" title="{{source.occurrence}} results" translate="{{source.occurrence}}"
+                            <sup class="ds-value" title="{{source.occurrence}} results"
+                                 translate="{{source.occurrence}}"
                                  ng-show="source.occurrence"></sup>
                         </a>
                     </div>
@@ -66,53 +68,52 @@
     </div>
 </div>
 <div class="two column row result-wrapper">
-    <div class="twelve wide column" id="se-results">
-        <div class="stats" ng-show="(totalDocuments && totalDocuments > 0)">
-            <ul class="filters-doc">
+<div class="twelve wide column" id="se-results">
+    <div class="stats" ng-show="(totalDocuments && totalDocuments > 0)">
+        <ul class="filters-doc">
 
-            </ul>
-            <div class="ui items">
-                <div class="ui item">
-                    <div class="num-found">
+        </ul>
+        <div class="ui items">
+            <div class="ui item">
+                <div class="num-found">
                         <span translate="txtDocumentsFound"
-                              translate-values="{ documents: totalDocuments,  docStart:documentsOffsetStart, docPerPage: documentsPerPage, docEnd:documentsOffsetEnd}"
+                              translate-values="{ documents: totalDocuments,  docStart:pagerOffsetStart, docPerPage: documentsPerPage, docEnd:documentsOffsetEnd}"
                               ng-show="totalDocuments >=0"></span>
-                    </div>
+                </div>
 
-                    <div class="ui right floated settings-pp">
-                        <div class="ui form results-per-page  left floated">
-                            <div class="two fields">
-                                <div class="field">
-                                    <div class="ui selection dropdown pe-itemsPerPage input-select" tabindex="0">
-                                        <div class="default text">10</div>
-                                        <i class="dropdown icon"></i>
-                                        <input type="hidden" name="hidden-field">
+                <div class="ui right floated settings-pp">
+                    <div class="ui form results-per-page  left floated">
+                        <div class="two fields">
+                            <div class="field">
+                                <div class="ui selection dropdown pe-itemsPerPage input-select" tabindex="0">
+                                    <div class="default text">10</div>
+                                    <i class="dropdown icon"></i>
+                                    <input type="hidden" name="hidden-field">
 
-                                        <div class="menu transition hidden" tabindex="-1">
-                                            <div class="item active" data-value="10">10</div>
-                                            <div class="item" data-value="20">20</div>
-                                            <div class="item" data-value="50">50</div>
-                                            <div class="item" data-value="100">100</div>
-                                        </div>
+                                    <div class="menu transition hidden" tabindex="-1">
+                                        <div class="item active" data-value="10">10</div>
+                                        <div class="item" data-value="20">20</div>
+                                        <div class="item" data-value="50">50</div>
+                                        <div class="item" data-value="100">100</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="results-info ui left floated" translate="resultsperpage"></div>
-                        <div class="ui settings right floated">
-                            <div tabindex="0" class="ui yellow top left pointing dropdown icon button">
-                                <i class="settings icon"></i>
+                    </div>
+                    <div class="results-info ui left floated" translate="resultsperpage"></div>
+                    <div class="ui settings right floated">
+                        <div tabindex="0" class="ui yellow top left pointing dropdown icon button">
+                            <i class="settings icon"></i>
 
-                                <div tabindex="-1" class="menu transition hidden">
-                                    <div class="item">
-                                        <a href="#" translate="savesearch"></a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="#" translate="savealerts"></a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="#" translate="sharesearch"></a>
-                                    </div>
+                            <div tabindex="-1" class="menu transition hidden">
+                                <div class="item">
+                                    <a href="#" translate="savesearch"></a>
+                                </div>
+                                <div class="item">
+                                    <a href="#" translate="savealerts"></a>
+                                </div>
+                                <div class="item">
+                                    <a href="#" translate="sharesearch"></a>
                                 </div>
                             </div>
                         </div>
@@ -120,66 +121,68 @@
                 </div>
             </div>
         </div>
+    </div>
 
 
-        <div class="ui divider" ng-show="documents.length > 0"></div>
+    <div class="ui divider" ng-show="documents.length > 0"></div>
 
-        <div class="ui divided items documents">
-            <div class="link item  document"
-                 dir-paginate="document in documents  | itemsPerPage: documentsPerPage"
+    <div class="ui divided items documents">
+        <div class="link item  document"
+             dir-paginate="document in documents  | itemsPerPage: documentsPerPage"
+             ng-show="documents.length > 0"
+             ng-click="highlight();"
+             data-result-set="{{document.data_source}}"
+             data-datasource-relation="{{document.data_source}}"
+             pagination-id="mainResults"
+             total-items="totalDocuments"
+             current-page="currentPage">
+            <!--div class="link item  document"
+                 ng-repeat="document in documents" style="position: relative;"
                  ng-show="documents.length > 0"
                  ng-click="highlight();"
                  data-result-set="{{document.data_source}}"
                  data-datasource-relation="{{document.data_source}}"
                  pagination-id="mainResults"
                  total-items="totalDocuments"
-                 current-page="currentPage">
-                <!--div class="link item  document"
-                     ng-repeat="document in documents" style="position: relative;"
-                     ng-show="documents.length > 0"
-                     ng-click="highlight();"
-                     data-result-set="{{document.data_source}}"
-                     data-datasource-relation="{{document.data_source}}"
-                     pagination-id="mainResults"
-                     total-items="totalDocuments"
-                     current-page="currentPage"-->
-                <i class="caret right icon hover-result"></i>
-                <div class="content info">
-                    <i class="file outline icon c-word" ng-class="pickDocIcon('{{document.mimetype}}')"
-                       ng-if="document.mimetype"></i>
+                 current-page="currentPage"-->
+            <i class="caret right icon hover-result"></i>
 
-                    <ng-switch on="normalSearch" ng-if="document.name != null && document.name != ''">
-                        <a target="_blank" ng-href="{{document.url}}" tabindex="0" class="header title">
-                            <span ng-switch-default ng-bind-html="document.hls.name[0]"></span>
-                        </a>
-                    </ng-switch>
+            <div class="content info">
+                <i class="file outline icon c-word" ng-class="pickDocIcon('{{document.mimetype}}')"
+                   ng-if="document.mimetype"></i>
+
+                <ng-switch on="normalSearch" ng-if="document.name != null && document.name != ''">
+                    <a target="_blank" ng-href="{{document.url}}" tabindex="0" class="header title">
+                        <span ng-switch-default ng-bind-html="document.hls.name[0]"></span>
+                    </a>
+                </ng-switch>
 
                     <span class="gray italic f-size12" ng-if="document.size" title="{{'data.size'|translate}}"
                           ng-bind="humanReadableSize(document.size)"></span>
 
-                    <div class="meta-breadcrumb channel-l italic" ng-if="document.path">
-                        <a class="channel-d underline" ng-href="{{document.path}}"
-                           ng-bind="urlTruncate('{{document.path}}')"></a>
-                    </div>
+                <div class="meta-breadcrumb channel-l italic" ng-if="document.path">
+                    <a class="channel-d underline" ng-href="{{document.path}}"
+                       ng-bind="urlTruncate('{{document.path}}')"></a>
+                </div>
 
-                    <div class="content-wrapper" ng-if="document.hls.content && document.hls.content.length > 0"
-                         ng-click="open(document, 'lg')">
-                        <ng-switch on="normalSearch">
-                            <div ng-switch-when="true">
-                                <div class="content snippet">
-                                    <span ng-bind-html="document.hls.content[0].trim()"></span>
-                                </div>
+                <div class="content-wrapper" ng-if="document.hls.content && document.hls.content.length > 0"
+                     ng-click="open(document, 'lg')">
+                    <ng-switch on="normalSearch">
+                        <div ng-switch-when="true">
+                            <div class="content snippet">
+                                <span ng-bind-html="document.hls.content[0].trim()"></span>
                             </div>
-                            <div ng-switch-default>
-                                <div class="content excerpt">
-                                    {{ document.content[0].trim() | excerpt:300}}
-                                </div>
+                        </div>
+                        <div ng-switch-default>
+                            <div class="content excerpt">
+                                {{ document.content[0].trim() | excerpt:300}}
                             </div>
-                        </ng-switch>
-                    </div>
+                        </div>
+                    </ng-switch>
+                </div>
 
-                    <div class="metadata mgray clearfix">
-                        <div class="meta-info-create italic">
+                <div class="metadata mgray clearfix">
+                    <div class="meta-info-create italic">
                         <span class="underline mgray"
                               ng-if="document.author != null && document.author != '' && document.author.length > 0">
                             <span title="{{'data.author' | translate}}" ng-bind="document.author[0]"></span>
@@ -188,8 +191,8 @@
                              created  <span title="{{dateTimeFormatterAcc(document.ds_creation_date)}}"
                                             ng-bind="dateTimeFormatter(document.ds_creation_date)"></span>
                         </span>
-                        </div>
-                        <div class="meta-info-modify italic">
+                    </div>
+                    <div class="meta-info-modify italic">
                         <span ng-if="document.ds_last_modifier">
                             <span class="underline mgray" title="{{'data.modifier'|translate}}"
                                   ng-bind="document.ds_last_modifier"></span>
@@ -198,73 +201,73 @@
                              modified  <span title="{{dateTimeFormatterAcc(document.ds_last_modified)}}"
                                              ng-bind="dateTimeFormatter(document.ds_last_modified)"></span>
                         </span>
-                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="link item  document no-docs-found"
-                 ng-show="totalDocuments == 0 && !searching">
-                <span translate="txtNoDocumentsFound" class="no-found"></span>
+        <div class="link item  document no-docs-found"
+             ng-show="totalDocuments == 0 && !searching">
+            <span translate="txtNoDocumentsFound" class="no-found"></span>
 
-                <div class="did-you-mean" ng-show="collatedQuery">
-                    <span translate="txtDidYouMean" class="did-you-mean-label"></span>
+            <div class="did-you-mean" ng-show="collatedQuery">
+                <span translate="txtDidYouMean" class="did-you-mean-label"></span>
                     <span class="did-you-mean-suggestion" ng-click="queryTerm = collatedQuery; query();"
                           ng-bind="collatedQuery"></span>
-                </div>
             </div>
         </div>
-
-        <div class="ui divider" ng-show="documents.length > 0"></div>
-
-        <dir-pagination-controls
-                pagination-id="mainResults"
-                boundary-links="true"
-                template-url="views/directive/pagination/dirPagination.tpl.html"
-                max-size="maxSize"
-                on-page-change="setCurrentPage(currentPage)"
-                ng-show="documents.length > 0">
-        </dir-pagination-controls>
-
     </div>
 
-    <div class="ui four wide column rhr" ng-show="documents.length > 0">
+    <div class="ui divider" ng-show="documents.length > 0"></div>
 
-        <div ng-include="'views/partial/entity-info-template.html'"></div>
+    <dir-pagination-controls
+            pagination-id="mainResults"
+            boundary-links="true"
+            template-url="views/directive/pagination/dirPagination.tpl.html"
+            max-size="maxSize"
+            on-page-change="setCurrentPage(currentPage)"
+            ng-show="documents.length > 0">
+    </dir-pagination-controls>
 
-        <div class="ui label sort-by" translate="sortby"></div>
-        <div class="ui yellow searchable floating dropdown labeled icon button sorting input-select" tabindex="0">
-            <i class="filter icon"></i>
-            <span class="text" ng-model="selectSortings" translate="relevance"></span>
+</div>
 
-            <div class="menu" tabindex="-1">
-                <!--div class="header"> Sorting options </div
+<div class="ui four wide column rhr" ng-show="documents.length > 0">
 
-                <select title="{{'sorting.hint'|translate}}" class="sort-select" ng-model="selectSortings"
-                        ng-options="s.sortOption | translate for s in sortings track by s.id">
-                </select>-->
+    <div ng-include="'views/partial/entity-info-template.html'"></div>
 
-                <div class="item" ng-repeat="s in sortings track by s.id" ng-bind="s.sortOption"
-                     data-value="{{s.sortId}}, {{s.defaultSort}}"
-                     ng-model="selectSortings">
-                    <!--<div class="ui green empty circular label"></div>-->
-                    Relevance
-                </div>
+    <div class="ui label sort-by" translate="sortby"></div>
+    <div class="ui yellow searchable floating dropdown labeled icon button sorting input-select" tabindex="0">
+        <i class="filter icon"></i>
+        <span class="text" ng-model="selectSortings" translate="relevance"></span>
+
+        <div class="menu" tabindex="-1">
+            <!--div class="header"> Sorting options </div
+
+            <select title="{{'sorting.hint'|translate}}" class="sort-select" ng-model="selectSortings"
+                    ng-options="s.sortOption | translate for s in sortings track by s.id">
+            </select>-->
+
+            <div class="item" ng-repeat="s in sortings track by s.id" ng-bind="s.sortOption"
+                 data-value="{{s.sortId}}, {{s.defaultSort}}"
+                 ng-model="selectSortings">
+                <!--<div class="ui green empty circular label"></div>-->
+                Relevance
             </div>
-        </div>
-        <div class="asc-dec">
-            <i class="sort content ascending icon" ng-class="{'active': sorting === 'ASC'}"
-               ng-click="setSorting('','ASC');"></i>
-            <i class="sort content descending icon" ng-class="{'active': sorting === 'DESC'}"
-               ng-click="setSorting('','DESC');"></i>
-        </div>
-
-        <div class="ui segment">
-            <div class="ui top attached label" translate="filterby"></div>
-            <div class="facets-wrapper">
-
-            </div>
-            <div ng-include="'views/partial/facets-template.html'"></div>
         </div>
     </div>
+    <div class="asc-dec">
+        <i class="sort content ascending icon" ng-class="{'active': sorting === 'ASC'}"
+           ng-click="setSorting('','ASC');"></i>
+        <i class="sort content descending icon" ng-class="{'active': sorting === 'DESC'}"
+           ng-click="setSorting('','DESC');"></i>
+    </div>
+
+    <div class="ui segment">
+        <div class="ui top attached label" translate="filterby"></div>
+        <div class="facets-wrapper">
+
+        </div>
+        <div ng-include="'views/partial/facets-template.html'"></div>
+    </div>
+</div>
 </div>

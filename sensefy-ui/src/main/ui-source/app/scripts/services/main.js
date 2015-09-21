@@ -171,7 +171,7 @@
                     if (clustering == null) {
                         clustering = false;
                     }
-                    if (security == null){
+                    if (security == null) {
                         security = true;
                     }
                     if (angular.isArray(filters)) {
@@ -211,7 +211,7 @@
                     if (clustering == null) {
                         clustering = false;
                     }
-                    if (security == null){
+                    if (security == null) {
                         security = true;
                     }
                     if (angular.isArray(filters)) {
@@ -253,7 +253,7 @@
                     if (clustering == null) {
                         clustering = false;
                     }
-                    if (security == null){
+                    if (security == null) {
                         security = true;
                     }
                     if (angular.isArray(filters)) {
@@ -293,7 +293,7 @@
                     if (clustering == null) {
                         clustering = false;
                     }
-                    if (security == null){
+                    if (security == null) {
                         security = true;
                     }
                     return ApiService.get(SensefyGetEntitiesByDoc, {}, {

@@ -1,9 +1,9 @@
 angular.module('auth', []).factory(
     'auth',
 
-    function($rootScope, $http, $location) {
+    function ($rootScope, $http, $location) {
 
-        enter = function() {
+        enter = function () {
             if ($location.path() !== auth.loginPath) {
                 auth.path = $location.path();
                 if (!auth.authenticated) {
@@ -14,24 +14,24 @@ angular.module('auth', []).factory(
 
         var auth = {
 
-            authenticated : false,
+            authenticated: false,
 
-            loginPath : '/login',
-            logoutPath : '/logout',
-            homePath : '/',
+            loginPath: '/login',
+            logoutPath: '/logout',
+            homePath: '/',
             searchPath: '/search',
-            path : $location.path(),
+            path: $location.path(),
 
-            authenticate : function(credentials, callback) {
+            authenticate: function (credentials, callback) {
 
                 var headers = credentials && credentials.username ? {
-                    authorization : "Basic " + btoa(credentials.username + ":" + credentials.password)
+                    authorization: "Basic " + btoa(credentials.username + ":" + credentials.password)
                 } : {};
 
                 /*console.group("AUTH Details");
-                console.log("auth.authenticated "+auth.authenticated);
-                console.log("auth.path +' = '+ auth.loginPath "+auth.path +' = '+ auth.loginPath);
-                console.groupEnd();*/
+                 console.log("auth.authenticated "+auth.authenticated);
+                 console.log("auth.path +' = '+ auth.loginPath "+auth.path +' = '+ auth.loginPath);
+                 console.groupEnd();*/
 
                 //$http.get('user', {
                 //	headers : headers
@@ -43,7 +43,7 @@ angular.module('auth', []).factory(
                 //	}
                 //callback && callback(auth.authenticated);
                 //$location.path(auth.path==auth.loginPath ? auth.homePath : auth.path);
-                $location.path(auth.path===auth.loginPath ? auth.homePath : auth.searchPath);
+                $location.path(auth.path === auth.loginPath ? auth.homePath : auth.searchPath);
 
                 //}).error(function() {
                 //	auth.authenticated = false;
@@ -52,30 +52,30 @@ angular.module('auth', []).factory(
 
             },
 
-            clear : function() {
+            clear: function () {
                 $location.path(auth.loginPath);
                 auth.authenticated = false;
-                $http.post(auth.logoutPath, {}).success(function() {
+                $http.post(auth.logoutPath, {}).success(function () {
                     //  console.log("Logout succeeded");
-                }).error(function(data) {
+                }).error(function (data) {
                     //  console.log("Logout failed");
                 });
             },
 
-            init : function(homePath, loginPath, logoutPath) {
+            init: function (homePath, loginPath, logoutPath) {
 
                 auth.homePath = homePath;
                 auth.loginPath = loginPath;
                 auth.logoutPath = logoutPath;
 
-                auth.authenticate({}, function(authenticated) {
+                auth.authenticate({}, function (authenticated) {
                     if (authenticated) {
                         $location.path(auth.path);
                     }
                 });
 
                 // Guard route changes and switch to login page if unauthenticated
-                $rootScope.$on('$routeChangeStart', function() {
+                $rootScope.$on('$routeChangeStart', function () {
                     enter();
                 });
 

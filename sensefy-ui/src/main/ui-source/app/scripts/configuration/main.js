@@ -71,6 +71,7 @@
                 'english': 'English',
                 'spanish': 'Spanish',
                 'settings': 'Settings',
+                'resultsperpage': '-Results per page-',
                 'savesearch': 'Save Search',
                 'savealerts': 'Save Alerts',
                 'sharesearch': 'Share Search',
@@ -1022,11 +1023,11 @@
 
                                 return deferrer.promise;
                             }
-                            else{
-                                if(SensefySearchResponseFailedIsLogout){
+                            else {
+                                if (SensefySearchResponseFailedIsLogout) {
                                     //$scope.$parent.logout();
                                     document.location.href = SensefySearchLogin;
-                                    if(DEBUGmode){
+                                    if (DEBUGmode) {
                                         console.log('dataSources: function ($q, $rootScope, SemanticSearchService, $location) is fired, but FAILED');
                                     }
                                 }

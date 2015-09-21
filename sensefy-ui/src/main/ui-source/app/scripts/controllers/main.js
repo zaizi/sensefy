@@ -410,6 +410,7 @@
                 $scope.totalDocuments = -1;
                 $scope.documentsPerPage = 10;
                 $scope.documentsOffsetStart = 1;
+                $scope.pagerOffsetStart = 1;
                 $scope.documentsOffsetEnd = 10;
                 $scope.currentPage = 1;
                 $scope.collatedQuery = null;
@@ -604,17 +605,6 @@
                     }
                     return result;
                 };
-                $scope.isEntitySuggesionLabel = false;
-                $scope.nameOrLabel = function (input){
-                    if(input != null && input != ''){
-                        $scope.showEntitySuggesionLabel = false;
-                        return true;
-                    }
-                    else{
-                        $scope.showEntitySuggesionLabel = true;
-                        return false;
-                    }
-                };
                 $scope.updateDocumentOffset = function (restoreCurrentPage) {
                     if (restoreCurrentPage == null) {
                         restoreCurrentPage = true;
@@ -623,15 +613,18 @@
                         $scope.currentPage = 1;
                     }
                     $scope.documentsOffsetStart = ($scope.currentPage - 1) * $scope.documentsPerPage;
-                    if($scope.documentsOffsetStart==0){
-                        $scope.documentsOffsetStart = 1
-                    }
+                    $scope.pagerOffsetStart = ($scope.currentPage - 1) * $scope.documentsPerPage;
 
-                    if($scope.documentsOffsetStart == 1){
+                    if($scope.pagerOffsetStart==0){
+                        $scope.pagerOffsetStart = 1
                         $scope.documentsOffsetEnd = $scope.documentsPerPage;
                     }
                     else{
                         $scope.documentsOffsetEnd = $scope.documentsOffsetStart + $scope.documentsPerPage;
+                    }
+
+                    if($scope.documentsOffsetEnd <= $scope.totalDocuments){
+                        $scope.documentsOffsetEnd = $scope.totalDocuments;
                     }
                 };
                 $scope.titleSelected = function (title, removeFilters) {
@@ -717,6 +710,9 @@
                         $scope.documents = response.data.searchResults.documents || [];
                         $scope.selectedEntity = response.data.searchResults.entity || $scope.selectedEntity;
                         $scope.totalDocuments = response.data.searchResults.numFound;
+                        if(angular.element('#searchTerm').val() == ''){
+                            angular.element('#searchTerm').val($scope.queryTerm);
+                        }
                         return parseFacets(response.data);
                     },
                     function (response) {
@@ -1056,6 +1052,21 @@
                     if(DEBUGmode){
                         console.log('$location.search -> fillLocationSearchParameters '+JSON.stringify($location.search()))
                     }
+                };
+                $scope.isImageAvailable = false;
+                $scope.checkImageAvailable = function(image_url){
+                    var img = new Image();
+                    img.onload = function (){
+                        $scope.isImageAvailable = true;
+                        console.log('Has a thumb')
+                    };
+                    img.onerror = function (){
+                        $scope.isImageAvailable = false;
+                        console.log('Missed a thumb')
+                    };
+                    img.src = image_url;
+                    console.log('inside checkImageAvailable')
+                    return image_url;
                 };
                 $scope.cleanSearchParameters = function () {
                     resetSelectedValues();
