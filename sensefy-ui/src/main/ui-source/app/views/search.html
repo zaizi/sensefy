@@ -145,28 +145,31 @@
                  pagination-id="mainResults"
                  total-items="totalDocuments"
                  current-page="currentPage"-->
+            <!-- Set the carent icon when hover to result -->
             <i class="caret right icon hover-result"></i>
 
             <div class="content info">
+                <!-- Set the file file type icon -->
                 <i class="file outline icon c-word" ng-class="pickDocIcon('{{document.mimetype}}')"
                    ng-if="document.mimetype"></i>
-
+                <!-- Set the file title --><br><br>
                 <ng-switch on="normalSearch" ng-if="document.name != null && document.name != ''">
                     <a target="_blank" ng-href="{{document.url}}" tabindex="0" class="header title">
-                        <span ng-switch-default ng-bind-html="document.hls.name[0]"></span>
+                        <span ng-switch-when="true" ng-bind-html="document.hls.name[0]"></span>
+                        <span ng-switch-default ng-bind-html="document.name"></span>
                     </a>
                 </ng-switch>
 
-                    <span class="gray italic f-size12" ng-if="document.size" title="{{'data.size'|translate}}"
+                <!-- Set the file size -->
+                <span class="gray italic f-size12" ng-if="document.size" title="{{'data.size'|translate}}"
                           ng-bind="humanReadableSize(document.size)"></span>
-
+                <!-- Set the file path -->
                 <div class="meta-breadcrumb channel-l italic" ng-if="document.path">
                     <a class="channel-d underline" ng-href="{{document.path}}"
                        ng-bind="urlTruncate('{{document.path}}')"></a>
                 </div>
-
-                <div class="content-wrapper" ng-if="document.hls.content && document.hls.content.length > 0"
-                     ng-click="open(document, 'lg')">
+                <!-- Set the content --><br><br>
+                <div class="content-wrapper" ng-if="document.hls.content && document.hls.content.length > 0">
                     <ng-switch on="normalSearch">
                         <div ng-switch-when="true">
                             <div class="content snippet">
@@ -180,7 +183,7 @@
                         </div>
                     </ng-switch>
                 </div>
-
+                <!-- Set the metadata -->
                 <div class="metadata mgray clearfix">
                     <div class="meta-info-create italic">
                         <span class="underline mgray"

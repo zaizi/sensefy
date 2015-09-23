@@ -993,36 +993,86 @@
                          }*/
 
                         attrs.$observe('entityDataSet', function (val) {
-                            var emptyCount = 0, emptyCount2 = 0, emptyCount3 = 0;
-                            $('.et-row.one').each(function () {
-                                var cell = $.trim($(this).find('.cell.info').text());
-                                if (cell.length == 0) {
-                                    emptyCount = emptyCount + 1;
-                                    if (emptyCount == 2) {
+
+                            var b = setTimeout(function () {
+                                $('.et-row').removeClass('nodisplayrow');
+                                $('.et-row').each( function(i,e) {
+                                    var emptyCount = 0;
+
+                                    var childrens = $(this).children('.et-value-wrap').children('.et-value:visible').length;
+
+                                    if(childrens === 0) {
                                         $(this).addClass('nodisplayrow');
                                     }
+                                });
+                                clearTimeout(b);
+                            }, 250);
+
+
+                            //var emptyCount = 0, emptyCount2 = 0, emptyCount3 = 0;
+
+
+                            /*$('.et-row').each( function() {
+                                var emptyCount = 0;
+
+                                if($(this).children('.et-value-wrap').children('.et-value').hasClass('ng-hide')){
+                                    emptyCount = emptyCount + 1;
+                                }
+
+                                if(emptyCount === 3) {
+                                    $(this).hide();
+                                }
+                            });*/
+
+
+
+                            /*var b = setTimeout(function () {
+                                //console.log('entityData with json - '+val);
+
+
+                            $('.et-row').css('display',function(){
+                                var children = $(this).children('.et-value-wrap').children('.et-value');
+                                return children.length === children.not(':visible').length ? 'none' : 'block';
+                            });
+                                clearTimeout(b);
+                            }, 250);*/
+
+                            /*$('.et-value-wrap').css('display',function(){
+                                var children = $(this).children();
+                                return children.length === children.not(':visible').length ? 'none' : 'block';
+                            });*/
+
+                            /*$('.et-row').each( function() {
+                                var hiddenLI = $(this).children('.et-value-wrap').children('.et-value').is(':visible');
+
+                                if(!(hiddenLI)) {
+                                    $(this).hide();
                                 }
                             });
 
-                            $('.et-row.two').each(function () {
+                            var parentElementsWithoutVisibleChildElements = $(".et-row").not(function(){
+                                return ( $(this).children(":visible").length > 0 ) ? false : true;
+                            });*/
+
+                            /*$('.et-row.two').each(function () {
                                 var cell = $.trim($(this).find('.cell.info').text());
                                 if (cell.length == 0) {
                                     emptyCount2 = emptyCount2 + 1;
-                                    if (emptyCount2 == 2) {
-                                        $(this).addClass('nodisplayrow');
+                                    if (emptyCount2 == 3) {
+                                        $(this).addClass('noElementDetected');//nodisplayrow');
                                     }
                                 }
-                            });
-
+                            });*/
+                            /*
                             $('.et-row.three').each(function () {
                                 var cell = $.trim($(this).find('.cell.info').text());
                                 if (cell.length == 0) {
                                     emptyCount3 = emptyCount3 + 1;
-                                    if (emptyCount3 == 2) {
+                                    if (emptyCount3 == 3) {
                                         $(this).addClass('nodisplayrow');
                                     }
                                 }
-                            });
+                            });*/
 
                             //entityData = val;
                             //entityData = val.replace(/\\/g, '');

@@ -12,9 +12,11 @@
     <header translate="{{selectedEntity.label | translate}}"></header>
 
     <div class="entity-info-brief">
-        <img class="image" ng-src="{{selectedEntity.thumbnail[0] || 'images/missing.jpg'}}"/>
+        <span ng-show="isImageAvailable">
+            <img class="image" ng-src="{{checkImageAvailable(selectedEntity.thumbnail[0])}}">
+        </span>
         <div class="text">{{selectedEntity.label}}</div>
-        <div class="type">{{selectedEntity.notable_type}}</div>
+        <div class="type" ng-show="selectedEntity.type">{{arrayToString(selectedEntity.type)}}</div>
     </div>
 </div>
 

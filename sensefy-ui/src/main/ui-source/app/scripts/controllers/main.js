@@ -605,6 +605,11 @@
                     }
                     return result;
                 };
+                $scope.arrayToString = function (typeArray){
+                    if(typeof typeArray !== 'undefined' && typeArray !== null && typeof typeArray.length === 'number'){
+                        return typeArray.join(", ");
+                    }
+                };
                 $scope.updateDocumentOffset = function (restoreCurrentPage) {
                     if (restoreCurrentPage == null) {
                         restoreCurrentPage = true;
@@ -1058,15 +1063,14 @@
                     var img = new Image();
                     img.onload = function (){
                         $scope.isImageAvailable = true;
-                        console.log('Has a thumb')
                     };
                     img.onerror = function (){
                         $scope.isImageAvailable = false;
-                        console.log('Missed a thumb')
                     };
                     img.src = image_url;
-                    console.log('inside checkImageAvailable')
-                    return image_url;
+                    if($scope.isImageAvailable){
+                        return image_url;
+                    }
                 };
                 $scope.cleanSearchParameters = function () {
                     resetSelectedValues();

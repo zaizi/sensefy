@@ -3,8 +3,8 @@
         <div class="cell info">
             <span class="text" ng-bind-html="entity.label | highlight:queryTerm"></span>
         </div>
-        <div class="cell img" ng-show="entity.thumbnail[0]">
-            <img class="image" ng-src="{{entity.thumbnail[0]}}"/>
+        <div class="cell img" ng-show="isImageAvailable">
+            <img class="image" ng-src="checkImageAvailable(entity.thumbnail[0])">
         </div>
     </div>
 </div>

@@ -9,7 +9,7 @@
             <!--span class="type">{{entity.jobTitle || ""}}</span-->
         </div>
         <div class="cell img" ng-show="isImageAvailable">
-            <img class="image" ng-src="{{checkImageAvailable(entity.thumbnail[0])}}">
+            <img class="image" ng-src="checkImageAvailable(entity.thumbnail[0])">
         </div>
     </div>
 </div>
