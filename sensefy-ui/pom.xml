@@ -201,7 +201,7 @@
 									<workingDirectory>${project.basedir}/src/main/ui-source</workingDirectory>
 									<installDirectory>${project.basedir}/src/main/ui-source</installDirectory>
 
-									<arguments>install</arguments>
+									<arguments>install --allow-root</arguments>
 								</configuration>
 							</execution>
 							<execution>
@@ -214,7 +214,7 @@
 									<workingDirectory>${project.basedir}/src/main/ui-source</workingDirectory>
 									<installDirectory>${project.basedir}/src/main/ui-source</installDirectory>
 									<outputdir>${project.basedir}/src/main/ui-source</outputdir>
-									<arguments>build</arguments>
+									<arguments>build --allow-root</arguments>
 								</configuration>
 							</execution>
 						</executions>
