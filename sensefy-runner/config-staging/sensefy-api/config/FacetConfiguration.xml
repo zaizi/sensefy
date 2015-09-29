@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<facetConfigurationList>
+  <facetConfiguration field="data_source">
+    <label>Data Source</label>
+    <limit>10</limit>
+    <mincount>1</mincount>
+  </facetConfiguration>
+  <facetConfiguration field="ds_creator">
+    <label>Creator</label>
+    <limit>20</limit>
+    <mincount>1</mincount>
+  </facetConfiguration>
+  <facetConfiguration field="mimetype">
+    <label>Mimetype</label>
+    <limit>20</limit>
+    <mincount>1</mincount>
+  </facetConfiguration>
+  <facetConfiguration field="language">
+    <label>Language</label>
+    <limit>20</limit>
+    <mincount>1</mincount>
+  </facetConfiguration>
+  <facetConfiguration field="size">
+    <range>true</range>
+    <date>false</date>
+    <label>Size</label>
+    <limit>5</limit>
+    <mincount>1</mincount>
+    <start>0</start>
+    <end>100000000</end>
+    <gap>10000000</gap>
+  </facetConfiguration>
+  <facetConfiguration field="image_width">
+    <range>true</range>
+    <date>false</date>
+    <label>Pixel Width</label>
+    <limit>5</limit>
+    <mincount>1</mincount>
+    <start>0</start>
+    <end>2500</end>
+    <gap>500</gap>
+  </facetConfiguration>
+  <facetConfiguration field="image_length">
+    <range>true</range>
+    <date>false</date>
+    <label>Pix Length</label>
+    <limit>5</limit>
+    <mincount>1</mincount>
+    <start>0</start>
+    <end>2500</end>
+    <gap>500</gap>
+  </facetConfiguration>
+  <facetConfiguration field="focal_length">
+    <range>true</range>
+    <date>false</date>
+    <label>Focal Length</label>
+    <limit>5</limit>
+    <mincount>1</mincount>
+    <start>0</start>
+    <end>50</end>
+    <gap>10</gap>
+  </facetConfiguration>
+  <facetConfiguration field="Sharpness">
+    <label>Sharpeness</label>
+    <limit>5</limit>
+    <mincount>1</mincount>
+  </facetConfiguration>
+  <facetConfiguration field="ds_last_modified">
+        <date>true</date>
+        <label>Last Modified Date</label>
+        <intervals>today,yesterday,last_week,last_month</intervals>
+    </facetConfiguration>
+    <facetConfiguration field="ds_creation_date">
+        <date>true</date>
+        <label>Creation Date</label>
+        <intervals>today,yesterday,last_week,last_month</intervals>
+    </facetConfiguration>
+</facetConfigurationList>
