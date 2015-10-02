@@ -8,29 +8,29 @@ zuul:
   routes:
     resource:
       path: /service/api/**
-      url: http://localhost:9099/api
+      url: http://sensefyqa.zaizicloud.net:9099/api
     user:
       path: /user/**
-      url: http://localhost:9099/auth/user
+      url: http://sensefyqa.zaizicloud.net:9099/auth/user
     oauth:
       path: /auth/**
-      url: http://localhost:9099/auth
+      url: http://sensefyqa.zaizicloud.net:9099/auth
     logout:
       path: /logout
-      url: http://localhost:9099/auth/logout
+      url: http://sensefyqa.zaizicloud.net:9099/auth/logout
 spring:
 #  profiles: default
   oauth2:
     sso:
-      logout-uri: http://localhost:9099/auth/logout
+      logout-uri: http://sensefyqa.zaizicloud.net:9099/auth/logout
       logout-redirect: true
       loginPath: /login
       home:
         secure: true
 #        path: /**/*.html,/**/*.js,/**/*.css,/**/*.jpg,/**/*.png,/**/*.ico
     client:
-      accessTokenUri: http://localhost:9099/auth/oauth/token
-      userAuthorizationUri: http://localhost:9099/auth/oauth/authorize
+      accessTokenUri: http://sensefyqa.zaizicloud.net:9099/auth/oauth/token
+      userAuthorizationUri: http://sensefyqa.zaizicloud.net:9099/auth/oauth/authorize
       clientId: sensefy
       clientSecret: sensefysecret
 #      scope: openid
@@ -39,7 +39,7 @@ spring:
 #      pre-established-redirect-uri: http://localhost:8080
 #      use-current-uri: true
     resource:
-      userInfoUri: http://localhost:9099/auth/user
+      userInfoUri: http://sensefyqa.zaizicloud.net:9099/auth/user
       preferTokenInfo: false
   jmx:
     enabled: false
