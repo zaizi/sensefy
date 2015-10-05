@@ -32,7 +32,7 @@
 		<tomcat.version>7.0.52</tomcat.version>
 		<packaging.type>jar</packaging.type>
 		<sensefy.api.main.class>com.zaizi.sensefy.api.SensefyResourceApplicationJar</sensefy.api.main.class>
-        <sensefy.build.profile>dev</sensefy.build.profile>
+        <sensefy.build.profile>staging</sensefy.build.profile>
 	</properties>
 
 	<dependencyManagement>

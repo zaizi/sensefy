@@ -11,7 +11,7 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<sensefy.build.profile>dev</sensefy.build.profile>
+		<sensefy.build.profile>staging</sensefy.build.profile>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sensefy.basepath>${project.parent.basedir}/${sensefy.instance.folder}</sensefy.basepath>
 		<manifoldcf.version>1.8</manifoldcf.version>

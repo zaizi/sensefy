@@ -42,7 +42,7 @@
 		<tomcat.version>7.0.52</tomcat.version>
 		<packaging.type>jar</packaging.type>
 		<sensefy.ui.main.class>com.zaizi.sensefy.ui.SensefySearchUiApplicationJar</sensefy.ui.main.class>
-        <sensefy.build.profile>dev</sensefy.build.profile>
+        <sensefy.build.profile>staging</sensefy.build.profile>
 	</properties>
 
 	<dependencies>
