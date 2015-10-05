@@ -11,6 +11,7 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
+		<sensefy.build.profile>dev</sensefy.build.profile>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sensefy.basepath>${project.parent.basedir}/${sensefy.instance.folder}</sensefy.basepath>
 		<manifoldcf.version>1.8</manifoldcf.version>
@@ -33,7 +34,7 @@
 		<!-- Sensefy Solr Lib property used to specify the lib directory used by 
 			Solr -->
 		<sensefy.solr.lib.dir>${sensefy.basepath}/solr/lib</sensefy.solr.lib.dir>
-		<sensefy.config.home>${project.basedir}/config</sensefy.config.home>
+		<sensefy.config.home>${project.basedir}/config-${sensefy.build.profile}</sensefy.config.home>
 		<sensefy.auth.server.config>${sensefy.config.home}/sensefy-auth-conf/</sensefy.auth.server.config>
 		<sensefy.solr.default.conf>${sensefy.config.home}/solr-default-conf</sensefy.solr.default.conf>
 		<sensefy.tomcat.conf>config/tomcat-conf</sensefy.tomcat.conf>
