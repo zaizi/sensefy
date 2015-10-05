@@ -8,7 +8,7 @@
     window.translate = null;
 
     angular.module('SensefyConfiguration', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'pascalprecht.translate'])
-        .constant('SensefyAPIUrl', 'http://localhost:9099/service/api/')
+        .constant('SensefyAPIUrl', 'service/api/')
         .constant('SensefyTokenCreatePath', 'token/create')
         .constant('SensefySemanticSearchKeywordBased', 'keywordSearch')
         .constant('SensefyEntityDrivenSearch', 'entityDrivenSearch')
@@ -22,7 +22,7 @@
         .constant('SensefyMlt', 'docs/mlt')
         .constant('SensefyFacetsPerGroup', 2)
         .constant('SensefyUNIXdate', 1000)
-        .constant('SensefySearchLogin', 'http://localhost:9099/logout')
+        .constant('SensefySearchLogin', 'logout')
         .constant('SensefySearchIsSemantic', true)
         .constant('SensefySearchIsClustering', true)
         .constant('SensefyDocSecurity', true)
