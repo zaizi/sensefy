@@ -32,7 +32,6 @@
 		<tomcat.version>7.0.52</tomcat.version>
 		<packaging.type>jar</packaging.type>
 		<sensefy.api.main.class>com.zaizi.sensefy.api.SensefyResourceApplicationJar</sensefy.api.main.class>
-        <sensefy.build.profile>staging</sensefy.build.profile>
 	</properties>
 
 	<dependencyManagement>
@@ -334,7 +333,7 @@
 							<outputDirectory>${project.basedir}/src/main/resources</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${project.basedir}/../sensefy-runner/config-${sensefy.build.profile}/sensefy-api/</directory>
+									<directory>${project.basedir}/../sensefy-runner/config/sensefy-api/</directory>
 									<filtering>true</filtering>
 									<includes>
 										<include>config/</include>

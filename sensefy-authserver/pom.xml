@@ -26,7 +26,6 @@
 		<wro4j.version>1.7.8</wro4j.version>
 		<packaging.type>jar</packaging.type>
 		<sensefy.auth.main.class>com.zaizi.sensefy.auth.AuthServerApplicationJar</sensefy.auth.main.class>
-        <sensefy.build.profile>staging</sensefy.build.profile>
 	</properties>
 
 	<dependencies>
@@ -181,7 +180,7 @@
 							<outputDirectory>${project.basedir}/src/main/resources</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${project.basedir}/../sensefy-runner/config-${sensefy.build.profile}/sensefy-auth-conf/</directory>
+									<directory>${project.basedir}/../sensefy-runner/config/sensefy-auth-conf/</directory>
 								</resource>
 							</resources>
 							<overwrite>true</overwrite>

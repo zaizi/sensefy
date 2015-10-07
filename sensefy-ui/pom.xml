@@ -42,7 +42,6 @@
 		<tomcat.version>7.0.52</tomcat.version>
 		<packaging.type>jar</packaging.type>
 		<sensefy.ui.main.class>com.zaizi.sensefy.ui.SensefySearchUiApplicationJar</sensefy.ui.main.class>
-        <sensefy.build.profile>staging</sensefy.build.profile>
 	</properties>
 
 	<dependencies>
@@ -272,7 +271,7 @@
 							<outputDirectory>${project.basedir}/src/main/resources</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${project.basedir}/../sensefy-runner/config-${sensefy.build.profile}/sensefy-ui-conf/</directory>
+									<directory>${project.basedir}/../sensefy-runner/config/sensefy-ui-conf/</directory>
 								</resource>
 							</resources>
 							<overwrite>true</overwrite>
