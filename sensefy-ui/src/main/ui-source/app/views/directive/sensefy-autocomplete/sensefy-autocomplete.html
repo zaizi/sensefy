@@ -23,7 +23,7 @@
             </ul>
             <ul class="suggests-wrapper" ng-show="suggestions.suggestions" ng-click="autocomplete($event)">
                 <li class="header" ng-show="autocompletePhase == 'phase1'" translate="txtDocumentSuggestions"></li>
-                <li class="suggestion"
+                <li class="suggestion" ng-class="{selected: suggestion.selected}"
                     ng-repeat="suggestion in suggestions.suggestions"
                     ng-include="'views/partial/suggestion-template.html'"></li>
             </ul>

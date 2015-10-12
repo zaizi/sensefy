@@ -384,11 +384,28 @@ sub, sup {
     border-radius: 0.285714rem;
     box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.1);
     padding: 8px;
+    background: #f9f9f9;
 }
 .entity-information .image {
     max-width: 70px;
     height: auto;
-    margin-bottom: 8px;
+    margin-right: 8px;
+    float: left;
+    border-radius: 4px;
+}
+
+.entity-information .brief{
+    float: left;
+    margin-bottom: 4px;
+    width: 80%;
+}
+
+.entity-information .brief.desc{
+    line-height: 16px;
+    max-height: 50px;
+    overflow: hidden;
+    text-align: justify;
+    width: 88%;
 }
 
 .entity-information.facets header {
@@ -1527,3 +1544,22 @@ and (orientation: landscape)
 }
 
 .nodisplayrow {display:none;}
+
+.did-you-mean-suggestion {
+    color: red;
+    font-style: italic;
+}
+
+.did-you-mean-label {
+    color: blue;
+}
+
+.hide-thumb {
+    position: absolute;
+    left: -3000px;
+    top: -3000px;
+}
+
+.suggestions-wrapper .suggestion.selected {
+    background-color: #e7f6fd;
+}

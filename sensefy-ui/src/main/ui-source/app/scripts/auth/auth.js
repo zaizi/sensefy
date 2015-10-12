@@ -1,9 +1,7 @@
-angular.module('auth', []).factory(
-    'auth',
-
+angular.module('auth', []).factory('auth',
     function ($rootScope, $http, $location) {
 
-        enter = function () {
+        var enter = function () {
             if ($location.path() !== auth.loginPath) {
                 auth.path = $location.path();
                 if (!auth.authenticated) {
@@ -23,33 +21,11 @@ angular.module('auth', []).factory(
             path: $location.path(),
 
             authenticate: function (credentials, callback) {
-
                 var headers = credentials && credentials.username ? {
                     authorization: "Basic " + btoa(credentials.username + ":" + credentials.password)
                 } : {};
-
-                /*console.group("AUTH Details");
-                 console.log("auth.authenticated "+auth.authenticated);
-                 console.log("auth.path +' = '+ auth.loginPath "+auth.path +' = '+ auth.loginPath);
-                 console.groupEnd();*/
-
-                //$http.get('user', {
-                //	headers : headers
-                //}).success(function(data) {
-                //	if (data.name) {
                 auth.authenticated = true;
-                //	} else {
-                //		auth.authenticated = false;
-                //	}
-                //callback && callback(auth.authenticated);
-                //$location.path(auth.path==auth.loginPath ? auth.homePath : auth.path);
                 $location.path(auth.path === auth.loginPath ? auth.homePath : auth.searchPath);
-
-                //}).error(function() {
-                //	auth.authenticated = false;
-                //	callback && callback(false);
-                //});
-
             },
 
             clear: function () {

@@ -88,8 +88,9 @@
                 $scope.logout = auth.clear;
             }
         ]).controller('SearchController', [
-            '$scope', '$http', '$location', 'dataSources', '$rootScope', 'SemanticSearchService', 'SensefyFacetsPerGroup', 'SensefySortOptions', 'PDFViewerService', 'SensefyAPIUrl', 'SensefyDocsPreview', 'localStorageService', 'ApiService', 'SensefyPreviewDoc', 'auth', 'tmhDynamicLocale', '$translate', 'SensefySearchLogin', 'SensefyUNIXdate', 'DEBUGmode', 'SensefyDocSecurity', 'SensefySearchResponseFailedIsLogout',
-            function ($scope, $http, $location, dataSources, $rootScope, SemanticSearchService, SensefyFacetsPerGroup, SensefySortOptions, pdf, SensefyAPIUrl, SensefyDocsPreview, localStorageService, ApiService, SensefyPreviewDoc, auth, tmhDynamicLocale, $translate, SensefySearchLogin, SensefyUNIXdate, DEBUGmode, SensefyDocSecurity, SensefySearchResponseFailedIsLogout) {
+            '$scope', '$http', '$location', 'dataSources', '$rootScope', 'SemanticSearchService', 'SensefyFacetsPerGroup', 'SensefySortOptions', 'SensefyAPIUrl', 'SensefyDocsPreview', 'localStorageService', 'ApiService', 'SensefyPreviewDoc', 'auth', 'tmhDynamicLocale', '$translate', 'SensefySearchLogin', 'SensefyUNIXdate', 'DEBUGmode', 'SensefyDocSecurity', 'SensefySearchResponseFailedIsLogout',
+            function ($scope, $http, $location, dataSources, $rootScope, SemanticSearchService, SensefyFacetsPerGroup, SensefySortOptions, SensefyAPIUrl, SensefyDocsPreview, localStorageService, ApiService, SensefyPreviewDoc, auth, tmhDynamicLocale, $translate, SensefySearchLogin, SensefyUNIXdate, DEBUGmode, SensefyDocSecurity, SensefySearchResponseFailedIsLogout) {
+            //PDFViewerService, pdf
                 var FILTER_LABEL_SEPARATOR, HTMLtagCleaner, addMissingFacets, allSource, cleanLocationSearchParameters, entityMap, escapeHtmlExceptB, fillLocationSearchParameters, getActiveSource, getDataSourceByValue, initDataSources, parseFacets, parseSimpleFacet, processHighlightInfo, removeCluster, removeFilter, resetSelectedValues;
                 FILTER_LABEL_SEPARATOR = "$$";
 
@@ -605,9 +606,30 @@
                     }
                     return result;
                 };
+                $scope.descriptionExcerpt = function (text, numCharacters, end) {
+                    if (numCharacters === null) {
+                        numCharacters = 100;
+                    }
+                    if (end === null) {
+                        end = "...";
+                    }
+                    if(text !== null || text !== '') {
+                        if (text.length > numCharacters) {
+                            return text.substring(0, numCharacters) + end;
+                        } else {
+                            return text;
+                        }
+                    }
+                    else{
+                        return false;
+                    }
+                };
                 $scope.arrayToString = function (typeArray){
                     if(typeof typeArray !== 'undefined' && typeArray !== null && typeof typeArray.length === 'number'){
                         return typeArray.join(", ");
+                    }
+                    else{
+                        return typeArray;
                     }
                 };
                 $scope.updateDocumentOffset = function (restoreCurrentPage) {
@@ -629,7 +651,7 @@
                     }
 
                     if($scope.documentsOffsetEnd <= $scope.totalDocuments){
-                        $scope.documentsOffsetEnd = $scope.totalDocuments;
+                        $scope.documentsOffsetEnd = $scope.documentsOffsetStart + $scope.documentsPerPage;
                     }
                 };
                 $scope.titleSelected = function (title, removeFilters) {
@@ -697,6 +719,10 @@
                     });
                 };
                 $scope.entitySelected = function (entity, removeFilters) {
+                    if(DEBUGmode){
+                        console.log('$scope.entitySelected at controller 721')
+                        console.log('$scope.entitySelected at controller entity '+ entity);//JSON.stringify(entity))
+                    }
                     var clustering, security;
                     if (removeFilters == null) {
                         removeFilters = true;
@@ -715,9 +741,6 @@
                         $scope.documents = response.data.searchResults.documents || [];
                         $scope.selectedEntity = response.data.searchResults.entity || $scope.selectedEntity;
                         $scope.totalDocuments = response.data.searchResults.numFound;
-                        if(angular.element('#searchTerm').val() == ''){
-                            angular.element('#searchTerm').val($scope.queryTerm);
-                        }
                         return parseFacets(response.data);
                     },
                     function (response) {
@@ -876,10 +899,10 @@
                     '>': '&gt;'
                 };
                 escapeHtmlExceptB = function (string) {
-                    string = string.replace(/[<>]/g, function (s) {
+                    /*string = string.replace(/[<>]/g, function (s) {
                         return entityMap[s];
                     });
-                    string = string.replace('&lt;b&gt;', '<b>').replace('&lt;/b&gt;', '</b>');
+                    string = string.replace('&lt;b&gt;', '<b>').replace('&lt;/b&gt;', '</b>');*/
                     return string;
                 };
                 processHighlightInfo = function (documents, highlightInfo) {
@@ -954,6 +977,9 @@
                     //$scope.setSorting(newValue.defaultSort);
                 });
                 $scope.$on('entitySelected', function (event, entity) {
+                    if(DEBUGmode){
+                        console.log('$scope.$on(entitySelected, function (event, entity) {}): at controller 976');
+                    }
                     resetSelectedValues();
                     $scope.entitySelected(entity);
                     cleanLocationSearchParameters();
@@ -1058,20 +1084,6 @@
                         console.log('$location.search -> fillLocationSearchParameters '+JSON.stringify($location.search()))
                     }
                 };
-                $scope.isImageAvailable = false;
-                $scope.checkImageAvailable = function(image_url){
-                    var img = new Image();
-                    img.onload = function (){
-                        $scope.isImageAvailable = true;
-                    };
-                    img.onerror = function (){
-                        $scope.isImageAvailable = false;
-                    };
-                    img.src = image_url;
-                    if($scope.isImageAvailable){
-                        return image_url;
-                    }
-                };
                 $scope.cleanSearchParameters = function () {
                     resetSelectedValues();
                     cleanLocationSearchParameters();
@@ -1098,12 +1110,16 @@
                 $scope.initialize = function () {
                     var entity, params, parsedFilters;
                     params = $location.search();
+                    if(DEBUGmode){
+                        console.log('$scope.initialize -> params = $location.search(): '+JSON.stringify(params))
+                    }
                     if (params.query !== void 0) {
                         $scope.queryTerm = params.query;
                     }
                     if (params.entityId) {
                         entity = {
-                            id: params.entityId
+                            id: params.entityId,
+                            label: $scope.queryTerm
                         };
                         $scope.selectedEntity = entity;
                     }
@@ -1146,7 +1162,9 @@
                     }
                     $scope.runCurrentQuery();
                 };
-                $scope.initialize();
+                if($scope.entitySelected === null){
+                    $scope.initialize();
+                }
                 $scope.$on('$locationChangeSuccess', function (event) {
                     $scope.cleanFilters();
                     $scope.initialize();
@@ -1294,7 +1312,7 @@
 
                     return docIcon;
                 };
-                $scope.viewer = pdf.Instance("viewer");
+                /*$scope.viewer = pdf.Instance("viewer");
                 $scope.isClose = false;
                 $scope.previewNextPage = function () {
                     return $scope.viewer.nextPage();
@@ -1312,7 +1330,7 @@
                 $scope.resultContent = function (document, size) {
                     var modalInstance;
                     $scope.resultContent = document.content;
-                    $scope.documentPrevName = document.name;
+                    $scope.documentPrevName = document.name;*/
                     /*
                      return modalInstance = $modal.open({
                      templateUrl: 'views/content.html',
@@ -1321,7 +1339,7 @@
                      scope: $scope
                      });
                      */
-                };
+                /*};
                 $scope.open = function (document, size) {
                     var modalInstance;
                     $scope.previewNotSupported = false;
@@ -1366,7 +1384,7 @@
                         $scope.document = document;
                     } else {
                         $scope.previewNotSupported = true;
-                    }
+                    }*/
                     /*
                      return modalInstance = $modal.open({
                      templateUrl: 'views/preview.html',
@@ -1375,7 +1393,7 @@
                      scope: $scope
                      });
                      */
-                };
+                /*};
 
                 if ($scope.queryTerm !== '') {
                     angular.element('body').removeClass('ggl');
@@ -1386,7 +1404,7 @@
 
                 return $scope.hightlight = function ($event) {
                     //return console.log($event.currentTarget);
-                };
+                };*/
             }
         ]).controller('RepoBrowserController', ['$scope', '$location','DEBUGmode',
             function($scope, $location, DEBUGmode){
@@ -1395,7 +1413,7 @@
                 }
             }
         ]).controller('MltController', [
-            '$scope', '$location', 'document', 'SemanticSearchService', 'SemanticMoreLikeThisService', '$translate', 'PDFViewerService', 'SensefyAPIUrl', 'SensefyDocsPreview', 'ApiService', 'SensefyPreviewDoc', '$rootScope', function ($scope, $location, document, SemanticSearchService, SemanticMoreLikeThisService, $translate, pdf, SensefyAPIUrl, SensefyDocsPreview, ApiService, SensefyPreviewDoc, $rootScope) {
+            '$scope', '$location', 'document', 'SemanticSearchService', 'SemanticMoreLikeThisService', '$translate', 'SensefyAPIUrl', 'SensefyDocsPreview', 'ApiService', 'SensefyPreviewDoc', '$rootScope', 'PDFViewerService', function ($scope, $location, document, SemanticSearchService, SemanticMoreLikeThisService, $translate, SensefyAPIUrl, SensefyDocsPreview, ApiService, SensefyPreviewDoc, $rootScope, pdf) {
                 /*
                  var filterDocuments, normalizeDocumentsScore, sliderLabels;
                  $scope.searchOptions = {

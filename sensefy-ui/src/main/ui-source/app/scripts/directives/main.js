@@ -7,7 +7,7 @@
 (function () {
     angular.module('SensefyDirectives', [])
         .directive('sensefyAutocomplete', ['$timeout', 'DEBUGmode',
-            function ($timeout, DEBUGmode) {
+            function ($timeout, DEBUGmode, SensefySearchLogin) {
                 return {
                     restrict: 'EA',
                     templateUrl: 'views/directive/sensefy-autocomplete/sensefy-autocomplete.html',
@@ -78,6 +78,7 @@
                                     if (DEBUGmode) {
                                         console.log('phase1 is fired - response.data.header: undefined')
                                     }
+                                    document.location.href = SensefySearchLogin;
                                     return;
                                 }
 
@@ -138,6 +139,10 @@
                             });
                         };
                         $scope.entitySelected = function (entity) {
+                            if(DEBUGmode){
+                                console.log ('$scope.entitySelected at directive 140');
+                                console.log('$scope.entitySelected at directive entity '+ entity); //JSON.stringify(entity))
+                            }
                             $scope.selectedEntity = entity;
                             $scope.queryTerm = entity.label;
                             angular.element('body').removeClass('ggl');
@@ -227,7 +232,7 @@
                             suggestionsWrapper.fadeOut();
                         });
                         input.on('keyup', function (event) {
-                            var maxTitles, valid;
+                            var maxTitles, validTitle, validSuggestion;
                             if ((event != null ? event.keyCode : void 0) === 27) {
                                 input.trigger('blur');
                                 return;
@@ -241,9 +246,12 @@
                                 if (DEBUGmode) {
                                     console.log('Started pressing up or down arrow keys.');
                                 }
-                                valid = scope.suggestions.titles !== null && scope.suggestions.titles !== void 0 && scope.suggestions.titles.length > 0;
-                                if (!valid) {
-                                    return;
+                                validTitle = scope.suggestions.titles !== null && scope.suggestions.titles !== void 0 && scope.suggestions.titles.length > 0;
+
+                                validSuggestion = scope.suggestions.suggestions;
+
+                                if (!validTitle && !validSuggestion) {
+                                    //return;
                                 }
                                 maxTitles = scope.suggestions.titles.length - 1;
                                 if (scope.selectedTitleIndex >= 0) {
@@ -1111,5 +1119,31 @@
                     }
                 };
             }
-        ]);
+        ]).directive('imageSwitch', ['$timeout', function($timeout) {
+            return {
+                restrict: 'EA',
+                link: function(scope, element, attrs) {
+                    $timeout(function() {
+                        var imageUrl = '';
+                        angular.element('.pe-check-image').addClass('hide-thumb');
+
+                        scope.$watch(attrs.imageSwitch, function(value) {
+                            imageUrl = value;
+                            setImage();
+                        });
+
+                        function setImage() {
+                            var image = new Image();
+                            image.onerror = function () {
+                                angular.element('.pe-check-image').addClass('hide-thumb');
+                            };
+                            image.onload = function () {
+                                angular.element('.pe-check-image').removeClass('hide-thumb');
+                            };
+                            image.src = imageUrl;
+                        }
+                    });
+                }
+            };
+        }]);
 }).call(this);

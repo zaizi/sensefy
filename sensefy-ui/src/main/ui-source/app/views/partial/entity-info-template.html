@@ -7,16 +7,20 @@
 	</div>
 </div -->
 
-<div class="group-facet facets entity-information"
+<div class="group-facet facets entity-information clearfix"
      ng-show="selectedEntity != null">
     <header translate="{{selectedEntity.label | translate}}"></header>
 
+
+
     <div class="entity-info-brief">
-        <span ng-show="isImageAvailable">
-            <img class="image" ng-src="{{checkImageAvailable(selectedEntity.thumbnail[0])}}">
-        </span>
-        <div class="text">{{selectedEntity.label}}</div>
-        <div class="type" ng-show="selectedEntity.type">{{arrayToString(selectedEntity.type)}}</div>
+        <check-image-available src="{{selectedEntity.thumbnail[0]}}"></check-image-available>
+        Image <p ng-show="isImageAvailable">isImageAvailable</p>
+        <img class="image" ng-src="{{selectedEntity.thumbnail[0]}}">
+
+        <div class="text brief">{{selectedEntity.label}}</div>
+        <div class="type brief" ng-show="selectedEntity.type">{{arrayToString(selectedEntity.type)}}</div>
+        <div class="desc brief" ng-show="selectedEntity.description">{{selectedEntity.description}}</div>
     </div>
 </div>
 

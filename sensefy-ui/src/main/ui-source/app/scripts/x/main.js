@@ -12,7 +12,7 @@
         'SensefyFilters',
         'SensefyServices',
         'ngAnimate',
-        'ngPDFViewer',
+        //'ngPDFViewer',
         'angularUtils.directives.dirPagination',
         'angularMoment',
         'auth'
@@ -24,14 +24,14 @@
         //'infinite-scroll'
     ]).config([
         '$provide', function ($provide) {
-            return $provide.decorator('pdfviewerDirective', [
+            /*return $provide.decorator('pdfviewerDirective', [
                 '$delegate', function ($delegate) {
                     if (($delegate != null ? $delegate.length : void 0) > 0) {
                         $delegate[0].scope.src = '=';
                     }
                     return $delegate;
                 }
-            ]);
+            ]);*/
         }
     ]);
 

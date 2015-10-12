@@ -1,10 +1,10 @@
-<div ng-click="entitySelected(entity)" ng-if="entity.is_place == true">
+<div ng-click="entitySelected(entity)" ng-if="entity.is_place == true" ng-class="{selected: suggestion.selected}">
     <div class="row">
         <div class="cell info">
             <span class="text" ng-bind-html="entity.label | highlight:queryTerm"></span>
         </div>
-        <div class="cell img" ng-show="isImageAvailable">
-            <img class="image" ng-src="checkImageAvailable(entity.thumbnail[0])">
-        </div>
+        <!--<div class="cell img">
+            <img class="image" ng-show="isImageAvailable" data-check-image-available data-dynUrl="{{entity.thumbnail[0]}}">
+        </div>-->
     </div>
 </div>
