@@ -13,19 +13,23 @@
             <div class="ui yellow button ser-btn" tabindex="0" ng-click="queryFunction()">Search</div>
         </div>
 
-        <div class="suggestions-wrapper">
+        <div class="suggestions-wrapper selection-container">
             <div class="arrow"></div>
             <ul class="suggests-wrapper" ng-show="suggestions.titles" ng-click="autocomplete($event)">
                 <li class="header" ng-show="autocompletePhase == 'phase1'" translate="txtDocumentTitles"></li>
-                <li class="suggestion" ng-class="{selected: suggestion.selected}"
+                <li class="suggestion pe-sug-item" ng-class="{selected: suggestion.selected}"
                     ng-repeat="suggestion in suggestions.titles"
-                    ng-include="'views/partial/suggestion-title-template.html'"></li>
+                    ng-include="'views/partial/suggestion-title-template.html'"
+                    data-info="{{suggestion}}"
+                    data-sug-type="title"></li>
             </ul>
             <ul class="suggests-wrapper" ng-show="suggestions.suggestions" ng-click="autocomplete($event)">
                 <li class="header" ng-show="autocompletePhase == 'phase1'" translate="txtDocumentSuggestions"></li>
-                <li class="suggestion" ng-class="{selected: suggestion.selected}"
+                <li class="suggestion pe-sug-item" ng-class="{selected: suggestion.selected}"
                     ng-repeat="suggestion in suggestions.suggestions"
-                    ng-include="'views/partial/suggestion-template.html'"></li>
+                    ng-include="'views/partial/suggestion-template.html'"
+                    data-info="{{suggestion}}"
+                    data-sug-type="suggestions"></li>
             </ul>
             <ul class="entities-wrapper"
                 ng-show="suggestions.entities">

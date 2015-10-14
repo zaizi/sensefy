@@ -6,8 +6,8 @@
 
 (function () {
     angular.module('SensefyDirectives', [])
-        .directive('sensefyAutocomplete', ['$timeout', 'DEBUGmode',
-            function ($timeout, DEBUGmode, SensefySearchLogin) {
+        .directive('sensefyAutocomplete', ['$timeout', 'DEBUGmode', 'CONSOLEmode', 'isJSON',
+            function ($timeout, DEBUGmode, CONSOLEmode, isJSON, SensefySearchLogin) {
                 return {
                     restrict: 'EA',
                     templateUrl: 'views/directive/sensefy-autocomplete/sensefy-autocomplete.html',
@@ -35,7 +35,22 @@
                                 $event.stopPropagation();
                             }
                             if (($event != null ? $event.keyCode : void 0) === 13) {
-                                if ($scope.selectedTitleIndex >= 0) {
+
+                                if(selectedQueryObj.type === 'title'){
+                                    $scope.titleSelected(selectedQueryObj.dataSet);
+                                }
+                                else if(selectedQueryObj.type === 'suggestions'){
+                                    $scope.suggestionSelected(selectedQueryObj.dataSet);
+                                }
+                                else if(selectedQueryObj.type === 'entity'){
+                                    $scope.entitySelected(selectedQueryObj.dataSet);
+                                }else {
+                                    $scope.queryFunction();
+                                }
+                                if ($scope.queryTerm.length !== 0) {
+                                    angular.element('header').removeClass('ggl');
+                                }
+                                /*if ($scope.selectedTitleIndex >= 0) {
                                     $scope.titleSelected($scope.suggestions.titles[$scope.selectedTitleIndex]);
                                 } else {
                                     $scope.queryFunction();
@@ -43,7 +58,7 @@
                                 if ($scope.queryTerm.length !== 0) {
                                     angular.element('header').removeClass('ggl');
                                 }
-                                return;
+                                return;*/
                             }
                             if (($event != null ? $event.keyCode : void 0) !== 40 && ($event != null ? $event.keyCode : void 0) !== 38) {
                                 switch ($scope.autocompletePhase) {
@@ -69,16 +84,20 @@
                             if ($scope.queryTerm.length === 0) {
                                 return 0;
                             }
-                            if (DEBUGmode) {
-                                console.log('phase1 is fired')
+                            if (CONSOLEmode) {
+                                console.log('Phase 1 is fired');
                             }
+
                             $scope.originalAutocompleteQueryTerm = $scope.queryTerm;
                             return SmartAutocompleteService.phase1($scope.queryTerm).then(function (response) {
                                 if (response.data.header === undefined) {
-                                    if (DEBUGmode) {
-                                        console.log('phase1 is fired - response.data.header: undefined')
+                                    if (CONSOLEmode) {
+                                        console.log('Phase 1 is fired - response.data.header: undefined')
                                     }
                                     document.location.href = SensefySearchLogin;
+                                    if (DEBUGmode) {
+                                        debugger;
+                                    }
                                     return;
                                 }
 
@@ -104,7 +123,7 @@
                         };
                         phase2 = function () {
                             return SmartAutocompleteService.phase2($scope.selectedEntityType.hierarchy.join(","), $scope.queryTerm).then(function (response) {
-                                if (DEBUGmode) {
+                                if (CONSOLEmode) {
                                     console.log('phase2 is fired')
                                 }
                                 if (response.data.responseContent.entities) {
@@ -122,7 +141,7 @@
                         };
                         phase3 = function () {
                             return SmartAutocompleteService.phase3($scope.selectedEntityType.id, $scope.selectedEntityTypeAttribute, $scope.queryTerm).then(function (response) {
-                                if (DEBUGmode) {
+                                if (CONSOLEmode) {
                                     console.log('phase3 is fired')
                                 }
                                 if (response.data.responseContent.entities) {
@@ -139,9 +158,16 @@
                             });
                         };
                         $scope.entitySelected = function (entity) {
-                            if(DEBUGmode){
+                            if(CONSOLEmode){
                                 console.log ('$scope.entitySelected at directive 140');
-                                console.log('$scope.entitySelected at directive entity '+ entity); //JSON.stringify(entity))
+                                var a = '';
+                                if(isJSON) {
+                                    a = JSON.stringify(entity);
+                                }
+                                else{
+                                    a = entity;
+                                }
+                                console.log('$scope.entitySelected -> directive @param - entity : '+ a);
                             }
                             $scope.selectedEntity = entity;
                             $scope.queryTerm = entity.label;
@@ -242,11 +268,67 @@
                                 suggestionsWrapper.fadeOut();
                                 angular.element('body').removeClass('ggl');
                             }
-                            if (event.keyCode === 40 || event.keyCode === 38) {
-                                if (DEBUGmode) {
+                            if (event.keyCode === 40 || event.keyCode === 38 || event.keyCode === 9) {
+                                if (CONSOLEmode) {
                                     console.log('Started pressing up or down arrow keys.');
                                 }
-                                validTitle = scope.suggestions.titles !== null && scope.suggestions.titles !== void 0 && scope.suggestions.titles.length > 0;
+
+                                $('.selection-container').keySelection();
+                                $('.selection-container').on('keySelection.selection', function (e) {
+                                    var $items = $('.pe-sug-item');
+                                    var index = $items.index($(e.selectedElement));
+                                    $('.selected-element').empty().append(index + 1);
+                                });
+                                $('.selection-container').on('keySelection.keyHover', function (e) {
+                                    var $items = $('.pe-sug-item');
+                                    var index = $items.index($(e.keyHoverElement));
+                                    $('.key-hover-element').empty().append(index + 1);
+                                    scope.queryTerm = '';
+                                });
+
+                                if(selectedQueryObj !== undefined){
+                                    scope.queryTerm = selectedQueryObj.q;
+                                    input.val(selectedQueryObj.q);
+                                }
+
+                                if(CONSOLEmode){
+                                    console.log('selectedQueryObj -> '+JSON.stringify(selectedQueryObj));
+                                }
+
+
+                                if (event.keyCode === 13 && isEnterHit){
+
+                                    if(selectedQueryObj.type === 'title'){
+                                        scope.titleSelected(selectedQueryObj.dataSet)
+                                    }
+                                    else if(selectedQueryObj.type === 'suggestions'){
+                                        scope.suggestionSelected(selectedQueryObj.dataSet)
+                                    }
+                                    else if(selectedQueryObj.type === 'entity'){
+                                        scope.entitySelected(selectedQueryObj.dataSet)
+                                    }else {
+                                        scope.queryFunction();
+                                    }
+                                    if (scope.queryTerm.length !== 0) {
+                                        angular.element('body').removeClass('ggl');
+                                    }
+                                }
+
+
+                                /*$(".button.stop").on("click",function(){
+                                    $(".selection-container").keySelection("stop");
+                                    return false;
+                                });
+                                $(".button.start").on("click",function(){
+                                    $(".selection-container").keySelection("start");
+                                    return false;
+                                });
+                                $(".button.select").on("click",function(){
+                                    $(".selection-container").keySelection("select");
+                                    return false;
+                                })*/;
+
+                                /*validTitle = scope.suggestions.titles !== null && scope.suggestions.titles !== void 0 && scope.suggestions.titles.length > 0;
 
                                 validSuggestion = scope.suggestions.suggestions;
 
@@ -282,7 +364,7 @@
                                     if (DEBUGmode) {
                                         console.log('scope.queryTerm scope.selectedTitleIndex === -1, this appears on search box ' + scope.queryTerm);
                                     }
-                                }
+                                }*/
                                 scope.$digest();
                             }
                         });
@@ -988,8 +1070,8 @@
                     });
                 }
             };
-        }).directive("entityIsAvailable", ['$parse', 'DEBUGmode',
-            function ($parse, DEBUGmode) {
+        }).directive("entityIsAvailable", ['$parse', 'DEBUGmode', 'CONSOLEmode', 'isJSON',
+            function ($parse, DEBUGmode, CONSOLEmode, isJSON) {
                 return {
                     restrict: "EA",
                     controller: function ($scope) {
@@ -1109,7 +1191,7 @@
                             //val = JSON.parse(JSON.stringify(val));
 
 
-                            if (DEBUGmode) {
+                            if (CONSOLEmode) {
                                 var a = setTimeout(function () {
                                     //console.log('entityData with json - '+val);
                                     clearTimeout(a);

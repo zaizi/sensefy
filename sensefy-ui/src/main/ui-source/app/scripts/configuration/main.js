@@ -15,6 +15,8 @@
         .constant('SensefyGetEntitiesByDoc', 'showEntitiesByDocId')
         .constant('SensefyPreviewDoc', 'docs/preview')
         .constant('DEBUGmode', true)   //  Sensefy debuger mode is enabled with Boolean:true;
+        .constant('CONSOLEmode', true)   //  Sensefy console mode is enabled with Boolean:true;
+        .constant('isJSON', true)   //  Show JSON data as detailed?
         .constant('SensefySmartAutocompletePhase1', 'autocomplete/1')
         .constant('SensefySmartAutocompletePhase2', 'autocomplete/2')
         .constant('SensefySmartAutocompletePhase3', 'autocomplete/3')
@@ -990,7 +992,7 @@
             }
         }).config([
             '$routeProvider', '$httpProvider', '$translateProvider', 'SensefyTranslations', '$sceProvider', '$locationProvider', 'SensefySearchLogin', 'SensefySearchResponseFailedIsLogout', 'DEBUGmode',
-            function ($routeProvider, $httpProvider, $translateProvider, SensefyTranslations, $sceProvider, $locationProvider, SensefySearchLogin, SensefySearchResponseFailedIsLogout, DEBUGmode) {
+            function ($routeProvider, $httpProvider, $translateProvider, SensefyTranslations, $sceProvider, $locationProvider, SensefySearchLogin, SensefySearchResponseFailedIsLogout, DEBUGmode, CONSOLEmode) {
                 var data, lang;
                 $locationProvider.html5Mode(true);
                 $sceProvider.enabled(false);
@@ -1027,7 +1029,7 @@
                                 if (SensefySearchResponseFailedIsLogout) {
                                     //$scope.$parent.logout();
                                     document.location.href = SensefySearchLogin;
-                                    if (DEBUGmode) {
+                                    if (CONSOLEmode) {
                                         console.log('dataSources: function ($q, $rootScope, SemanticSearchService, $location) is fired, but FAILED');
                                     }
                                 }

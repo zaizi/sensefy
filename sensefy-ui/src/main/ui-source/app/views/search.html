@@ -173,7 +173,7 @@
                    ng-if="document.mimetype"></i>
                 <!-- Set the file title -->
                 <ng-switch on="normalSearch" ng-if="document.name != null && document.name != ''">
-                    <a target="_blank" ng-href="{{document.url}}" tabindex="0" class="header title">
+                    <a target="_blank" ng-href="{{document.url}}" tabindex="0" class="header title" ng-show="document.url">
                         <span ng-switch-when="true" ng-bind-html="document.hls.name[0]"></span>
                         <span ng-switch-default ng-bind-html="document.name"></span>
                     </a>
@@ -184,8 +184,7 @@
                           ng-bind="humanReadableSize(document.size)"></span>
                 <!-- Set the file path -->
                 <div class="meta-breadcrumb channel-l italic" ng-if="document.path">
-                    <a class="channel-d underline" ng-href="{{document.path}}"
-                       ng-bind="urlTruncate('{{document.path}}')"></a>
+                    <p class="channel-d underline cursor-default" ng-bind="urlTruncate('{{document.path}}')"></p>
                 </div>
                 <!-- Set the content -->
                 <div class="content-wrapper" ng-if="document.hls.content && document.hls.content.length > 0">

@@ -22,8 +22,8 @@
                 return localStorageServiceProvider.setPrefix('sensefy');
             }
         ]).controller('RootController', [
-            '$http', '$injector', '$scope', '$location', '$window', '$rootScope', '$translate', 'tmhDynamicLocale', 'localStorageService', 'auth', 'SensefySearchLogin', 'DEBUGmode',
-            function ($http, $injector, $scope, $location, $window, $rootScope, $translate, tmhDynamicLocale, localStorageService, auth, SensefySearchLogin, DEBUGmode) {
+            '$http', '$injector', '$scope', '$location', '$window', '$rootScope', '$translate', 'tmhDynamicLocale', 'localStorageService', 'auth', 'SensefySearchLogin', 'DEBUGmode', 'CONSOLEmode', 'isJSON',
+            function ($http, $injector, $scope, $location, $window, $rootScope, $translate, tmhDynamicLocale, localStorageService, auth, SensefySearchLogin, DEBUGmode, CONSOLEmode, isJSON) {
 
                 if(!auth.authenticated){
                     auth.clear;
@@ -37,7 +37,7 @@
 
                 $http.get('/user/').success(function(data) {
                     $scope.user = data.name;
-                    if(DEBUGmode) {
+                    if(CONSOLEmode) {
                         console.log('rootcontroller and user GET request fired -> $scope.user '+$scope.user)
                         console.log('rootcontroller and user GET request fired -> data.name '+data.name)
                     }
@@ -56,8 +56,8 @@
                 };
             }
         ]).controller('LoginController', [
-            '$scope', 'LoginService', 'localStorageService', 'auth', 'SensefySearchLogin', 'DEBUGmode',
-            function ($scope, LoginService, localStorageService, auth, SensefySearchLogin, DEBUGmode) {
+            '$scope', 'LoginService', 'localStorageService', 'auth', 'SensefySearchLogin', 'DEBUGmode', 'CONSOLEmode', 'isJSON',
+            function ($scope, LoginService, localStorageService, auth, SensefySearchLogin, DEBUGmode, CONSOLEmode, isJSON) {
 
                 if(!auth.authenticated){
                     auth.clear;
@@ -73,8 +73,15 @@
                 $scope.currentLanguage = ' : English';
 
                 $scope.login = function () {
-                    if(DEBUGmode) {
-                        console.log('user login ' + JSON.stringify($scope.credentials))
+                    if(CONSOLEmode) {
+                        var a = '';
+                        if(isJSON) {
+                            a = JSON.stringify($scope.credentials);
+                        }
+                        else{
+                            a = $scope.credentials;
+                        }
+                        console.log('user login ' + a)
                     }
                     auth.authenticate($scope.credentials, function (authenticated) {
                         if (authenticated) {
@@ -88,8 +95,8 @@
                 $scope.logout = auth.clear;
             }
         ]).controller('SearchController', [
-            '$scope', '$http', '$location', 'dataSources', '$rootScope', 'SemanticSearchService', 'SensefyFacetsPerGroup', 'SensefySortOptions', 'SensefyAPIUrl', 'SensefyDocsPreview', 'localStorageService', 'ApiService', 'SensefyPreviewDoc', 'auth', 'tmhDynamicLocale', '$translate', 'SensefySearchLogin', 'SensefyUNIXdate', 'DEBUGmode', 'SensefyDocSecurity', 'SensefySearchResponseFailedIsLogout',
-            function ($scope, $http, $location, dataSources, $rootScope, SemanticSearchService, SensefyFacetsPerGroup, SensefySortOptions, SensefyAPIUrl, SensefyDocsPreview, localStorageService, ApiService, SensefyPreviewDoc, auth, tmhDynamicLocale, $translate, SensefySearchLogin, SensefyUNIXdate, DEBUGmode, SensefyDocSecurity, SensefySearchResponseFailedIsLogout) {
+            '$scope', '$http', '$location', 'dataSources', '$rootScope', 'SemanticSearchService', 'SensefyFacetsPerGroup', 'SensefySortOptions', 'SensefyAPIUrl', 'SensefyDocsPreview', 'localStorageService', 'ApiService', 'SensefyPreviewDoc', 'auth', 'tmhDynamicLocale', '$translate', 'SensefySearchLogin', 'SensefyUNIXdate', 'DEBUGmode', 'CONSOLEmode', 'isJSON', 'SensefyDocSecurity', 'SensefySearchResponseFailedIsLogout',
+            function ($scope, $http, $location, dataSources, $rootScope, SemanticSearchService, SensefyFacetsPerGroup, SensefySortOptions, SensefyAPIUrl, SensefyDocsPreview, localStorageService, ApiService, SensefyPreviewDoc, auth, tmhDynamicLocale, $translate, SensefySearchLogin, SensefyUNIXdate, DEBUGmode, CONSOLEmode, isJSON, SensefyDocSecurity, SensefySearchResponseFailedIsLogout) {
             //PDFViewerService, pdf
                 var FILTER_LABEL_SEPARATOR, HTMLtagCleaner, addMissingFacets, allSource, cleanLocationSearchParameters, entityMap, escapeHtmlExceptB, fillLocationSearchParameters, getActiveSource, getDataSourceByValue, initDataSources, parseFacets, parseSimpleFacet, processHighlightInfo, removeCluster, removeFilter, resetSelectedValues;
                 FILTER_LABEL_SEPARATOR = "$$";
@@ -187,8 +194,15 @@
                     var facet, sources, _i, _k, _len, _ref, _lenK;
                     sources = [];
                     if(dataSources.data.facets && !isForce){
-                        if(DEBUGmode){
-                            console.log('initDataSources -> dataSources.data.facets '+ dataSources.data.facets)
+                        if(CONSOLEmode){
+                            var a = '';
+                            if(isJSON) {
+                                a = JSON.stringify(dataSources.data.facets);
+                            }
+                            else{
+                                a = dataSources.data.facets;
+                            }
+                            console.log('initDataSources -> dataSources.data.facets : '+ a)
                         }
                         _ref = dataSources.data.facets;
                         $scope.sources = [];
@@ -204,15 +218,29 @@
                         }
                         allSource.occurrence = $scope.allOccurrence;
                         sources.unshift(allSource);
-                        if(DEBUGmode){
-                            console.log('initDataSources -> dataSources.data.facets -> sources '+ sources)
+                        if(CONSOLEmode){
+                            var a = '';
+                            if(isJSON) {
+                                a = JSON.stringify(sources);
+                            }
+                            else{
+                                a = sources;
+                            }
+                            console.log('initDataSources -> dataSources.data.facets -> sources : '+ a)
                         }
                         return $scope.sources = sources;
                     }
 
                     if($scope.responsedData && isForce){
-                        if(DEBUGmode){
-                            console.log('initDataSources -> $scope.responsedData.facets '+$scope.responsedData.facets)
+                        if(CONSOLEmode){
+                            var a = '';
+                            if(isJSON) {
+                                a = JSON.stringify($scope.responsedData.facets);
+                            }
+                            else{
+                                a = $scope.responsedData.facets;
+                            }
+                            console.log('initDataSources -> $scope.responsedData.facets : '+a)
                         }
                         $scope.sources = [];
 
@@ -231,8 +259,15 @@
                         allSource.occurrence = $scope.allOccurrence;
                         sources.unshift(allSource);
 
-                        if(DEBUGmode){
-                            console.log('initDataSources -> $scope.responsedData.facets -> sources '+sources)
+                        if(CONSOLEmode){
+                            var a = '';
+                            if(isJSON) {
+                                a = JSON.stringify(sources);
+                            }
+                            else{
+                                a = sources;
+                            }
+                            console.log('initDataSources -> $scope.responsedData.facets -> sources : '+a)
                         }
 
                         return $scope.sources = sources;
@@ -543,9 +578,25 @@
                         runQuery = true;
                     }
 
-                    if(DEBUGmode){
-                        console.log('facetItem '+JSON.stringify(facetItem))
-                        console.log('facetItem.filter '+JSON.stringify(facetItem.filter))
+                    if(CONSOLEmode){
+                        var a = '';
+                        if(isJSON) {
+                            a = JSON.stringify(facetItem);
+                        }
+                        else{
+                            a = facetItem;
+                        }
+                        console.log('addFilter -> facetItem : '+a)
+                    }
+                    if(CONSOLEmode){
+                        var a = '';
+                        if(isJSON) {
+                            a = JSON.stringify(facetItem.filter);
+                        }
+                        else{
+                            a = facetItem.filter;
+                        }
+                        console.log('addFilter -> facetItem.filter : '+a)
                     }
                     pos = $scope.filters.indexOf(facetItem.filter);
 
@@ -562,9 +613,25 @@
                         $scope.filters.push(filter.value);
                         $scope.filtersToShow.push(filter);
 
-                        if(DEBUGmode) {
-                            console.log('$scope.filters ' + JSON.stringify($scope.filters))
-                            console.log('$scope.filtersToShow ' + JSON.stringify($scope.filtersToShow))
+                        if(CONSOLEmode) {
+                            var a = '';
+                            if(isJSON) {
+                                a = JSON.stringify($scope.filters);
+                            }
+                            else{
+                                a = $scope.filters;
+                            }
+                            console.log('$scope.filters ' + JSON.stringify(a))
+                        }
+                        if(CONSOLEmode) {
+                            var a = '';
+                            if(isJSON) {
+                                a = JSON.stringify($scope.filtersToShow);
+                            }
+                            else{
+                                a = $scope.filtersToShow;
+                            }
+                            console.log('$scope.filtersToShow ' + JSON.stringify(a))
                         }
                     }
                     $scope.updateDocumentOffset(runQuery);
@@ -594,7 +661,7 @@
                 HTMLtagCleaner = function (richHtml) {
                     var body, regex, result;
                     regex = /(<([^>]+)>)/ig;
-                    if(DEBUGmode){
+                    if(CONSOLEmode){
                         console.log('HTMLtagCleaner -> richHtml '+richHtml);
                     }
                     if(richHtml!==null && richHtml !== undefined){
@@ -680,8 +747,11 @@
                     function (response) {
                         if(SensefySearchResponseFailedIsLogout){
                             $scope.logout();
-                            if(DEBUGmode){
+                            if(CONSOLEmode){
                                 console.log('$scope.titleSelected = function (title, removeFilters) is fired, but FAILED');
+                            }
+                            if(DEBUGmode){
+                                debugger;
                             }
                         }
                     });
@@ -711,17 +781,27 @@
                     },
                     function (response) {
                         if(SensefySearchResponseFailedIsLogout){
-                            //$scope.logout();
-                            if(DEBUGmode){
+                            $scope.logout();
+                            if(CONSOLEmode){
                                 console.log('$scope.suggestionSelected = function (suggestion, removeFilters) is fired, but FAILED');
+                            }
+                            if(DEBUGmode){
+                                debugger;
                             }
                         }
                     });
                 };
                 $scope.entitySelected = function (entity, removeFilters) {
-                    if(DEBUGmode){
+                    if(CONSOLEmode){
+                        var a = '';
+                        if(isJSON) {
+                            a = JSON.stringify(entity);
+                        }
+                        else{
+                            a = entity;
+                        }
                         console.log('$scope.entitySelected at controller 721')
-                        console.log('$scope.entitySelected at controller entity '+ entity);//JSON.stringify(entity))
+                        console.log('$scope.entitySelected -> @param - entity : '+ a);
                     }
                     var clustering, security;
                     if (removeFilters == null) {
@@ -745,9 +825,12 @@
                     },
                     function (response) {
                         if(SensefySearchResponseFailedIsLogout){
-                            //$scope.logout();
-                            if(DEBUGmode){
+                            $scope.logout();
+                            if(CONSOLEmode){
                                 console.log('$scope.entitySelected = function (entity, removeFilters) is fired, but FAILED');
+                            }
+                            if(DEBUGmode){
+                                debugger;
                             }
                         }
                     });
@@ -777,9 +860,12 @@
                     },
                     function (response) {
                         if(SensefySearchResponseFailedIsLogout){
-                            //$scope.logout();
-                            if(DEBUGmode){
+                            $scope.logout();
+                            if(CONSOLEmode){
                                 console.log('$scope.entityTypeSelected = function (entityType, removeFilters) is fired, but FAILED');
+                            }
+                            if(DEBUGmode){
+                                debugger;
                             }
                         }
                     });
@@ -847,8 +933,8 @@
                                 $scope.responsedData = response.data;
 
                                 if(response.data.searchResults === null){
-                                    if(DEBUGmode){
-                                        console.log('response.data.searchResults as NULL')
+                                    if(CONSOLEmode){
+                                        console.log('$scope.query -> response.data.searchResults as NULL')
                                     }
                                     return
                                 }
@@ -874,8 +960,8 @@
                                     $scope.collatedQuery = response.data.searchResults.collationQuery;
                                 }
                                 parseFacets(response.data);
-                                if(DEBUGmode){
-                                    console.log('initDataSources is fired at Query()')
+                                if(CONSOLEmode){
+                                    console.log('initDataSources is fired from Query()')
                                 }
                                 initDataSources(true);
                                 $scope.searching = false;
@@ -887,7 +973,13 @@
                                 }
                             }, function (response) {
                                 $scope.searching = false;
-                                return $scope.logout();
+                                $scope.logout();
+                                if(CONSOLEmode){
+                                    console.log('$scope.query  is fired, but FAILED');
+                                }
+                                if(DEBUGmode){
+                                    debugger;
+                                }
                             });
                         }
                     } else {
@@ -977,7 +1069,7 @@
                     //$scope.setSorting(newValue.defaultSort);
                 });
                 $scope.$on('entitySelected', function (event, entity) {
-                    if(DEBUGmode){
+                    if(CONSOLEmode){
                         console.log('$scope.$on(entitySelected, function (event, entity) {}): at controller 976');
                     }
                     resetSelectedValues();
@@ -1044,8 +1136,15 @@
                     $location.search('title', null);
                     $location.search('source', null);
                     $location.search('filters', null);
-                    if(DEBUGmode){
-                        console.log('$location.search cleanLocationSearchParameters '+JSON.stringify($location.search()))
+                    if(CONSOLEmode){
+                        var a = '';
+                        if(isJSON) {
+                            a = JSON.stringify($location.search());
+                        }
+                        else{
+                            a = $location.search();
+                        }
+                        console.log('cleanLocationSearchParameters -> $location.search : '+a)
                     }
                 };
                 fillLocationSearchParameters = function () {
@@ -1080,8 +1179,15 @@
                     if (filters.length > 0) {
                         return $location.search('filters', filters.join(','));
                     }
-                    if(DEBUGmode){
-                        console.log('$location.search -> fillLocationSearchParameters '+JSON.stringify($location.search()))
+                    if(CONSOLEmode){
+                        var a = '';
+                        if(isJSON) {
+                            a = JSON.stringify($location.search());
+                        }
+                        else{
+                            a = $location.search();
+                        }
+                        console.log('fillLocationSearchParameters -> $location.search : '+ a)
                     }
                 };
                 $scope.cleanSearchParameters = function () {
@@ -1110,8 +1216,15 @@
                 $scope.initialize = function () {
                     var entity, params, parsedFilters;
                     params = $location.search();
-                    if(DEBUGmode){
-                        console.log('$scope.initialize -> params = $location.search(): '+JSON.stringify(params))
+                    if(CONSOLEmode){
+                        var a = '';
+                        if(isJSON) {
+                            a = JSON.stringify(params);
+                        }
+                        else{
+                            a = params;
+                        }
+                        console.log('$scope.initialize -> params  : '+ a);
                     }
                     if (params.query !== void 0) {
                         $scope.queryTerm = params.query;
@@ -1257,7 +1370,7 @@
 
                 var mobDSswitchFlag = true;
                 $scope.mobDSswitch = function(){
-                    if(DEBUGmode) {
+                    if(CONSOLEmode) {
                         console.log('mobDSswitchFlag');
                     }
                     if(mobDSswitchFlag){
@@ -1406,9 +1519,9 @@
                     //return console.log($event.currentTarget);
                 };*/
             }
-        ]).controller('RepoBrowserController', ['$scope', '$location','DEBUGmode',
-            function($scope, $location, DEBUGmode){
-                if(DEBUGmode){
+        ]).controller('RepoBrowserController', ['$scope', '$location','DEBUGmode','CONSOLEmode', 'isJSON',
+            function($scope, $location, DEBUGmode, CONSOLEmode, isJSON){
+                if(CONSOLEmode){
                     console.log('RepoBrowserController');
                 }
             }

@@ -1,6 +1,8 @@
 <div ng-click="entitySelected(entity)" ng-show="entity.is_person" ng-class="{selected: suggestion.selected}">
     <div class="row">
-        <div class="cell info">
+        <div class="cell info pe-sug-item"
+             data-info="{{entity}}"
+             data-sug-type="entity">
 
                 <span class="text" ng-bind-html="entity.name[0] | highlight:queryTerm"></span>
                 <span class="text" ng-bind-html="entity.label | highlight:queryTerm" ng-show="!entity.name[0]"></span>
