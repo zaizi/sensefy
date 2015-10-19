@@ -107,6 +107,11 @@ public class SolrSmartAutoCompleteService extends SolrService {
 			// suggestions from primary index suggester and entity index
 			List<SolrDocument> titleSuggestions = getTitleSuggestions(numberOfSuggestions, termToComplete,
 					this.getPrimaryIndex(), user, security);
+			
+			responseContent.setSuggestions(shingleSuggestions);
+			responseContent.setTitles(titleSuggestions);
+			responseContent.setNumberOfSuggestions(numberOfSuggestions);
+			response.setQuery(termToComplete);
 
 			if (semantic) {
 				// First query to suggest named entities, showing mini details
@@ -128,10 +133,7 @@ public class SolrSmartAutoCompleteService extends SolrService {
 				this.processHighlights(entityTypesRetrieved, highlightingResults);
 				responseContent.setEntityTypes(entityTypesRetrieved);
 			}
-			responseContent.setSuggestions(shingleSuggestions);
-			responseContent.setTitles(titleSuggestions);
-			responseContent.setNumberOfSuggestions(numberOfSuggestions);
-			response.setQuery(termToComplete);
+
 		} catch (SensefyException e) {
 			processAPIException(response, e, "[Smart Auto Complete] Error - stacktrace follows", 400,
 					ComponentCode.QUERY);
