@@ -1,6 +1,7 @@
 (function () {
     'use strict';
-    angular.module('SensefyFilters', []).filter("excerpt", function () {
+    angular.module('SensefyFilters', []).
+    filter("excerpt", function () {
         return function (text, numCharacters, end) {
             if (numCharacters == null) {
                 numCharacters = 100;
