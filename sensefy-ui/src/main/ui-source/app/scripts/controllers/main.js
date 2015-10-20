@@ -81,7 +81,7 @@
                         else{
                             a = $scope.credentials;
                         }
-                        console.log('user login ' + a)
+                        console.log('$scope.login -> user login : ' + a)
                     }
                     auth.authenticate($scope.credentials, function (authenticated) {
                         if (authenticated) {
@@ -819,6 +819,7 @@
                     return SemanticSearchService.searchByEntity($scope.selectedEntity.id, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true, security=SensefyDocSecurity).then(
                     function (response) {
                         $scope.documents = response.data.searchResults.documents || [];
+                        processHighlightInfo($scope.documents, response.data.searchResults.highlight);
                         $scope.selectedEntity = response.data.searchResults.entity || $scope.selectedEntity;
                         $scope.totalDocuments = response.data.searchResults.numFound;
                         return parseFacets(response.data);
@@ -991,10 +992,10 @@
                     '>': '&gt;'
                 };
                 escapeHtmlExceptB = function (string) {
-                    /*string = string.replace(/[<>]/g, function (s) {
+                    string = string.replace(/[<>]/g, function (s) {
                         return entityMap[s];
                     });
-                    string = string.replace('&lt;b&gt;', '<b>').replace('&lt;/b&gt;', '</b>');*/
+                    string = string.replace('&lt;b&gt;', '<b class="test">').replace('&lt;/b&gt;', '</b>');
                     return string;
                 };
                 processHighlightInfo = function (documents, highlightInfo) {
@@ -1299,64 +1300,7 @@
                         return size.toFixed(2) + ' ' + sizes[i - 1];
                     }
                 };
-                /*
-                $scope.dateTimeFormatter = function (date) {
 
-                    var dateUI = '';
-                    var pubDate = new Date(date);
-                    var toDay = new Date();
-                    var timeDiff = Math.abs(toDay.getTime() - pubDate.getTime());
-                    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-                    var diffHours = Math.ceil(timeDiff / (1000 * 3600));
-                    var diffMinutes = Math.ceil(timeDiff / (1000 * 36));
-                    var monthNames = [
-                        "January", "February", "March",
-                        "April", "May", "June", "July",
-                        "August", "September", "October",
-                        "November", "December"
-                    ];
-
-                    var newTime = '', timeSign = '';
-                    var dateTime = date.split("T");
-
-                    console.log('dateTime '+dateTime)
-
-                    var date = dateTime[0].split("-");
-                    var time = dateTime[1].split(":");
-
-                    if (parseInt(time[0]) > 12) {
-                        newTime = parseInt(time[0]) - 12;
-                    }
-                    else {
-                        newTime = parseInt(time[0]);
-                    }
-
-                    if (time[0] > 12) {
-                        timeSign = 'PM';
-                    }
-                    else {
-                        timeSign = 'AM';
-                    }
-
-                    if (diffDays > 8) {
-                        dateUI = 'on ' + monthNames[parseInt(date[1]) - 1] + ' ' + date[2] + ', ' + date[0] + ' ' + newTime + ':' + time[1] + ' ' + timeSign;
-                    }
-
-                    if ((diffDays <= 7) && (diffDays >= 2)) {
-                        dateUI = diffDays + ' days ago.';
-                    }
-
-                    if ((diffDays <= 1) && (diffHours <= 24) && (diffHours > 1)) {
-                        dateUI = diffHours + ' hours ago.';
-                    }
-
-                    if ((diffDays === 1) && (diffHours === 1) && (diffMinutes < 60)) {
-                        dateUI = diffMinutes + ' mins ago.';
-                    }
-
-                    return dateUI;
-                };
-                */
 
                 $scope.dateTimeFormatter = function(unixtime){
                     var timestamp = moment.unix(unixtime/SensefyUNIXdate);
@@ -1519,11 +1463,92 @@
                     //return console.log($event.currentTarget);
                 };*/
             }
-        ]).controller('RepoBrowserController', ['$scope', '$location','DEBUGmode','CONSOLEmode', 'isJSON',
-            function($scope, $location, DEBUGmode, CONSOLEmode, isJSON){
+        ]).controller('RepoBrowserController', ['$http', '$scope', '$location','DEBUGmode','CONSOLEmode', 'isJSON', 'FileBrowserService', 'SemanticSearchService', 'localStorageService', 'ApiService',
+            function($http, $scope, $location, DEBUGmode, CONSOLEmode, isJSON, FileBrowserService, SemanticSearchService, localStorageService, ApiService){
                 if(CONSOLEmode){
                     console.log('RepoBrowserController');
                 }
+
+                FileBrowserService.fileTree().then(
+                    function(response){
+                        $scope.treeDataset = response.data;
+                        $scope.roleList = [$scope.treeDataset];
+                    },
+                    function(response){
+                        $scope.logout();
+                        if(CONSOLEmode){
+                            console.log('FileBrowserService.fileTree()  is fired, but FAILED');
+                        }
+                    }
+                );
+
+
+                $scope.removeDoubleQuotes = function(string){
+                    var res = string.replace(/"/g, '');
+                    return res;
+                };
+
+
+
+
+                $scope.topicSearchQuery = function(topicId, cluster){
+                    if (cluster == null) {
+                        cluster = false;
+                    }
+                    if(topicId == null){
+                        if(CONSOLEmode){
+                            console.log('$scope.topicSearchQuery  @param:topicId is not set');
+                        }
+                        return false;
+                    }
+                    else{
+                        topicId = 'topicId:'+topicId;
+                    }
+                    console.log('topicId '+topicId);
+                    $scope.responsedTopics = null;
+
+                    /*topicId.search(topicId, $scope.documentsOffsetStart, $scope.documentsPerPage, $scope.searchOptions.fields, $scope.filters, true, $scope.titleSorting, clustering = cluster).then(
+                        function (response) {
+                            $scope.responsedTopics = response.data;
+
+                        }, function (response) {
+                            $scope.searching = false;
+                            $scope.logout();
+                            if(CONSOLEmode){
+                                console.log('$scope.topicSearchQuery  is fired, but FAILED');
+                            }
+                            if(DEBUGmode){
+                                debugger;
+                            }
+                        }
+                    );*/
+                };
+
+                $scope.selectNodeHead = $scope.selectNodeHead || function( selectedNode ){
+
+                    //Collapse or Expand
+                    selectedNode.collapsed = !selectedNode.collapsed;
+                    console.log('controller selectNodeHead -> selectedNode ID '+selectedNode.topicId);
+                };
+
+                //if node label clicks,
+                $scope.selectNodeLabel = $scope.selectNodeLabel || function( selectedNode ){
+
+                    //remove highlight from previous node
+                    if($scope.currentNode && $scope.currentNode.selected ) {
+                        $scope.currentNode.selected = undefined;
+                    }
+
+                    //set highlight to selected node
+                    selectedNode.selected = 'selected';
+
+                    //set currentNode
+                    $scope.currentNode = selectedNode;
+
+                    console.log('controller selectNodeLabel -> selectedNode '+JSON.stringify(selectedNode.topicId));
+                    $scope.topicSearchQuery(selectedNode.topicId, false);
+                };
+
             }
         ]).controller('MltController', [
             '$scope', '$location', 'document', 'SemanticSearchService', 'SemanticMoreLikeThisService', '$translate', 'SensefyAPIUrl', 'SensefyDocsPreview', 'ApiService', 'SensefyPreviewDoc', '$rootScope', 'PDFViewerService', function ($scope, $location, document, SemanticSearchService, SemanticMoreLikeThisService, $translate, SensefyAPIUrl, SensefyDocsPreview, ApiService, SensefyPreviewDoc, $rootScope, pdf) {

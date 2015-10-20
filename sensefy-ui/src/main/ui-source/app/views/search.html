@@ -36,7 +36,7 @@
         </div>
     </div>
 </div>
-<!--a href="#browser">File browser</a-->
+<a href="#browser">File browser</a>
 
 <div class="one column row ds-wrapper" ng-show="(totalDocuments && totalDocuments > 0)">
     <div class="sixteen wide column data-sources">
@@ -190,19 +190,14 @@
                 <div class="content-wrapper" ng-if="document.hls.content && document.hls.content.length > 0">
                     <ng-switch on="normalSearch">
                         <div ng-switch-when="true">
-                            <div class="content snippet">
-                                <span ng-bind-html="document.hls.content[0].trim()"></span>
+                            <div class="content snippet" ng-bind-html="document.hls.content[0].trim() | excerpt:300">
                             </div>
                         </div>
                         <div ng-switch-default>
-                            <div class="content excerpt">
-                                {{ document.content[0].trim() | excerpt:300}}
+                            <div class="content excerpt" ng-bind-html="document.content[0].trim() | excerpt:300">
                             </div>
                         </div>
                     </ng-switch>
-                </div>
-                <div class="content-wrapper" ng-show="document.content && selectedEntity != null">
-                    <p ng-bind-html="document.content"></p>
                 </div>
 
                 <!-- Set the metadata -->
