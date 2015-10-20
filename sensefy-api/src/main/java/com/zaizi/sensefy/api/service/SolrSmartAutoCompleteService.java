@@ -176,14 +176,19 @@ public class SolrSmartAutoCompleteService extends SolrService {
 		List<String> suggestionTermsList = new ArrayList<String>();
 		NamedList autoCompleteNode = (NamedList) ((Map) shingleTitleSuggestionResponse.getResponse().get("suggest"))
 				.get(SHINGLE_AUTOCOMPLETE_NAME);
-		SimpleOrderedMap suggestionsNode = (SimpleOrderedMap) autoCompleteNode.get(termToComplete);
-		List<SimpleOrderedMap> suggestionList;
-		if (suggestionsNode != null) {
-			suggestionList = (List<SimpleOrderedMap>) suggestionsNode.get("suggestions");
-			for (SimpleOrderedMap suggestion : suggestionList) {
-				suggestionTermsList.add((String) suggestion.get("term"));
+		try{
+			SimpleOrderedMap suggestionsNode = (SimpleOrderedMap) autoCompleteNode.get(termToComplete);
+			List<SimpleOrderedMap> suggestionList;
+			if (suggestionsNode != null) {
+				suggestionList = (List<SimpleOrderedMap>) suggestionsNode.get("suggestions");
+				for (SimpleOrderedMap suggestion : suggestionList) {
+					suggestionTermsList.add((String) suggestion.get("term"));
+				}
 			}
+		}catch(Exception e){
+			
 		}
+		
 
 		return suggestionTermsList;
 	}
