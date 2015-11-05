@@ -36,7 +36,6 @@
         </div>
     </div>
 </div>
-<a href="#browser">File browser</a>
 
 <div class="one column row ds-wrapper" ng-show="(totalDocuments && totalDocuments > 0)">
     <div class="sixteen wide column data-sources">
@@ -172,7 +171,7 @@
                 <i class="file outline icon c-word" ng-class="pickDocIcon('{{document.mimetype}}')"
                    ng-if="document.mimetype"></i>
                 <!-- Set the file title -->
-                <ng-switch on="normalSearch" ng-if="document.name != null && document.name != ''">
+                <ng-switch on="normalSearch" ng-if="document.hls.name[0] != null && document.hls.name[0] != ''">
                     <a target="_blank" ng-href="{{document.url}}" tabindex="0" class="header title" ng-show="document.url">
                         <span ng-switch-when="true" ng-bind-html="document.hls.name[0]"></span>
                         <span ng-switch-default ng-bind-html="document.name"></span>

@@ -26,7 +26,6 @@
     "grunt-rev": "~0.1.0",
     "grunt-svgmin": "~0.2.0",
     "grunt-usemin": "~2.0.0",
-    "jshint-stylish": "~0.1.3",
     "load-grunt-tasks": "~0.4.0",
     "time-grunt": "~0.2.1",
     "karma-ng-scenario": "~0.1.0",
@@ -35,7 +34,17 @@
     "karma-ng-html2js-preprocessor": "~0.1.0",
     "connect-modrewrite": "~0.8.1",
     "grunt-cli": "0.1.13",
-    "bower": "~1.3.12"
+    "bower": "~1.3.12",
+    "grunt-closure-compiler": "0.0.21",
+    "grunt-purifycss": "0.1.0",
+    "spawn-sync": "1.0.14",
+    "grunt-ng-annotate": "1.0.1",
+    "jasmine-core": "^2.2.0",
+    "jshint-stylish": "^0.2.0",
+    "karma-coverage": "^0.2.7",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-chrome-launcher": "0.2.1"
   },
   "engines": {
     "node": ">=0.10.0"

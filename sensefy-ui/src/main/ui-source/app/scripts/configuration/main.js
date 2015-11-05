@@ -7,7 +7,7 @@
 (function () {
     window.translate = null;
 
-    angular.module('SensefyConfiguration', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'pascalprecht.translate'])
+    angular.module('SensefyConfiguration', ['ngSanitize', 'ngRoute', 'pascalprecht.translate'])
         .constant('SensefyAPIUrl', 'service/api/')
         .constant('SensefyTokenCreatePath', 'token/create')
         .constant('SensefySemanticSearchKeywordBased', 'keywordSearch')
@@ -1036,9 +1036,6 @@
                             }
                         }
                     }
-                }).when('/browser', {
-                    templateUrl: 'views/browser.html',
-                    controller: 'RepoBrowserController'
                 }).when('/mlt/:docId', {
                     templateUrl: 'views/mlt.html',
                     controller: 'MltController',

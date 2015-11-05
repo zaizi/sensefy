@@ -149,43 +149,6 @@
                         clustering: clustering
                     });
                 },
-                topicSearch: function (highlightQuery, start, rows, fields, filters, facet, sort, clustering) {
-                    if (start == null) {
-                        start = 0;
-                    }
-                    if (rows == null) {
-                        rows = 10;
-                    }
-                    if (fields == null) {
-                        fields = "*";
-                    }
-                    if (filters == null) {
-                        filters = [];
-                    }
-                    if (facet == null) {
-                        facet = true;
-                    }
-                    if (sort == null) {
-                        sort = "";
-                    }
-                    if (clustering == null) {
-                        clustering = false;
-                    }
-                    if (angular.isArray(filters)) {
-                        filters = filters.join(",");
-                    }
-                    return ApiService.get(SensefySemanticSearchKeywordBased, {}, {
-                        query: highlightQuery,
-                        start: start,
-                        rows: rows,
-                        filters: filters,
-                        fields: fields,
-                        facet: facet,
-                        order: sort,
-                        spellcheck: true,
-                        clustering: clustering
-                    });
-                },
                 searchByEntity: function (entityId, start, rows, fields, filters, facet, sort, clustering, security) {
                     if (start == null) {
                         start = 0;
@@ -420,23 +383,6 @@
                         params['field'] = field;
                     }
                     return ApiService.post(SensefyImageSearchPath, formData, params);
-                }
-            };
-        }
-    ]).factory('FileBrowserService', [
-        '$http', 'ApiService',
-        function($http, ApiService) {
-            var promise = null;
-            return {
-                fileTree: function(){
-                    if (promise) {
-                        // If we've already asked for this data once,
-                        // return the promise that already exists.
-                        return promise;
-                    } else {
-                        promise = $http.get('hierarchy.json');
-                        return promise;
-                    }
                 }
             };
         }

@@ -25,6 +25,7 @@
             '$http', '$injector', '$scope', '$location', '$window', '$rootScope', '$translate', 'tmhDynamicLocale', 'localStorageService', 'auth', 'SensefySearchLogin', 'DEBUGmode', 'CONSOLEmode', 'isJSON',
             function ($http, $injector, $scope, $location, $window, $rootScope, $translate, tmhDynamicLocale, localStorageService, auth, SensefySearchLogin, DEBUGmode, CONSOLEmode, isJSON) {
 
+                $scope.sameera = "Hello, Sameera!!!...";
                 if(!auth.authenticated){
                     auth.clear;
                     document.location.href = SensefySearchLogin;
@@ -1462,93 +1463,6 @@
                 return $scope.hightlight = function ($event) {
                     //return console.log($event.currentTarget);
                 };*/
-            }
-        ]).controller('RepoBrowserController', ['$http', '$scope', '$location','DEBUGmode','CONSOLEmode', 'isJSON', 'FileBrowserService', 'SemanticSearchService', 'localStorageService', 'ApiService',
-            function($http, $scope, $location, DEBUGmode, CONSOLEmode, isJSON, FileBrowserService, SemanticSearchService, localStorageService, ApiService){
-                if(CONSOLEmode){
-                    console.log('RepoBrowserController');
-                }
-
-                FileBrowserService.fileTree().then(
-                    function(response){
-                        $scope.treeDataset = response.data;
-                        $scope.roleList = [$scope.treeDataset];
-                    },
-                    function(response){
-                        $scope.logout();
-                        if(CONSOLEmode){
-                            console.log('FileBrowserService.fileTree()  is fired, but FAILED');
-                        }
-                    }
-                );
-
-
-                $scope.removeDoubleQuotes = function(string){
-                    var res = string.replace(/"/g, '');
-                    return res;
-                };
-
-
-
-
-                $scope.topicSearchQuery = function(topicId, cluster){
-                    if (cluster == null) {
-                        cluster = false;
-                    }
-                    if(topicId == null){
-                        if(CONSOLEmode){
-                            console.log('$scope.topicSearchQuery  @param:topicId is not set');
-                        }
-                        return false;
-                    }
-                    else{
-                        topicId = 'topicId:'+topicId;
-                    }
-                    console.log('topicId '+topicId);
-                    $scope.responsedTopics = null;
-
-                    /*topicId.search(topicId, $scope.documentsOffsetStart, $scope.documentsPerPage, $scope.searchOptions.fields, $scope.filters, true, $scope.titleSorting, clustering = cluster).then(
-                        function (response) {
-                            $scope.responsedTopics = response.data;
-
-                        }, function (response) {
-                            $scope.searching = false;
-                            $scope.logout();
-                            if(CONSOLEmode){
-                                console.log('$scope.topicSearchQuery  is fired, but FAILED');
-                            }
-                            if(DEBUGmode){
-                                debugger;
-                            }
-                        }
-                    );*/
-                };
-
-                $scope.selectNodeHead = $scope.selectNodeHead || function( selectedNode ){
-
-                    //Collapse or Expand
-                    selectedNode.collapsed = !selectedNode.collapsed;
-                    console.log('controller selectNodeHead -> selectedNode ID '+selectedNode.topicId);
-                };
-
-                //if node label clicks,
-                $scope.selectNodeLabel = $scope.selectNodeLabel || function( selectedNode ){
-
-                    //remove highlight from previous node
-                    if($scope.currentNode && $scope.currentNode.selected ) {
-                        $scope.currentNode.selected = undefined;
-                    }
-
-                    //set highlight to selected node
-                    selectedNode.selected = 'selected';
-
-                    //set currentNode
-                    $scope.currentNode = selectedNode;
-
-                    console.log('controller selectNodeLabel -> selectedNode '+JSON.stringify(selectedNode.topicId));
-                    $scope.topicSearchQuery(selectedNode.topicId, false);
-                };
-
             }
         ]).controller('MltController', [
             '$scope', '$location', 'document', 'SemanticSearchService', 'SemanticMoreLikeThisService', '$translate', 'SensefyAPIUrl', 'SensefyDocsPreview', 'ApiService', 'SensefyPreviewDoc', '$rootScope', 'PDFViewerService', function ($scope, $location, document, SemanticSearchService, SemanticMoreLikeThisService, $translate, SensefyAPIUrl, SensefyDocsPreview, ApiService, SensefyPreviewDoc, $rootScope, pdf) {
