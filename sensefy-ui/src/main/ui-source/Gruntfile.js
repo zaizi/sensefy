@@ -408,10 +408,10 @@ module.exports = function (grunt) {
             },
             // Run some tasks in parallel to speed up the build process
             concurrent: {
-                server: ['copy:scripts', 'copy:concatjs', 'copy:styles', 'copy:vendorjs'],
+                server: ['copy:scripts', 'copy:concatjs', 'copy:styles'],
                 test: ['copy:scripts', 'copy:styles'],
                 dist: ['copy:scripts', 'copy:javascripts', 'copy:styles', 'copy:fonts', 'imagemin',
-                    'svgmin', 'copy:vendorjs']
+                    'svgmin']
             },
             // By default, your `index.html`'s <!-- Usemin block --> will
             // take care of
@@ -421,7 +421,7 @@ module.exports = function (grunt) {
             cssmin: {
                 dist: {
                     files: {
-                        '<%= yeoman.dist %>/styles/main.css': ['<%= yeoman.app %>/styles/{,}*.css']
+                        '<%= yeoman.dist %>/styles/main.min.css': ['<%= yeoman.app %>/styles/{,}*.css']
                     }
                 }
             },
@@ -432,7 +432,6 @@ module.exports = function (grunt) {
                     },
                     files: {
                         '<%= yeoman.dist %>/scripts/vendors.min.js': ['<%= yeoman.dist %>/scripts/vendors.js'],
-                        '<%= yeoman.dist %>/scripts/local-vendors.min.js': ['<%= yeoman.dist %>/scripts/local-vendors.js'],
                         '<%= yeoman.dist %>/scripts/main.min.js': ['<%= yeoman.dist %>/scripts/main.js']
                     }
                 }
@@ -450,10 +449,9 @@ module.exports = function (grunt) {
                         '<%= yeoman.dist %>/views/*.html',
                         '<%= yeoman.dist %>/views/partial/*.html',
                         '<%= yeoman.dist %>/scripts/main.min.js',
-                        '<%= yeoman.dist %>/scripts/local-vendors.js',
-                        '<%= yeoman.dist %>/vendor.js'],
+                        '<%= yeoman.dist %>/scripts/vendors.min.js'],
                     css: ['<%= yeoman.dist %>/styles/*.css'],
-                    dest: '<%= yeoman.dist %>/styles/main.css'
+                    dest: '<%= yeoman.dist %>/styles/main.min.css'
                 }
             },
             karma: {
