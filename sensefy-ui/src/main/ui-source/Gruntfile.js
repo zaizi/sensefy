@@ -17,9 +17,6 @@ module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
-
-    grunt.loadNpmTasks('grunt-closure-compiler');
-
     // Define the configuration for all the tasks
     grunt
         .initConfig({
@@ -93,40 +90,6 @@ module.exports = function (grunt) {
                 dist: {
                     options: {
                         base: '<%= yeoman.dist %>'
-                    }
-                }
-            },
-            // ng-annotate tries to make the code safe for minification automatically
-            // by using the Angular long form for dependency injection.
-            ngAnnotate: {
-                dist: {
-                    files: [{
-                        expand: true,
-                        cwd: '.tmp/concat/scripts',
-                        src: ['*.js', '!oldieshim.js'],
-                        dest: '.tmp/concat/scripts'
-                    }]
-                }
-            },
-            'closure-compiler': {
-                frontend: {
-                    closurePath: '/usr/local/opt/closure-compiler/libexec',
-                    js: 'dist/scripts/main.js',
-                    jsOutputFile: 'dist/scripts/main.min.js',
-                    maxBuffer: 500,
-                    options: {
-                        compilation_level: 'WHITESPACE_ONLY',
-                        language_in: 'ECMASCRIPT5_STRICT'
-                    }
-                },
-                vendors: {
-                    closurePath: '/usr/local/opt/closure-compiler/libexec',
-                    js: 'dist/scripts/vendors.js',
-                    jsOutputFile: 'dist/scripts/vendors.min.js',
-                    maxBuffer: 500,
-                    options: {
-                        compilation_level: 'WHITESPACE_ONLY',
-                        language_in: 'ECMASCRIPT5_STRICT'
                     }
                 }
             },
@@ -255,7 +218,7 @@ module.exports = function (grunt) {
                     flow: {
                         html: {
                             steps: {
-                                //js: ['concat', 'uglifyjs'],
+                                js: ['concat', 'uglifyjs'],
                                 css: ['cssmin']
                             },
                             post: {}
@@ -308,7 +271,7 @@ module.exports = function (grunt) {
                     files: [{
                         expand: true,
                         cwd: '<%= yeoman.dist %>',
-                        src: ['*.html', 'views/{,*/, **/}*.html', 'directive/{,*/, **/}*.html', 'layout/{,*/, **/}*.html', 'partial/{,*/, **/}*.html'],
+                        src: ['*.html', 'views/{,*/, **/}*.html'],
                         dest: '<%= yeoman.dist %>'
                     }]
                 }
@@ -398,12 +361,6 @@ module.exports = function (grunt) {
                     cwd: '<%= yeoman.app %>/styles/themes/default/assets/fonts',
                     dest: '<%= yeoman.dist %>/styles/themes/default/assets/fonts',
                     src: '*.*'
-                },
-                vendorjs: {
-                    expand: true,
-                    cwd: '<%= yeoman.app %>/assets/scripts/vendors',
-                    dest: '<%= yeoman.dist %>/scripts',
-                    src: '*.js'
                 }
             },
             // Run some tasks in parallel to speed up the build process
@@ -421,7 +378,7 @@ module.exports = function (grunt) {
             cssmin: {
                 dist: {
                     files: {
-                        '<%= yeoman.dist %>/styles/main.min.css': ['<%= yeoman.app %>/styles/{,}*.css']
+                        '<%= yeoman.dist %>/styles/main.css': ['<%= yeoman.app %>/styles/{,}*.css']
                     }
                 }
             },
@@ -431,37 +388,15 @@ module.exports = function (grunt) {
                         mangle: true
                     },
                     files: {
-                        '<%= yeoman.dist %>/scripts/vendors.min.js': ['<%= yeoman.dist %>/scripts/vendors.js'],
-                        '<%= yeoman.dist %>/scripts/main.min.js': ['<%= yeoman.dist %>/scripts/main.js']
+                        '<%= yeoman.dist %>/scripts/vendors.js': ['.tmp/concat/scripts/vendor.js'],
+                        '<%= yeoman.dist %>/scripts/main.js': ['.tmp/concat/scripts/scripts.js']
                     }
                 }
             },
             concat: {
                 dist: {}
-            },
-            purifycss: {
-                options: {},
-                target: {
-                    src: ['<%= yeoman.dist %>/*.html',
-                        '<%= yeoman.dist %>/views/directive/pagination/*.html',
-                        '<%= yeoman.dist %>/views/directive/sensefy-autocomplete/*.html',
-                        '<%= yeoman.dist %>/views/layout/*.html',
-                        '<%= yeoman.dist %>/views/*.html',
-                        '<%= yeoman.dist %>/views/partial/*.html',
-                        '<%= yeoman.dist %>/scripts/main.min.js',
-                        '<%= yeoman.dist %>/scripts/vendors.min.js'],
-                    css: ['<%= yeoman.dist %>/styles/*.css'],
-                    dest: '<%= yeoman.dist %>/styles/main.min.css'
-                }
-            },
-            karma: {
-                unit: {
-                    configFile: 'test/karma.conf.js',
-                    singleRun: true
-                }
             }
         });
-
     grunt.registerTask('serve',
         function (target) {
             if (target === 'dist') {
@@ -480,40 +415,24 @@ module.exports = function (grunt) {
                 .warn('The `server` task has been deprecated. Use `grunt serve` to start a server.'['yellow'].bold);
             grunt.task.run(['serve:' + target]);
         });
-    grunt.registerTask('test',
-        function(){
-            grunt.log.warn('Test Server up and running...'['blue'].bold);
-            grunt.task.run([
-                'clean:server',
-                'concurrent:test',
-                'autoprefixer',
-                'connect:test',
-                'karma']);
-        });
-    grunt.registerTask('build',
-        function(){
-            grunt.task.run(['clean:dist', 'bowerInstall',
-                'useminPrepare',
-                'concurrent:dist',
-                'autoprefixer',
-                'concat',
-                'ngAnnotate',
-                'ngmin',
-                'copy:dist',
-                'cdnify',
-                'cssmin',
-                'csslint:lax',
-                'jshint',
-                // 'copy:javascripts',
-                // 'rev',
-                'usemin',
-                'uglify',
-                //'closure-compiler:frontend',
-                //'closure-compiler:vendors',
-                'purifycss',
-                'htmlmin'
-            ]);
-            grunt.log.warn('Build is done, Server up and running...'['magenta'].bold);
-        });
+    grunt.registerTask('test', ['clean:server', 'concurrent:test',
+        'autoprefixer', 'connect:test', 'karma']);
+    grunt.registerTask('build', ['clean:dist', 'bowerInstall',
+        'useminPrepare',
+        'concurrent:dist',
+        'autoprefixer',
+        'concat',
+        'ngmin',
+        'copy:dist',
+        'cdnify',
+        'cssmin',
+        'csslint:lax',
+        'jshint',
+        // 'copy:javascripts',
+        // 'rev',
+        'usemin',
+        //'uglify',
+        'htmlmin'
+    ]);
     grunt.registerTask('default', ['newer:jshint', 'test', 'build']);
 };
