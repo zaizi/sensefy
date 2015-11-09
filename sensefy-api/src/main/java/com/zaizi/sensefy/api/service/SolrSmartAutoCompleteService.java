@@ -20,7 +20,6 @@ import org.apache.solr.common.util.NamedList;
 import org.apache.solr.common.util.SimpleOrderedMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -63,9 +62,6 @@ public class SolrSmartAutoCompleteService extends SolrService {
 	public static final int SPELLCHECKING_DISTANCE = 2;
 	public static final String DOCUMENT_SUGGESTION = "document_suggestion";
 	public static final String SHINGLE_AUTOCOMPLETE_NAME = "ShingleAutocomplete";
-	
-	@Value("${sensefy.search.solr.cloud}")
-	private boolean cloudEnabled;
 
 	public SolrSmartAutoCompleteService() {
 	}
@@ -170,12 +166,6 @@ public class SolrSmartAutoCompleteService extends SolrService {
 		SolrQuery shingleSuggestionQuery = new SolrQuery(termToComplete);
 		shingleSuggestionQuery.setRequestHandler("/autocomplete");
 		shingleSuggestionQuery.set("suggest.count", numberOfSuggestions);
-		if(cloudEnabled){
-			shingleSuggestionQuery.set("shards.qt", "/autocomplete");
-			// use distrib to remove duplicates from all shards. query will execute in single mode
-			// not the prefect solution
-			shingleSuggestionQuery.set("distrib", false);
-		}
 		QueryResponse shingleTitleSuggestionResponse;
 		shingleTitleSuggestionResponse = primaryIndex.query(shingleSuggestionQuery);
 		shingleSuggestions = parseSuggestionsFromJson(termToComplete, shingleTitleSuggestionResponse);
