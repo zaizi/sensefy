@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<schema name="example" version="1.5">
+ <fields>
+     <!-- points to the root document of a block of nested documents -->
+   <field name="_root_" type="string" indexed="true" stored="true"/>
+   <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
+
+   <!-- functional algorithmic properties -->
+   <field name="label_suggestion" type="text_suggestion" indexed="true" stored="true" multiValued="false"/>  
+   <field name="doc_ids" type="string" indexed="true" stored="true" required="false" multiValued="true" /> 
+   <field name="occurrences" type="int" indexed="true" stored="true" required="false" multiValued="false" />
+   <field name="doc_ids2pos" type="string" indexed="false" stored="false" required="false" multiValued="true" />
+   <field name="text" type="text_general" indexed="true" stored="false" multiValued="true"/>
+   <!--Common properties-->
+   <field name="thumbnail" type="string" indexed="false" stored="true" multiValued="true"/>
+   <field name="type" type="string" indexed="true" stored="true" multiValued="true"/>
+   <field name="notable_type" type="text_keyword" indexed="true" stored="true" multiValued="true"/>
+   <field name="label" type="text_general" indexed="true" stored="true" multiValued="false"/>
+   <field name="description" type="text_general" indexed="true" stored="true" multiValued="true"/>
+   <field name="website" type="string" indexed="true" stored="true" multiValued="true"/>
+   <!--Custom example-->  
+   <field name="nationality" type="text_general" indexed="true" stored="true" multiValued="true"/>
+   <field name="birth_place" type="text_keyword" indexed="true" stored="true" multiValued="false"/>
+   
+ <!--type booleans-->
+   <field name="is_person" type="boolean" indexed="true" stored="true" multiValued="false"/>
+   <field name="is_organization" type="boolean" indexed="true" stored="true" multiValued="false"/>
+   <field name="is_place" type="boolean" indexed="true" stored="true" multiValued="false"/>
+
+   
+   <dynamicField name="*" type="string" indexed="true"  multiValued="true" stored="true"/>
+   <field name="_version_" type="long" indexed="true" stored="true"/>
+ </fields>
+
+ <uniqueKey>id</uniqueKey>
+
+   <copyField source="label" dest="label_suggestion"/>
+   <copyField source="label" dest="label_exact"/>
+
+  <types>
+
+    <fieldType name="string" class="solr.StrField" sortMissingLast="true" />
+    <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
+    <fieldType name="int" class="solr.TrieIntField" precisionStep="0" positionIncrementGap="0"/>
+    <fieldType name="float" class="solr.TrieFloatField" precisionStep="0" positionIncrementGap="0"/>
+    <fieldType name="long" class="solr.TrieLongField" precisionStep="0" positionIncrementGap="0"/>
+    <fieldType name="double" class="solr.TrieDoubleField" precisionStep="0" positionIncrementGap="0"/>
+
+    <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100">
+      <analyzer type="index">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+      <analyzer type="query">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+    </fieldType>
+    
+    <fieldType name="text_suggestion" class="solr.TextField" positionIncrementGap="100">
+      <analyzer type="index">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.EdgeNGramFilterFactory" minGramSize="1" maxGramSize="30"/>
+      </analyzer>
+      <analyzer type="query">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+    </fieldType>
+    
+    <fieldType name="text_keyword" class="solr.TextField" positionIncrementGap="100">
+      <analyzer type="index">
+        <tokenizer class="solr.KeywordTokenizerFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+      <analyzer type="query">
+        <tokenizer class="solr.KeywordTokenizerFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+    </fieldType>
+    
+    <fieldtype name="ignored" class="solr.StrField" />
+ </types>
+</schema>

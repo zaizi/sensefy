@@ -14,6 +14,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
 
+import com.zaizi.sensefy.ui.SensefySearchUiApplication;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = SensefySearchUiApplication.class)
 @WebAppConfiguration
@@ -36,7 +38,7 @@ public class SensefySearchUiApplicationTests {
 	public void homePageLoads() {
 		ResponseEntity<String> response = template.getForEntity("http://localhost:"
 				+ port + "/", String.class);
-		assertEquals(HttpStatus.OK, response.getStatusCode());
+		assertEquals(HttpStatus.FOUND, response.getStatusCode());
 	}
 
 	@Test

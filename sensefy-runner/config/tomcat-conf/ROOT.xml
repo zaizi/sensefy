@@ -1,0 +1,5 @@
+<Context 
+  docBase="$CATALINA_BASE/webapps/ui" 
+  path="" 
+  reloadable="true" 
+/>

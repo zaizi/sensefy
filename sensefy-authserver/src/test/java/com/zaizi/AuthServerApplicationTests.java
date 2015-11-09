@@ -24,6 +24,13 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import com.zaizi.sensefy.auth.AuthServerApplication;
+
+/**
+ * Unit tests for OAuth Server
+ * @author mfahiz
+ * @since 2.0
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = AuthServerApplication.class)
 @WebAppConfiguration
@@ -68,8 +75,8 @@ public class AuthServerApplicationTests {
 				String.class);
 		String csrf = getCsrf(response.getBody());
 		MultiValueMap<String, String> form = new LinkedMultiValueMap<String, String>();
-		form.set("username", "user");
-		form.set("password", "password");
+		form.set("username", "admin");
+		form.set("password", "ulibraxi");
 		form.set("_csrf", csrf);
 		HttpHeaders headers = new HttpHeaders();
 		headers.put("COOKIE", response.getHeaders().get("Set-Cookie"));

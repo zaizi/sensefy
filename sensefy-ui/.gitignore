@@ -4,3 +4,13 @@
 /target
 .DS_Store
 sensefy.ui.iml
+npm-debug.log
+bower_components
+node_modules
+dist
+etc
+node
+npm.tar.gz
+.tmp
+**/static/**/*
+/sensefy-ui/src/main/ui-source/app/asserts/**/*

@@ -1,0 +1,92 @@
+<div class="ui action left icon input search-header">
+    <div class="ui search">
+        <div class="ui search">
+            <div class="ui icon input">
+                <input class="prompt" type="text" style="{{style}}" ng-style="style" role="search"
+                       id="searchTerm" name="searchTerm" placeholder="{{'txtEnterTextToSearch' | translate }}"
+                       autofocus="autofocus"
+                       ng-model="queryTerm" ng-keyup="autocomplete($event)" ng-focus="autocomplete($event)"
+                       ng-click="autocomplete($event)">
+                <i class="search icon"></i>
+                <i class="remove circle icon pe-remove-keyword pe-remove-keyword-switch"></i>
+            </div>
+            <div class="ui yellow button ser-btn" tabindex="0" ng-click="queryFunction()">Search</div>
+        </div>
+
+        <div class="suggestions-wrapper selection-container">
+            <div class="arrow"></div>
+            <ul class="suggests-wrapper" ng-show="suggestions.titles" ng-click="autocomplete($event)">
+                <li class="header" ng-show="autocompletePhase == 'phase1'" translate="txtDocumentTitles"></li>
+                <li class="suggestion pe-sug-item" ng-class="{selected: suggestion.selected}"
+                    ng-repeat="suggestion in suggestions.titles"
+                    ng-include="'views/partial/suggestion-title-template.html'"
+                    data-info="{{suggestion}}"
+                    data-sug-type="title"></li>
+            </ul>
+            <ul class="suggests-wrapper" ng-show="suggestions.suggestions" ng-click="autocomplete($event)">
+                <li class="header" ng-show="autocompletePhase == 'phase1'" translate="txtDocumentSuggestions"></li>
+                <li class="suggestion pe-sug-item" ng-class="{selected: suggestion.selected}"
+                    ng-repeat="suggestion in suggestions.suggestions"
+                    ng-include="'views/partial/suggestion-template.html'"
+                    data-info="{{suggestion}}"
+                    data-sug-type="suggestions"></li>
+            </ul>
+            <ul class="entities-wrapper"
+                ng-show="suggestions.entities">
+                <li class="header et" translate="txtEntities"></li>
+                <li class="entity suggestion" entity-is-available entity-data-set="{{suggestions.entities}}">
+                    <div class="et-table et-wrapper">
+                        <div class="et-row one">
+                            <div class="et-cell et-label-wrap">
+                                <span class="et-label">People</span>
+                            </div>
+                            <div class="et-cell et-value-wrap">
+                                <div class="et-value"
+                                     ng-repeat="entity in suggestions.entities"
+                                     ng-include="'views/partial/entity-template-people.html'"
+                                     ng-show="entity.is_person"></div>
+                            </div>
+                        </div>
+                        <div class="et-row two">
+                            <div class="et-cell et-label-wrap">
+                                <span class="et-label">Places</span>
+                            </div>
+                            <div class="et-cell et-value-wrap">
+                                <div class="et-value"
+                                     ng-repeat="entity in suggestions.entities"
+                                     ng-include="'views/partial/entity-template-place.html'"
+                                     ng-show="entity.is_place"></div>
+                            </div>
+                        </div>
+                        <div class="et-row three" >
+                            <div class="et-cell et-label-wrap">
+                                <span class="et-label">Organizations</span>
+                            </div>
+                            <div class="et-cell et-value-wrap">
+                                <div class="et-value"
+                                     ng-repeat="entity in suggestions.entities"
+                                     ng-include="'views/partial/entity-template-org.html'"
+                                     ng-show="entity.is_organization"></div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <!-- ul class="entity-types-wrapper"
+                ng-show="suggestions.entityTypes">
+                <li class="header" translate="txtEntityTypes"></li>
+                <li class="entity-type suggestion"
+                    ng-repeat="entityType in suggestions.entityTypes"
+                    ng-include="'views/partial/entity-type-template.html'"></li>
+            </ul -->
+            <ul class="no-suggestions"
+                ng-hide="suggestions.entities.length > 0 ||
+                    suggestions.entityTypes.length > 0 ||
+                    suggestions.titles.length > 0 ||
+                    suggestions.suggestions.length ||
+                    queryTerm.length === 0">
+                <li translate="txtNoSuggestions"></li>
+            </ul>
+        </div>
+    </div>
+</div>

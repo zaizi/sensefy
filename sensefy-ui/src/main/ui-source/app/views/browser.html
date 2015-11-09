@@ -1,0 +1,92 @@
+<div id="tree-container"></div>
+
+
+<div style="margin:50px 0 30px 0; padding:10px; background-color:#EEEEEE; border-radius:5px; font:12px Tahoma;">
+    <span><b>Selected Node</b> : {{mytree.currentNode.roleName}}</span>
+</div>
+
+<!--
+  [TREE attribute]
+  angular-treeview: the treeview directive
+  tree-id : each tree's unique id.
+  tree-model : the tree model on $scope.
+  node-id : each node's id
+  node-label : each node's label
+  node-children: each node's children
+-->
+<div
+        data-angular-treeview="true"
+        data-tree-id="mytree"
+        data-tree-model="roleList"
+        data-node-id="topicId"
+        data-node-label="topterms"
+        data-node-children="children">
+</div>
+
+<div id="relatedTopics" ng-show="responsedTopics">
+    <div class="link item  document" ng-repeat="responsedTopic as responsedTopics">
+        <div class="content info">
+
+            <!-- Set the file file type icon -->
+            <i class="file outline icon c-word" ng-class="pickDocIcon('{{responsedTopic}}')"
+               ng-if="responsedTopic"></i>
+            <!-- Set the file title -->
+            <ng-switch on="normalSearch" ng-if="responsedTopic != null && responsedTopic != ''">
+                <a target="_blank" ng-href="{{responsedTopic}}" tabindex="0" class="header title" ng-show="responsedTopic">
+                    <span ng-switch-when="true" ng-bind-html="responsedTopic"></span>
+                    <span ng-switch-default ng-bind-html="responsedTopic"></span>
+                </a>
+            </ng-switch>
+
+            <!-- Set the file size -->
+                <span class="gray italic f-size12" ng-if="responsedTopic" title="{{'responsedTopic'|translate}}"
+                      ng-bind="humanReadableSize(responsedTopic)"></span>
+            <!-- Set the file path -->
+            <div class="meta-breadcrumb channel-l italic" ng-if="responsedTopic">
+                <p class="channel-d underline cursor-default" ng-bind="urlTruncate('{{responsedTopic}}')"></p>
+            </div>
+            <!-- Set the content -->
+            <div class="content-wrapper" ng-if="responsedTopic && responsedTopic > 0">
+                <ng-switch on="normalSearch">
+                    <div ng-switch-when="true">
+                        <div class="content snippet">
+                            content snippet : <span ng-bind-html="responsedTopic | excerpt:300"></span>
+                        </div>
+                    </div>
+                    <div ng-switch-default>
+                        <div class="content excerpt">
+                            content excerpt : {{ responsedTopic | excerpt:300}}
+                        </div>
+                    </div>
+                </ng-switch>
+            </div>
+            <div class="content-wrapper" ng-show="responsedTopic && selectedEntity != null">
+                direct content func : <span ng-bind="descriptionExcerpt('{{responsedTopic}}', 150, '$$$')"></span>
+            </div>
+
+            <!-- Set the metadata -->
+            <div class="metadata mgray clearfix">
+                <div class="meta-info-create italic">
+                        <span class="underline mgray"
+                              ng-if="responsedTopic != null && responsedTopic != '' && responsedTopic > 0">
+                            <span title="{{'responsedTopic' | translate}}" ng-bind="responsedTopic"></span>
+                        </span>
+                        <span ng-if="document.ds_creation_date != null && responsedTopic != ''">
+                             created  <span title="{{dateTimeFormatterAcc(responsedTopic)}}"
+                                            ng-bind="dateTimeFormatter(responsedTopic)"></span>
+                        </span>
+                </div>
+                <div class="meta-info-modify italic">
+                        <span ng-if="responsedTopic">
+                            <span class="underline mgray" title="{{'data.modifier'|translate}}"
+                                  ng-bind="responsedTopic"></span>
+                        </span>
+                        <span ng-if="responsedTopic">
+                             modified  <span title="{{dateTimeFormatterAcc(responsedTopic)}}"
+                                             ng-bind="dateTimeFormatter(responsedTopic)"></span>
+                        </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

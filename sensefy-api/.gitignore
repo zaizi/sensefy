@@ -4,3 +4,4 @@
 target/**
 .springBeans
 sensefy.api.iml
+/target

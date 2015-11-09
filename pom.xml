@@ -6,20 +6,21 @@
 	<artifactId>sensefy</artifactId>
 	<version>2.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>Sensefy UI Server</name>
+	<name>Sensefy Parent Pom</name>
 
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.2.5.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath />
 	</parent>
-	
+
 	<modules>
 		<module>sensefy-authserver</module>
 		<module>sensefy-ui</module>
 		<module>sensefy-api</module>
+		<module>sensefy-runner</module>
 	</modules>
 
 	<build>

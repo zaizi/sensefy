@@ -1,0 +1,622 @@
+/*
+    #   by Sameera @ zaizi.com
+    #   for Sensefy Search
+    #   main css file to handle devices(iPhone and iPad)
+*/
+
+/* Portrait */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 480px)
+    /*and (-webkit-min-device-pixel-ratio: 2)*/
+and (orientation: portrait) {
+    #sensefy .ui.grid > .three.column.row > .column[class*="four wide"] {
+        width: 0 !important;
+        padding: 0;
+    }
+
+    #sensefy .ui.grid > .column.row > .column[class*="eight wide"] {
+        margin-left: 1rem;
+        padding: 0;
+        width: 93% !important;
+    }
+
+    #sensefy .ui.grid > .two.column.row > .column[class*="twelve wide"] {
+        width: 100% !important;
+    }
+
+    #sensefy .ui.grid > .two.column.row > .column[class*="four wide"] {
+        width: 100% !important;
+    }
+
+    #sensefy .search-header {
+        margin-left: 0;
+        width: 290px;
+        margin-top: 8px;
+    }
+
+    #sensefy .search-header div.input {
+        padding-left: 8px;
+        padding-right: 0;
+    }
+
+    #sensefy .ser-btn {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+    #sensefy .ds-wrapper {
+        padding: 0
+    }
+
+    #sensefy .result-wrapper {
+        padding-top: 8px
+    }
+
+    #sensefy .data-sources .header a {
+        padding: 0.78571em 0.95em;
+    }
+
+    #sensefy .data-sources .header a:after {
+        content: 'Data sources';
+    }
+
+    #sensefy #search-comp {
+        margin-top: 0;
+    }
+
+    #search-comp .ui.full {
+        width: 83%;
+    }
+
+    #search-comp input {
+        width: 84% !important;
+    }
+
+    .mob {
+        display: block;
+        float: left;
+        margin: 9px;
+        width: 40px;
+        height: 33px;
+    }
+
+    .num-found {
+        width: 100%;
+    }
+
+    #sensefy .settings-pp {
+        float: none;
+        margin-top: 6px;
+    }
+
+    #sensefy .stats div.settings {
+        float: none;
+        margin-top: 8px;
+    }
+
+    #sensefy .pager i {
+        display: inline-block;
+    }
+
+    #sensefy .pagination span {
+        display: none;
+    }
+
+    #sensefy .pagination .ui.button {
+        padding: .9em
+    }
+
+    .pagination .pager {
+        float: none;
+        margin-bottom: 32px;
+    }
+
+    img.open {
+        display: none;
+    }
+
+    #sensefy #menu {
+        margin-top: 0;
+    }
+
+    #sensefy .document .tiny.thumb {
+        width: 50px;
+        display: inline-block;
+    }
+
+    #sensefy .document .tiny.thumb img {
+        margin-left: 8px
+    }
+
+    #sensefy .document .content.info {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    #sensefy .header.title {
+        display: initial;
+    }
+
+    .ui.dropdown .menu {
+        left: auto;
+        right: 0;
+    }
+
+    .create-range-btn {
+        display: block;
+    }
+
+    #loginState .form {
+        margin-top: 16px;
+    }
+
+    /*  login state END */
+    /*  search landing  */
+    #sensefy.ggl #header img.open {
+        display: none;
+    }
+
+    #menu > a.item {
+        display: none;
+    }
+
+    #menu .user.icon{ display: none;}
+
+    .ui.menu .item.top-right-menu{padding: 0.928571em .5em;}
+    .ui.menu .item.top-right-menu .dropdown.icon {margin-left: 2px;}
+
+    #sensefy input.prompt {
+        width: 100px;
+    }
+
+    #sensefy.ggl input.prompt {
+        width: 222px;
+    }
+
+    #sensefy .ser-btn {
+        padding: 0.75em 0.5em;
+    }
+
+    #sensefy .stats div.settings{margin-top: 0;}
+
+    #sensefy .form {background: none;}
+
+    .ds-wrapper .ui.menu .item::before {top: 11px;}
+
+    #sensefy .data-sources .header a::after {
+        position: relative;
+        top: 9px;
+    }
+
+    #header {
+        position: relative;
+    }
+
+    .ggl .search-header {
+        top: 100px;
+    }
+
+    .ggl .search-header {
+        left: 0;
+        margin-left: 3px;
+        margin-top: 0;
+        position: absolute !important;
+        width: 326px;
+    }
+
+    .ui.items > .item > .content.info {width: 95%;}
+
+    #se-results {margin-bottom: 24px;}
+
+    .pagination .pager-icons {top: 0;}
+
+    .pagination .pager-icons a {
+        font-size: 11px;
+        padding: 5px 0.7em;
+    }
+
+    .pagination a {
+        font-size: 11px;
+        padding: 5px 0.7em;
+    }
+
+    /*  search landing END  */
+}
+
+/* Landscape */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 480px)
+    /*and (-webkit-min-device-pixel-ratio: 2)*/
+and (orientation: landscape) {
+    #sensefy .ui.grid > .three.column.row > .column[class*="four wide"] {
+        width: 15% !important;
+        padding: 0;
+    }
+
+    #sensefy .ui.grid > .column.row > .column[class*="eight wide"] {
+        padding: 0;
+        width: 70% !important;
+    }
+
+    #sensefy .ui.grid > .two.column.row > .column[class*="twelve wide"] {
+        width: 100% !important;
+    }
+
+    #sensefy .ui.grid > .two.column.row > .column[class*="four wide"] {
+        width: 100% !important;
+    }
+
+    #sensefy .search-header {
+        margin-left: 12px;
+        margin-top: 8px;
+        width: 325px;
+    }
+
+    #sensefy .search-header div.input {
+        padding-left: 8px;
+        padding-right: 0;
+    }
+
+    #sensefy .data-sources .header a {
+        padding: 0.78571em 0.95em;
+    }
+
+    #sensefy .data-sources .header a:after {
+        content: 'Data sources';
+        padding: inherit
+    }
+
+    #sensefy #search-comp {
+        margin-top: 0;
+    }
+
+    #search-comp .ui.full {
+        width: 83%;
+    }
+
+    #search-comp input {
+        width: 84% !important;
+    }
+
+    .num-found {
+        display: inline-block;
+        width: 100%;
+    }
+
+    #sensefy .stats div.settings {
+        float: none;
+        margin-top: 0;
+    }
+
+    .content.ds-bar.pe-ds-switch{margin-bottom: 24px;}
+
+    #se-results {margin-bottom: 16px;}
+
+    .ui.items > .item > .content.info {
+        width: 95%;
+    }
+
+    #sensefy .pager i {
+        display: inline-block;
+    }
+
+    #sensefy .pagination span {
+        display: none;
+    }
+
+    #sensefy .pagination .ui.button {
+        padding: .9em
+    }
+
+    .pagination .pager {
+        float: none;
+        margin-bottom: 32px;
+    }
+
+    .pagination .results-per-page {
+        width: 40%;
+    }
+
+    img.open {
+        display: none;
+    }
+
+    .mob {
+        display: block;
+        float: left;
+        margin: 9px;
+        width: 40px;
+        height: 33px;
+    }
+
+    #sensefy #menu {
+        margin-top: 0;
+    }
+
+    #sensefy .document .tiny.thumb {
+        width: 50px;
+        display: inline-block;
+    }
+
+    #sensefy .document .tiny.thumb img {
+        margin-left: 8px
+    }
+
+    #sensefy .document .content.info {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    #sensefy .header.title {
+        display: initial;
+    }
+
+    .ui.dropdown .menu {
+        left: 0;
+        right: auto;
+    }
+
+    .create-range-btn {
+        display: block;
+    }
+
+    #loginState .form {
+        margin-top: 16px;
+    }
+
+    /*  login state END */
+    /*  search landing  */
+    #sensefy.ggl #header img.open {
+        display: none;
+    }
+
+    .mob {
+        display: block;
+        float: left;
+        margin: 9px;
+        width: 40px;
+    }
+
+    #menu > a.item {
+        display: none;
+    }
+
+    #menu .user.icon{ display: none;}
+
+    .ui.menu .item.top-right-menu{padding: 0.928571em .5em;}
+
+    .ui.menu .item.top-right-menu .dropdown.icon {margin-left: 2px;}
+
+    #sensefy input.prompt {
+        width: 220px;
+    }
+
+    #sensefy .ser-btn {
+        padding: 0.75em 0.5em;
+    }
+
+    #header {
+        position: relative;
+    }
+
+    .ggl .search-header {
+        top: 115px;
+    }
+
+    .ggl .search-header {
+        margin-left: 17px;
+        margin-top: 0;
+        position: absolute !important;
+        width: 326px;
+    }
+
+    /*  search landing END*/
+
+    #sensefy .form {background: none;}
+
+    .ds-wrapper .ui.menu .item::before {
+        top: 10px;
+    }
+
+    #sensefy .data-sources .header a::after {
+        position: relative;
+        top: 10px;
+    }
+
+    #sensefy .settings-pp {
+        float: none;
+        margin-top: 8px;
+    }
+
+    .pagination .pager-icons {top: 0;}
+
+    .pagination .pager-icons a {
+        font-size: 11px;
+        padding: 5px 0.7em;
+    }
+
+    .pagination a {
+        font-size: 11px;
+        padding: 5px 0.7em;
+    }
+
+    .pagination .pager-icons a, .pagination a {
+        font-size: 11px;
+        padding: 9px 1em;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .ui.collapsible.menu {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .ui.collapsible.menu .header .button {
+        display: block;
+        margin: 7px 0.5em 0.5em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .ui.collapsible.menu .content {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .ui.collapsible.menu .content .item, .ui.collapsible.menu .content .menu {
+        display: block;
+        float: none;
+        clear: both;
+    }
+}
+
+
+/* Tab Portrait */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait)
+    /*and (-webkit-min-device-pixel-ratio: 1)    */ {
+    /*#header.ui.menu .item {
+        padding: 0.928571em 0.5em;
+    }*/
+    #sensefy input.prompt {
+        width: 236px;
+    }
+
+    #sensefy .ser-btn {
+        padding: 0.78571em 0.5em
+    }
+
+    .facets .entity-label {
+        max-width: 100px;
+    }
+
+    .pagination .ui.button {
+        padding: .9em .9em;
+    }
+
+    #sensefy .asc-dec {
+        float: none;
+        margin-top: 8px;
+    }
+
+    div.num-found {
+        width: 57%;
+    }
+
+    #sensefy #header img.open {
+        margin-left: -14px;
+    }
+
+    #sensefy .search-header {
+        margin-left: -2%;
+        margin-top: 16px;
+        width: 297px;
+    }
+    #sensefy.ggl .search-header {
+        margin-left: 28%;
+    }
+
+    #header .item {
+        padding: 0.928571em 0.5em;
+    }
+
+    #sensefy .ser-btn {
+        padding: 0.75em 0.5em
+    }
+
+    #sensefy input.prompt {
+        width: 218px
+    }
+
+    .search-header {
+        margin-left: 4px;
+    }
+
+    #sensefy #header img.open {
+        height: 39px;
+        margin: 16px 0;
+        padding: 0;
+        width: 175px;
+    }
+
+    .ggl #header {
+        position: relative;
+    }
+
+    .ggl .search-header {
+        position: absolute !important;
+        left: 0;
+        margin-left: 18%;
+        margin-top: 0;
+        width: 430px;
+    }
+
+    .segment {
+        padding: 0.5em 0;
+    }
+
+    .group-facet ul {
+        padding: 4px;
+    }
+
+    .facets .entity-label {
+        max-width: 100px
+    }
+
+}
+
+/* Tab Landscape */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape)
+    /*and (-webkit-min-device-pixel-ratio: 1)*/ {
+    #sensefy input.prompt {
+        width: 265px;
+    }
+
+    #sensefy .ser-btn {
+        padding: 0.78571em 0.5em
+    }
+
+    .facets .entity-label {
+        max-width: 120px;
+    }
+
+    .pagination .ui.button {
+        padding: 0.9em 1em;
+    }
+
+    #sensefy .asc-dec {
+        float: none;
+        margin-top: 8px;
+    }
+
+    div.num-found {
+        display: inline-block;
+        width: 67%;
+    }
+
+    #sensefy #header img.open {
+        margin-left: -14px;
+    }
+
+    #sensefy .search-header {
+        margin-left: 107px;
+        margin-top: 16px;
+        width: 325px;
+    }
+
+    .facets .entity-label {
+        max-width: 136px;
+    }
+}
+
