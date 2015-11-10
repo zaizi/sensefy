@@ -1,7 +1,7 @@
 /*
  * Autocomplete - jQuery plugin 1.1pre
  *
- * Copyright (c) 2007 Dylan Verheul, Dan G. Switzer, Anjesh Tuladhar, Jörn Zaefferer
+ * Copyright (c) 2007, 2015 Dylan Verheul, Dan G. Switzer, Anjesh Tuladhar, Jörn Zaefferer
  *
  * Dual licensed under the MIT and GPL licenses:
  *   http://www.opensource.org/licenses/mit-license.php
