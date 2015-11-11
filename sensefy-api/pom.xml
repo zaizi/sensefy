@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.zaizi</groupId>
+	<groupId>org.zaizi</groupId>
 	<artifactId>sensefy.api</artifactId>
-	<version>2.0.1-SNAPSHOT</version>
+	<version>2.0.1</version>
 	<packaging>${packaging.type}</packaging>
 
 	<name>sensefy-api</name>
@@ -31,7 +31,7 @@
 		<hk2.version>2.2.0</hk2.version>
 		<tomcat.version>7.0.52</tomcat.version>
 		<packaging.type>jar</packaging.type>
-		<sensefy.api.main.class>com.zaizi.sensefy.api.SensefyResourceApplicationJar</sensefy.api.main.class>
+		<sensefy.api.main.class>org.zaizi.sensefy.api.SensefyResourceApplicationJar</sensefy.api.main.class>
 	</properties>
 
 	<dependencyManagement>
@@ -305,14 +305,14 @@
 			<id>run</id>
 			<properties>
 				<packaging.type>war</packaging.type>
-				<sensefy.api.main.class>com.zaizi.sensefy.api.SensefyResourceApplication</sensefy.api.main.class>
+				<sensefy.api.main.class>org.zaizi.sensefy.api.SensefyResourceApplication</sensefy.api.main.class>
 			</properties>
 		</profile>
 		<profile>
 			<id>war</id>
 			<properties>
 				<packaging.type>war</packaging.type>
-				<sensefy.api.main.class>com.zaizi.sensefy.api.SensefyResourceApplication</sensefy.api.main.class>
+				<sensefy.api.main.class>org.zaizi.sensefy.api.SensefyResourceApplication</sensefy.api.main.class>
 			</properties>
 		</profile>
 	</profiles>

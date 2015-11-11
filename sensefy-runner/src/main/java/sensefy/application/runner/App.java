@@ -21,8 +21,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Configuration;
 
-import com.zaizi.sensefy.api.SensefyResourceApplication;
-import com.zaizi.sensefy.ui.SensefySearchUiApplication;
+import org.zaizi.sensefy.api.SensefyResourceApplication;
+import org.zaizi.sensefy.ui.SensefySearchUiApplication;
 
 /**
  * Hello world!
