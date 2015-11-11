@@ -1,4 +1,4 @@
-/*******************************************************************************
+/**
  * Sensefy
  *
  * Copyright (c) Zaizi Limited, All rights reserved.
@@ -14,7 +14,7 @@
  *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library.
- *******************************************************************************/
+  **/
 package sensefy.application.runner;
 
 import junit.framework.Test;

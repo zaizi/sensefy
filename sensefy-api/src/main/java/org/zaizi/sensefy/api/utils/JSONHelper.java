@@ -1,20 +1,17 @@
-/*******************************************************************************
- * Sensefy
+/**
+ * (C) Copyright 2015 Zaizi Limited (http://www.zaizi.com).
  *
- * Copyright (c) Zaizi Limited, All rights reserved.
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 3.0 of the License, or (at your option) any later version.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the GNU Lesser General Public License
+ * (LGPL) version 3.0 which accompanies this distribution, and is available at 
+ * http://www.gnu.org/licenses/lgpl-3.0.en.html
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library.
- *******************************************************************************/
+ **/
 package org.zaizi.sensefy.api.utils;
 
 import org.apache.solr.client.solrj.response.UpdateResponse;
@@ -133,7 +130,7 @@ public class JSONHelper
     public static JsonNode parseStringToJsonNode(String jsonString) throws IOException
     {
         ObjectMapper mapper = new ObjectMapper();
-        JsonFactory jsonFactory = mapper.getJsonFactory(); // since 2.1 use mapper.getFactory() instead
+        JsonFactory jsonFactory = mapper.getJsonFactory(); //**
         JsonParser jsonParser = jsonFactory.createJsonParser(jsonString);
         JsonNode jsonNode = mapper.readTree(jsonParser);
         return jsonNode;
