@@ -142,7 +142,9 @@ In the Solr, your documents are indexed in PrimaryIndex core. The extracted enti
 ##### Accessing the Stanbol UI
 
 Apache Stanbol is the semantic enhancement engine used in Sensefy for detecting entities in the content. You can access the Stanbol UI at http://localhost:8181/
-Copyright
+
+
+#### Copyright
 
 
 © Zaizi Limited. Code for this plugin is licensed under the GNU Lesser General Public License (LGPL).
