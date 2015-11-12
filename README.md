@@ -11,13 +11,13 @@ Sensefy is **Enterprise** because it offers federated search, allowing the user 
 Sensefy consists of the following components:
 
  - Sensefy-UI : An AngularJS based responsive search user interface 
- - Sensefy-API : Spring IO based Sensefy API consists of secure Restful API to communicate between Sensefy UI and backend components such as Solr and ManifoldCF
+ - Sensefy-API : Spring-Boot based Sensefy API consists of secure Restful API to communicate between Sensefy UI and backend components such as Solr and ManifoldCF
  - Sensefy Authentication Server : Sensefy Auth Server uses OAuth2 to authenticate the applications and helps the other application to communicate securely by using Single Sign On
  - Sensefy-Runner : Runner project to build and run all in one, downloading the dependent components in Sensefy  and configuring Sensefy to run as a maven command
 
 ## Sensefy Dependencies
 
-Sensefy uses several open-source projects under the hood. Following are the external projects used in Sensefy:
+Sensefy uses several open-source projects under the hood. Following are the open source projects currently integrated in Sensefy:
 
 - Apache ManifoldCF 1.8 : 
     Framework for connecting to and crawling content and security policies from source repositories. ManifoldCF supports a large number of repositories. Full list of supported repositories can be found online at : http://manifoldcf.apache.org/en_US/release-documentation.html. 
@@ -104,16 +104,17 @@ After this execution, Sensefy URLs will be available as below:
 
 For your convenience in running Sensefy, we have provided a pre-configured Sensefy binary here: http://sensefyqa.zaizicloud.net/downloads/
 
-You can start Sensefy with: 
+* You can start Sensefy with: 
 ``` bin/sensefy2.sh start```
     
-You can stop Sensefy with ```bin/sensefy2.sh stop```
+* You can stop Sensefy with ```bin/sensefy2.sh stop```
 
-You can check status of Sensefy with ```bin/sensefy2.sh status```
+* You can check status of Sensefy with ```bin/sensefy2.sh status```
 
-You can get help on the commands with Sensefy with ```bin/sensefy2.sh help```
+* You can get help on the commands with Sensefy with ```bin/sensefy2.sh help```
 
 After stating Sensefy following Sensefy micro-services will be available on the given ports on localhost.
+
 * Solr : 8983
 * ManifoldCF : 8345
 * Stanbol : 8181
