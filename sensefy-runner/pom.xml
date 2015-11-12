@@ -798,6 +798,14 @@
 
 
 	<repositories>
+		
+		<repository>
+			<id>zaizi-community-releases</id>
+			<url>https://maven.zaizi.com/content/repositories/zaizi-community-releases</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
 		<repository>
 			<id>spring-snapshots</id>
 			<url>http://repo.spring.io/libs-snapshot</url>
