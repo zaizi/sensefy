@@ -21,7 +21,7 @@
 
 	<groupId>org.zaizi</groupId>
 	<artifactId>sensefy</artifactId>
-	<version>2.0.1</version>
+	<version>2.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Sensefy Parent Pom</name>
 
