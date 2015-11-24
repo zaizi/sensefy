@@ -29,7 +29,6 @@ import org.springframework.cloud.security.oauth2.resource.EnableOAuth2Resource;
  */
 @SpringBootApplication(exclude=SolrAutoConfiguration.class)
 @EnableOAuth2Resource
-@EnableAutoConfiguration(exclude=SolrAutoConfiguration.class)
 public class SensefyResourceApplicationJar{
 
 	public static void main(String[] args) {
