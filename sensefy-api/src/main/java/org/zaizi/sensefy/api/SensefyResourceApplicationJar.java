@@ -18,6 +18,7 @@ package org.zaizi.sensefy.api;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.solr.SolrAutoConfiguration;
 import org.springframework.cloud.security.oauth2.resource.EnableOAuth2Resource;
 
 /**
@@ -26,9 +27,9 @@ import org.springframework.cloud.security.oauth2.resource.EnableOAuth2Resource;
  * @author mfahiz
  * @since 2.0
  */
-@SpringBootApplication
+@SpringBootApplication(exclude=SolrAutoConfiguration.class)
 @EnableOAuth2Resource
-@EnableAutoConfiguration
+@EnableAutoConfiguration(exclude=SolrAutoConfiguration.class)
 public class SensefyResourceApplicationJar{
 
 	public static void main(String[] args) {

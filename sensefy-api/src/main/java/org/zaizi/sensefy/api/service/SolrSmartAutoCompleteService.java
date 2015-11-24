@@ -23,7 +23,7 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 
 import org.apache.solr.client.solrj.SolrQuery;
-import org.apache.solr.client.solrj.SolrServer;
+import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.FacetField;
 import org.apache.solr.client.solrj.response.QueryResponse;
@@ -174,7 +174,7 @@ public class SolrSmartAutoCompleteService extends SolrService {
 	 * @return
 	 */
 	private List<String> getShingleSuggestions(Integer numberOfSuggestions, String termToComplete,
-			SolrServer primaryIndex) throws SolrServerException, SolrException, IOException {
+			SolrClient primaryIndex) throws SolrServerException, SolrException, IOException {
 		List<String> shingleSuggestions = new ArrayList<String>();
 		SolrQuery shingleSuggestionQuery = new SolrQuery(termToComplete);
 		shingleSuggestionQuery.setRequestHandler("/autocomplete");
@@ -257,7 +257,7 @@ public class SolrSmartAutoCompleteService extends SolrService {
 	 * @return
 	 * @throws SolrServerException
 	 */
-	private QueryResponse getSmartSuggestions(String termToComplete, Integer numberOfSuggestions, SolrServer core)
+	private QueryResponse getSmartSuggestions(String termToComplete, Integer numberOfSuggestions, SolrClient core)
 			throws SolrServerException, SolrException, IOException {
 		SolrQuery namedEntitiesQuery = new SolrQuery();
 		this.buildAutocompleteQuery(namedEntitiesQuery, termToComplete);
@@ -333,7 +333,7 @@ public class SolrSmartAutoCompleteService extends SolrService {
 	 * @param solrCore
 	 * @throws SolrServerException
 	 */
-	private List<SolrDocument> getTitleSuggestions(int numberOfSuggestions, String termToComplete, SolrServer solrCore,
+	private List<SolrDocument> getTitleSuggestions(int numberOfSuggestions, String termToComplete, SolrClient solrCore,
 			Principal user, boolean security) throws SolrServerException, SolrException, IOException {
 
 		SensefyUser sensefyUser = SensefyUserMapper.getSensefyUserFromPrincipal(user);
@@ -488,7 +488,7 @@ public class SolrSmartAutoCompleteService extends SolrService {
 	 * @throws SolrServerException
 	 */
 	private List<String> suggestionsFromFacetPrefix(SolrQuery attributesQuery, String termToComplete,
-			int numberOfSuggestions, String suggestionField, SolrServer solrCore)
+			int numberOfSuggestions, String suggestionField, SolrClient solrCore)
 					throws SolrServerException, IOException {
 		List<String> suggestions = new ArrayList<String>();
 

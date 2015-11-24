@@ -14,6 +14,7 @@
  **/
 package org.zaizi.sensefy.api.service;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.security.Principal;
 import java.util.List;
@@ -178,6 +179,9 @@ public class SemanticSearchService extends SolrService {
 		} catch (SolrServerException e) {
 			processAPIException(response, e, "[Entity Driven Search] Error - stacktrace follows", 500,
 					ComponentCode.SOLR);
+		} catch (IOException e) {
+			processAPIException(response, e, "[Entity Driven Search] Error - stacktrace follows", 400,
+					ComponentCode.QUERY);
 		}
 
 		Long elapsedTime = System.currentTimeMillis() - startTime;
@@ -247,6 +251,9 @@ public class SemanticSearchService extends SolrService {
 		} catch (SolrServerException e) {
 			processAPIException(response, e, "[Show Entity By Doc Id] Error - stacktrace follows", 500,
 					ComponentCode.SOLR);
+		} catch (IOException e) {
+			processAPIException(response, e, "[Show Entity By Doc Id] Error - stacktrace follows", 400,
+					ComponentCode.QUERY);
 		}
 
 		Long elapsedTime = System.currentTimeMillis() - startTime;
@@ -260,8 +267,9 @@ public class SemanticSearchService extends SolrService {
 	 * @param entityId
 	 * @return
 	 * @throws org.apache.solr.client.solrj.SolrServerException
+	 * @throws IOException 
 	 */
-	private SolrDocument getEntity(String entityId) throws SolrServerException {
+	private SolrDocument getEntity(String entityId) throws SolrServerException, IOException {
 		SolrDocument extractedEntity = null;
 		if (entityId != null && !entityId.isEmpty()) {
 			SolrQuery entityQuery = new SolrQuery();
@@ -283,8 +291,9 @@ public class SemanticSearchService extends SolrService {
 	 * @param entityType
 	 * @return
 	 * @throws org.apache.solr.client.solrj.SolrServerException
+	 * @throws IOException 
 	 */
-	private EntityType getEntityType(String entityType) throws SolrServerException {
+	private EntityType getEntityType(String entityType) throws SolrServerException, IOException {
 		EntityType extractedEntityType = null;
 		SolrQuery entityTypeQuery = new SolrQuery(ID_FIELD + ":\"" + entityType + "\"");
 		QueryResponse entityResponse;
