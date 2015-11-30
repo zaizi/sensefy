@@ -55,7 +55,7 @@
 		<sensefy.solr.default.conf>${sensefy.config.home}/solr-default-conf</sensefy.solr.default.conf>
 		<sensefy.tomcat.conf>config/tomcat-conf</sensefy.tomcat.conf>
 		<sensefy.ui.server.conf>${sensefy.config.home}/sensefy-ui-conf/</sensefy.ui.server.conf>
-		<sensefy.version>2.0.1</sensefy.version>
+		<sensefy.version>2.0.2-SNAPSHOT</sensefy.version>
 		<sensefy.api.server.conf>${sensefy.config.home}/sensefy-api/</sensefy.api.server.conf>
 
 
