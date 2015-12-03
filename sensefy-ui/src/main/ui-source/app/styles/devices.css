@@ -323,14 +323,6 @@ and (orientation: landscape) {
         display: none;
     }
 
-    .mob {
-        display: block;
-        float: left;
-        margin: 9px;
-        width: 40px;
-        height: 33px;
-    }
-
     #sensefy #menu {
         margin-top: 0;
     }
@@ -377,6 +369,7 @@ and (orientation: landscape) {
         float: left;
         margin: 9px;
         width: 40px;
+        height: 33px;
     }
 
     #menu > a.item {

@@ -43,6 +43,9 @@
         .constant('SensefySearchIsClustering', true)
         .constant('SensefyDocSecurity', true)
         .constant('SensefySearchResponseFailedIsLogout', true)
+        .constant('SensefyFavicon', 'favicon.ico')
+        .constant('SensefyDesktopLogo', 'images/SensefyLogo.png')
+        .constant('SensefyDeviceLogo', 'images/SensefyLogoMob.png')
         .constant('SensefySortOptions', [
             {
                 'id': 1,
@@ -111,7 +114,7 @@
                 'txtEntities': 'Entities',
                 'txtEntityTypes': 'Entity Types',
                 'txtDocumentTitles': 'Document titles',
-                'txtDocumentSuggestions': 'Suggestions',
+                'txtDocumentSuggestions': 'Keyword suggestions',
                 'txtNoSuggestions': 'No suggestions',
                 'txtDocumentsFound': 'Showing results {{docStart}}-{{docEnd}} of {{documents}}.',//Showing results 1-10 of 1404.
                 'txtDocumentsCountFound': 'documents found',
@@ -572,7 +575,7 @@
                 'txtEntities': 'Entidades',
                 'txtEntityTypes': 'Tipos de entidades',
                 'txtDocumentTitles': 'Títulos de documentos',
-                'txtDocumentSuggestions': 'Sugerencias',
+                'txtDocumentSuggestions': 'Keyword sugerencias',
                 'txtNoSuggestions': 'No hay sugerencias',
                 'txtDocumentsFound': 'Showing results(need to translate) {{docStart}}-{{docStart+docPerPage}} of {{documents}}.',
                 'txtDocumentsCountFound': ' documentos encontrados',

@@ -1,8 +1,8 @@
 <div class="row">
     <div class="column">
         <div class="ui inverted blue menu" id="header">
-            <img src="images/SensefyLogo.png" alt="Sensefy Logo" class="open left">
-            <img src="images/SensefyLogoMob.png" alt="Sensefy Logo" class="mob">
+            <img src="{{desktopLogo}}" alt="Sensefy main Logo" class="open left">
+            <img src="{{deviceLogo}}" alt="Sensefy device Logo" class="mob">
             <sensefy-autocomplete query-term="queryTerm" query-function="query()"></sensefy-autocomplete>
 
             <div class="right menu" id="menu">
@@ -52,9 +52,9 @@
                     <div class="ui tabular menu sources" id="ds-tabs">
                         <a ng-repeat="source in sources" data-datasource-tab="{{source.value}}"
                            data-dynamic-class="{{source.value}}"
-                           ng-class="{active: source.active}"
+                           ng-class="{active: source.active, hideorshow:isDatasourceTab}"
                            ng-click="setActiveSource(source)" tabindex="0"
-                           class="item {{source.value}}">
+                           class="item">
                             <span class="labelinfo" translate="{{source.value}}"></span>
                             <sup class="ds-value" title="{{source.occurrence}} results"
                                  translate="{{source.occurrence}}"
@@ -211,6 +211,7 @@
                                             ng-bind="dateTimeFormatter(document.ds_creation_date)"></span>
                         </span>
                     </div>
+                    <span class="mgray" ng-if="document.author != null && document.author != '' && document.author.length > 0">, </span>
                     <div class="meta-info-modify italic">
                         <span ng-if="document.ds_last_modifier">
                             <span class="underline mgray" title="{{'data.modifier'|translate}}"

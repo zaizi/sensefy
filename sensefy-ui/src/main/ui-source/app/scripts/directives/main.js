@@ -499,8 +499,11 @@
                         colorArray = ['rgba(151,187,205,1)', 'rgba(70,191,189,1)', 'rgba(253,180,92,1)', 'rgba(247,70,74,1)', 'rgba(148,159,177,1)', 'rgba(120,209,35,1)'];
                         colorArrayLight = ['rgba(151,187,205,.3)', 'rgba(70,191,189,.3)', 'rgba(253,180,92,.3)', 'rgba(247,70,74,.3)', 'rgba(148,159,177,.3)', 'rgba(120,209,35,.3)'];
                         colorArrayLightRelation = ['rgba(151,187,205,.5)', 'rgba(70,191,189,.5)', 'rgba(253,180,92,.5)', 'rgba(247,70,74,.5)', 'rgba(148,159,177,.5)', 'rgba(120,209,35,.5)'];
-                        cssClassName = attrs.dynamicClass.replace(RegExp(' ', 'g'), '');
-                        element.attr('class', cssClassName);
+                        //cssClassName = attrs.dynamicClass.replace(RegExp(' ', 'g'), '');
+                        //cssClassName = 'abcdef';
+                        cssClassName = attrs.dynamicClass.split(' ').join('');
+                        angular.element(element).addClass(cssClassName);
+
                         style = document.createElement('style');
                         style.type = 'text/css';
                         style.innerHTML += '#sensefy .sources a.' + cssClassName + '{ background-color:' + colorArrayLight[scope.$index] + '; border-left:3px solid ' + colorArray[scope.$index] + '!important; }';

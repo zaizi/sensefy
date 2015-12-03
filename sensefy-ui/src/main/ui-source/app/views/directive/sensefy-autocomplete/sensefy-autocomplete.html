@@ -16,30 +16,21 @@
         <div class="suggestions-wrapper selection-container">
             <div class="arrow"></div>
             <ul class="suggests-wrapper" ng-show="suggestions.titles" ng-click="autocomplete($event)">
-                <li class="header" ng-show="autocompletePhase == 'phase1'" translate="txtDocumentTitles"></li>
+                <li class="header curve" ng-show="autocompletePhase == 'phase1'" translate="txtDocumentTitles"></li>
                 <li class="suggestion pe-sug-item" ng-class="{selected: suggestion.selected}"
                     ng-repeat="suggestion in suggestions.titles"
                     ng-include="'views/partial/suggestion-title-template.html'"
                     data-info="{{suggestion}}"
                     data-sug-type="title"></li>
             </ul>
-            <ul class="suggests-wrapper" ng-show="suggestions.suggestions" ng-click="autocomplete($event)">
-                <li class="header" ng-show="autocompletePhase == 'phase1'" translate="txtDocumentSuggestions"></li>
-                <li class="suggestion pe-sug-item" ng-class="{selected: suggestion.selected}"
-                    ng-repeat="suggestion in suggestions.suggestions"
-                    ng-include="'views/partial/suggestion-template.html'"
-                    data-info="{{suggestion}}"
-                    data-sug-type="suggestions"></li>
-            </ul>
             <ul class="entities-wrapper"
                 ng-show="suggestions.entities">
-                <li class="header et" translate="txtEntities"></li>
+                <!--li class="header et" translate="txtEntities"></li-->
                 <li class="entity suggestion" entity-is-available entity-data-set="{{suggestions.entities}}">
                     <div class="et-table et-wrapper">
                         <div class="et-row one">
-                            <div class="et-cell et-label-wrap">
-                                <span class="et-label">People</span>
-                            </div>
+                            <div class="sub-header">People</div>
+                            <div class="et-cell et-label-wrap"></div>
                             <div class="et-cell et-value-wrap">
                                 <div class="et-value"
                                      ng-repeat="entity in suggestions.entities"
@@ -48,9 +39,8 @@
                             </div>
                         </div>
                         <div class="et-row two">
-                            <div class="et-cell et-label-wrap">
-                                <span class="et-label">Places</span>
-                            </div>
+                            <div class="sub-header">Places</div>
+                            <div class="et-cell et-label-wrap"></div>
                             <div class="et-cell et-value-wrap">
                                 <div class="et-value"
                                      ng-repeat="entity in suggestions.entities"
@@ -59,9 +49,8 @@
                             </div>
                         </div>
                         <div class="et-row three" >
-                            <div class="et-cell et-label-wrap">
-                                <span class="et-label">Organizations</span>
-                            </div>
+                            <div class="sub-header">Organizations</div>
+                            <div class="et-cell et-label-wrap"></div>
                             <div class="et-cell et-value-wrap">
                                 <div class="et-value"
                                      ng-repeat="entity in suggestions.entities"
@@ -71,6 +60,14 @@
                         </div>
                     </div>
                 </li>
+            </ul>
+            <ul class="suggests-wrapper" ng-show="suggestions.suggestions" ng-click="autocomplete($event)">
+                <li class="header" ng-show="autocompletePhase == 'phase1'" translate="txtDocumentSuggestions"></li>
+                <li class="suggestion pe-sug-item" ng-class="{selected: suggestion.selected}"
+                    ng-repeat="suggestion in suggestions.suggestions"
+                    ng-include="'views/partial/suggestion-template.html'"
+                    data-info="{{suggestion}}"
+                    data-sug-type="suggestions"></li>
             </ul>
             <!-- ul class="entity-types-wrapper"
                 ng-show="suggestions.entityTypes">

@@ -10,7 +10,7 @@
 <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title>Sensefy Boot Search --</title>
+    <title>Sensefy Boot Search</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -25,7 +25,10 @@
     <!-- endbuild -->
     <base href="/">
 </head>
-<body ng-app="SensefySemanticSearch" ng-cloak class="ng-cloak" id="sensefy" ng-controller="RootController">
+<body ng-cloak class="ng-cloak" id="sensefy"  ng-app="SensefySemanticSearch" ng-controller="RootController">
+<link rel="shortcut icon" href="{{sensefyFavicon}}" type="image/x-icon">
+<link rel="icon" href="{{sensefyFavicon}}" type="image/x-icon">
+
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -78,7 +81,6 @@
 <script src="../bower_components/angular-utils-pagination/dirPagination.js"></script>
 <script src="../bower_components/moment/moment.js"></script>
 <script src="../bower_components/angular-moment/angular-moment.js"></script>
-<script src="../bower_components/d3/d3.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 

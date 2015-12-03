@@ -36,10 +36,9 @@
                 return localStorageServiceProvider.setPrefix('sensefy');
             }
         ]).controller('RootController', [
-            '$http', '$injector', '$scope', '$location', '$window', '$rootScope', '$translate', 'tmhDynamicLocale', 'localStorageService', 'auth', 'SensefySearchLogin', 'DEBUGmode', 'CONSOLEmode', 'isJSON',
-            function ($http, $injector, $scope, $location, $window, $rootScope, $translate, tmhDynamicLocale, localStorageService, auth, SensefySearchLogin, DEBUGmode, CONSOLEmode, isJSON) {
+            '$http', '$injector', '$scope', '$location', '$window', '$rootScope', '$translate', 'SensefyFavicon', 'SensefyDesktopLogo', 'SensefyDeviceLogo', 'tmhDynamicLocale', 'localStorageService', 'auth', 'SensefySearchLogin', 'DEBUGmode', 'CONSOLEmode', 'isJSON',
+            function ($http, $injector, $scope, $location, $window, $rootScope, $translate, SensefyFavicon, SensefyDesktopLogo, SensefyDeviceLogo, tmhDynamicLocale, localStorageService, auth, SensefySearchLogin, DEBUGmode, CONSOLEmode, isJSON) {
 
-                $scope.sameera = "Hello, Sameera!!!...";
                 if(!auth.authenticated){
                     auth.clear;
                     document.location.href = SensefySearchLogin;
@@ -49,6 +48,10 @@
                 tmhDynamicLocale.set('en-us');
 
                 $scope.user = null;
+
+                $scope.desktopLogo = SensefyDesktopLogo;
+                $scope.deviceLogo = SensefyDeviceLogo;
+                $scope.sensefyFavicon = SensefyFavicon;
 
                 $http.get('/user/').success(function(data) {
                     $scope.user = data.name;
@@ -110,8 +113,8 @@
                 $scope.logout = auth.clear;
             }
         ]).controller('SearchController', [
-            '$scope', '$http', '$location', 'dataSources', '$rootScope', 'SemanticSearchService', 'SensefyFacetsPerGroup', 'SensefySortOptions', 'SensefyAPIUrl', 'SensefyDocsPreview', 'localStorageService', 'ApiService', 'SensefyPreviewDoc', 'auth', 'tmhDynamicLocale', '$translate', 'SensefySearchLogin', 'SensefyUNIXdate', 'DEBUGmode', 'CONSOLEmode', 'isJSON', 'SensefyDocSecurity', 'SensefySearchResponseFailedIsLogout',
-            function ($scope, $http, $location, dataSources, $rootScope, SemanticSearchService, SensefyFacetsPerGroup, SensefySortOptions, SensefyAPIUrl, SensefyDocsPreview, localStorageService, ApiService, SensefyPreviewDoc, auth, tmhDynamicLocale, $translate, SensefySearchLogin, SensefyUNIXdate, DEBUGmode, CONSOLEmode, isJSON, SensefyDocSecurity, SensefySearchResponseFailedIsLogout) {
+            '$scope', '$http', '$location', 'dataSources', '$rootScope', 'SemanticSearchService', 'SensefyFacetsPerGroup', 'SensefySortOptions', 'SensefyAPIUrl', 'SensefyDocsPreview', 'localStorageService', 'ApiService', 'SensefyPreviewDoc', 'auth', 'tmhDynamicLocale', '$translate', 'SensefySearchLogin', 'SensefyUNIXdate', 'DEBUGmode', 'CONSOLEmode', 'isJSON', 'SensefyDocSecurity', 'SensefySearchResponseFailedIsLogout', '$timeout',
+            function ($scope, $http, $location, dataSources, $rootScope, SemanticSearchService, SensefyFacetsPerGroup, SensefySortOptions, SensefyAPIUrl, SensefyDocsPreview, localStorageService, ApiService, SensefyPreviewDoc, auth, tmhDynamicLocale, $translate, SensefySearchLogin, SensefyUNIXdate, DEBUGmode, CONSOLEmode, isJSON, SensefyDocSecurity, SensefySearchResponseFailedIsLogout, $timeout) {
             //PDFViewerService, pdf
                 var FILTER_LABEL_SEPARATOR, HTMLtagCleaner, addMissingFacets, allSource, cleanLocationSearchParameters, entityMap, escapeHtmlExceptB, fillLocationSearchParameters, getActiveSource, getDataSourceByValue, initDataSources, parseFacets, parseSimpleFacet, processHighlightInfo, removeCluster, removeFilter, resetSelectedValues;
                 FILTER_LABEL_SEPARATOR = "$$";
@@ -208,6 +211,7 @@
                     }
                     var facet, sources, _i, _k, _len, _ref, _lenK;
                     sources = [];
+                    $scope.isDatasourceTab = false;
                     if(dataSources.data.facets && !isForce){
                         if(CONSOLEmode){
                             var a = '';
@@ -222,6 +226,7 @@
                         _ref = dataSources.data.facets;
                         $scope.sources = [];
                         $scope.allOccurrence = 0;
+                        $scope.isDatasourceTab = true;
                         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
                             facet = _ref[_i];
                             if (facet.label === 'Data Source') {
@@ -241,8 +246,11 @@
                             else{
                                 a = sources;
                             }
-                            console.log('initDataSources -> dataSources.data.facets -> sources : '+ a)
+                            console.log('initDataSources -> dataSources.data.facets -> @param:isForce=false - $scope.sources : '+ a)
                         }
+                        $timeout(function () {
+                            $scope.isDatasourceTab = false;
+                        }, 0);
                         return $scope.sources = sources;
                     }
 
@@ -258,6 +266,7 @@
                             console.log('initDataSources -> $scope.responsedData.facets : '+a)
                         }
                         $scope.sources = [];
+                        $scope.isDatasourceTab = true;
 
                         _ref = $scope.responsedData.facets;
                         $scope.sources = [];
@@ -282,8 +291,12 @@
                             else{
                                 a = sources;
                             }
-                            console.log('initDataSources -> $scope.responsedData.facets -> sources : '+a)
+                            console.log('initDataSources -> $scope.responsedData.facets -> @param:isForce=true - $scope.sources : '+a)
                         }
+
+                        $timeout(function () {
+                            $scope.isDatasourceTab = false;
+                        }, 0);
 
                         return $scope.sources = sources;
                     }
@@ -473,6 +486,7 @@
                 $scope.selectSortings = $scope.sortings[0];
                 $scope.isFacetSelect = [];
                 $scope.responsedData = [];
+                $scope.isFacetSelectCluster = [];
 
 
                 angular.element('.ui.dropdown.pe-itemsPerPage').dropdown({
@@ -654,7 +668,7 @@
                         fillLocationSearchParameters();
                         $scope.runCurrentQuery(false);
                     }
-                    return $scope.isFacetSelect[facetItem.filter] = true;
+                    $scope.isFacetSelect[facetItem.filter] = true;
                 };
                 removeFilter = function (filter) {
                     var index, posf;
@@ -671,7 +685,7 @@
                     fillLocationSearchParameters();
                     $scope.updateDocumentOffset(true);
                     $scope.runCurrentQuery(false);
-                    return $scope.isFacetSelect[filter.filter] = false;
+                    $scope.isFacetSelect[filter.filter] = false;
                 };
                 HTMLtagCleaner = function (richHtml) {
                     var body, regex, result;
@@ -955,11 +969,12 @@
                                     return
                                 }
 
-                                if (restorePagination || $scope.currentPage === 1) {
+                                /*if (restorePagination || $scope.currentPage === 1) {
                                     $scope.documents = response.data.searchResults.documents || [];
                                 } else {
                                     $scope.documents = $scope.documents.concat(response.data.searchResults.documents);
-                                }
+                                }*/
+                                $scope.documents = response.data.searchResults.documents || [];
                                 processHighlightInfo($scope.documents, response.data.searchResults.highlight);
                                 $scope.totalDocuments = response.data.searchResults.numFound;
                                 if ($scope.totalDocuments > 0) {
@@ -1227,6 +1242,7 @@
                     $scope.sorting = null;
                     $scope.titleSorting = '';
                     $scope.isFacetSelect = [];
+                    $scope.isFacetSelectCluster = [];
                     $location.path('/search');
                 };
                 $scope.initialize = function () {
@@ -1379,6 +1395,33 @@
                             break;
                         case 'image/tiff':
                             docIcon = "image";
+                            break;
+                        case 'text/xml':
+                            docIcon = "code";
+                            break;
+                        case 'image/png':
+                            docIcon = "image";
+                            break;
+                        case 'image/jpeg':
+                            docIcon = "image";
+                            break;
+                        case 'image/png':
+                            docIcon = "image";
+                            break;
+                        case 'image/jpg':
+                            docIcon = "image";
+                            break;
+                        case 'video/mp4':
+                            docIcon = "video";
+                            break;
+                        case 'text/html':
+                            docIcon = "code";
+                            break;
+                        case 'application/x-javascript':
+                            docIcon = "code";
+                            break;
+                        case 'text/css':
+                            docIcon = "code";
                             break;
                     }
 
