@@ -507,7 +507,7 @@ sub, sup {
 div.num-found {
     display: inline-block;
     margin-top: 8px;
-    width:67%;
+    width:63%;
 }
 
 .ds-bar {
@@ -1083,7 +1083,7 @@ i.icon.file {
 .meta-info-create, .meta-info-modify, .meta-info-lang {
     display: inline-block;
     margin-bottom: 8px;
-    margin-right: 8px;
+    margin-right: 0;
 }
 
 .meta-info-more {
@@ -1117,12 +1117,6 @@ i.icon.file {
 .meta-breadcrumb {
     margin-top: 4px;
     font-size: 12px;
-}
-
-.meta-info-create, .meta-info-modify, .meta-info-lang {
-    display: inline-block;
-    margin-bottom: 8px;
-    margin-right: 8px;
 }
 
 #sensefy .document:hover .hover-result {

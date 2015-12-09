@@ -32,7 +32,7 @@ module.exports = function (grunt) {
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
-    grunt.loadNpmTasks('grunt-closure-compiler');
+    //grunt.loadNpmTasks('grunt-closure-compiler');
 
     // Define the configuration for all the tasks
     grunt
@@ -206,9 +206,9 @@ module.exports = function (grunt) {
                 dist: {
                     files: [{
                         expand: true,
-                        cwd: '<%= yeoman.app %>/assets/styles/',
+                        cwd: '<%= yeoman.dist %>/styles/',
                         src: '{,*/}*.css',
-                        dest: '<%= yeoman.app %>/assets/styles/',
+                        dest: '<%= yeoman.dist %>/styles/',
                         ext: '.css'
                     }]
                 }
@@ -501,7 +501,6 @@ module.exports = function (grunt) {
             grunt.task.run(['clean:dist', 'bowerInstall',
                 'useminPrepare',
                 'concurrent:dist',
-                'autoprefixer',
                 'concat',
                 'ngAnnotate',
                 'ngmin',
@@ -517,6 +516,7 @@ module.exports = function (grunt) {
                 //'closure-compiler:frontend',
                 //'closure-compiler:vendors',
                 'purifycss',
+                'autoprefixer',
                 'htmlmin'
             ]);
             grunt.log.warn('Build is done, Server up and running...'['magenta'].bold);

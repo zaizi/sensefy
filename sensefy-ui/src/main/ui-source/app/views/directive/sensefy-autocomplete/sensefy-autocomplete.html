@@ -23,8 +23,7 @@
                     data-info="{{suggestion}}"
                     data-sug-type="title"></li>
             </ul>
-            <ul class="entities-wrapper"
-                ng-show="suggestions.entities">
+            <ul class="entities-wrapper" ng-show="isSugEntity">
                 <!--li class="header et" translate="txtEntities"></li-->
                 <li class="entity suggestion" entity-is-available entity-data-set="{{suggestions.entities}}">
                     <div class="et-table et-wrapper">

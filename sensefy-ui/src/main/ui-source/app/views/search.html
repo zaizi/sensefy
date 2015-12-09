@@ -207,18 +207,21 @@
                             <span title="{{'data.author' | translate}}" ng-bind="document.author[0]"></span>
                         </span>
                         <span ng-if="document.ds_creation_date != null && document.ds_creation_date != ''">
-                             created  <span title="{{dateTimeFormatterAcc(document.ds_creation_date)}}"
+                            <span title="{{'data.created'|translate}}">created</span>
+
+                               <span title="{{dateTimeFormatterAcc(document.ds_creation_date)}}"
                                             ng-bind="dateTimeFormatter(document.ds_creation_date)"></span>
                         </span>
                     </div>
-                    <span class="mgray" ng-if="document.author != null && document.author != '' && document.author.length > 0">, </span>
+                    <span class="mgray" ng-if="document.author != null && document.author != '' && document.author.length > 0">, &nbsp; </span>
                     <div class="meta-info-modify italic">
                         <span ng-if="document.ds_last_modifier">
                             <span class="underline mgray" title="{{'data.modifier'|translate}}"
                                   ng-bind="document.ds_last_modifier"></span>
                         </span>
                         <span ng-if="document.ds_last_modified">
-                             modified  <span title="{{dateTimeFormatterAcc(document.ds_last_modified)}}"
+                            <span title="{{'data.modified'|translate}}">modified</span>
+                               <span title="{{dateTimeFormatterAcc(document.ds_last_modified)}}"
                                              ng-bind="dateTimeFormatter(document.ds_last_modified)"></span>
                         </span>
                     </div>
@@ -264,7 +267,7 @@
                     ng-options="s.sortOption | translate for s in sortings track by s.id">
             </select>-->
 
-            <div class="item" ng-repeat="s in sortings track by s.id" ng-bind="s.sortOption"
+            <div class="item" ng-repeat="s in sortings track by s.id" ng-bind="s.sortOption | translate"
                  data-value="{{s.sortId}}, {{s.defaultSort}}"
                  ng-model="selectSortings">
                 <!--<div class="ui green empty circular label"></div>-->

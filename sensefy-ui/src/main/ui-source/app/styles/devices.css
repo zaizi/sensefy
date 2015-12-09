@@ -501,7 +501,7 @@ and (orientation: portrait)
     }
 
     div.num-found {
-        width: 57%;
+        width: 48%;
     }
 
     #sensefy #header img.open {
@@ -595,7 +595,7 @@ and (orientation: landscape)
 
     div.num-found {
         display: inline-block;
-        width: 67%;
+        width: 64%;
     }
 
     #sensefy #header img.open {

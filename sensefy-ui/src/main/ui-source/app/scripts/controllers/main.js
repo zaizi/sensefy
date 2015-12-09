@@ -113,8 +113,8 @@
                 $scope.logout = auth.clear;
             }
         ]).controller('SearchController', [
-            '$scope', '$http', '$location', 'dataSources', '$rootScope', 'SemanticSearchService', 'SensefyFacetsPerGroup', 'SensefySortOptions', 'SensefyAPIUrl', 'SensefyDocsPreview', 'localStorageService', 'ApiService', 'SensefyPreviewDoc', 'auth', 'tmhDynamicLocale', '$translate', 'SensefySearchLogin', 'SensefyUNIXdate', 'DEBUGmode', 'CONSOLEmode', 'isJSON', 'SensefyDocSecurity', 'SensefySearchResponseFailedIsLogout', '$timeout',
-            function ($scope, $http, $location, dataSources, $rootScope, SemanticSearchService, SensefyFacetsPerGroup, SensefySortOptions, SensefyAPIUrl, SensefyDocsPreview, localStorageService, ApiService, SensefyPreviewDoc, auth, tmhDynamicLocale, $translate, SensefySearchLogin, SensefyUNIXdate, DEBUGmode, CONSOLEmode, isJSON, SensefyDocSecurity, SensefySearchResponseFailedIsLogout, $timeout) {
+            '$scope', '$http', '$location', 'dataSources', '$rootScope', 'SemanticSearchService', 'SensefyFacetsPerGroup', 'SensefySortOptions', 'SensefyAPIUrl', 'SensefySearchIsClustering', 'SensefyDocsPreview', 'localStorageService', 'ApiService', 'SensefyPreviewDoc', 'auth', 'tmhDynamicLocale', '$translate', 'SensefySearchLogin', 'SensefyUNIXdate', 'DEBUGmode', 'CONSOLEmode', 'isJSON', 'SensefyDocSecurity', 'SensefySearchResponseFailedIsLogout', '$timeout',
+            function ($scope, $http, $location, dataSources, $rootScope, SemanticSearchService, SensefyFacetsPerGroup, SensefySortOptions, SensefyAPIUrl, SensefySearchIsClustering, SensefyDocsPreview, localStorageService, ApiService, SensefyPreviewDoc, auth, tmhDynamicLocale, $translate, SensefySearchLogin, SensefyUNIXdate, DEBUGmode, CONSOLEmode, isJSON, SensefyDocSecurity, SensefySearchResponseFailedIsLogout, $timeout) {
             //PDFViewerService, pdf
                 var FILTER_LABEL_SEPARATOR, HTMLtagCleaner, addMissingFacets, allSource, cleanLocationSearchParameters, entityMap, escapeHtmlExceptB, fillLocationSearchParameters, getActiveSource, getDataSourceByValue, initDataSources, parseFacets, parseSimpleFacet, processHighlightInfo, removeCluster, removeFilter, resetSelectedValues;
                 FILTER_LABEL_SEPARATOR = "$$";
@@ -566,7 +566,7 @@
                     return $scope.runCurrentQuery(false);
                 };
 
-                $scope.addCluster = function (clusterItem, runQuery) {
+                $scope.addCluster = function (clusterItem, runQuery, index) {
                     var cpos;
                     if (runQuery == null) {
                         runQuery = true;
@@ -577,19 +577,19 @@
                         $scope.cluterQuery = '';
                         $scope.clusterSelected = false;
                         removeCluster(clusterItem);
+                        $scope.isFacetSelectCluster[index] = false;
                         return false;
                     } else {
                         $scope.cluterQuery = clusterItem.filterQuery;
                         $scope.clusters = [clusterItem];
                         $scope.clusterSelected = true;
                         $scope.clusterSelectedSize = clusterItem.size;
+                        $scope.isFacetSelectCluster[index] = true;
                     }
                     $scope.clusterFilters.push(clusterItem.label);
                     $scope.updateDocumentOffset(runQuery);
-                    if (runQuery) {
-                        fillLocationSearchParameters();
-                        return $scope.runCurrentQuery(false, false);
-                    }
+                    fillLocationSearchParameters();
+                    $scope.runCurrentQuery(false, true);
                 };
                 removeCluster = function (clusterItem) {
                     var cposr;
@@ -931,11 +931,14 @@
                 };
                 $scope.query = function (restorePagination, cluster) {
                     var apiQuery, clustering;
-                    if (restorePagination == null) {
+                    if (restorePagination === null) {
                         restorePagination = true;
                     }
-                    if (cluster == null) {
-                        cluster = false;
+                    if (cluster === null) {
+                        cluster = SensefySearchIsClustering;
+                    }
+                    else{
+                        cluster = cluster;
                     }
                     $scope.searching = true;
                     if ($scope.queryTerm.length > 0) {
@@ -999,7 +1002,7 @@
                                 if ($scope.clusterSelectedSize !== '') {
                                     if ($scope.clusterSelectedSize > $scope.totalDocuments) {
                                         $scope.selectedCluterObj.size = $scope.totalDocuments;
-                                        return $scope.clusters = [$scope.selectedCluterObj];
+                                        $scope.clusters = [$scope.selectedCluterObj];
                                     }
                                 }
                             }, function (response) {

@@ -119,6 +119,7 @@
                                     return;
                                 }
                                 $scope.selectedTitleIndex = -1;
+
                                 if (response.data.responseContent.entities) {
                                     $scope.suggestions['entities'] = response.data.responseContent.entities;
                                 }
@@ -129,8 +130,20 @@
                                     $scope.suggestions['titles'] = response.data.responseContent.titles;
                                 }
                                 if (response.data.responseContent.suggestions) {
-                                    return $scope.suggestions['suggestions'] = response.data.responseContent.suggestions;
+                                    $scope.suggestions['suggestions'] = response.data.responseContent.suggestions;
                                 }
+
+                                $scope.isSugEntity = false;
+                                var sugEntityTimeout = setTimeout(function () {
+                                    if(response.data.responseContent.entities.length <= 1){
+                                        $scope.isSugEntity = false;
+                                    }
+                                    else{
+                                        $scope.isSugEntity = true;
+                                    }
+                                    clearTimeout(sugEntityTimeout);
+                                }, 100);
+
                             }, function (response) {
                                 $scope.$parent.logout();
                             });
