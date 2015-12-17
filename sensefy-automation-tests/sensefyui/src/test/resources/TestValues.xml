@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<TestData>	
+	<LoginTest>
+		<test>
+			<Username>admin</Username>
+			<Password>ulibranxi</Password>
+			<BrowserName>Firefox</BrowserName>
+		</test>
+	</LoginTest>
+	<SearchTest>
+		<test>
+			<Username>admin</Username>
+			<Password>ulibranxi</Password>
+			<BrowserName>Firefox</BrowserName>
+			<nodocword>kuluk</nodocword>
+			<didumean>gobal</didumean>
+			<closeword>alfesco</closeword>
+		</test>
+	</SearchTest>
+	<SortTest>
+		<test>
+			<Username>admin</Username>
+			<Password>ulibranxi</Password>
+			<BrowserName>Firefox</BrowserName>
+			<searchWord>page</searchWord>
+		</test>
+	</SortTest>
+	<FacetTest>
+		<test>
+			<Username>admin</Username>
+			<Password>ulibranxi</Password>
+			<BrowserName>Firefox</BrowserName>
+			<searchWord>*</searchWord>
+			<creator>daz</creator>
+			<doctype>XML</doctype>
+			<language>French</language>
+			<size>0.00 B - 10.00 MB</size>
+			<sharpness>hard</sharpness>
+			<modifiedDate>Last Month</modifiedDate>
+			<creationDate>Last Month</creationDate>
+			<topic>Other Topics</topic>
+		</test>
+	</FacetTest>
+</TestData>

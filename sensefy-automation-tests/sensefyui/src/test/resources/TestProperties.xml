@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<TestProperties>
+	<TestProperty>
+		<Browser>Chrome</Browser>
+		<ChromeDriverPath>WebDrivers/chromedriver</ChromeDriverPath>
+		<FoundZeroResultsString>found 0 results.</FoundZeroResultsString>
+		<FoundZeroSitesString>0 result(s) found in all sites.</FoundZeroSitesString>
+	</TestProperty>
+</TestProperties>
+
