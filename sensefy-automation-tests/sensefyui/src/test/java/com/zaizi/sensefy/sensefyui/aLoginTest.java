@@ -40,9 +40,7 @@ public class aLoginTest {
 	public static final ExtentReports extent = ExtentReports.get(aLoginTest.class);
 	private static final String TEST_CASE_PROPERTIES_XML = "pom.xml";
 	private String loginURL="http://sensefyqa.zaizicloud.net/auth/login";
-	
-	private static final String TEST_TEST_PASSED = "Test case passed!";
-    private static final String TEST_TEST_FAILED = "Test case failed!";
+
 	
 	private String username;
     private String password;
@@ -71,6 +69,7 @@ public class aLoginTest {
 	@Parameters()
     public static Iterable<Object[]> data() throws IterableException
     {
+    	LOGGER.info("***Sensefy Automation Test Started***");
     	LOGGER.info(TestCaseProperties.TEXT_TEST_PREPARING, "LoginTest");
         return TestCaseValues.documentLibraryTestValues("LoginTest");
     }

@@ -48,7 +48,7 @@ public class dResultsPerPage {
 	@BeforeClass
     public static void beforeClass() {
         //extent.init("/Users/deranthika/Desktop/myreport1.html", true);
-		extent.init("logs/sensefy.html", true);
+		extent.init("logs/sensefy.html", false);
         extent.config().documentTitle("SensefyUI Automation Test Report");
         extent.config().reportTitle("SensefyUI Automation");
         extent.config().reportHeadline("Search Page Testing");

@@ -128,9 +128,7 @@ private static WebDriver driver = null;
          driver = webDrvFac.createWebDriver();
      }
 	 
-
-
-
+	 
     
      driver.get(HOST_URL);
      return driver;

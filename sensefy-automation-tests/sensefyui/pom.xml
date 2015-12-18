@@ -22,7 +22,7 @@
     <!-- <admin>${loginUrl}</admin>
     <search>localhost</search> -->
     <jstname>${loginUrl}</jstname>
-    <browser>Firefox</browser>
+    <browser>Chrome</browser>
   </properties>
 
   <dependencies>
