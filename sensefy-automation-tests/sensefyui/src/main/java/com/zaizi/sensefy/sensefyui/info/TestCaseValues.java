@@ -65,25 +65,25 @@ public class TestCaseValues {
                 }
                 else if (("LoginTest").equals(testCaseName))
                 {
-                    Object[] foo = { getValue("Username", valueElement), getValue("Password", valueElement),getValue("BrowserName", valueElement)};
+                    Object[] foo = { getValue("Username", valueElement), getValue("Password", valueElement)};
                     bar[k] = foo;
                     System.out.println("Values Loaded - LoginTest");
                 }  
                 else if (("SearchTest").equals(testCaseName))
                 {
-                	Object[] foo = { getValue("Username", valueElement), getValue("Password", valueElement),getValue("BrowserName", valueElement),getValue("nodocword", valueElement),getValue("didumean", valueElement),getValue("closeword", valueElement)};
+                	Object[] foo = { getValue("Username", valueElement), getValue("Password", valueElement),getValue("nodocword", valueElement),getValue("didumean", valueElement),getValue("closeword", valueElement)};
                     bar[k] = foo;
                     System.out.println("Values Loaded - SearchTest");
                 }
                 else if (("SortTest").equals(testCaseName))
                 {
-                	Object[] foo = { getValue("Username", valueElement), getValue("Password", valueElement),getValue("BrowserName", valueElement),getValue("searchWord", valueElement)};
+                	Object[] foo = { getValue("Username", valueElement), getValue("Password", valueElement),getValue("searchWord", valueElement)};
                     bar[k] = foo;
                     System.out.println("Values Loaded - SortTest");
                 }
                 else if (("FacetTest").equals(testCaseName))
                 {
-                	Object[] foo = { getValue("Username", valueElement), getValue("Password", valueElement),getValue("BrowserName", valueElement),getValue("searchWord", valueElement), getValue("creator", valueElement), getValue("doctype", valueElement),getValue("language", valueElement),getValue("size", valueElement),
+                	Object[] foo = { getValue("Username", valueElement), getValue("Password", valueElement),getValue("searchWord", valueElement), getValue("creator", valueElement), getValue("doctype", valueElement),getValue("language", valueElement),getValue("size", valueElement),
                 			getValue("sharpness", valueElement), getValue("modifiedDate", valueElement),getValue("creationDate", valueElement),getValue("topic", valueElement),};
                     bar[k] = foo;
                     System.out.println("Values Loaded - FacetTest");

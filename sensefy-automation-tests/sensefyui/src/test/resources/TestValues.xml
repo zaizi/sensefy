@@ -5,14 +5,12 @@
 		<test>
 			<Username>admin</Username>
 			<Password>ulibranxi</Password>
-			<BrowserName>Firefox</BrowserName>
 		</test>
 	</LoginTest>
 	<SearchTest>
 		<test>
 			<Username>admin</Username>
 			<Password>ulibranxi</Password>
-			<BrowserName>Firefox</BrowserName>
 			<nodocword>kuluk</nodocword>
 			<didumean>gobal</didumean>
 			<closeword>alfesco</closeword>
@@ -22,7 +20,6 @@
 		<test>
 			<Username>admin</Username>
 			<Password>ulibranxi</Password>
-			<BrowserName>Firefox</BrowserName>
 			<searchWord>page</searchWord>
 		</test>
 	</SortTest>
@@ -30,7 +27,6 @@
 		<test>
 			<Username>admin</Username>
 			<Password>ulibranxi</Password>
-			<BrowserName>Firefox</BrowserName>
 			<searchWord>*</searchWord>
 			<creator>daz</creator>
 			<doctype>XML</doctype>

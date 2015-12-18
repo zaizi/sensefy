@@ -33,7 +33,6 @@ public class fFacetsTest {
 	
 	private String username;
     private String password;
-    private String BrowserName;
     public String searchWord;
     private String creator;
     private String doctype;
@@ -46,13 +45,12 @@ public class fFacetsTest {
     public String searchTerm="//input[@id='searchTerm']";
     
     static WebDriver driver;
-	public fFacetsTest(String username, String password, String BrowserName, String searchWord, String creator,
+	public fFacetsTest(String username, String password, String searchWord, String creator,
 			String doctype, String language, String size, String sharpness, String modifiedDate, String creationDate,
 			String topic)
     {
         this.username = username;
         this.password = password;
-        this.BrowserName= BrowserName;
         this.searchWord=searchWord;
         this.creator=creator;
         this.doctype=doctype;
@@ -88,7 +86,7 @@ public class fFacetsTest {
     	extent.startTest("Verify Creator Facets");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
@@ -123,7 +121,7 @@ public class fFacetsTest {
     	extent.startTest("Verify DocumentType Facets");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
         	SearchLogin loginPage = new SearchLogin(driver);
         	loginPage.searchuiLogin(username, password);
         	Thread.sleep(2000);
@@ -158,7 +156,7 @@ public class fFacetsTest {
     	extent.startTest("Verify Language Facets");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
     	    SearchLogin loginPage = new SearchLogin(driver);
     	    loginPage.searchuiLogin(username, password);
     	    Thread.sleep(2000);
@@ -193,7 +191,7 @@ public class fFacetsTest {
 	    extent.startTest("Verify Size Facets");
 	    try
 	    {
-	    	driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+	    	driver = TestCaseProperties.getWebDriverForSearch();
 		    SearchLogin loginPage = new SearchLogin(driver);
 		    loginPage.searchuiLogin(username, password);
 		    Thread.sleep(2000);
@@ -228,7 +226,7 @@ public class fFacetsTest {
 		extent.startTest("Verify Sharpness Facets");
 		try
 		{
-			driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+			driver = TestCaseProperties.getWebDriverForSearch();
 			SearchLogin loginPage = new SearchLogin(driver);
 			loginPage.searchuiLogin(username, password);
 			Thread.sleep(2000);
@@ -263,7 +261,7 @@ public class fFacetsTest {
 		extent.startTest("Verify LastModifiedDate Facets");
 		try
 		{
-			driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+			driver = TestCaseProperties.getWebDriverForSearch();
 			SearchLogin loginPage = new SearchLogin(driver);
 			loginPage.searchuiLogin(username, password);
 			Thread.sleep(2000);
@@ -298,7 +296,7 @@ public class fFacetsTest {
 		extent.startTest("Verify CreationDate Facets");
 		try
 		{
-			driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+			driver = TestCaseProperties.getWebDriverForSearch();
 			SearchLogin loginPage = new SearchLogin(driver);
 			loginPage.searchuiLogin(username, password);
 			Thread.sleep(2000);
@@ -333,7 +331,7 @@ public class fFacetsTest {
 		extent.startTest("Verify Topic Facets");
 		try
 		{
-			driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+			driver = TestCaseProperties.getWebDriverForSearch();
 			SearchLogin loginPage = new SearchLogin(driver);
 			loginPage.searchuiLogin(username, password);
 			Thread.sleep(2000);

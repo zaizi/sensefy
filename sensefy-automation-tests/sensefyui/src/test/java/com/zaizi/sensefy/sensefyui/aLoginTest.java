@@ -46,19 +46,17 @@ public class aLoginTest {
 	
 	private String username;
     private String password;
-    private String BrowserName;
-    
+        
     //xpaths
     public String searchTerm="//input[@id='searchTerm']";
     private String usernameField = "//input[@id='username']";
     private String loginErrorURL="http://sensefyqa.zaizicloud.net/auth/login?error";
     
     static WebDriver driver;
-	public aLoginTest(String username, String password, String BrowserName)
+	public aLoginTest(String username, String password)
     {
         this.username = username;
         this.password = password;
-        this.BrowserName= BrowserName;
     }
 	
 	@BeforeClass
@@ -87,7 +85,7 @@ public class aLoginTest {
     	{
     		extent.startTest("Verify SensefyURL");
             System.out.println("Running Test for Sensefy URL");
-            driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+            driver = TestCaseProperties.getWebDriverForSearch();
             if(driver.getCurrentUrl().equals(loginURL))
             {
         		LOGGER.info("SensefyURL Verified Successfully");
@@ -116,7 +114,7 @@ public class aLoginTest {
     	extent.startTest("Verify Valid logging Test");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
@@ -142,7 +140,7 @@ public class aLoginTest {
     	extent.startTest("Verify empty logging Test");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin("", "");
             Thread.sleep(2000);
@@ -168,7 +166,7 @@ public class aLoginTest {
     	extent.startTest("Verify Invalid logging Test");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin("abcd", "abcd");
             Thread.sleep(2000);
@@ -202,7 +200,7 @@ public class aLoginTest {
     	extent.startTest("Verify Logingout Test");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);

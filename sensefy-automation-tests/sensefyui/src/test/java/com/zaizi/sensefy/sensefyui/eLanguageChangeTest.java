@@ -33,16 +33,12 @@ public class eLanguageChangeTest {
 	
 	private String username;
     private String password;
-    private String BrowserName;
-    
-    private static final String TEST_TEST_PASSED = "Test case passed!";
-    private static final String TEST_TEST_FAILED = "Test case failed!";
-    
-    public eLanguageChangeTest(String username, String password, String BrowserName)
+        
+       
+    public eLanguageChangeTest(String username, String password)
     {
         this.username = username;
         this.password = password;
-        this.BrowserName= BrowserName;
     }
     
     @BeforeClass
@@ -69,7 +65,7 @@ public class eLanguageChangeTest {
     	extent.startTest("Verify changeToSpanish Test");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
@@ -96,7 +92,7 @@ public class eLanguageChangeTest {
     	extent.startTest("Verify changeToEnglish Test");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);

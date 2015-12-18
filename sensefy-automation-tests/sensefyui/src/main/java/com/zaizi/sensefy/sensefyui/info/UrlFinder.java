@@ -29,6 +29,7 @@ public class UrlFinder {
 	   String Search_HOST=getPropertyValue("searchserverurl");
 	   String Search_Port=getPropertyValue("searchport");
 	   String Search_REST=getPropertyValue("searchrest");
+	   String webBrowser=getPropertyValue("browser");
 	   
 	 
 	   
@@ -81,6 +82,10 @@ public class UrlFinder {
 		
 	}
 	
+	public String returnBrowser()
+	{
+		return webBrowser;
+	}
 	
 	
 	private static Node getProperty(String propertyName) throws ParserConfigurationException, SAXException, IOException

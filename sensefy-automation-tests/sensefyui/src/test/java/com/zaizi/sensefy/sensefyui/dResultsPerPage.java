@@ -37,14 +37,12 @@ public class dResultsPerPage {
 	
 	private String username;
     private String password;
-    private String BrowserName;
     public String searchWord="Ephesoft Marketing";
 	
-	public dResultsPerPage(String username, String password, String BrowserName)
+	public dResultsPerPage(String username, String password)
     {
         this.username = username;
         this.password = password;
-        this.BrowserName= BrowserName;
     }
 	
 	@BeforeClass
@@ -74,7 +72,7 @@ public class dResultsPerPage {
     	{
     		int actualResults;
         	int expectedResults;
-            driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+            driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
@@ -111,7 +109,7 @@ public class dResultsPerPage {
     	{
     		int actualResults;
         	int expectedResults;
-            driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+            driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
@@ -150,7 +148,7 @@ public class dResultsPerPage {
     	{
     		int actualResults;
         	int expectedResults;
-            driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+            driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
@@ -189,7 +187,7 @@ public class dResultsPerPage {
     	{
     		int actualResults;
         	int expectedResults;
-            driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+            driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);

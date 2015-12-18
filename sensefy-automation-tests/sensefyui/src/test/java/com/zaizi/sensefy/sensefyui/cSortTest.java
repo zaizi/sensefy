@@ -30,18 +30,16 @@ public class cSortTest {
 	
 	private String username;
     private String password;
-    private String BrowserName;
     public String searchWord;
     
     public String searchTerm="//input[@id='searchTerm']";
     
     static WebDriver driver;
     
-    public cSortTest(String username, String password, String BrowserName, String searchWord)
+    public cSortTest(String username, String password, String searchWord)
     {
         this.username = username;
         this.password = password;
-        this.BrowserName= BrowserName;
         this.searchWord=searchWord;
     }
     
@@ -69,7 +67,7 @@ public class cSortTest {
     	extent.startTest("Verify SortByCreator Test");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
@@ -102,7 +100,7 @@ public class cSortTest {
     	extent.startTest("Verify SortByName Test");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
@@ -135,7 +133,7 @@ public class cSortTest {
     	extent.startTest("Verify SortByCreated Test");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
@@ -168,7 +166,7 @@ public class cSortTest {
     	extent.startTest("Verify SortByModifier Test");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
@@ -201,7 +199,7 @@ public class cSortTest {
     	extent.startTest("Verify SortByModified Test");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
@@ -234,7 +232,7 @@ public class cSortTest {
     	extent.startTest("Verify SortByRelevance Test");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
@@ -267,7 +265,7 @@ public class cSortTest {
     	extent.startTest("Verify SortByTitle Test");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);

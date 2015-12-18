@@ -43,14 +43,12 @@ public class gSearchPageTest {
 	
 	private String username;
     private String password;
-    private String BrowserName;
 
     static WebDriver driver;
-	public gSearchPageTest(String username, String password, String BrowserName)
+	public gSearchPageTest(String username, String password)
     {
         this.username = username;
         this.password = password;
-        this.BrowserName= BrowserName;
     }
 	
 	@BeforeClass
@@ -77,7 +75,7 @@ public class gSearchPageTest {
     	extent.startTest("Verify Footer Test");
         try
         {
-        	driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+        	driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);

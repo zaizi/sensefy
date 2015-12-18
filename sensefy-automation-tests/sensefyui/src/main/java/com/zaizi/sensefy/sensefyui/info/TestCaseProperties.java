@@ -38,7 +38,7 @@ public static final String BROWSER = getPropertyValue("Browser");
 /**
 * Defining Chrome driver path
 */
-public static final String CHROME_DRIVER_PATH = getPropertyValue("ChromeDriverPath");
+public static final String CHROME_DRIVER_PATH = "src/test/resources/chromedriver";
 /**
 * Defining zero result string for user search
 */
@@ -100,14 +100,16 @@ private static WebDriver driver = null;
  }
  
  //get webdriver for searchUI
- public static WebDriver getWebDriverForSearch(String BrowserName)
+ public static WebDriver getWebDriverForSearch()
  {
 	 UrlFinder un=new UrlFinder();
 	//To use without parsing URL through mvn 
 	String HOST_URL = un.searchUrlCatcher();
 	 //String HOST_URL =System.getProperty("url");
-	 System.out.println("HOST URL is: "+HOST_URL);
-	 System.out.println("NOBJECT is: "+NOBJECT);
+	 //System.out.println("HOST URL is: "+HOST_URL);
+	 //System.out.println("NOBJECT is: "+NOBJECT);
+	UrlFinder uf=new UrlFinder();
+	String BrowserName=uf.returnBrowser();
 	 
 	 if(BrowserName.equalsIgnoreCase("Firefox"))
      {

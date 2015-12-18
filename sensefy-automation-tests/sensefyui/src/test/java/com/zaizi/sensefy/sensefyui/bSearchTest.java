@@ -49,18 +49,16 @@ public class bSearchTest {
 	
 	private String username;
     private String password;
-    private String BrowserName;
     private String nodocword;
     private String didumean;
     private String closeword;
     
     static WebDriver driver;
     
-	public bSearchTest(String username, String password, String BrowserName, String nodocword, String didumean, String closeword)
+	public bSearchTest(String username, String password, String nodocword, String didumean, String closeword)
     {
         this.username = username;
         this.password = password;
-        this.BrowserName= BrowserName;
         this.nodocword=nodocword;
         this.didumean=didumean;
         this.closeword=closeword;
@@ -90,7 +88,7 @@ public class bSearchTest {
     	extent.startTest("Verify Footer Test");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
@@ -129,7 +127,7 @@ public class bSearchTest {
     	extent.startTest("Verify not exist document Test");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
@@ -168,7 +166,7 @@ public class bSearchTest {
     	extent.startTest("Verify not data source Test");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
@@ -249,7 +247,7 @@ public class bSearchTest {
     	extent.startTest("Verify sample search term Test");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
@@ -297,7 +295,7 @@ public class bSearchTest {
     	extent.startTest("Verify select sample search term Test");
     	try
     	{
-    		driver = TestCaseProperties.getWebDriverForSearch(BrowserName);
+    		driver = TestCaseProperties.getWebDriverForSearch();
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
