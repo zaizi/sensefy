@@ -36,7 +36,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
-		<mcf.version>1.8</mcf.version>
+		<mcf.version>2.3</mcf.version>
 		<tomcat.version>7.0.52</tomcat.version>
 		<wro4j.version>1.7.8</wro4j.version>
 		<packaging.type>jar</packaging.type>
