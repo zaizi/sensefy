@@ -14,6 +14,7 @@
  **/
 package org.zaizi.sensefy.api.service;
 
+import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
 import java.util.Map;
@@ -111,7 +112,10 @@ public class SearchService extends SolrService {
         {
             processAPIException(response, e, "[Keyword Based Search] Error - stacktrace follows", 500,
                     ComponentCode.SOLR);
-        }
+        } catch (IOException e) {
+        	processAPIException(response, e, "[Keyword Based Search] Error - stacktrace follows", 400,
+                    ComponentCode.SOLR);
+		}
         Long elapsedTime = System.currentTimeMillis() - startTime;
         response.setTime(elapsedTime);
 		

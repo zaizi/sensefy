@@ -11,23 +11,17 @@
 	language governing permissions and limitations under the License. -->
 
 <config>
-	<lib dir="../../../contrib/extraction/lib" regex=".*\.jar" />
-	<lib dir="../../../dist/" regex="solr-cell-\d.*\.jar" />
-	<lib dir="../../../contrib/langid/lib/" regex=".*\.jar" />
-	<lib dir="../../../dist/" regex="solr-langid-\d.*\.jar" />
-	<lib dir="../../../contrib/clustering/lib/" regex=".*\.jar" />
-	<lib dir="../../../dist/" regex="solr-clustering-\d.*\.jar" />
-	<lib dir="../../../contrib/clustering/lib/" regex="carrot2-mini-\d.*\.jar" />
-	<lib dir="../../../contrib/extraction/lib" regex=".*\.jar" />
+	<lib dir="${solr.install.dir:../../../..}/contrib/extraction/lib" regex=".*\.jar" />
+	<lib dir="${solr.install.dir:../../../..}/dist/" regex="solr-cell-\d.*\.jar" />
+	<lib dir="${solr.install.dir:../../../..}/contrib/langid/lib/" regex=".*\.jar" />
+	<lib dir="${solr.install.dir:../../../..}/dist/" regex="solr-langid-\d.*\.jar" />
+	<lib dir="${solr.install.dir:../../../..}/contrib/clustering/lib/" regex=".*\.jar" />
+	<lib dir="${solr.install.dir:../../../..}/dist/" regex="solr-clustering-\d.*\.jar" />
+	<lib dir="${solr.install.dir:../../../..}/contrib/clustering/lib/" regex="carrot2-mini-\d.*\.jar" />
+	<lib dir="${solr.install.dir:../../../..}/contrib/extraction/lib" regex=".*\.jar" />
 
-	<!-- <lib dir="../../../sensefy-instance/solr/lib/" regex=".*\.jar" /> <lib 
-		dir="../../../sensefy-instance/solr/lib/" regex="solr-cell-\d.*\.jar" /> 
-		<lib dir="../../../sensefy-instance/solr/lib/" regex=".*\.jar" /> <lib dir="/Users/mfahiz/workbench/source/sensefy/sensefy-runner/sensefy-instance/solr/lib" 
-		regex="solr-langid-\d.*\.jar" /> <lib dir="/Users/mfahiz/workbench/source/sensefy/sensefy-runner/sensefy-instance/solr/lib" 
-		regex=".*\.jar" /> <lib dir="/Users/mfahiz/workbench/source/sensefy/sensefy-runner/sensefy-instance/solr/lib" 
-		regex="solr-clustering-\d.*\.jar" /> -->
 
-	<luceneMatchVersion>4.9</luceneMatchVersion>
+	<luceneMatchVersion>5.3</luceneMatchVersion>
 
 	<dataDir>${solr.data.dir:}</dataDir>
 
@@ -171,6 +165,31 @@
 				content^0.5 description^0.5 title^1.2 name^1.2
 			</str>
 			<str name="df">content</str>
+            <!-- Highlighting defaults -->
+            <str name="hl">on</str>
+            <str name="hl.fl">title name description content</str>
+            <str name="hl.preserveMulti">true</str>
+            <str name="hl.simple.pre">&lt;b&gt;</str>
+            <str name="hl.simple.post">&lt;/b&gt;</str>
+            <!-- Title Highlighting config -->
+            <str name="f.title.hl.fragsize">0</str>
+            <str name="f.title.hl.alternateField">title</str>
+            <!-- Name Highlighting config -->
+            <str name="f.name.hl.fragsize">0</str>
+            <str name="f.name.hl.alternateField">name</str>
+            <!-- Content Highlighting config -->
+            <str name="f.content.hl.snippets">3</str>
+            <str name="f.content.hl.fragsize">200</str>
+            <str name="f.content.hl.alternateField">content</str>
+            <str name="f.content.hl.maxAlternateFieldLength">500</str>
+            <!-- Description Highlighting config -->
+            <str name="f.description.hl.snippets">1</str>
+            <str name="f.description.hl.fragsize">100</str>
+            <str name="f.description.hl.alternateField">description</str>
+            <str name="f.description.hl.maxAlternateFieldLength">200</str>
+            <!-- Author Highlighting config -->
+            <str name="f.author.hl.fragsize">0</str>
+            <str name="f.author.hl.alternateField">author</str>
 
 		</lst>
 		<lst name="appends">
@@ -185,31 +204,7 @@
 			<!-- Return the suggestion only if 100% of the suggested terms appear 
 				in the same document -->
 			<str name="spellcheck.collateParam.mm">100%</str>
-			<!-- Highlighting defaults -->
-			<str name="hl">on</str>
-			<str name="hl.fl">title name description content</str>
-			<str name="hl.preserveMulti">true</str>
-			<str name="hl.simple.pre">&lt;b&gt;</str>
-			<str name="hl.simple.post">&lt;/b&gt;</str>
-			<!-- Title Highlighting config -->
-			<str name="f.title.hl.fragsize">0</str>
-			<str name="f.title.hl.alternateField">title</str>
-			<!-- Name Highlighting config -->
-			<str name="f.name.hl.fragsize">0</str>
-			<str name="f.name.hl.alternateField">name</str>
-			<!-- Content Highlighting config -->
-			<str name="f.content.hl.snippets">3</str>
-			<str name="f.content.hl.fragsize">200</str>
-			<str name="f.content.hl.alternateField">content</str>
-			<str name="f.content.hl.maxAlternateFieldLength">500</str>
-			<!-- Description Highlighting config -->
-			<str name="f.description.hl.snippets">1</str>
-			<str name="f.description.hl.fragsize">100</str>
-			<str name="f.description.hl.alternateField">description</str>
-			<str name="f.description.hl.maxAlternateFieldLength">200</str>
-			<!-- Author Highlighting config -->
-			<str name="f.author.hl.fragsize">0</str>
-			<str name="f.author.hl.alternateField">author</str>
+			
 			<!-- Clustering config -->
 			<bool name="clustering.results">true</bool>
 			<!-- Logical field to physical field mapping. -->
@@ -219,8 +214,6 @@
 			<str name="carrot.produceSummary">true</str>
 			<str name="carrot.summarySnippets">3</str>
 			<str name="carrot.fragSize">300</str>
-
-
 		</lst>
 
 		<arr name="last-components">
@@ -373,7 +366,6 @@
 	</searchComponent>
 
 	<searchComponent name="mlt" class="solr.MoreLikeThisComponent" />
-
 
 
 	<!-- realtime get handler, guaranteed to return the latest stored fields 

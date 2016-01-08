@@ -19,10 +19,10 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
-import org.apache.solr.client.solrj.SolrServer;
-import org.apache.solr.client.solrj.impl.CloudSolrServer;
-import org.apache.solr.client.solrj.impl.ConcurrentUpdateSolrServer;
-import org.apache.solr.client.solrj.impl.HttpSolrServer;
+import org.apache.solr.client.solrj.SolrClient;
+import org.apache.solr.client.solrj.impl.CloudSolrClient;
+import org.apache.solr.client.solrj.impl.ConcurrentUpdateSolrClient;
+import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -58,7 +58,7 @@ public class SolrService {
 
 	protected static final String SOLR_ENTITY_TYPE_CORE = "entityType";
 
-	protected Map<String, SolrServer> core2SolrServer;
+	protected Map<String, SolrClient> core2SolrClient;
 
 	@Value("${sensefy.search.solr.baseendpoint}")
 	protected String solrBase;
@@ -70,7 +70,7 @@ public class SolrService {
 	protected String zkEnsemble;
 
 	public SolrService() {
-		core2SolrServer = new HashMap<>();
+		core2SolrClient = new HashMap<>();
 	}
 
 	public SolrService(String solrBase) {
@@ -79,40 +79,40 @@ public class SolrService {
 
 	/* Getter and setter */
 
-	public SolrServer getCore(String name) {
-		return this.core2SolrServer.get(name);
+	public SolrClient getCore(String name) {
+		return this.core2SolrClient.get(name);
 	}
 
-	public void setPrimaryIndexCore(SolrServer primaryIndex) {
-		this.core2SolrServer.put(SOLR_PRIMARY_CORE, primaryIndex);
+	public void setPrimaryIndexCore(SolrClient primaryIndex) {
+		this.core2SolrClient.put(SOLR_PRIMARY_CORE, primaryIndex);
 	}
 
-	public void setAnalyticsCore(SolrServer analyticsCore) {
-		this.core2SolrServer.put(SOLR_ANALYTICS_CORE, analyticsCore);
+	public void setAnalyticsCore(SolrClient analyticsCore) {
+		this.core2SolrClient.put(SOLR_ANALYTICS_CORE, analyticsCore);
 	}
 
-	public void setEntityCore(SolrServer entityCore) {
-		this.core2SolrServer.put(SOLR_ENTITY_CORE, entityCore);
+	public void setEntityCore(SolrClient entityCore) {
+		this.core2SolrClient.put(SOLR_ENTITY_CORE, entityCore);
 	}
 
-	public void setEntityTypeCore(SolrServer entityTypeCore) {
-		this.core2SolrServer.put(SOLR_ENTITY_TYPE_CORE, entityTypeCore);
+	public void setEntityTypeCore(SolrClient entityTypeCore) {
+		this.core2SolrClient.put(SOLR_ENTITY_TYPE_CORE, entityTypeCore);
 	}
 
-	public SolrServer getPrimaryIndex() {
-		return this.core2SolrServer.get(SOLR_PRIMARY_CORE);
+	public SolrClient getPrimaryIndex() {
+		return this.core2SolrClient.get(SOLR_PRIMARY_CORE);
 	}
 
-	public SolrServer getAnalyticsIndex() {
-		return this.core2SolrServer.get(SOLR_ANALYTICS_CORE);
+	public SolrClient getAnalyticsIndex() {
+		return this.core2SolrClient.get(SOLR_ANALYTICS_CORE);
 	}
 
-	public SolrServer getEntityCore() {
-		return this.core2SolrServer.get(SOLR_ENTITY_CORE);
+	public SolrClient getEntityCore() {
+		return this.core2SolrClient.get(SOLR_ENTITY_CORE);
 	}
 
-	public SolrServer getEntityTypeCore() {
-		return this.core2SolrServer.get(SOLR_ENTITY_TYPE_CORE);
+	public SolrClient getEntityTypeCore() {
+		return this.core2SolrClient.get(SOLR_ENTITY_TYPE_CORE);
 	}
 
 	public String getZkEnsemble() {
@@ -142,26 +142,26 @@ public class SolrService {
 			logger.debug("Initializing Solr AutoComplete Service...");
 		}
 		if (!solrCloudEnabled) {
-			setPrimaryIndexCore(new HttpSolrServer(solrBase + "/" + SOLR_PRIMARY_CORE));
+			setPrimaryIndexCore(new HttpSolrClient(solrBase + "/" + SOLR_PRIMARY_CORE));
 			setAnalyticsCore(
-					new ConcurrentUpdateSolrServer(solrBase + "/" + SOLR_ANALYTICS_CORE, processors, processors));
-			setEntityCore(new HttpSolrServer(solrBase + "/" + SOLR_ENTITY_CORE));
-			setEntityTypeCore(new HttpSolrServer(solrBase + "/" + SOLR_ENTITY_TYPE_CORE));
+					new ConcurrentUpdateSolrClient(solrBase + "/" + SOLR_ANALYTICS_CORE, processors, processors));
+			setEntityCore(new HttpSolrClient(solrBase + "/" + SOLR_ENTITY_CORE));
+			setEntityTypeCore(new HttpSolrClient(solrBase + "/" + SOLR_ENTITY_TYPE_CORE));
 		} else {
 			try {
-				CloudSolrServer cloudPrimaryServer = new CloudSolrServer(zkEnsemble);
+				CloudSolrClient cloudPrimaryServer = new CloudSolrClient(zkEnsemble);
 				cloudPrimaryServer.setDefaultCollection(SOLR_PRIMARY_CORE);
 				setPrimaryIndexCore(cloudPrimaryServer);
 
-				CloudSolrServer cloudAnalyticsServer = new CloudSolrServer(zkEnsemble);
+				CloudSolrClient cloudAnalyticsServer = new CloudSolrClient(zkEnsemble);
 				cloudAnalyticsServer.setDefaultCollection(SOLR_ANALYTICS_CORE);
 				setAnalyticsCore(cloudAnalyticsServer);
 
-				CloudSolrServer cloudEntityServer = new CloudSolrServer(zkEnsemble);
+				CloudSolrClient cloudEntityServer = new CloudSolrClient(zkEnsemble);
 				cloudEntityServer.setDefaultCollection(SOLR_ENTITY_CORE);
 				setEntityCore(cloudEntityServer);
 
-				CloudSolrServer cloudEntityTypesServer = new CloudSolrServer(zkEnsemble);
+				CloudSolrClient cloudEntityTypesServer = new CloudSolrClient(zkEnsemble);
 				cloudEntityTypesServer.setDefaultCollection(SOLR_ENTITY_TYPE_CORE);
 				setEntityTypeCore(cloudEntityTypesServer);
 			} catch (Exception e) {
