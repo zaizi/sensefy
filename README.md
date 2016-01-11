@@ -19,10 +19,10 @@ Sensefy consists of the following components:
 
 Sensefy uses several open-source projects under the hood. Following are the open source projects currently integrated in Sensefy:
 
-- Apache ManifoldCF 1.8 : 
+- Apache ManifoldCF 2.3 : 
     Framework for connecting to and crawling content and security policies from source repositories. ManifoldCF supports a large number of repositories. Full list of supported repositories can be found online at : http://manifoldcf.apache.org/en_US/release-documentation.html. 
 
-- Apache Solr 4.9 : Search server to index and query content. The Solr project site can be accessed here : http://lucene.apache.org/solr/
+- Apache Solr 5.3.1 : Search server to index and query content. The Solr project site can be accessed here : http://lucene.apache.org/solr/
 
 - Apache Stanbol 0.12 : 
     Semantic engine for content enhancements used by Sensefy to provide semantic search functionalities. The Stanbol project can be accessed here : http://stanbol.apache.org/
@@ -38,13 +38,36 @@ Sensefy uses several open-source projects under the hood. Following are the open
 Currently Sensefy Application is tested with Alfresco 5.0.1 Enterprise Edition as the authentication provider. Download 30 days trail of Alfresco from http://alfresco.com
 . Refer the document provided by Alfresco to install Alfresco ECM http://docs.alfresco.com/5.0/concepts/ch-install.html
 
-Build and install the following amp's to the Alfresco according to the documentation under each repository
-* alfresco-indexer : https://github.com/zaizi/alfresco-indexer
-* Alfresco Manifold : https://github.com/zaizi/sensefy-connectors
+#### Build and Apply Alfresco Indexer Webscript
+```
+1. Clone the repository alfresco-indexer : https://github.com/zaizi/alfresco-indexer
+2. Build alfresco-indexer-webscripts project 
+3. Copy alfresco-indexer-webscripts.amp file to amps directory in Alfresco
+4. Run bin/apply_amps.sh from Alfresco Installation directory to apply the amp
+```
 
-#### Build and Run All-in-one
+#### Build and Run only Sensefy Application
 
-Build Sensefy API, Sensefy UI , Sensefy Auth Server and run with ManifoldCF 1.8 and Solr 4.9 in a single maven command.
+Use the below command to run executable JAR with only Sensefy Application(Sensefy API, Sensefy UI and Sensefy Auth Server). In this you have to manually install and configure Manifold and Solr to work with Sensefy API
+
+##### Build JAR
+
+```sh 
+mvn clean install -Pbuild-frontend,war,build-jar -Dmaven.test.skip=true
+```
+
+Once the build succeeded, navigate to "sensefy-runner" and then target.  Inside the target folder there going to be a executable JAR **"sensefy-<sensefy.version}>.jar"** (Eg : sensefy-2.0.1.jar)
+java  -jar sensefy-2.0.1.jar
+
+After this execution, Sensefy URLs will be available as below:
+
+    http://localhost:9099/ : SearchUI
+    http://localhost:9099/api/ : SearchAPI
+    http://localhost:9099/auth/ : SearchAuth
+
+#### Build and Run All-in-one (Only works with Access to Zaizi Repo)
+
+Build Sensefy API, Sensefy UI , Sensefy Auth Server and run with ManifoldCF 2.3 and Solr 5.3 in a single maven command.
 
 ##### Sensefy Configuration Properties 
 Before building the Runner project, please ensure following application.properties are defined for Sensefy Auth-Server and Sensefy-API to connect to Alfresco for authentication. 
@@ -77,28 +100,6 @@ After this execution, next URLs will be available:
 * http://localhost:9099/auth/ : SearchAuth
 * http://localhost:9099/solr/#/ : Solr
 * http://localhost:9099/mcf-combined-service : ManifoldCF
-
-
-#### Build and Run only Sensefy Application
-
-Use the below command to run executable JAR with only Sensefy Application(Sensefy API, Sensefy UI and Sensefy Auth Server). In this you have to manually install and configure Manifold and Solr to work with Sensefy API
-
-##### Build JAR
-
-```sh 
-mvn clean install -Dmaven.test.skip=true
-mvn clean install -Pbuild-jar  -Dmaven.test.skip=true
-```
-
-Once the build succeeded, navigate to "sensefy-runner" and then target.  Inside the target folder there going to be a executable JAR **"sensefy-<sensefy.version}>.jar"** (Eg : sensefy-2.0.1.jar)
-java  -jar sensefy-2.0.1.jar
-
-
-After this execution, Sensefy URLs will be available as below:
-
-    http://localhost:9099/ : SearchUI
-    http://localhost:9099/api/ : SearchAPI
-    http://localhost:9099/auth/ : SearchAuth
 
 ### Run Sensefy with the pre-built binary
 
