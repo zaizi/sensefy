@@ -6,13 +6,17 @@
 	<ul>
 		<li class="group-value" ng-repeat="facetItem in facet.facetItems" ng-class="{overFacets: $index>SensefyFacetsPerGroupMin, hiddenFacet:!facetToggle}">
             <span class="entity-label" ng-click="addFilter(facetItem, facet.label)" tabindex="0">
-                <i class="file outline icon" ng-class="pickDocIcon('{{facetItem.value}}')" ng-if="facet.label !== null && facet.label==='Mimetype'"></i>
-                <i class="check icon check-icon" ng-show="isFacetSelect[facetItem.filter]"></i>
+                <span class="iconWrapper" ng-class="{iconSwitch: isFacetSelect[facetItem.filter]}">
+                    <i class="checkmark box icon"></i>
+                    <i class="check square icon"></i>
+                    <i class="file outline icon" ng-class="pickDocIcon('{{facetItem.value}}')" ng-if="facet.label !== null && facet.label==='Mimetype'"></i>
+
 
                 <!--i class="check icon check-icon check-filter"></i>
                 <i class="check icon check-icon check-filter"></i-->
 
-                <span translate="{{facetItem.value}}"></span>
+                    <span translate="{{facetItem.value}}"></span>
+                </span>
             </span>
 			<span class="badge" ng-bind="facetItem.occurrence"></span>
 		</li>
@@ -26,7 +30,7 @@
 
 
 <div class="group-facet facets" ng-show="clusters.length > 0">
-    <header>Topics</header>
+    <header translate="Topics | translate"></header>
 
     <ul>
         <li class="group-value" ng-repeat="cluster in clusters" ng-class="{overFacets: $index>SensefyFacetsPerGroupMin, hiddenFacet:!facetToggleCluster}">

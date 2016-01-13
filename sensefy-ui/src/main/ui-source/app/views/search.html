@@ -1,8 +1,8 @@
 <div class="row">
     <div class="column">
         <div class="ui inverted blue menu" id="header">
-            <img src="{{desktopLogo}}" alt="Sensefy main Logo" class="open left">
-            <img src="{{deviceLogo}}" alt="Sensefy device Logo" class="mob">
+            <img src="{{desktopLogo}}" alt="Sensefy main Logo" class="open left" ng-click="logoClick()">
+            <img src="{{deviceLogo}}" alt="Sensefy device Logo" class="mob" ng-click="logoClick()">
             <sensefy-autocomplete query-term="queryTerm" query-function="query()"></sensefy-autocomplete>
 
             <div class="right menu" id="menu">

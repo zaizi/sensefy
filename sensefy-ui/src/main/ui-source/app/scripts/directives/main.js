@@ -144,6 +144,10 @@
                                     clearTimeout(sugEntityTimeout);
                                 }, 100);
 
+                                if (CONSOLEmode) {
+                                    console.log('SmartAutocompleteService.phase1($scope.queryTerm).then(function (response) {}')
+                                }
+
                             }, function (response) {
                                 $scope.$parent.logout();
                             });

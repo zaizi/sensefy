@@ -248,6 +248,10 @@ sub, sup {
     border-top: 1px solid #b0defd;
 }
 
+.suggestions-wrapper .suggestion:last-child{
+    border-bottom: 1px solid #b0defd;
+}
+
 .suggestions-wrapper .suggestion.entity{
     border-top: none;
 }
@@ -305,9 +309,14 @@ sub, sup {
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     height: 0;
-    margin-top: -6px;
+    margin-top: -5px;
     width: 0;
     margin-left: 25px;
+    display: none;
+}
+
+.suggestions-wrapper .arrow{
+    display: block;
 }
 
 .no-suggestions li {
@@ -319,6 +328,7 @@ sub, sup {
 
 .no-suggestions {
     margin: 0;
+    margin-top: -1px !important;
 }
 
 .entity-type, .suggestion {
@@ -449,10 +459,6 @@ sub, sup {
 
 .morelessswitch {
     margin-bottom: 8px;
-}
-
-.facetspanexp {
-    cursor: pointer;
 }
 
 .overFacets {
@@ -1189,10 +1195,12 @@ i.check-icon {
     text-align: center;
     width: 100%;
     color: #3572b0;
+    cursor: pointer;
 }
 
 .facetspanexp i {
     cursor: pointer;
+    color: #fbbd08;
 }
 
 /*  search results  */
@@ -1660,4 +1668,37 @@ div[data-tree-model] li .selected {
     background-color: #aaddff;
     font-weight: bold;
     padding: 1px 5px;
+}
+
+
+.iconWrapper .checkmark{
+    opacity: .3;
+    width: 12px;
+    height: auto;
+    overflow: visible;
+    margin-right: 4px;
+    color: #fbbd08;
+}
+.iconWrapper .check{
+    width: 0;
+    height:0;
+    overflow:hidden;
+    margin-right: 0;
+}
+.iconWrapper:hover .checkmark{
+    opacity: 1;
+}
+.iconWrapper.iconSwitch .checkmark{
+    width: 0;
+    height:0;
+    overflow:hidden;
+    margin-right: 0;
+}
+.iconWrapper.iconSwitch .check{
+    width: 12px;
+    height: auto;
+    overflow: visible;
+    margin-right: 8px;
+    margin-left: -3px;
+    color: #fbbd08;
 }

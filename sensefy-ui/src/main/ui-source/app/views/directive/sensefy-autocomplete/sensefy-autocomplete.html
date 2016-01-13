@@ -23,7 +23,7 @@
                     data-info="{{suggestion}}"
                     data-sug-type="title"></li>
             </ul>
-            <ul class="entities-wrapper" ng-show="isSugEntity">
+            <ul class="entities-wrapper">
                 <!--li class="header et" translate="txtEntities"></li-->
                 <li class="entity suggestion" entity-is-available entity-data-set="{{suggestions.entities}}">
                     <div class="et-table et-wrapper">
@@ -60,7 +60,7 @@
                     </div>
                 </li>
             </ul>
-            <ul class="suggests-wrapper" ng-show="suggestions.suggestions" ng-click="autocomplete($event)">
+            <ul class="suggests-wrapper ks" ng-show="suggestions.suggestions" ng-click="autocomplete($event)">
                 <li class="header" ng-show="autocompletePhase == 'phase1'" translate="txtDocumentSuggestions"></li>
                 <li class="suggestion pe-sug-item" ng-class="{selected: suggestion.selected}"
                     ng-repeat="suggestion in suggestions.suggestions"

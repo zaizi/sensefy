@@ -150,6 +150,8 @@
                 'Modifier': 'Modifier',
                 'txtBackBtn': 'Back',
                 'txtLanguages': 'Sensefy offered in ',
+                'Topics': 'Topics',
+                'Sharpeness': 'Sharpenessd',
                 'data.moreMetadata': 'More metadata',
                 'data.size': 'Size',
                 'data.datasource': 'Datasource',
@@ -613,6 +615,8 @@
                 'Modifier': 'Modificador',
                 'txtBackBtn': 'Atrás',
                 'txtLanguages': 'Sensefy disponible en ',
+                'Topics': 'Temas',
+                'Sharpeness': 'Nitidez',
                 'data.moreMetadata': 'Más metadatos',
                 'data.size': 'Tamaño',
                 'data.datasource': 'Origen de datos',
@@ -1027,7 +1031,7 @@
                 $routeProvider.when('/login', {
                     templateUrl: 'views/login/login.html',
                     controller: 'LoginController'
-                }).when('/', {
+                }).when('/:query', {
                     templateUrl: 'views/search.html',
                     controller: 'SearchController',
                     reloadOnSearch: false,
@@ -1037,7 +1041,18 @@
                             //if ($rootScope.user !== null || $rootScope.user !== undefined) {
                             if ($rootScope.user !== null || $rootScope.user !== undefined) {
                                 deferrer = $q.defer();
-                                SemanticSearchService.search('*:*', 0, 0, "*", [], true).then(function (response) {
+
+                                var sq, query = $location.search().query;
+                                //if(query && query !== 'undefined'){
+                                //    sq = query;
+                                //}
+                                //else{
+                                sq = '*:*';
+                                //}
+                                SemanticSearchService.search(sq, 0, 0, "*", [], true).then(function (response) {
+                                    if (CONSOLEmode) {
+                                        console.log('SemanticSearchService.search(sq, 0, 0, "*", [], true).then(function (response) {}');
+                                    }
                                     return deferrer.resolve(response);
                                 }, function (response) {
                                     deferrer.reject;
