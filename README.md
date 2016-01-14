@@ -29,6 +29,10 @@ Sensefy uses several open-source projects under the hood. Following are the open
 
 ## Build and Run Sensefy
 
+You can find a detailed guide on how to build and run sensefy with all it's dependencies in the How_To_Run_Sensefy.pdf in the repository root. 
+
+You can also follow below instructions to get started with Sensefy.
+
 #####  Prerequisites
 * Java 1.8  
 * Maven 3.2 or higher
