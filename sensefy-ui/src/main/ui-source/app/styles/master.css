@@ -242,7 +242,6 @@ sub, sup {
 }
 
 .suggestions-wrapper .suggestion {
-    min-height: 10px;
     padding: 8px 15px 8px 6px;
     background-color: #fff;
     border-top: 1px solid #b0defd;
