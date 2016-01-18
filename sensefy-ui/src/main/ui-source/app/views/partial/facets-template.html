@@ -34,8 +34,13 @@
 
     <ul>
         <li class="group-value" ng-repeat="cluster in clusters" ng-class="{overFacets: $index>SensefyFacetsPerGroupMin, hiddenFacet:!facetToggleCluster}">
-            <span class="entity-label" tabindex="0" ng-click="addCluster(cluster, $index); isFacetSelectCluster[$index] = !isFacetSelectCluster[$index]">
-                <i class="check icon check-icon" ng-show="isFacetSelectCluster[$index]"></i>
+            <span class="entity-label iconWrapper" tabindex="0"
+                  ng-click="addCluster(cluster, $index); isFacetSelectCluster[$index] = !isFacetSelectCluster[$index]"
+                  ng-class="{iconSwitch: isFacetSelectCluster[$index]}">
+
+                <i class="checkmark box icon"></i>
+                    <i class="check square icon"></i>
+
                 <span translate="{{cluster.label}}"></span>
             </span>
             <span class="badge" ng-bind="cluster.size"></span>

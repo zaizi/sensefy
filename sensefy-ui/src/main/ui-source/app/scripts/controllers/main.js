@@ -732,6 +732,7 @@
                         return typeArray;
                     }
                 };
+                $scope.docFromTo = 10;
                 $scope.updateDocumentOffset = function (restoreCurrentPage) {
                     if (restoreCurrentPage == null) {
                         restoreCurrentPage = true;
@@ -743,11 +744,14 @@
                     $scope.pagerOffsetStart = ($scope.currentPage - 1) * $scope.documentsPerPage;
 
                     if($scope.pagerOffsetStart==0){
-                        $scope.pagerOffsetStart = 1
+                        $scope.docFromTo = parseInt($scope.pagerOffsetStart) + parseInt($scope.documentsPerPage);
+
+                        $scope.pagerOffsetStart = 1;
                         $scope.documentsOffsetEnd = $scope.documentsPerPage;
                     }
                     else{
                         $scope.documentsOffsetEnd = $scope.documentsOffsetStart + $scope.documentsPerPage;
+                        $scope.docFromTo = parseInt($scope.pagerOffsetStart) + parseInt($scope.documentsPerPage);
                     }
 
                     if($scope.documentsOffsetEnd <= $scope.totalDocuments){
