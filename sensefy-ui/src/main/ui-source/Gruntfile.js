@@ -58,6 +58,10 @@ module.exports = function (grunt) {
                     files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
                     tasks: ['newer:copy:styles', 'autoprefixer']
                 },
+                less:{
+                    files: ['<%= yeoman.app %>/styles/*.less'], // which files to watch
+                    tasks: ['less', 'autoprefixer']
+                },
                 gruntfile: {
                     files: ['Gruntfile.js']
                 },
@@ -107,6 +111,14 @@ module.exports = function (grunt) {
                 dist: {
                     options: {
                         base: '<%= yeoman.dist %>'
+                    }
+                }
+            },
+            //  less to css complile
+            less: {
+                test: {
+                    files: {
+                        '<%= yeoman.app %>/styles/brand.css': '<%= yeoman.app %>/styles/brand.less' // destination file and source file
                     }
                 }
             },
@@ -428,7 +440,8 @@ module.exports = function (grunt) {
             cssmin: {
                 dist: {
                     files: {
-                        '<%= yeoman.dist %>/styles/main.min.css': ['<%= yeoman.app %>/styles/{,}*.css']
+                        '<%= yeoman.dist %>/styles/main.min.css': ['<%= yeoman.app %>/styles/{,}*.css'],
+                        '<%= yeoman.dist %>/styles/brand.min.css': ['<%= yeoman.app %>/styles/brand.css']
                     }
                 }
             },
@@ -473,8 +486,14 @@ module.exports = function (grunt) {
             if (target === 'dist') {
                 return grunt.task.run(['build', 'connect:dist:keepalive']);
             }
-            grunt.task.run(['clean:server', 'bowerInstall', 'concurrent:server',
-                'autoprefixer', 'csslint:lax', 'jshint', 'connect:livereload',
+            grunt.task.run(['clean:server',
+                'bowerInstall',
+                'autoprefixer',
+                'less',
+                'csslint:lax',
+                'jshint',
+                'concurrent:server',
+                'connect:livereload',
                 'watch']);
             // ['white', 'black', 'grey', 'blue', 'cyan', 'green', 'magenta', 'red',
             // 'yellow', 'rainbow']
@@ -492,13 +511,16 @@ module.exports = function (grunt) {
             grunt.task.run([
                 'clean:server',
                 'concurrent:test',
+                'less',
                 'autoprefixer',
                 'connect:test',
                 'karma']);
         });
     grunt.registerTask('build',
         function(){
-            grunt.task.run(['clean:dist', 'bowerInstall',
+            grunt.task.run(['clean:dist',
+                'less',
+                'bowerInstall',
                 'useminPrepare',
                 'concurrent:dist',
                 'concat',

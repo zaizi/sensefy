@@ -1,0 +1,251 @@
+/*
+    #   by Sameera @ zaizi.com
+    #   for Sensefy Search
+    #   Branding css file to handle all modules out of semantic ui
+*/
+/* Variables */
+/* Mixin */
+body {
+  background-color: #fff;
+  color: #333;
+}
+a {
+  color: #3572b0;
+}
+.silver {
+  color: #e9e9e9;
+}
+.ash {
+  color: #ADADAD;
+}
+.gray {
+  color: #999;
+}
+.mgray {
+  color: #707070;
+}
+.ui.footer {
+  background-color: #222;
+}
+.leftline:after {
+  border-left: 1px solid #ccc;
+}
+#header {
+  background-color: #59afe1;
+}
+#sensefy .form {
+  background-color: #f8f8f8;
+}
+.lan-offer {
+  color: #999;
+}
+.suggestions-wrapper .header {
+  background-color: #ebf7fe;
+  border-top: 1px solid #b0defd;
+}
+.suggestions-wrapper .sub-header {
+  background-color: #ebf7fe;
+  border-top: 1px solid #b0defd;
+}
+.suggestions-wrapper .suggestion {
+  background-color: #fff;
+  border-top: 1px solid #b0defd;
+}
+.suggestions-wrapper .suggestion:last-child {
+  border-bottom: 1px solid #b0defd;
+}
+.suggestions-wrapper .entity .image {
+  background-color: #ECEFF5;
+}
+.suggestions-wrapper .entity .text,
+.suggestions-wrapper .entity .type {
+  color: #888;
+}
+.suggestions-wrapper .entity {
+  border-bottom: 1px solid #e9e9e9;
+}
+.entities-wrapper .et-value:hover,
+.suggestions-wrapper li.suggestion:hover {
+  background: #e7f6fd;
+}
+.arrow {
+  border-bottom: 5px solid #59afe1;
+}
+.no-suggestions li {
+  background-color: #FFF3EA;
+}
+.entity-type,
+.suggestion {
+  border-bottom: 1px solid #fff;
+}
+.hl {
+  color: #000;
+}
+#sensefy.ggl .prompt {
+  border: 1px solid #ccc;
+}
+.document {
+  color: #333;
+}
+.document .title b,
+.content-wrapper .content b {
+  color: #1a81db;
+}
+.entity-information {
+  background: #fff none repeat scroll 0 0;
+  border: 1px solid #ccc !important;
+  box-shadow: 0 1px 2px 0 #ccc;
+  background: #e9e9e9;
+}
+.entity-information.facets header {
+  border-bottom: 1px solid #59AFE1;
+}
+.tabular.menu a.active {
+  color: #fff;
+}
+.group-facet .group-value {
+  color: #3572b0;
+}
+.tabular.menu a span:hover {
+  color: #00b2f3;
+}
+.pagination .ui.button.active {
+  background-color: #ccc;
+  color: #333;
+}
+.pagination a {
+  color: #333;
+}
+.pagination li {
+  background-color: #f6c342;
+  color: #fff;
+  border-right: 1px solid #e9e9e9;
+}
+.pagination li.active {
+  background-color: #e9e9e9;
+  color: #222;
+}
+.tabular.menu a {
+  color: #707070;
+}
+sup.ds-value {
+  background-color: #e9e9e9;
+  border: 1px solid #e9e9e9;
+}
+#sensefy .data-sources a.active sup.ds-value {
+  color: #333;
+}
+.ui.loading.search .input > .icon.search::after {
+  border-color: #ADADAD transparent transparent;
+}
+.group-facet.facets {
+  border-bottom: 2px solid #ccc;
+}
+#sensefy .ui.tabular.menu .active.item .labelinfo {
+  color: #fff;
+}
+#sensefy .datepicker {
+  border-right: 1px solid #ccc;
+}
+i.check-icon {
+  background-color: #158A43;
+  color: #fff;
+}
+.facets li.group-value {
+  border-bottom: 1px solid #e9e9e9;
+}
+.facets li.group-value .badge {
+  color: #fff;
+  background: #84bbc6;
+}
+.facets .entity-label {
+  color: #333;
+}
+.entity-label a {
+  color: #000;
+}
+.facetspanexp {
+  color: #3572b0;
+}
+.facetspanexp i {
+  color: #fbbd08;
+}
+.document .content-wrapper .content {
+  color: #333;
+}
+.metadata {
+  color: #707070;
+}
+.moremeta {
+  color: #999;
+}
+.moremeta h6 {
+  color: #333;
+}
+.moremeta span {
+  color: #333;
+}
+#sensefy .content > .description {
+  color: #707070;
+}
+#sensefy .content.info .header {
+  color: #205081;
+}
+#sensefy .content.info .header:hover {
+  color: #00b2f3;
+}
+#sensefy .content .header {
+  color: #205081;
+}
+#sensefy .sort-by {
+  color: #333;
+}
+#sensefy .asc-dec .active {
+  color: #333;
+}
+#sensefy .footer p,
+#sensefy .footer a {
+  color: #999;
+}
+.ui.footer {
+  background-color: #222;
+}
+.entities-wrapper .et-wrapper {
+  border: 1px solid #e9e9e9;
+}
+.entities-wrapper .et-label-wrap {
+  border-bottom: 1px solid #e9e9e9;
+}
+.entities-wrapper .et-value-wrap {
+  border-left: 1px solid #e9e9e9;
+  border-bottom: 1px solid #e9e9e9;
+}
+.entities-wrapper .et-value {
+  border-bottom: 1px solid #e9e9e9;
+}
+.entities-wrapper .entity.suggestion:hover {
+  background: #fff;
+}
+.entities-wrapper .et-value .cell.info .type {
+  color: #ccc;
+}
+.bnw {
+  background: #000;
+  color: #fff;
+}
+.did-you-mean-suggestion {
+  color: #f00;
+}
+.did-you-mean-label {
+  color: #59afe1;
+}
+.suggestions-wrapper .pe-sug-item.key-hover,
+.suggestions-wrapper .pe-sug-item.selected {
+  background-color: #e7f6fd;
+}
+.iconWrapper .checkmark {
+  color: #fbbd08;
+}
+.iconWrapper.iconSwitch .check {
+  color: #fbbd08;
+}

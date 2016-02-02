@@ -1,0 +1,356 @@
+/*
+    #   by Sameera @ zaizi.com
+    #   for Sensefy Search
+    #   Branding css file to handle all modules out of semantic ui
+*/
+
+
+
+/* Variables */
+@snfyWhiteColor: #fff;
+@snfyBlack: #000;
+@snfyPrimaryCol:#59afe1;
+@snfySecondryCol:#fbbd08;
+@snfySecondryColDark:#f6c342;
+@snfyBaseFont:#333;
+@snfyDarkBlue:#205081;
+@snfyLinkColour:#3572b0;
+@snfyLinkHover:#00b2f3;
+@snfyBoldText: #1a81db;
+@snfyFacetsHeader: #59AFE1;
+@snfyLightGray:#f8f8f8;
+@snfySilver:#e9e9e9;
+@snfyAsh:#ADADAD;
+@snfyDAsh:#888;
+@snfyGray:#999;
+@snfyMgray:#707070;
+@snfyDgray:#222;
+@snfyCCC:#ccc;
+@snfyImgBg: #ECEFF5;
+@snfyRed: #f00;
+
+@snfySugBG:#ebf7fe;
+@snfySugBorder:#b0defd;
+@sbfySugHover:#e7f6fd;
+@snfyNoSugBG:#FFF3EA;
+@snfyFacetsTick:#158A43;
+@snfyBadge:#84bbc6;
+
+/* Mixin */
+.border-radius (@radius: 5px) {
+  border-radius: @radius;
+}
+
+
+
+body {
+  background-color: @snfyWhiteColor;
+  color: @snfyBaseFont;
+}
+
+a {
+  color: @snfyLinkColour;
+}
+
+.silver {
+  color: @snfySilver;
+}
+
+.ash {
+  color: @snfyAsh;
+}
+
+.gray {
+  color: @snfyGray;
+}
+
+.mgray {
+  color: @snfyMgray;
+}
+
+.ui.footer {
+  background-color: @snfyDgray;
+}
+
+.leftline:after {
+  border-left: 1px solid @snfyCCC;
+}
+
+#header {
+  background-color: @snfyPrimaryCol;
+}
+
+#sensefy .form {
+  background-color: @snfyLightGray;
+}
+
+.lan-offer {
+  color: @snfyGray;
+}
+
+.suggestions-wrapper .header {
+  background-color: @snfySugBG;
+  border-top: 1px solid @snfySugBorder;
+}
+
+.suggestions-wrapper .sub-header {
+  background-color: @snfySugBG;
+  border-top: 1px solid @snfySugBorder;
+}
+
+.suggestions-wrapper .suggestion {
+  background-color: @snfyWhiteColor;
+  border-top: 1px solid @snfySugBorder;
+}
+
+.suggestions-wrapper .suggestion:last-child{
+  border-bottom: 1px solid @snfySugBorder;
+}
+
+.suggestions-wrapper .entity .image {
+  background-color: @snfyImgBg;
+}
+
+.suggestions-wrapper .entity .text, .suggestions-wrapper .entity .type {
+  color: @snfyDAsh;
+}
+
+.suggestions-wrapper .entity {
+  border-bottom: 1px solid @snfySilver;
+}
+
+.entities-wrapper .et-value:hover, .suggestions-wrapper li.suggestion:hover{
+  background: @sbfySugHover;
+}
+
+.arrow {
+  border-bottom: 5px solid @snfyPrimaryCol;
+}
+
+.no-suggestions li {
+  background-color: @snfyNoSugBG;
+}
+
+.entity-type, .suggestion {
+  border-bottom: 1px solid @snfyWhiteColor;
+}
+
+.hl {
+  color: @snfyBlack;
+}
+
+#sensefy.ggl .prompt {
+  border: 1px solid @snfyCCC;
+}
+
+.document {
+  color: @snfyBaseFont;
+}
+
+.document .title b, .content-wrapper .content b {
+  color: @snfyBoldText;
+}
+
+.entity-information{
+  background: @snfyWhiteColor none repeat scroll 0 0;
+  border: 1px solid @snfyCCC !important;
+  box-shadow: 0 1px 2px 0 @snfyCCC;
+  background: @snfySilver;
+}
+
+.entity-information.facets header {
+  border-bottom: 1px solid @snfyFacetsHeader;
+}
+
+.tabular.menu a.active {
+  color: @snfyWhiteColor;
+}
+
+.group-facet .group-value {
+  color: @snfyLinkColour;
+}
+
+.tabular.menu a span:hover {
+  color: @snfyLinkHover;
+}
+
+.pagination .ui.button.active {
+  background-color: @snfyCCC;
+  color: @snfyBaseFont;
+}
+
+.pagination a {
+  color: @snfyBaseFont;
+}
+
+.pagination li {
+  background-color: @snfySecondryColDark;
+  color: @snfyWhiteColor;
+  border-right: 1px solid @snfySilver;
+}
+
+.pagination li.active {
+  background-color: @snfySilver;
+  color: #222;
+}
+
+.tabular.menu a {
+  color: @snfyMgray;
+}
+
+sup.ds-value {
+  background-color: @snfySilver;
+  border: 1px solid @snfySilver;
+}
+
+#sensefy .data-sources a.active sup.ds-value {
+  color: @snfyBaseFont;
+}
+
+.ui.loading.search .input > .icon.search::after{
+  border-color: @snfyAsh transparent transparent;
+}
+
+.group-facet.facets {
+  border-bottom: 2px solid @snfyCCC;
+}
+
+#sensefy .ui.tabular.menu .active.item .labelinfo {
+  color: @snfyWhiteColor;
+}
+
+#sensefy .datepicker {
+  border-right: 1px solid @snfyCCC;
+}
+
+i.check-icon {
+  background-color: #158A43;
+  color: @snfyWhiteColor;
+}
+
+.facets li.group-value {
+  border-bottom: 1px solid @snfySilver;
+}
+
+.facets li.group-value .badge {
+  color: @snfyWhiteColor;
+  background: @snfyBadge;
+}
+
+.facets .entity-label {
+  color: @snfyBaseFont;
+}
+
+.entity-label a {
+  color: @snfyBlack;
+}
+
+.facetspanexp {
+  color: @snfyLinkColour;
+}
+
+.facetspanexp i {
+  color: @snfySecondryCol;
+}
+
+.document .content-wrapper .content {
+  color: @snfyBaseFont;
+}
+
+.metadata {
+  color: @snfyMgray;
+}
+
+.moremeta {
+  color: @snfyGray;
+}
+
+.moremeta h6 {
+  color: @snfyBaseFont;
+}
+
+.moremeta span {
+  color: @snfyBaseFont;
+}
+
+#sensefy .content > .description {
+  color: @snfyMgray;
+}
+
+#sensefy .content.info .header {
+  color: @snfyDarkBlue;
+}
+
+#sensefy .content.info .header:hover {
+  color: @snfyLinkHover;
+}
+
+#sensefy .content .header {
+  color: @snfyDarkBlue;
+}
+
+#sensefy .sort-by {
+  color: @snfyBaseFont;
+}
+
+#sensefy .asc-dec .active {
+  color: @snfyBaseFont;
+}
+
+#sensefy .footer p, #sensefy .footer a {
+  color: @snfyGray;
+}
+
+.ui.footer {
+  background-color: @snfyDgray;
+}
+
+.entities-wrapper .et-wrapper{
+  border: 1px solid @snfySilver;
+}
+
+.entities-wrapper .et-label-wrap{
+  border-bottom: 1px solid @snfySilver;
+}
+
+.entities-wrapper .et-value-wrap{
+  border-left: 1px solid @snfySilver;
+  border-bottom: 1px solid @snfySilver;
+}
+
+.entities-wrapper .et-value{
+  border-bottom: 1px solid @snfySilver;
+}
+
+.entities-wrapper .entity.suggestion:hover{background: @snfyWhiteColor;}
+
+.entities-wrapper .et-value .cell.info .type{
+  color: @snfyCCC;
+}
+
+.bnw{
+  background: @snfyBlack;
+  color: @snfyWhiteColor;
+}
+
+
+.did-you-mean-suggestion {
+  color: @snfyRed;
+}
+
+.did-you-mean-label {
+  color: @snfyPrimaryCol;
+}
+
+.suggestions-wrapper .pe-sug-item.key-hover,
+.suggestions-wrapper .pe-sug-item.selected {
+  background-color: @sbfySugHover;
+}
+
+.iconWrapper .checkmark{
+  color: @snfySecondryCol;
+}
+
+.iconWrapper.iconSwitch .check{
+  color: @snfySecondryCol;
+}
