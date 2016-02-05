@@ -863,6 +863,8 @@
                         $scope.selectedEntity = response.data.searchResults.entity || $scope.selectedEntity;
                         $scope.totalDocuments = response.data.searchResults.numFound;
                         parseFacets(response.data);
+                        $scope.responsedData = response.data;
+                        initDataSources(true);
                     },
                     function (response) {
                         if(SensefySearchResponseFailedIsLogout){
