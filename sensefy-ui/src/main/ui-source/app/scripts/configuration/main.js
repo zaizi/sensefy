@@ -116,7 +116,7 @@
                 'txtDocumentTitles': 'Document titles',
                 'txtDocumentSuggestions': 'Keyword suggestions',
                 'txtNoSuggestions': 'No suggestions',
-                'txtDocumentsFound': 'Showing results {{docStart}}-{{docFromTo}} of {{documents}}.',//Showing results 1-10 of 1404.
+                'txtDocumentsFound': 'Showing results {{docStart}}-{{docFromTo}} of {{documents}}',//Showing results 1-10 of 1404.
                 'txtDocumentsCountFound': 'documents found',
                 'txtNoDocumentsFound': 'No document found.',
                 'txtDidYouMean': 'Did you mean:',
@@ -581,7 +581,7 @@
                 'txtDocumentTitles': 'Títulos de documentos',
                 'txtDocumentSuggestions': 'Keyword sugerencias',
                 'txtNoSuggestions': 'No hay sugerencias',
-                'txtDocumentsFound': 'Mostrando resultados {{docStart}}-{{docFromTo}} of {{documents}}.',
+                'txtDocumentsFound': 'Mostrando resultados {{docStart}}-{{docFromTo}} of {{documents}}',
                 'txtDocumentsCountFound': ' documentos encontrados',
                 'txtNoDocumentsFound': 'No se han encontrado documentos.',
                 'txtDidYouMean': 'Quisiste decir:',

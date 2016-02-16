@@ -51,12 +51,21 @@
                             if (($event != null ? $event.keyCode : void 0) === 13) {
 
                                 if(selectedQueryObj.type === 'title'){
+                                    if(CONSOLEmode) {
+                                        console.log('if(selectedQueryObj.type === title)');
+                                    }
                                     $scope.titleSelected(selectedQueryObj.dataSet);
                                 }
                                 else if(selectedQueryObj.type === 'suggestions'){
+                                    if(CONSOLEmode) {
+                                        console.log('if(selectedQueryObj.type === suggestions)');
+                                    }
                                     $scope.suggestionSelected(selectedQueryObj.dataSet);
                                 }
                                 else if(selectedQueryObj.type === 'entity'){
+                                    if(CONSOLEmode) {
+                                        console.log('if(selectedQueryObj.type === entity)');
+                                    }
                                     $scope.entitySelected(selectedQueryObj.dataSet);
                                 }else {
                                     $scope.queryFunction();
@@ -190,7 +199,7 @@
                         };
                         $scope.entitySelected = function (entity) {
                             if(CONSOLEmode){
-                                console.log ('$scope.entitySelected at directive 140');
+                                console.log ('$scope.entitySelected at directive 191');
                                 var a = '';
                                 if(isJSON) {
                                     a = JSON.stringify(entity);
@@ -206,6 +215,9 @@
                             $scope.$emit('entitySelected', entity);
                         };
                         $scope.entityTypeSelected = function (entityType) {
+                            if(CONSOLEmode){
+                                console.log ('$scope.entityTypeSelected');
+                            }
                             $scope.selectedEntityType = entityType;
                             $scope.selectedEntity = null;
                             $scope.suggestions = {};
@@ -215,6 +227,9 @@
                             $scope.autocomplete();
                         };
                         $scope.entityTypeAttributeSelected = function (attribute) {
+                            if(CONSOLEmode){
+                                console.log ('$scope.entityTypeAttributeSelected');
+                            }
                             $scope.selectedEntityTypeAttribute = attribute;
                             $scope.suggestions = {};
                             $scope.autocompletePhase = "phase3";
@@ -223,6 +238,9 @@
                             $scope.autocomplete();
                         };
                         $scope.entityTypeAttributeValueSelected = function (value) {
+                            if(CONSOLEmode){
+                                console.log ('$scope.entityTypeAttributeValueSelected');
+                            }
                             $scope.selectedEntityTypeAttributeValue = value;
                             $scope.suggestions = {};
                             $scope.queryTerm = "";
@@ -231,10 +249,16 @@
                             $scope.$emit("entityTypeAttributeValueSelected", $scope.selectedEntityTypeAttribute, $scope.selectedEntityTypeAttributeValue);
                         };
                         $scope.titleSelected = function (title) {
+                            if(CONSOLEmode){
+                                console.log ('$scope.titleSelected');
+                            }
                             $scope.queryTerm = title.document_suggestion;
                             $scope.$emit("titleSelected", title);
                         };
                         $scope.suggestionSelected = function (suggestion) {
+                            if(CONSOLEmode){
+                                console.log ('$scope.suggestionSelected');
+                            }
                             $scope.queryTerm = suggestion;
                             $scope.$emit("suggestionSelected", suggestion);
                         };
