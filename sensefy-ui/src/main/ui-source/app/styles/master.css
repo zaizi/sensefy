@@ -720,7 +720,7 @@ table {
     position: relative;
     padding: 0.75em 1.5em;
     margin-right: 0;
-    top: 0;
+    top: -1px;
 }
 
 

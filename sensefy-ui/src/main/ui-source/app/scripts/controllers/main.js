@@ -621,6 +621,19 @@
                         }
                         console.log('addFilter -> facetItem : '+a)
                     }
+
+                    if(CONSOLEmode){
+                        var a = '';
+                        if(isJSON) {
+                            a = JSON.stringify(facetLabel);
+                        }
+                        else{
+                            a = facetLabel;
+                        }
+                        console.log('addFilter -> facetLabel : '+a)
+                    }
+
+
                     if(CONSOLEmode){
                         var a = '';
                         if(isJSON) {
@@ -1344,7 +1357,7 @@
                 }
                 $scope.$on('$locationChangeSuccess', function (event) {
                     $scope.cleanFilters();
-                    //$scope.initialize();
+                    $scope.initialize();
                     if(CONSOLEmode){
                         console.log('$scope.$on($locationChangeSuccess, function (event) {}');
                     }
