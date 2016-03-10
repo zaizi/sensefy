@@ -164,6 +164,10 @@
                  total-items="totalDocuments"
                  current-page="currentPage"-->
             <!-- Set the carent icon when hover to result -->
+            <div class="doc-thumb">
+                <img src="images/thumb-placeholder.png" alt="doc title">
+            </div>
+
             <i class="caret right icon hover-result"></i>
             <div class="content info">
 
@@ -181,6 +185,13 @@
                 <!-- Set the file size -->
                 <span class="gray italic f-size12" ng-if="document.size" title="{{'data.size'|translate}}"
                           ng-bind="humanReadableSize(document.size)"></span>
+
+                <!-- Set the authour -->
+                <span class="gray f-size12"
+                      ng-if="document.author != null && document.author != '' && document.author.length > 0">
+                            | by <span title="{{'data.author' | translate}}" ng-bind="document.author[0]"></span>
+                        </span>
+
                 <!-- Set the file path -->
                 <div class="meta-breadcrumb channel-l italic" ng-if="document.path">
                     <p class="channel-d underline cursor-default" ng-bind="urlTruncate('{{document.path}}')"></p>
@@ -203,8 +214,8 @@
                 <div class="metadata mgray clearfix">
                     <div class="meta-info-create italic">
                         <span class="underline mgray"
-                              ng-if="document.author != null && document.author != '' && document.author.length > 0">
-                            <span title="{{'data.author' | translate}}" ng-bind="document.author[0]"></span>
+                              ng-if="document.ds_creator != null && document.ds_creator != '' && document.ds_creator.length > 0">
+                            <span title="{{'data.creator' | translate}}" ng-bind="document.ds_creator"></span>
                         </span>
                         <span ng-if="document.ds_creation_date != null && document.ds_creation_date != ''">
                             <span title="{{'data.created'|translate}}">created</span>
@@ -213,7 +224,7 @@
                                             ng-bind="dateTimeFormatter(document.ds_creation_date)"></span>
                         </span>
                     </div>
-                    <span class="mgray" ng-if="document.author != null && document.author != '' && document.author.length > 0">, &nbsp; </span>
+                    <span class="mgray" ng-if="document.ds_creator != null && document.ds_creator != '' && document.ds_creator.length > 0">, &nbsp; </span>
                     <div class="meta-info-modify italic">
                         <span ng-if="document.ds_last_modifier">
                             <span class="underline mgray" title="{{'data.modifier'|translate}}"
@@ -227,7 +238,17 @@
                     </div>
                 </div>
             </div>
+            <div class="preview-wrap">
+                <!--
+                <div class="preview-dip">
+                    <img src="images/updownarrow.png">
+                </div>
+
+                Large image
+                -->
+            </div>
         </div>
+
 
         <div class="link document no-docs-found"
              ng-show="totalDocuments == 0 && !searching">

@@ -191,6 +191,7 @@ sub, sup {
     position: absolute;
     width: 100%;
     z-index: 1000;
+    top: 34px;
 }
 
 .suggestions-wrapper li {
@@ -323,6 +324,9 @@ sub, sup {
 
 .ggl .documents {
     display: none;
+}
+.documents .link.item.document{
+    display: block;
 }
 
 .data-sources a {
@@ -688,7 +692,7 @@ table {
     width: 430px;
     margin-top: 16px;
     /*margin-left: 250px;*/
-    margin-left: 46px;
+    margin-left: auto;
 }
 
 #sensefy #search-comp {
@@ -909,9 +913,35 @@ i.icon.file {
 }
 
 .ui.items > .item > .content.info {
-    width: 70%;
+    width: 80%;
+    float: left;
 }
 
+.preview-wrap{
+    float: none;
+    clear: both;
+}
+
+.preview-dip{
+    width: 22px;
+    height: 13px;
+    overflow: hidden;
+    position: relative;
+    left: 37px;
+    top: -4px;
+    z-index: 1;
+}
+.preview-dip img{
+    height: 25px;
+    width: 25px;
+    position: absolute;
+}
+
+.ui.items > .item > .thumb-review {
+    float: none;
+    clear: both;
+    position: relative;
+}
 
 /*  facets  */
 i.check-filter {
@@ -975,6 +1005,21 @@ i.check-icon {
 
 .document .content {
     position: relative;
+}
+
+.document .doc-thumb{
+    margin-right:16px;
+    float: left;
+}
+
+.document .doc-thumb img{
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.document .doc-thumb img:hover {
+    opacity: .9;
 }
 
 .metadata {
@@ -1145,6 +1190,7 @@ and (min-device-width: 768px)
 and (max-device-width: 1024px)
 and (orientation: portrait)
     /*and (-webkit-min-device-pixel-ratio: 1)    */ {
+
 
 }
 
