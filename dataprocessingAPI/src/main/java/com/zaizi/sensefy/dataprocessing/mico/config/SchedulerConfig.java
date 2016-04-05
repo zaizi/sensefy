@@ -1,5 +1,6 @@
 package com.zaizi.sensefy.dataprocessing.mico.config;
 
+import org.quartz.JobDataMap;
 import org.quartz.JobDetail;
 import org.quartz.Trigger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,16 +11,20 @@ import org.springframework.scheduling.quartz.CronTriggerFactoryBean;
 import org.springframework.scheduling.quartz.JobDetailFactoryBean;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 
+import com.zaizi.sensefy.dataprocessing.mico.admin.MicoIndexUpdater;
 import com.zaizi.sensefy.dataprocessing.mico.admin.scheduling.CronJob;
 
 @Configuration
 public class SchedulerConfig {
 
 	@Bean
-	public JobDetailFactoryBean micoIndexUpdateJob() {
+	public JobDetailFactoryBean micoIndexUpdateJob(MicoIndexUpdater micoIndexUpdater) {
 		JobDetailFactoryBean indexUpdateJob = new JobDetailFactoryBean();
 		indexUpdateJob.setJobClass(CronJob.class);
+		JobDataMap map = new JobDataMap();
+		map.put("micoIndexUpdater", micoIndexUpdater);
         indexUpdateJob.setDurability(true);
+        indexUpdateJob.setJobDataAsMap(map);
 		return indexUpdateJob;
 	}
 
@@ -43,4 +48,9 @@ public class SchedulerConfig {
         scheduler.setSchedulerName("micoCronScheduler");
         return scheduler;
     }
+	
+	@Bean
+	public MicoIndexUpdater micoIndexUpdater(){
+		return new MicoIndexUpdater();
+	}
 }
