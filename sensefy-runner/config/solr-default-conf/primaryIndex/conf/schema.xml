@@ -62,6 +62,10 @@
   <field name="Shutter Speed Value" type="text_general" indexed="true" stored="true" />
   <field name="Subject Distance Range" type="text_general" indexed="true" stored="true" />
   <field name="Subject Distance" type="text_general" indexed="true" stored="true" />
+  
+  <!-- MICO Fields -->
+  <field name="mico_uri" type="string" indexed="false" stored="true"/>
+  <field name="is_processed_mico" type="boolean" indexed="true" stored="true" />
 
    
   <!--Type definition-->

@@ -49,7 +49,7 @@ public class AdminController {
         return this.rescheduleCronJob(cronExpression);
     }
 	
-	@RequestMapping(value = "/deletecron", method = RequestMethod.GET)
+	@RequestMapping(value = "/deletecron", method = RequestMethod.DELETE)
     @ResponseBody
     public SchedulerResponse deleteCronJob()
     {
@@ -64,6 +64,7 @@ public class AdminController {
 		try{
 			CronTriggerImpl indexUpdateTrigger = (CronTriggerImpl) scheduler.getTrigger(new TriggerKey("micocrontrigger"));
 	        indexUpdateTrigger.setCronExpression(cronExpression);
+	        scheduler.rescheduleJob(indexUpdateTrigger.getKey(), indexUpdateTrigger);
 	        // write configuration changes to properties
 	        PropertiesConfiguration props = new PropertiesConfiguration("config/application.properties");
 	        props.setProperty("mico.cron.expression", cronExpression);

@@ -1,11 +1,13 @@
 package com.zaizi.sensefy.dataprocessing.mico.admin.scheduling;
 
+import org.quartz.DisallowConcurrentExecution;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 
 import com.zaizi.sensefy.dataprocessing.mico.admin.MicoIndexUpdater;
 
+@DisallowConcurrentExecution
 public class CronJob extends QuartzJobBean{
 	
 	private MicoIndexUpdater micoIndexUpdater;
