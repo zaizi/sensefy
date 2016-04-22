@@ -33,6 +33,17 @@ public class MicoIndexUpdater {
 	private static final Logger LOG = Logger.getLogger(MicoIndexUpdater.class);
 
 	private static final String CHECK_UPDATED_QUERY = "is_processed_mico:false";
+	private static final String ID_FIELD = "id";
+	private static final String MICO_URI_FIELD = "mico_uri";
+	private static final String MICO_PROSSESED_FIELD = "is_processed_mico";
+	private static final String MIMETYPE = "mimetype";
+	private static final String DOC_IDS_FIELD = "doc_ids";
+	private static final String THUMBNAIL_FIELD = "thumbnail";
+	private static final String DESCRIPTION_FIELD = "description";
+	private static final String LATITUDE_FIELD ="lat";
+	private static final String LONGITUDE_FIELD = "long";
+	private static final String LABELS_FIELD = "label";
+	private static final String TYPE_FIELD = "type";
 
 	@Autowired
 	private SolrSearchService solrSearchService;
@@ -53,7 +64,7 @@ public class MicoIndexUpdater {
 			for (MicoItem micoItem : micoItems) {
 				
 				SolrInputDocument primaryDoc = new SolrInputDocument();
-				primaryDoc.addField("id", micoItem.getSolrId());
+				primaryDoc.addField(ID_FIELD, micoItem.getSolrId());
 				
 				List<SolrInputDocument> entityDocs;
 				
@@ -76,7 +87,7 @@ public class MicoIndexUpdater {
 				// set primary index field is_processed_mico to true
 				Map<String, Object> fieldModifier = new HashMap<String, Object>();
 				fieldModifier.put("set", true);
-				primaryDoc.addField("is_processed_mico", fieldModifier);
+				primaryDoc.addField(MICO_PROSSESED_FIELD, fieldModifier);
 				primaryIndexClient.add(primaryDoc);
 			}
 			
@@ -98,9 +109,9 @@ public class MicoIndexUpdater {
 			List<LinkedEntity> entities = queryClient.getLinkedEntities(micoItem.getMicoUri());
 			for (LinkedEntity linkedEntity : entities) {
 				SolrInputDocument entityDoc = new SolrInputDocument();
-				entityDoc.addField("id", linkedEntity.getEntityReference());
-				entityDoc.addField("doc_ids", micoItem.getSolrId());
-				entityDoc.addField("label", linkedEntity.getEntityLabel());
+				entityDoc.addField(ID_FIELD, linkedEntity.getEntityReference());
+				entityDoc.addField(DOC_IDS_FIELD, micoItem.getSolrId());
+				entityDoc.addField(LABELS_FIELD, linkedEntity.getEntityLabel());
 				ResultSet results = dbpediaQueryClient.getEntityResults(linkedEntity.getEntityReference());
 				while(results.hasNext()){
 					QuerySolution soln = results.nextSolution();
@@ -108,19 +119,19 @@ public class MicoIndexUpdater {
 					Literal literal = soln.getLiteral("?comment"); 
 					if(literal != null){
 						String description = literal.getString();
-						entityDoc.addField("description", description);
+						entityDoc.addField(DESCRIPTION_FIELD, description);
 					}
 					literal = soln.getLiteral("?lat");
 					if(literal != null){
 						String lat = literal.getString();
-						entityDoc.addField("lat", lat);
-						entityDoc.addField("long", soln.getLiteral("long").getString());
+						entityDoc.addField(LATITUDE_FIELD, lat);
+						entityDoc.addField(LONGITUDE_FIELD, soln.getLiteral("?long").getString());
 					}
 					Resource resource = soln.getResource("?depiction");
 					if(resource != null){
-						entityDoc.addField("thumbnail", resource.toString());
+						entityDoc.addField(THUMBNAIL_FIELD, resource.toString());
 					}
-					entityDoc.addField("type", Arrays.asList(types));
+					entityDoc.addField(TYPE_FIELD, Arrays.asList(types));
 					
 					break;
 				}
@@ -134,8 +145,8 @@ public class MicoIndexUpdater {
 	
 	public List<MicoItem> queryDocuments(SolrClient client, SolrQuery solrQuery) {
 		List<MicoItem> micoItems = new ArrayList<>();
-		solrQuery.setSort(SortClause.asc("id"));
-		solrQuery.set("fl", "id,mico_uri,mimetype");
+		solrQuery.setSort(SortClause.asc(ID_FIELD));
+		solrQuery.set("fl", ID_FIELD+","+MICO_URI_FIELD+","+MIMETYPE);
 		String cursorMark = CursorMarkParams.CURSOR_MARK_START;
 		try {
 			boolean done = false;
@@ -145,9 +156,9 @@ public class MicoIndexUpdater {
 				String nextCursorMark = response.getNextCursorMark();
 				List<SolrDocument> hits = response.getResults();
 				for (SolrDocument solrDocument : hits) {
-					String id = (String) solrDocument.getFieldValue("id");
-					String micoUri = (String) solrDocument.getFieldValue("mico_uri");
-					String mimetype = (String) solrDocument.getFieldValue("mimetype");
+					String id = (String) solrDocument.getFieldValue(ID_FIELD);
+					String micoUri = (String) solrDocument.getFieldValue(MICO_URI_FIELD);
+					String mimetype = (String) solrDocument.getFieldValue(MIMETYPE);
 					String[] types = mimetype.split("/");
 					String baseType = types[0];
 					MicoItem micoItem = new MicoItem();
