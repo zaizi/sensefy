@@ -8,6 +8,8 @@ import org.zaizi.mico.client.MicoClientFactory;
 import org.zaizi.mico.client.QueryClient;
 import org.zaizi.mico.client.exception.MicoClientException;
 
+import com.zaizi.sensefy.dataprocessing.mico.dbpedia.DbpediaQueryClient;
+
 @Configuration
 public class MicoConfig {
 	
@@ -21,6 +23,11 @@ public class MicoConfig {
 	@Autowired
 	public QueryClient queryClient(MicoClientFactory micoClientFactory) throws MicoClientException{
 		return micoClientFactory.createQueryServiceClient();
+	}
+	
+	@Bean
+	public DbpediaQueryClient dbpediaQueryClient(){
+		return new DbpediaQueryClient();
 	}
 
 }

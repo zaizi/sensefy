@@ -2,8 +2,15 @@ package com.zaizi.sensefy.dataprocessing.mico.admin;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.Literal;
+import org.apache.jena.rdf.model.Resource;
 import org.apache.log4j.Logger;
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
@@ -18,6 +25,7 @@ import org.zaizi.mico.client.QueryClient;
 import org.zaizi.mico.client.exception.MicoClientException;
 import org.zaizi.mico.client.model.text.LinkedEntity;
 
+import com.zaizi.sensefy.dataprocessing.mico.dbpedia.DbpediaQueryClient;
 import com.zaizi.sensefy.dataprocessing.search.service.SolrSearchService;
 
 public class MicoIndexUpdater {
@@ -31,16 +39,57 @@ public class MicoIndexUpdater {
 	
 	@Autowired
 	private QueryClient queryClient;
+	
+	@Autowired
+	private DbpediaQueryClient dbpediaQueryClient;
 
-	public void updateSolrIndex() {
-		LOG.info("Running................................");
+	public void updateSolrIndex(){
+		LOG.info("Running Indexupdate Job....");
 		SolrClient primaryIndexClient = solrSearchService.getPrimaryIndex();
-		SolrClient entityIndexClient = solrSearchService.getEntityCore();
+		SolrClient entityClient = solrSearchService.getEntityCore();
 		SolrQuery solrQuery = new SolrQuery(CHECK_UPDATED_QUERY);
 		List<MicoItem> micoItems = queryDocuments(primaryIndexClient, solrQuery);
-		for (MicoItem micoItem : micoItems) {
-			addNamedEntities(micoItem);
+		try{
+			for (MicoItem micoItem : micoItems) {
+				
+				SolrInputDocument primaryDoc = new SolrInputDocument();
+				primaryDoc.addField("id", micoItem.getSolrId());
+				
+				List<SolrInputDocument> entityDocs;
+				
+				switch (micoItem.getContentType()) {
+				case IMAGE:
+					
+					break;
+				case VIDEO:
+					entityDocs = addNamedEntities(micoItem);
+					entityClient.add(entityDocs);
+					break;
+				case TEXT:
+					entityDocs = addNamedEntities(micoItem);
+					entityClient.add(entityDocs);
+					break;
+				default:
+					break;
+				}
+				
+				// set primary index field is_processed_mico to true
+				Map<String, Object> fieldModifier = new HashMap<String, Object>();
+				fieldModifier.put("set", true);
+				primaryDoc.addField("is_processed_mico", fieldModifier);
+				primaryIndexClient.add(primaryDoc);
+			}
+			
+			primaryIndexClient.commit(true,true);
+			entityClient.commit(true,true);
+			primaryIndexClient.optimize();
+			entityClient.optimize();
+		}catch(SolrServerException e){
+			LOG.error("Solr Server Error", e);
+		} catch (IOException e) {
+			LOG.error("Solr Server Error", e);
 		}
+		
 	}
 	
 	private List<SolrInputDocument> addNamedEntities(MicoItem micoItem){
@@ -48,14 +97,41 @@ public class MicoIndexUpdater {
 		try {
 			List<LinkedEntity> entities = queryClient.getLinkedEntities(micoItem.getMicoUri());
 			for (LinkedEntity linkedEntity : entities) {
-				System.out.println(linkedEntity.getEntityMention());
+				SolrInputDocument entityDoc = new SolrInputDocument();
+				entityDoc.addField("id", linkedEntity.getEntityReference());
+				entityDoc.addField("doc_ids", micoItem.getSolrId());
+				entityDoc.addField("label", linkedEntity.getEntityLabel());
+				ResultSet results = dbpediaQueryClient.getEntityResults(linkedEntity.getEntityReference());
+				while(results.hasNext()){
+					QuerySolution soln = results.nextSolution();
+					String[] types = soln.getLiteral("?typeList").getString().split("|||");
+					Literal literal = soln.getLiteral("?comment"); 
+					if(literal != null){
+						String description = literal.getString();
+						entityDoc.addField("description", description);
+					}
+					literal = soln.getLiteral("?lat");
+					if(literal != null){
+						String lat = literal.getString();
+						entityDoc.addField("lat", lat);
+						entityDoc.addField("long", soln.getLiteral("long").getString());
+					}
+					Resource resource = soln.getResource("?depiction");
+					if(resource != null){
+						entityDoc.addField("thumbnail", resource.toString());
+					}
+					entityDoc.addField("type", Arrays.asList(types));
+					
+					break;
+				}
+				entityDocs.add(entityDoc);
 			}
 		} catch (MicoClientException e) {
 			LOG.error("Error in quering mico platform", e);
 		}
 		return entityDocs;
 	}
-
+	
 	public List<MicoItem> queryDocuments(SolrClient client, SolrQuery solrQuery) {
 		List<MicoItem> micoItems = new ArrayList<>();
 		solrQuery.setSort(SortClause.asc("id"));
