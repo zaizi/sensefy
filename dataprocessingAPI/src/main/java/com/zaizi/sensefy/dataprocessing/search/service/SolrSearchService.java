@@ -14,9 +14,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SolrSearchService {
-	
+
 	private static final Logger LOG = Logger.getLogger(SolrSearchService.class);
-	
+
 	protected static final String SOLR_PRIMARY_CORE = "primaryIndex";
 
 	protected static final String SOLR_ENTITY_CORE = "entity";
@@ -47,7 +47,7 @@ public class SolrSearchService {
 	public void setPrimaryIndexCore(SolrClient primaryIndex) {
 		this.core2SolrClient.put(SOLR_PRIMARY_CORE, primaryIndex);
 	}
-	
+
 	public void setEntityCore(SolrClient entityCore) {
 		this.core2SolrClient.put(SOLR_ENTITY_CORE, entityCore);
 	}
@@ -89,13 +89,13 @@ public class SolrSearchService {
 	 * configured here
 	 */
 	@PostConstruct
-	public void init(){
+	public void init() {
 		if (LOG.isDebugEnabled()) {
 			LOG.debug("Initializing Solr AutoComplete Service...");
 		}
 		if (!solrCloudEnabled) {
 			setPrimaryIndexCore(new HttpSolrClient(solrBase + "/" + SOLR_PRIMARY_CORE));
-			
+			setEntityCore(new HttpSolrClient(solrBase + "/" + SOLR_ENTITY_CORE));
 			setEntityTypeCore(new HttpSolrClient(solrBase + "/" + SOLR_ENTITY_TYPE_CORE));
 		} else {
 			try {

@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.zaizi.mico.client.MicoClientFactory;
 import org.zaizi.mico.client.QueryClient;
+import org.zaizi.mico.client.StatusChecker;
 import org.zaizi.mico.client.exception.MicoClientException;
 
 import com.zaizi.sensefy.dataprocessing.mico.dbpedia.DbpediaQueryClient;
@@ -28,6 +29,12 @@ public class MicoConfig {
 	@Bean
 	public DbpediaQueryClient dbpediaQueryClient(){
 		return new DbpediaQueryClient();
+	}
+	
+	@Bean
+	@Autowired
+	public StatusChecker statusChecker(MicoClientFactory micoClientFactory){
+		return micoClientFactory.createStatusChecker();
 	}
 
 }

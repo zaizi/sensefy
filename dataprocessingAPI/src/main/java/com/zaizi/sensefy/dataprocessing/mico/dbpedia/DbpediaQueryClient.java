@@ -1,10 +1,10 @@
 package com.zaizi.sensefy.dataprocessing.mico.dbpedia;
 
-import org.apache.jena.query.Query;
-import org.apache.jena.query.QueryExecutionFactory;
-import org.apache.jena.query.QueryFactory;
-import org.apache.jena.query.ResultSet;
-import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
+import com.hp.hpl.jena.query.Query;
+import com.hp.hpl.jena.query.QueryExecutionFactory;
+import com.hp.hpl.jena.query.QueryFactory;
+import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.sparql.engine.http.QueryEngineHTTP;
 
 public class DbpediaQueryClient {
 	
@@ -15,8 +15,8 @@ public class DbpediaQueryClient {
 			+ "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
 			+ "PREFIX foaf: <http://xmlns.com/foaf/0.1/>"
 			+ "PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>"
-			+ "SELECT  ?label ?depiction ?comment (GROUP_CONCAT (?type; SEPARATOR = \",\") AS ?typeList) "
-			+ "(GROUP_CONCAT (?seeAlso; SEPARATOR = \",\") AS ?seeList) ?lat ?long "
+			+ "SELECT  ?label ?depiction ?comment (GROUP_CONCAT (?type; SEPARATOR = \"###\") AS ?typeList) "
+			+ "(GROUP_CONCAT (?seeAlso; SEPARATOR = \"###\") AS ?seeList) ?lat ?long "
 			+ "WHERE "
 			+ "{ <%1$s> rdfs:label ?label;"
 			+ "rdf:type ?type;"

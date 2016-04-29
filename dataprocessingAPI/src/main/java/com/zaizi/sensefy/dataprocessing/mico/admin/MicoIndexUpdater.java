@@ -4,13 +4,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
-import org.apache.jena.query.QuerySolution;
-import org.apache.jena.query.ResultSet;
-import org.apache.jena.rdf.model.Literal;
-import org.apache.jena.rdf.model.Resource;
 import org.apache.log4j.Logger;
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
@@ -22,9 +20,15 @@ import org.apache.solr.common.SolrInputDocument;
 import org.apache.solr.common.params.CursorMarkParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.zaizi.mico.client.QueryClient;
+import org.zaizi.mico.client.StatusChecker;
 import org.zaizi.mico.client.exception.MicoClientException;
 import org.zaizi.mico.client.model.text.LinkedEntity;
+import org.zaizi.mico.client.status.impl.StatusResponse;
 
+import com.hp.hpl.jena.query.QuerySolution;
+import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.rdf.model.Literal;
+import com.hp.hpl.jena.rdf.model.Resource;
 import com.zaizi.sensefy.dataprocessing.mico.dbpedia.DbpediaQueryClient;
 import com.zaizi.sensefy.dataprocessing.search.service.SolrSearchService;
 
@@ -44,6 +48,13 @@ public class MicoIndexUpdater {
 	private static final String LONGITUDE_FIELD = "long";
 	private static final String LABELS_FIELD = "label";
 	private static final String TYPE_FIELD = "type";
+	private static final String IS_PERSON_FIELD = "is_person";
+	private static final String IS_PLACE_FIELD = "is_place";
+	private static final String IS_ORGANISATION_FIELD = "is_organization";
+	
+	private static final String IS_PLACE_ONT = "http://dbpedia.org/ontology/Place";
+	private static final String IS_PERSON_ONT = "http://dbpedia.org/ontology/Person";
+	private static final String IS_ORGANISATION_ONT = "http://dbpedia.org/ontology/Organisation";
 
 	@Autowired
 	private SolrSearchService solrSearchService;
@@ -53,6 +64,9 @@ public class MicoIndexUpdater {
 	
 	@Autowired
 	private DbpediaQueryClient dbpediaQueryClient;
+	
+	@Autowired
+	private StatusChecker statusChecker;
 
 	public void updateSolrIndex(){
 		LOG.info("Running Indexupdate Job....");
@@ -62,6 +76,14 @@ public class MicoIndexUpdater {
 		List<MicoItem> micoItems = queryDocuments(primaryIndexClient, solrQuery);
 		try{
 			for (MicoItem micoItem : micoItems) {
+				List<StatusResponse> statusResponses = statusChecker.checkItemStatus(micoItem.getMicoUri(), true);
+				if (!statusResponses.isEmpty())
+	            {
+	                StatusResponse statusResponse = statusResponses.get(0);
+	                if (!statusResponse.isFinished()){
+	                	continue;
+	                }
+	            }
 				
 				SolrInputDocument primaryDoc = new SolrInputDocument();
 				primaryDoc.addField(ID_FIELD, micoItem.getSolrId());
@@ -73,12 +95,17 @@ public class MicoIndexUpdater {
 					
 					break;
 				case VIDEO:
-					entityDocs = addNamedEntities(micoItem);
+					entityDocs = addNamedEntities(micoItem, primaryDoc);
+					if(!entityDocs.isEmpty()){
+						entityClient.add(entityDocs);
+					}
 					entityClient.add(entityDocs);
 					break;
 				case TEXT:
-					entityDocs = addNamedEntities(micoItem);
-					entityClient.add(entityDocs);
+					entityDocs = addNamedEntities(micoItem, primaryDoc);
+					if(!entityDocs.isEmpty()){
+						entityClient.add(entityDocs);
+					}
 					break;
 				default:
 					break;
@@ -99,24 +126,41 @@ public class MicoIndexUpdater {
 			LOG.error("Solr Server Error", e);
 		} catch (IOException e) {
 			LOG.error("Solr Server Error", e);
+		} catch (MicoClientException e) {
+			LOG.error("Error is checking item status in mico platform", e);
 		}
 		
 	}
 	
-	private List<SolrInputDocument> addNamedEntities(MicoItem micoItem){
+	private List<SolrInputDocument> addNamedEntities(MicoItem micoItem, SolrInputDocument primaryDoc){
 		List<SolrInputDocument> entityDocs = new ArrayList<>();
+		Set<String> smltEntities = new HashSet<>();
 		try {
 			List<LinkedEntity> entities = queryClient.getLinkedEntities(micoItem.getMicoUri());
-			for (LinkedEntity linkedEntity : entities) {
+			Set<LinkedEntity> entitySet = new HashSet<>(entities);
+			entitySet.forEach(linkedEntity -> {
 				SolrInputDocument entityDoc = new SolrInputDocument();
+				smltEntities.add(linkedEntity.getEntityReference());
 				entityDoc.addField(ID_FIELD, linkedEntity.getEntityReference());
 				entityDoc.addField(DOC_IDS_FIELD, micoItem.getSolrId());
 				entityDoc.addField(LABELS_FIELD, linkedEntity.getEntityLabel());
 				ResultSet results = dbpediaQueryClient.getEntityResults(linkedEntity.getEntityReference());
 				while(results.hasNext()){
 					QuerySolution soln = results.nextSolution();
-					String[] types = soln.getLiteral("?typeList").getString().split("|||");
-					Literal literal = soln.getLiteral("?comment"); 
+					Literal literal = null;
+					String[] types = null;
+					if(soln.get("?typeList").isLiteral()){
+						types = soln.getLiteral("?typeList").getString().split("###");
+					}
+					if(soln.get("?typeList").isResource()){
+						types = soln.getResource("?typeList").toString().split("###");
+					}
+					List<String> typesList = Arrays.asList(types);
+					Set<String> typesSet = new HashSet<>(typesList);
+					
+					if(soln.get("?comment").isLiteral()){
+						literal = soln.getLiteral("?comment"); 
+					}
 					if(literal != null){
 						String description = literal.getString();
 						entityDoc.addField(DESCRIPTION_FIELD, description);
@@ -131,12 +175,22 @@ public class MicoIndexUpdater {
 					if(resource != null){
 						entityDoc.addField(THUMBNAIL_FIELD, resource.toString());
 					}
-					entityDoc.addField(TYPE_FIELD, Arrays.asList(types));
+					entityDoc.addField(TYPE_FIELD, typesList);
+					if(typesSet.contains(IS_PERSON_ONT)){
+						entityDoc.addField(IS_PERSON_FIELD, true);
+					}
+					else if(typesSet.contains(IS_PLACE_ONT)){
+						entityDoc.addField(IS_PLACE_FIELD, true);
+					}
+					else if(typesSet.contains(IS_ORGANISATION_ONT)){
+						entityDoc.addField(IS_ORGANISATION_FIELD, true);
+					}
 					
 					break;
 				}
 				entityDocs.add(entityDoc);
-			}
+			});
+			primaryDoc.addField("smlt_entities", smltEntities);
 		} catch (MicoClientException e) {
 			LOG.error("Error in quering mico platform", e);
 		}
