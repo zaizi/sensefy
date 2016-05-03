@@ -66,7 +66,12 @@
   <!-- MICO Fields -->
   <field name="mico_uri" type="string" indexed="false" stored="true"/>
   <field name="is_processed_mico" type="boolean" indexed="true" stored="true" />
-
+  
+  <field name="sift" type="text_ws" indexed="false" stored="true" />
+  <field name="image_status" type="string" indexed="true" stored="true" />
+  <field name="bovw" type="text_ws" indexed="true" stored="true" />
+  <field name="color_text" type="text_ws" indexed="true" stored="true" />
+  <field name="is_image" type="boolean" indexed="true" stored="true" />
    
   <!--Type definition-->
   <fieldType name="geolocation" class="solr.LatLonType" sortMissingLast="true" subFieldSuffix="_coordinate"/>
@@ -232,6 +237,12 @@
         <tokenizer class="solr.StandardTokenizerFactory"/>
         <filter class="solr.LowerCaseFilterFactory"/>
       </analyzer>
+    </fieldType>
+    
+    <fieldType name="text_ws" class="solr.TextField" positionIncrementGap="100">
+        <analyzer>
+            <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+        </analyzer>
     </fieldType>
     
     <fieldType name="text_en_suggest" class="solr.TextField" positionIncrementGap="100">
