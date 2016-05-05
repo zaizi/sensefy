@@ -30,6 +30,10 @@ public class UrlFinder {
 	   String Search_Port=getPropertyValue("searchport");
 	   String Search_REST=getPropertyValue("searchrest");
 	   String webBrowser=getPropertyValue("browser");
+	   String Alfresco_Path=getPropertyValue("alfrescopath");
+	   String ManifoldCF_Path = getPropertyValue("manifoldpath");
+	   String Sensefy_LocalHostPath = getPropertyValue("sensefylocalhost");
+
 	   
 	 
 	   
@@ -87,6 +91,23 @@ public class UrlFinder {
 		return webBrowser;
 	}
 	
+	public String returnAlfresco()
+	{
+		System.out.println(Alfresco_Path);
+		return Alfresco_Path;
+	}
+	
+	public String returnManifold()
+	{
+		System.out.println(ManifoldCF_Path);
+		return ManifoldCF_Path;
+	}
+	
+	public String returnSensefyLocalhost()
+	{
+		System.out.println(Sensefy_LocalHostPath);
+		return Sensefy_LocalHostPath;
+	}
 	
 	private static Node getProperty(String propertyName) throws ParserConfigurationException, SAXException, IOException
 	 {

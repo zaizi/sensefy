@@ -92,11 +92,14 @@ public class bSearchTest {
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
+            
             loginPage.checkElementPresent(searchTerm);
             Thread.sleep(2000);
+            
             SearchPage searchPage=new SearchPage(driver);
             searchPage.searchATerm(searchWord);
             Thread.sleep(5000);
+            
             WebElement searchResult=driver.findElement(By.xpath(showResult));
             if(searchResult.getText().equalsIgnoreCase(searchWord))
             {
@@ -119,7 +122,7 @@ public class bSearchTest {
     	LOGGER.info("---------------------------");
     }
 	
-	//Search a documnet which not exist in data source
+	//Search a document which not exist in data source
 	@Test
     public void b_zeropsearch() throws InterruptedException
     {
@@ -131,11 +134,14 @@ public class bSearchTest {
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
+            
             loginPage.checkElementPresent(searchTerm);
             Thread.sleep(2000);
+            
             SearchPage searchPage=new SearchPage(driver);
             searchPage.searchATerm(nodocword);
             Thread.sleep(5000);
+            
             WebElement searchResult=driver.findElement(By.xpath(nodoc));
             if(searchResult.getText().equals(noDocFound))
             {
@@ -239,7 +245,7 @@ public class bSearchTest {
     	LOGGER.info("---------------------------");
     }
 	
-    //verify sample test terms scenario
+/*    //verify sample test terms scenario
 	@Test
     public void d_didumean() throws InterruptedException
     {
@@ -338,7 +344,7 @@ public class bSearchTest {
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
     }
-    
+    */
     
 
 }
