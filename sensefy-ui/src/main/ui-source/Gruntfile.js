@@ -41,7 +41,7 @@ module.exports = function (grunt) {
             yeoman: {
                 // configurable paths
                 app: require('./bower.json').appPath || 'app',
-                dist: 'dist'
+                dist: ../resources/static'
             },
             // Watches files for changes and runs tasks based on the changed
             // files
@@ -208,6 +208,7 @@ module.exports = function (grunt) {
                             '!<%= yeoman.dist %>/.git*']
                     }]
                 },
+                options: { force: true },
                 server: '<%= yeoman.app %>/assets'
             },
             // Add vendor prefixed styles
