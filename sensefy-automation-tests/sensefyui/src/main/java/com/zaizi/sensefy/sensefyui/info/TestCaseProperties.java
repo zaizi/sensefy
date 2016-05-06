@@ -78,16 +78,16 @@ public class TestCaseProperties
 	   /**
 		 * Defining IE driver path
 		 */
-		public static final String IE_DRIVER_PATH = getPropertyValue("IEDriverPath");
+		//public static final String IE_DRIVER_PATH = getPropertyValue("IEDriverPath");
 		
 		/**
 		 * Defining nodeURL
 		 */
-		public static final String NODEURL = getPropertyValue("NodeURL");
+		//public static final String NODEURL = getPropertyValue("NodeURL");
 		/**
 		 * Defining nodeURL
 		 */
-		public static final String DRIVERTYPE = getPropertyValue("DriverType");
+		//public static final String DRIVERTYPE = getPropertyValue("DriverType");
 	   
 //	   /**
 //	    * alfresco path

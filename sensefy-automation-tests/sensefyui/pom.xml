@@ -25,9 +25,9 @@
     <!-- <admin>${loginUrl}</admin>
     <search>localhost</search> -->
     <jstname>${loginUrl}</jstname>
-    <browser>Firefox</browser>
-    <alfrescopath>http://192.168.1.72:8080/share/page/</alfrescopath>
-    <!-- <alfrescopath>http://sensefyqa.zaizicloud.net/share/page/<alfrescopath> -->
+    <browser>Chrome</browser>
+    <!-- <alfrescopath>http://192.168.1.72:8080/share/page/</alfrescopath>  -->
+    <alfrescopath>http://sensefyqa.zaizicloud.net/share/page/</alfrescopath>
     <manifoldpath>http://192.168.1.72:8345/mcf-crawler-ui/login.jsp</manifoldpath>
     <sensefylocalhost>http://192.168.1.72:9099</sensefylocalhost>
   </properties>

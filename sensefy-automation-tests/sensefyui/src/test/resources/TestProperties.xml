@@ -3,12 +3,12 @@
 <TestProperties>
 	<TestProperty>
 		<Browser>Chrome</Browser>
-		<ChromeDriverPath>WebDrivers/chromedriver</ChromeDriverPath>
+		<ChromeDriverPath>./drivers/chromedriver/</ChromeDriverPath>
 		<FoundZeroResultsString>found 0 results.</FoundZeroResultsString>
 		<FoundZeroSitesString>0 result(s) found in all sites.</FoundZeroSitesString>
 		<ReportPath>/Users/ljayasinghe/Desktop/</ReportPath>
 		<UploadPath>/Users/ljayasinghe/Documents/</UploadPath>
-		<DriverType>SeleniumGrid</DriverType>
+		<!-- <DriverType>SeleniumGrid</DriverType> -->
 		</TestProperty>
 </TestProperties>
 

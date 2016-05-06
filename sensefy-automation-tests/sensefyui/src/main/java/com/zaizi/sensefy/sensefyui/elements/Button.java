@@ -16,4 +16,9 @@ public class Button extends Element{
 		getElement().click();
 	}
 
+	public void sendKeys(String absolutePath) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -72,4 +72,15 @@
 			<screen_shot>SearchTest</screen_shot>
 		</test>
 	</jPrivateSiteDocuments>
+	<kMediaSearch>
+		<test>
+			<username1>admin</username1>
+			<password1>ulibranxi</password1>
+			<username2>admin</username2>
+			<password2>admin</password2>
+			<sitename>QASite</sitename>
+			<videoname>video1&#46;mp4</videoname>
+			<screenshot_name>VideoTest</screenshot_name>
+		</test>
+	</kMediaSearch>
 </TestData>
