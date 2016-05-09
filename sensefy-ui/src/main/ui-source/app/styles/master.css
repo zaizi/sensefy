@@ -1010,11 +1010,12 @@ i.check-icon {
 .document .doc-thumb{
     margin-right:16px;
     float: left;
+    width: 100px;
 }
 
 .document .doc-thumb img{
-    width: 100px;
-    height: 100px;
+    width: auto;
+    height: auto;
     overflow: hidden;
     cursor: pointer;
 }
