@@ -25,7 +25,7 @@
     <!-- <admin>${loginUrl}</admin>
     <search>localhost</search> -->
     <jstname>${loginUrl}</jstname>
-    <browser>Chrome</browser>
+    <browser>Firefox</browser>
     <!-- <alfrescopath>http://192.168.1.72:8080/share/page/</alfrescopath>  -->
     <alfrescopath>http://sensefyqa.zaizicloud.net/share/page/</alfrescopath>
     <manifoldpath>http://192.168.1.72:8345/mcf-crawler-ui/login.jsp</manifoldpath>
@@ -39,10 +39,11 @@
 	<version>4.12</version>
 	</dependency>
     <dependency>
-		<groupId>org.seleniumhq.selenium</groupId>
-		<artifactId>selenium-java</artifactId>
-		<version>2.47.1</version>
-	</dependency>
+	<groupId>org.seleniumhq.selenium</groupId>
+	<artifactId>selenium-java</artifactId>
+	<version>2.52.0</version>
+</dependency>
+
 	<!--
 	<dependency>
 		<groupId>org.seleniumhq.selenium</groupId>
@@ -53,8 +54,9 @@
 	<dependency>
 	<groupId>org.seleniumhq.selenium</groupId>
 	<artifactId>selenium-firefox-driver</artifactId>
-	<version>2.48.2</version>
-	</dependency>
+	<version>2.52.0</version>
+</dependency>
+
 	<dependency>
 		<groupId>org.seleniumhq.selenium</groupId>
 		<artifactId>selenium-chrome-driver</artifactId>

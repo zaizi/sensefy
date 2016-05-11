@@ -43,6 +43,20 @@ public class AlfrescoPage
 		System.out.println("Navigated to the Sites Finder >>>>>>>>>>>>>>>>>>");
 	}
 	
+	public void navigateToFavoriteQA() throws InterruptedException
+	{
+		Button sites = new Button(driver, By.xpath("//span[@id='HEADER_SITES_MENU_text']"));
+		sites.Click();
+		
+		Button favourites = new Button(driver, By.xpath("//td[@id='HEADER_SITES_MENU_FAVOURITES_text']"));
+		favourites.Click();
+		
+		Thread.sleep(3000);
+		
+		Button QASite = new Button(driver, By.xpath("//tr[@id='HEADER_SITES_MENU_FAVOURITE_qasite']//a"));
+		QASite.Click();		
+	}
+	
 	public void searchforSite(String siteName) throws InterruptedException
 	{
 		TextField sitename = new TextField(driver, By.xpath("//input[@id='template_x002e_site-finder_x002e_site-finder_x0023_default-term']"));
@@ -65,7 +79,7 @@ public class AlfrescoPage
 	}
 	
 	//------------------------------------------------------------------------
-	public void uploadDocument(String documentName) throws InterruptedException, URISyntaxException
+	public void uploadDocument(String uploadDocument) throws InterruptedException, URISyntaxException
 	{
 		try
 		{
@@ -81,7 +95,7 @@ public class AlfrescoPage
 			((RemoteWebElement) El1 ).setFileDetector(new LocalFileDetector()); 
 			Thread.sleep(3000);
 			System.out.println("3333");
-			El1.sendKeys("/Users/ljayasinghe/Documents/FileA.rtf");
+			El1.sendKeys("/Users/ljayasinghe/Documents/"+uploadDocument);
 			System.out.println("4444");
 			//TestCaseProperties.closeDriver(driver);
 		}
@@ -90,6 +104,43 @@ public class AlfrescoPage
 			System.out.println("Failed");
 		}
 		
+	}
+	
+	
+	public void uploadVideo(String videoname)
+	{
+		try
+		{
+			Button uploadButton = new Button(driver, By.id("template_x002e_documentlist_v2_x002e_documentlibrary_x0023_default-fileUpload-button-button"));
+			uploadButton.Click();
+			
+			Button selectfile = new Button(driver, By.xpath("//span[@id='template_x002e_dnd-upload_x002e_documentlibrary_x0023_default-file-selection-button-overlay']//span"));
+			selectfile.Click();
+			Thread.sleep(3000);
+			
+			System.out.println("1111");
+        
+			WebElement El1 = driver.findElement(By.xpath("//span//input[@class='dnd-file-selection-button']"));
+		
+			File file = null;
+	        try
+	        {
+	            file = new File(AlfrescoPage.class.getClassLoader().getResource(videoname).toURI());
+	        } 
+	        catch (URISyntaxException e) 
+	        {
+	            e.printStackTrace();
+	        }
+	        Assert.assertTrue(file.exists());
+	        WebElement browseButton = driver.findElement(By.xpath("//span//input[@class='dnd-file-selection-button']"));
+	        browseButton.sendKeys(file.getAbsolutePath());
+	        Element.waitForLoad(driver);
+   
+		}
+		catch(Exception e)
+		{
+			System.out.println("Failed");
+		}
 	}
 		
 	//----------------------------------------------------------------------------------
