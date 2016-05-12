@@ -51,6 +51,7 @@ public class MicoIndexUpdater {
 	private static final String IS_PERSON_FIELD = "is_person";
 	private static final String IS_PLACE_FIELD = "is_place";
 	private static final String IS_ORGANISATION_FIELD = "is_organization";
+	private static final String IS_OTHER_FIELD = "is_other";
 	
 	private static final String IS_PLACE_ONT = "http://dbpedia.org/ontology/Place";
 	private static final String IS_PERSON_ONT = "http://dbpedia.org/ontology/Person";
@@ -99,7 +100,6 @@ public class MicoIndexUpdater {
 					if(!entityDocs.isEmpty()){
 						entityClient.add(entityDocs);
 					}
-					entityClient.add(entityDocs);
 					break;
 				case TEXT:
 					entityDocs = addNamedEntities(micoItem, primaryDoc);
@@ -185,6 +185,9 @@ public class MicoIndexUpdater {
 					else if(typesSet.contains(IS_ORGANISATION_ONT)){
 						entityDoc.addField(IS_ORGANISATION_FIELD, true);
 					}
+					else{
+						entityDoc.addField(IS_OTHER_FIELD, true);
+					}
 					
 					break;
 				}
@@ -213,6 +216,9 @@ public class MicoIndexUpdater {
 					String id = (String) solrDocument.getFieldValue(ID_FIELD);
 					String micoUri = (String) solrDocument.getFieldValue(MICO_URI_FIELD);
 					String mimetype = (String) solrDocument.getFieldValue(MIMETYPE);
+					if(mimetype == null){
+						mimetype = "";
+					}
 					String[] types = mimetype.split("/");
 					String baseType = types[0];
 					MicoItem micoItem = new MicoItem();
