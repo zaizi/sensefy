@@ -88,6 +88,63 @@ public class TestCaseValues {
                     bar[k] = foo;
                     System.out.println("Values Loaded - FacetTest");
                 }
+                else if(("hUploadandSearch").equals(testCaseName))
+                {
+                	Object[] foo = { getValue("username", valueElement), 
+                						getValue("password", valueElement),
+                						getValue("site_name", valueElement),
+                						getValue("document_name", valueElement),
+                						getValue("screenshot_name", valueElement)
+                    						};
+                	
+                	bar[k]=foo;
+                	System.out.println("Values Loaded - Alfresco / Manifold");                	
+                }
+                else if(("iTestUpload").equals(testCaseName))
+                {
+                	Object[] foo = { getValue("username", valueElement), 
+                						getValue("password", valueElement),
+                						getValue("site_name", valueElement),
+                						getValue("uploadDocument", valueElement),
+                						};
+                	
+                	bar[k]=foo;
+                	System.out.println("Values Loaded - Alfresco - File Upload");                	
+                }
+                else if(("jPrivateSiteDocuments").equals(testCaseName))
+                {
+                	Object[] foo = { getValue("username", valueElement), 
+                						getValue("password", valueElement),
+                						getValue("userA", valueElement),
+                						getValue("emailA", valueElement),
+                						getValue("usernameA", valueElement), 
+                						getValue("passwordA", valueElement),
+                						getValue("userB", valueElement),
+                						getValue("emailB", valueElement),
+                						getValue("usernameB", valueElement), 
+                						getValue("passwordB", valueElement),
+                						getValue("privateSiteName", valueElement),
+                						getValue("documentName", valueElement),
+                						getValue("screen_shot", valueElement), 
+                	};
+                	
+                	bar[k]=foo;
+                	System.out.println("Values Loaded - Alfresco - File Upload");                	
+                }
+                else if(("kMediaSearch").equals(testCaseName))
+                {
+                	Object[] foo = { getValue("username1", valueElement), 
+                						getValue("password1", valueElement),
+                						getValue("username2", valueElement), 
+                						getValue("password2", valueElement),
+                						getValue("sitename", valueElement),
+                						getValue("videoname", valueElement),
+                						getValue("screenshot_name", valueElement), 
+                	};
+                	
+                	bar[k]=foo;
+                	System.out.println("Values Loaded - Alfresco - Video Upload");                	
+                }
                 k++;
             }
         }

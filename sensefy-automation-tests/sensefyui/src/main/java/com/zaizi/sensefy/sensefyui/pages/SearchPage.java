@@ -316,4 +316,21 @@ private static final Logger LOGGER = LogManager.getLogger(SearchLogin.class);
     	driver.findElement(By.xpath(topicType)).click();
     }
     
+    //---------
+    public void searchforSite(String siteName)
+	{
+		
+		Button sites = new Button(driver, By.xpath("//span[@id='HEADER_SITES_MENU_text']"));
+		sites.Click();
+		Button siteFinder = new Button(driver, By.xpath("//td[@id='HEADER_SITES_MENU_SITE_FINDER_text']//a"));
+		siteFinder.Click();
+		TextField sitename = new TextField(driver, By.xpath("//input[@id='template_x002e_site-finder_x002e_site-finder_x0023_default-term']"));
+		sitename.enterText(siteName);
+		Button sitesearchbutton = new Button(driver, By.xpath("//button[@id='template_x002e_site-finder_x002e_site-finder_x0023_default-button-button']"));
+		sitesearchbutton.Click();
+		Button foundsite = new Button(driver, By.xpath("//h3//a[contains(.,'"+siteName+"')]"));
+		foundsite.Click();
+		
+	}
+    
 }

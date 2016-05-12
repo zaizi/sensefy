@@ -7,7 +7,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.apache.commons.collections.set.SynchronizedSet;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.After;
@@ -34,13 +33,14 @@ import com.zaizi.sensefy.sensefyui.pages.SearchLogin;
 @RunWith(value = Parameterized.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-public class aLoginTest {
+public class aLoginTest 
+{
 	public static final Logger LOGGER = LogManager.getLogger(aLoginTest.class.getName());
 	
 	public static final ExtentReports extent = ExtentReports.get(aLoginTest.class);
 	private static final String TEST_CASE_PROPERTIES_XML = "pom.xml";
 	private String loginURL="http://sensefyqa.zaizicloud.net/auth/login";
-
+	//private String loginURL="http://192.168.1.72:9099/auth/login";
 	
 	private String username;
     private String password;
@@ -83,10 +83,18 @@ public class aLoginTest {
     	try
     	{
     		extent.startTest("Verify SensefyURL");
-            System.out.println("Running Test for Sensefy URL");
+            
+    		System.out.println("Running Test for Sensefy URL");
+            
             driver = TestCaseProperties.getWebDriverForSearch();
+            
+            String currentUrl = driver.getCurrentUrl().toString();
+            
+            System.out.println(currentUrl);
+            
             if(driver.getCurrentUrl().equals(loginURL))
             {
+            	LOGGER.info("Current URL : "+driver.getCurrentUrl().toString());
         		LOGGER.info("SensefyURL Verified Successfully");
         		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "SensefyURL Verified Successfully");
         		extent.log(LogStatus.PASS, "SensefyURL Verified Successfully");
@@ -104,9 +112,9 @@ public class aLoginTest {
     	}
     	
     }
-    
+   
     //Valid login scenario
-    @Test
+   @Test
     public void b_validLog() throws InterruptedException
     {
     	LOGGER.info("Running Verify Valid logging Test");
@@ -117,6 +125,7 @@ public class aLoginTest {
             SearchLogin loginPage = new SearchLogin(driver);
             loginPage.searchuiLogin(username, password);
             Thread.sleep(2000);
+            
             loginPage.checkElementPresent(searchTerm);
             LOGGER.info("Valid logging Verified Successfully");
     		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "Valid logging Verified Successfully");
@@ -190,7 +199,7 @@ public class aLoginTest {
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
     }
-    
+   
     //Loging out scenario
     @Test
     public void e_loginout() throws InterruptedException
@@ -217,13 +226,13 @@ public class aLoginTest {
     	LOGGER.info("---------------------------");
     }
     
-    
+  
     @After
     public void Teardown() {
         driver.quit();
        
     }
-    
+   
     
     private static Node getProperty(String propertyName) throws ParserConfigurationException, SAXException, IOException
 	 {

@@ -10,4 +10,9 @@ public class Span extends Element {
 		// TODO Auto-generated constructor stub
 	}
 
+	public void Click() {
+		// TODO Auto-generated method stub
+		getElement().click();
+	}
+
 }

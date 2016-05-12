@@ -1,0 +1,232 @@
+2016-05-06  11:58:48.517 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  12:02:01.883 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  12:10:51.720 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  13:47:37.322 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  13:56:09.690 [main] INFO  com.zaizi.sensefy.sensefyui.hUploadandSearch - Preparing For hUploadandSearch ...
+2016-05-06  13:59:49.161 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  14:07:50.195 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  14:08:49.501 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  14:15:35.890 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  14:25:44.360 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  14:25:44.675 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-06  14:25:44.680 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-06  14:31:31.483 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  14:32:45.939 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ***Sensefy Automation Test Started***
+2016-05-06  14:32:45.942 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Preparing For LoginTest ...
+2016-05-06  14:32:46.023 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify SensefyURL Test
+2016-05-06  14:32:46.057 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Valid logging Test
+2016-05-06  14:32:46.067 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify empty logging Test
+2016-05-06  14:32:46.072 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Invalid logging Test
+2016-05-06  14:32:46.077 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Logingout Test
+2016-05-06  14:33:09.164 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ***Sensefy Automation Test Started***
+2016-05-06  14:33:09.167 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Preparing For LoginTest ...
+2016-05-06  14:33:09.245 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify SensefyURL Test
+2016-05-06  14:33:09.275 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Valid logging Test
+2016-05-06  14:33:09.288 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify empty logging Test
+2016-05-06  14:33:09.294 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Invalid logging Test
+2016-05-06  14:33:09.301 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Logingout Test
+2016-05-06  14:38:17.267 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  14:50:10.059 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  14:52:04.978 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  14:52:04.998 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-06  14:52:04.998 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-06  15:19:18.388 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ***Sensefy Automation Test Started***
+2016-05-06  15:19:18.416 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Preparing For LoginTest ...
+2016-05-06  15:19:18.567 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify SensefyURL Test
+2016-05-06  15:19:18.697 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Valid logging Test
+2016-05-06  15:19:18.708 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify empty logging Test
+2016-05-06  15:19:18.715 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Invalid logging Test
+2016-05-06  15:19:18.720 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Logingout Test
+2016-05-06  15:37:32.265 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ***Sensefy Automation Test Started***
+2016-05-06  15:37:32.267 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Preparing For LoginTest ...
+2016-05-06  15:37:32.373 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify SensefyURL Test
+2016-05-06  15:38:20.717 [main] ERROR com.zaizi.sensefy.sensefyui.aLoginTest - SensefyURL Verification Failed
+2016-05-06  15:38:20.723 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Valid logging Test
+2016-05-06  15:39:06.366 [main] ERROR com.zaizi.sensefy.sensefyui.aLoginTest - Valid logging Verification Failed
+2016-05-06  15:39:06.381 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify empty logging Test
+2016-05-06  15:39:51.745 [main] ERROR com.zaizi.sensefy.sensefyui.aLoginTest - empty logging Verification Failed
+2016-05-06  15:39:51.749 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Invalid logging Test
+2016-05-06  15:40:00.279 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  15:40:00.935 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-06  15:40:00.942 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-06  15:40:37.085 [main] ERROR com.zaizi.sensefy.sensefyui.aLoginTest - Invalid logging Verification Failed
+2016-05-06  15:40:37.087 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Logingout Test
+2016-05-06  15:40:47.932 [main] ERROR com.zaizi.sensefy.sensefyui.kMediaSearch - UnSuccessfull - Login Failed
+2016-05-06  15:41:22.340 [main] ERROR com.zaizi.sensefy.sensefyui.aLoginTest - Logingout Verification Failed
+2016-05-06  15:47:35.367 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  15:47:35.499 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-06  15:47:35.505 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-06  15:47:57.754 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-06  15:51:03.636 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  15:51:03.742 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-06  15:51:03.747 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-06  15:51:36.496 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-06  15:51:36.570 [main] ERROR com.zaizi.sensefy.sensefyui.kMediaSearch - UnSuccessfull - Login Failed
+2016-05-06  15:51:51.025 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  15:51:51.138 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-06  15:51:51.143 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-06  15:52:27.728 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-06  16:38:26.996 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  16:38:27.141 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-06  16:38:27.146 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-06  16:39:05.479 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-06  16:39:05.941 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Document to Alfresco
+2016-05-06  16:39:05.963 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-06  16:39:06.110 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Logout From Alfresco
+2016-05-06  16:40:39.343 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-06  16:40:39.470 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-06  16:40:39.474 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-06  16:41:15.019 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-06  16:41:15.505 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Document to Alfresco
+2016-05-06  16:41:15.589 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-06  16:41:15.700 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Logout From Alfresco
+2016-05-09  10:06:36.770 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-09  10:06:36.924 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-09  10:06:36.964 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-09  10:07:17.444 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-09  10:07:17.881 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Document to Alfresco
+2016-05-09  10:07:17.886 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-09  10:07:18.011 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Logout From Alfresco
+2016-05-09  11:50:02.257 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-09  11:50:02.347 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-09  11:50:02.351 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-09  11:50:51.864 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-09  11:50:52.200 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Document to Alfresco
+2016-05-09  11:50:52.210 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-09  11:50:52.320 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Logout From Alfresco
+2016-05-10  09:59:48.193 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-10  09:59:48.415 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-10  09:59:48.418 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-10  10:00:30.497 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-10  10:00:30.859 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Document to Alfresco
+2016-05-10  10:00:30.867 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-10  10:00:30.990 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Logout From Alfresco
+2016-05-10  10:03:25.061 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-10  10:03:25.173 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-10  10:03:25.178 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-10  10:03:48.050 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-10  10:03:48.360 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Document to Alfresco
+2016-05-10  10:03:48.368 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-10  10:04:38.259 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-10  10:04:38.362 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-10  10:04:38.369 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-10  10:05:05.924 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-10  10:05:06.246 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Document to Alfresco
+2016-05-10  10:05:06.250 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-10  10:10:27.656 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-10  10:10:27.744 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-10  10:10:27.752 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-10  10:11:14.866 [main] ERROR com.zaizi.sensefy.sensefyui.kMediaSearch - UnSuccessfull - Login Failed
+2016-05-10  10:11:14.868 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Document to Alfresco
+2016-05-10  10:11:14.875 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-10  10:22:41.012 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-10  10:22:41.116 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-10  10:22:41.122 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-10  10:23:27.306 [main] ERROR com.zaizi.sensefy.sensefyui.kMediaSearch - UnSuccessfull - Login Failed
+2016-05-10  10:23:27.307 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Document to Alfresco
+2016-05-10  10:23:27.317 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-10  10:26:40.875 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-10  10:26:41.023 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-10  10:26:41.030 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-10  10:27:27.007 [main] ERROR com.zaizi.sensefy.sensefyui.kMediaSearch - UnSuccessfull - Login Failed
+2016-05-10  10:27:27.008 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Document to Alfresco
+2016-05-10  10:27:27.016 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-10  11:09:46.048 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-10  11:09:46.164 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-10  11:09:46.169 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-10  11:10:32.545 [main] ERROR com.zaizi.sensefy.sensefyui.kMediaSearch - UnSuccessfull - Login Failed
+2016-05-10  11:10:32.547 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Document to Alfresco
+2016-05-10  11:10:32.555 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-10  13:01:49.038 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-10  13:01:49.316 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-10  13:01:49.323 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-10  13:02:39.941 [main] ERROR com.zaizi.sensefy.sensefyui.kMediaSearch - UnSuccessfull - Login Failed
+2016-05-10  13:02:39.957 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Document to Alfresco
+2016-05-10  13:02:39.989 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-10  13:05:10.409 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-10  13:05:10.503 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-10  13:05:10.508 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-10  13:05:56.511 [main] ERROR com.zaizi.sensefy.sensefyui.kMediaSearch - UnSuccessfull - Login Failed
+2016-05-10  13:05:56.512 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Document to Alfresco
+2016-05-10  13:05:56.531 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-10  13:09:29.121 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-10  13:09:29.302 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-10  13:09:29.307 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-10  13:10:03.076 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-10  13:10:03.618 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Document to Alfresco
+2016-05-10  13:10:03.753 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-10  13:21:35.729 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-10  13:21:35.861 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-10  13:21:35.865 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-10  13:22:48.357 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-10  13:22:48.693 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Document to Alfresco
+2016-05-10  13:22:48.699 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-10  15:07:13.623 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-10  15:07:13.919 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-10  15:07:13.969 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-10  15:08:20.627 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-10  15:08:20.981 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Document to Alfresco
+2016-05-10  15:08:21.009 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-10  15:10:22.685 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-10  15:10:22.788 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-10  15:10:22.795 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-10  15:11:23.846 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-10  15:11:24.456 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Document to Alfresco
+2016-05-10  15:11:24.579 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-10  15:12:13.583 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-10  15:12:13.923 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-10  15:12:13.927 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-10  15:13:24.131 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-10  15:13:24.497 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Document to Alfresco
+2016-05-10  15:13:24.689 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-10  15:13:35.643 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully navigated to QASite
+2016-05-10  15:13:38.682 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Document Library
+2016-05-10  15:21:06.899 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-10  15:21:07.144 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-10  15:21:07.149 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-10  15:21:58.701 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-10  15:21:58.942 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Video to Alfresco
+2016-05-10  15:21:58.946 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-10  15:22:05.622 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully navigated to QASite
+2016-05-10  15:22:08.757 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Document Library
+2016-05-10  15:22:30.386 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading the Video File video1.mp4
+2016-05-11  10:02:16.092 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-11  10:02:16.695 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-11  10:02:16.701 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-11  10:03:49.383 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-11  10:03:49.960 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Video to Alfresco
+2016-05-11  10:03:50.043 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-11  10:04:05.507 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully navigated to QASite
+2016-05-11  10:04:08.755 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Document Library
+2016-05-11  10:04:28.339 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading the Video File video1.mp4
+2016-05-11  10:10:43.752 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-11  10:10:43.934 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-11  10:10:44.016 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-11  10:12:00.416 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-11  10:12:00.870 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Video to Alfresco
+2016-05-11  10:12:00.906 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-11  10:12:10.495 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully navigated to QASite
+2016-05-11  10:12:13.710 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Document Library
+2016-05-11  10:12:35.410 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading the Video File video1.mp4
+2016-05-11  10:17:51.675 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-11  10:17:51.967 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-11  10:17:51.972 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-11  10:19:01.446 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-11  10:19:01.748 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Video to Alfresco
+2016-05-11  10:19:01.783 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-11  10:19:11.069 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully navigated to QASite
+2016-05-11  10:19:14.212 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Document Library
+2016-05-11  10:19:36.301 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading the Video File video1.mp4
+2016-05-11  10:24:56.607 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Preparing For kMediaSearch ...
+2016-05-11  10:24:56.896 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Login to Alfresco
+2016-05-11  10:24:56.901 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Alfresco Url
+2016-05-11  10:26:14.046 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully Login to Alfresco
+2016-05-11  10:26:14.485 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading a Video to Alfresco
+2016-05-11  10:26:14.551 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Sites Finder
+2016-05-11  10:26:23.439 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Successfully navigated to QASite
+2016-05-11  10:26:26.652 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Navigate to Document Library
+2016-05-11  10:26:49.766 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Uploading the Video File video1.mp4
+2016-05-11  10:27:10.548 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Verify the Document
+2016-05-11  10:27:10.795 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Expected Results : video1.mp4
+2016-05-11  10:27:11.019 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Current Test Results : video1.mp4
+2016-05-11  10:27:11.639 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Logout From Alfresco
