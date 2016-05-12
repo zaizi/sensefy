@@ -57,6 +57,16 @@
                                      ng-show="entity.is_organization"></div>
                             </div>
                         </div>
+                        <div class="et-row three" >
+                            <div class="sub-header">Concepts</div>
+                            <div class="et-cell et-label-wrap"></div>
+                            <div class="et-cell et-value-wrap">
+                                <div class="et-value"
+                                     ng-repeat="entity in suggestions.entities"
+                                     ng-include="'views/partial/entity-template-other.html'"
+                                     ng-show="entity.is_other"></div>
+                            </div>
+                        </div>
                     </div>
                 </li>
             </ul>
