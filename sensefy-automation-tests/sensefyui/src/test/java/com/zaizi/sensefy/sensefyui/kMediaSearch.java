@@ -270,7 +270,7 @@ public class kMediaSearch
     	    		
 	}
 	
-/*	@Test
+	@Test
 	public void c_ManifoldLogin() throws InterruptedException
 	{
 		LOGGER.info("Login to Manifold");
@@ -294,7 +294,8 @@ public class kMediaSearch
             System.out.println("000000");
                
             SearchLogin searchLogin = new SearchLogin(driver);
-            searchLogin.manifoldLogin(username,password);
+            //*****check this
+            //searchLogin.manifoldLogin(username,password);
            
             System.out.println("login to Manifold");
           
@@ -316,7 +317,7 @@ public class kMediaSearch
         		LOGGER.error("UnSuccessfull - Login Failed");
         		Element.takescreenshot(driver,className,screenshot_name+"8");
             }
-            
+            //************************
             //extent.startTest("Navigate to Status and Job Management");
             
     		//System.out.println("Navigate to Status and Job Management");
@@ -350,7 +351,7 @@ public class kMediaSearch
     	
     	TestCaseProperties.closeDriver(driver);
     		      	
-	}*/
+	}
 	
 	
 
