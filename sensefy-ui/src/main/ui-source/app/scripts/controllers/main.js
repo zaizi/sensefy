@@ -382,7 +382,7 @@
                             while (++i && size > 1000) {
                                 size = size / 1000;
                             }
-                            return size.toFixed(2) + ' ' + sizes[i - 1];
+                            return ' '+size.toFixed(2) + ' ' + sizes[i - 1];
                         }
                     };
                     fItems = [];
@@ -1399,7 +1399,7 @@
                         while (++i && size > 1024) {
                             size = size / 1024;
                         }
-                        return size.toFixed(2) + ' ' + sizes[i - 1];
+                        return ' '+size.toFixed(2) + ' ' + sizes[i - 1];
                     }
                 };
 
@@ -1450,50 +1450,52 @@
                     var docIcon;
                     switch (docType) {
                         case 'application/msword':
-                            docIcon = "word";
+                            docIcon = "file word outline icon";
                             break;
                         case 'application/pdf':
-                            docIcon = "pdf";
+                            docIcon = "file pdf outline icon";
                             break;
                         case 'application/vnd.ms-excel':
-                            docIcon = "excel";
+                            docIcon = "file excel outline icon";
                             break;
                         case 'application/zip':
-                            docIcon = "archive";
+                            docIcon = "file archive outline icon";
                             break;
                         case 'application/x-tex':
-                            docIcon = "text";
+                            docIcon = "file text outline icon";
                             break;
                         case 'image/tiff':
-                            docIcon = "image";
+                            docIcon = "file image outline icon";
                             break;
                         case 'text/xml':
-                            docIcon = "code";
+                            docIcon = "file code outline icon";
                             break;
                         case 'image/png':
-                            docIcon = "image";
+                            docIcon = "file image outline icon";
                             break;
                         case 'image/jpeg':
-                            docIcon = "image";
+                            docIcon = "file image outline icon";
                             break;
-                        case 'image/png':
-                            docIcon = "image";
+                        case 'image/jpeg':
+                            docIcon = "file image outline icon";
                             break;
                         case 'image/jpg':
-                            docIcon = "image";
+                            docIcon = "file image outline icon";
                             break;
                         case 'video/mp4':
-                            docIcon = "video";
+                            docIcon = "c icon";
                             break;
                         case 'text/html':
-                            docIcon = "code";
+                            docIcon = "file code outline icon";
                             break;
                         case 'application/x-javascript':
-                            docIcon = "code";
+                            docIcon = "file code outline icon";
                             break;
                         case 'text/css':
-                            docIcon = "code";
+                            docIcon = "file code outline icon";
                             break;
+                        default:
+                            docIcon = "file outline icon";
                     }
 
                     return docIcon;

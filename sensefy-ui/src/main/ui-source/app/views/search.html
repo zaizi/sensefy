@@ -140,7 +140,7 @@
 
             <div class="text brief">{{selectedEntity.label}}</div>
             <div class="type brief" ng-show="selectedEntity.type">{{arrayToString(selectedEntity.type)}}</div>
-            <div class="desc brief" ng-show="selectedEntity.description">{{selectedEntity.description}}</div>
+            <div class="desc brief" dd-text-collapse dd-text-collapse-max-length="300" dd-text-collapse-text="{{selectedEntity.description}}"></div>
         </div>
     </div>
 
@@ -172,7 +172,7 @@
             <div class="content info">
 
                 <!-- Set the file file type icon -->
-                <i class="file outline icon c-word" ng-class="pickDocIcon('{{document.mimetype}}')"
+                <i class="" ng-class="pickDocIcon('{{document.mimetype}}')"
                    ng-if="document.mimetype"></i>
                 <!-- Set the file title -->
                 <ng-switch on="normalSearch" ng-if="document.hls.name[0] != null && document.hls.name[0] != ''">

@@ -366,10 +366,36 @@ sub, sup {
 
 .entity-information .brief.desc{
     line-height: 16px;
-    max-height: 50px;
-    overflow: hidden;
     text-align: justify;
     width: 88%;
+}
+
+.collapse-text-toggle {
+    font-size: 0.9em;
+    color: #666666;
+    cursor: pointer;
+}
+.collapse-text-toggle:hover {
+    color: #222222;
+}
+.collapse-text-toggle:before {
+    content: '\00a0(';
+}
+.collapse-text-toggle:after {
+    content: ')';
+}
+
+
+
+
+
+
+
+.entity-info-brief .show-hide {
+    float: right;
+    margin-right: 36px;
+    cursor: pointer;
+    color: #205081;
 }
 
 .entity-information.facets header {
@@ -1360,8 +1386,7 @@ and (orientation: landscape)
 }
 
 
-
-
+i.c.icon:before{content: '\f1c8'}
 
 
 
@@ -1468,3 +1493,4 @@ div[data-tree-model] li .selected {
     margin-right: 8px;
     margin-left: -3px;
 }
+
