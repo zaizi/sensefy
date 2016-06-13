@@ -1,8 +1,8 @@
 <div class="row">
     <div class="column">
         <div class="ui inverted blue menu" id="header">
-            <img src="{{desktopLogo}}" alt="Sensefy main Logo" class="open left" ng-click="logoClick()">
-            <img src="{{deviceLogo}}" alt="Sensefy device Logo" class="mob" ng-click="logoClick()">
+            <img src="{{desktopLogo}}" alt="Sensefy main Logo" class="open left cur-hand" ng-click="logoClick()">
+            <img src="{{deviceLogo}}" alt="Sensefy device Logo" class="mob cur-hand" ng-click="logoClick()">
             <sensefy-autocomplete query-term="queryTerm" query-function="query()"></sensefy-autocomplete>
 
             <div class="right menu" id="menu">
@@ -165,7 +165,8 @@
                  current-page="currentPage"-->
             <!-- Set the carent icon when hover to result -->
             <div class="doc-thumb" ng-show="document.thumbnail_base64">
-                <img src="data:image/jpeg;base64,{{document.thumbnail_base64}}">
+                <img src="data:image/jpeg;base64,{{document.thumbnail_base64}}" ng-if="document.mimetype != 'video/mp4'">
+                <img src="images/video.png" ng-if="document.mimetype == 'video/mp4'">
             </div>
 
             <i class="caret right icon hover-result"></i>
@@ -197,17 +198,25 @@
                     <p class="channel-d underline cursor-default" ng-bind="urlTruncate('{{document.path}}')"></p>
                 </div>
                 <!-- Set the content -->
-                <div class="content-wrapper" ng-if="document.hls.content && document.hls.content.length > 0">
+                <!--div class="content-wrapper" ng-if="document.hls.content && document.hls.content.length > 0">
                     <ng-switch on="normalSearch">
-                        <div ng-switch-when="true">
+                        <div ng-switch-default>
                             <div class="content snippet" ng-bind-html="document.hls.content[0].trim() | excerpt:300">
                             </div>
                         </div>
-                        <div ng-switch-default>
+                        <div ng-switch-when="true">
                             <div class="content excerpt" ng-bind-html="document.content[0].trim() | excerpt:300">
                             </div>
                         </div>
                     </ng-switch>
+                </div-->
+                <div class="content-wrapper" ng-if="document.hls.content && document.hls.content.length > 0">
+                    <div class="content snippet" ng-bind-html="document.hls.content[0].trim() | excerpt:300"></div>
+                </div>
+
+
+                <div class="content-wrapper" ng-if="document.hls.content && document.hls.content.length > 0 && !document.content && !document.content.length > 0">
+                    <div class="content excerpt" ng-bind-html="document.content[0].trim() | excerpt:300"></div>
                 </div>
 
                 <!-- Set the metadata -->
