@@ -177,7 +177,9 @@ sub, sup {
     font-size: 14px;
 }
 
-
+.cur-hand{
+    cursor: pointer;
+}
 
 #sensefy #search-comp {
     margin-top: 128px

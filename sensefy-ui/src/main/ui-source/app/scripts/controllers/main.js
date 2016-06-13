@@ -667,12 +667,16 @@
                         }
                         console.log('addFilter -> facetItem.filter : '+a)
                     }
+
                     pos = $scope.filters.indexOf(facetItem.filter);
 
                     if (pos >= 0) {
                         removeFilter(facetItem);
                         return false;
                     } else {
+                        if($scope.selectedEntity != null){
+                            console.log($scope.selectedEntity.id);
+                        }
                         filter = {
                             facetLabel: facetLabel,
                             label: facetItem.value,
@@ -793,6 +797,9 @@
                     if($scope.documentsOffsetEnd <= $scope.totalDocuments){
                         $scope.documentsOffsetEnd = $scope.documentsOffsetStart + $scope.documentsPerPage;
                     }
+                    if($scope.docFromTo <= $scope.totalDocuments){
+                        $scope.docFromTo = $scope.documentsOffsetStart + $scope.documentsPerPage;
+                    }
                 };
                 $scope.titleSelected = function (title, removeFilters) {
                     var clustering;
@@ -812,7 +819,8 @@
                     function (response) {
                         $scope.documents = response.data.searchResults.documents || [];
                         processHighlightInfo($scope.documents, response.data.searchResults.highlight);
-                        $scope.selectedEntity = response.data.searchResults.entity || $scope.selectedEntity;
+                        //$scope.selectedEntity = response.data.searchResults.entity || $scope.selectedEntity;
+                        $scope.selectedTitle = response.data.searchResults.entity || $scope.selectedTitle;
                         $scope.totalDocuments = response.data.searchResults.numFound;
                         parseFacets(response.data);
                         $scope.searching = false;
@@ -893,14 +901,16 @@
                     function (response) {
                         if(CONSOLEmode){
                             console.log('SemanticSearchService.searchByEntity($scope.selectedEntity.id, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true, security=SensefyDocSecurity)');
+                            console.log($scope.selectedEntity.id+' - '+$scope.documentsOffsetStart+' - '+$scope.documentsPerPage+' - * - '+$scope.filters+' - true - '+$scope.titleSorting  );
                         }
                         $scope.documents = response.data.searchResults.documents || [];
                         processHighlightInfo($scope.documents, response.data.searchResults.highlight);
                         $scope.selectedEntity = response.data.searchResults.entity || $scope.selectedEntity;
                         $scope.totalDocuments = response.data.searchResults.numFound;
+                        $scope.updateDocumentOffset();
                         parseFacets(response.data);
                         $scope.responsedData = response.data;
-                        //initDataSources(true);
+                        initDataSources(true);
                     },
                     function (response) {
                         if(SensefySearchResponseFailedIsLogout){
@@ -1044,6 +1054,7 @@
                                         angular.element('#sensefy').removeClass('ggl');
                                         clearTimeout(addGGLclass2);
                                     }, 25);
+                                    $scope.updateDocumentOffset();
                                 }
 
                                 if (response.data.searchResults.collationQuery) {
@@ -1081,10 +1092,10 @@
                     '>': '&gt;'
                 };
                 escapeHtmlExceptB = function (string) {
-                    string = string.replace(/[<>]/g, function (s) {
+                    /*string = string.replace(/[<>]/g, function (s) {
                         return entityMap[s];
                     });
-                    string = string.replace('&lt;b&gt;', '<b class="test">').replace('&lt;/b&gt;', '</b>');
+                    string = string.replace('<', '<b class="test">').replace('>', '</b>');*/
                     return string;
                 };
                 processHighlightInfo = function (documents, highlightInfo) {
@@ -1387,8 +1398,8 @@
                 });
                 $scope.logoClick = function () {
                     $scope.cleanFilters();
-                    window.history.go(-1);
                     $scope.queryTerm = '';
+                    window.location.href = '#';
                 };
                 $scope.SensefyFacetsPerGroupMin = SensefyFacetsPerGroup;
                 $scope.humanReadableSize = function (size) {
