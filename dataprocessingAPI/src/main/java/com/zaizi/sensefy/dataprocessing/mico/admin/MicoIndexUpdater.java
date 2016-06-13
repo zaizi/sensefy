@@ -120,8 +120,6 @@ public class MicoIndexUpdater {
 			
 			primaryIndexClient.commit(true,true);
 			entityClient.commit(true,true);
-			primaryIndexClient.optimize();
-			entityClient.optimize();
 		}catch(SolrServerException e){
 			LOG.error("Solr Server Error", e);
 		} catch (IOException e) {
