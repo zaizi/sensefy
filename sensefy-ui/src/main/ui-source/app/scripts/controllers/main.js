@@ -59,9 +59,9 @@
                         console.log('rootcontroller and user GET request fired -> $scope.user '+$scope.user)
                         console.log('rootcontroller and user GET request fired -> data.name '+data.name)
                     }
-                });*/
+                });
 
-                /*$rootScope.user = {
+                $rootScope.user = {
                     username: $scope.user
                 };*/
 
@@ -168,12 +168,16 @@
                     return false;
                 }
 
-                /*$http.get('/user/').success(function(data) {
-                    $scope.user = data.name;
-                    $scope.nickName = data.name;
-                });*/
+                function capitalizeFirstLetter(string) {
+                    return string.charAt(0).toUpperCase() + string.slice(1);
+                }
 
-                $scope.nickName = 'User';
+                $http.get('/user/').success(function(data) {
+                    $scope.user = data.name;
+                    $scope.nickName = capitalizeFirstLetter(data.name);
+                });
+
+                /*$scope.nickName = 'User';*/
 
 
                 $scope.changeLanguage = function (lang) {
