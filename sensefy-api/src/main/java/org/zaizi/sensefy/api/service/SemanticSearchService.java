@@ -275,7 +275,7 @@ public class SemanticSearchService extends SolrService {
 			SolrQuery entityQuery = new SolrQuery();
 			entityQuery.setRequestHandler("/get");
 			entityQuery.set("ids", entityId);
-			entityQuery.setFields("description","thumbnail","label");
+			entityQuery.setFields("description","thumbnail","label", "id");
 			QueryResponse entityResponse;
 			entityResponse = this.getEntityCore().query(entityQuery);
 			List<SolrDocument> entities = entityResponse.getResults();
