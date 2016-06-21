@@ -145,6 +145,19 @@ public class TestCaseValues {
                 	bar[k]=foo;
                 	System.out.println("Values Loaded - Alfresco - Video Upload");                	
                 }
+                else if(("lEntitySearch").equals(testCaseName))
+                {
+                	Object[] foo = { getValue("username", valueElement), 
+                						getValue("password", valueElement),
+                						getValue("search_term_people", valueElement), 
+                						getValue("search_term_places", valueElement),
+                						getValue("search_term_organization", valueElement),
+                						getValue("screenshot_name", valueElement), 
+                	};
+                	
+                	bar[k]=foo;
+                	System.out.println("Values Loaded - Entity Search");                	
+                }
                 k++;
             }
         }

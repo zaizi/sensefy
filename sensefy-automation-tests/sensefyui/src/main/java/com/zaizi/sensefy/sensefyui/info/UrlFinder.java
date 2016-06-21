@@ -109,6 +109,12 @@ public class UrlFinder {
 		return Sensefy_LocalHostPath;
 	}
 	
+	public String returnSensefyQa()
+	{
+		System.out.println(Search_HOST);
+		return Search_HOST;
+	}
+	
 	private static Node getProperty(String propertyName) throws ParserConfigurationException, SAXException, IOException
 	 {
 	     File testValues = new File(TEST_CASE_PROPERTIES_XML);

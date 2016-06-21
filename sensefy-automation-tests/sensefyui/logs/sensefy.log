@@ -230,3 +230,64 @@
 2016-05-11  10:27:10.795 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Expected Results : video1.mp4
 2016-05-11  10:27:11.019 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Current Test Results : video1.mp4
 2016-05-11  10:27:11.639 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Logout From Alfresco
+2016-06-21  10:01:42.658 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-21  10:03:22.770 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-21  10:05:52.653 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-21  10:05:52.990 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-21  10:05:52.996 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-21  10:09:54.172 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-21  10:09:55.050 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-21  10:09:55.085 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-21  10:10:51.139 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-21  13:54:38.760 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-21  13:54:38.948 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-21  13:54:38.954 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-21  13:55:28.787 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-21  13:55:28.979 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-21  13:59:08.290 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-21  13:59:08.410 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-21  13:59:08.415 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-21  13:59:41.466 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-21  13:59:41.621 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-21  14:44:43.818 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-21  14:44:44.096 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-21  14:44:44.101 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-21  14:45:44.344 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-21  14:45:44.803 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-21  14:45:45.087 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-21  14:47:31.235 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-21  14:47:31.337 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-21  14:47:31.345 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-21  14:48:09.548 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-21  14:48:09.726 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-21  14:48:15.058 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The Entity Type 'People' is not visible under the suggestions
+2016-06-21  14:49:45.289 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-21  14:49:45.585 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-21  14:49:45.590 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-21  14:50:25.290 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-21  14:50:25.581 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-21  14:50:33.901 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The Entity Type 'People' is not visible under the suggestions
+2016-06-21  14:52:19.244 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-21  14:52:19.400 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-21  14:52:19.405 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-21  14:52:57.008 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-21  14:52:57.176 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-21  14:53:07.343 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The Entity Type 'People' is not visible under the suggestions
+2016-06-21  15:31:57.068 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-21  15:31:57.352 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-21  15:31:57.359 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-21  15:32:41.926 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-21  15:32:42.105 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-21  15:32:52.277 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The Entity Type 'People' is not visible under the suggestions
+2016-06-21  15:33:48.819 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-21  15:33:48.939 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-21  15:33:48.944 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-21  15:34:31.941 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-21  15:34:32.095 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-21  15:34:50.273 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The Entity Type 'People' is not visible under the suggestions
+2016-06-21  15:35:16.210 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-21  15:35:16.331 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-21  15:35:16.337 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-21  15:36:04.572 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-21  15:36:04.740 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-21  15:36:24.006 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
