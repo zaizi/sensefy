@@ -291,3 +291,260 @@
 2016-06-21  15:36:04.572 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
 2016-06-21  15:36:04.740 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
 2016-06-21  15:36:24.006 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  09:16:30.947 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  09:16:31.123 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  09:16:31.129 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  09:17:20.539 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  09:17:21.110 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  09:17:39.350 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  09:17:42.584 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The element under the Entity Type 'People' is not visible under the suggestions
+2016-06-22  09:19:28.187 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  09:19:28.316 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  09:19:28.321 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  09:20:08.227 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  09:20:08.412 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  09:20:26.628 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  09:20:29.798 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The element under the Entity Type 'People' is not visible under the suggestions
+2016-06-22  09:21:14.555 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  09:21:14.692 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  09:21:14.698 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  09:21:52.899 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  09:21:53.069 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  09:22:11.278 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  09:22:14.448 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The element under the Entity Type 'People' is not visible under the suggestions
+2016-06-22  09:23:05.380 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  09:23:05.479 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  09:23:05.484 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  09:23:38.498 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  09:23:38.643 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  09:23:56.813 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  09:24:00.001 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The element under the Entity Type 'People' is not visible under the suggestions
+2016-06-22  09:48:31.767 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  09:48:31.868 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  09:48:31.873 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  09:49:07.874 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  09:49:08.025 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  09:49:26.192 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  09:49:29.354 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The element under the Entity Type 'People' is not visible under the suggestions
+2016-06-22  10:29:57.396 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  10:29:57.648 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  10:29:57.654 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  10:31:09.698 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  10:31:10.067 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  10:31:28.701 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  10:31:32.457 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The element under the Entity Type 'People' is not visible under the suggestions
+2016-06-22  10:45:20.673 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  10:45:20.992 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  10:45:21.030 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  10:46:00.753 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  10:46:02.392 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  10:46:21.153 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The Entity Type 'People' is not visible under the suggestions
+2016-06-22  10:48:39.039 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  10:48:39.538 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  10:48:39.545 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  10:49:23.020 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  10:49:23.331 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  10:49:41.901 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  10:49:52.407 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The element under the Entity Type 'People' is not visible under the suggestions
+2016-06-22  11:01:13.061 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  11:01:13.833 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  11:01:13.957 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  11:02:14.288 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  11:02:14.565 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  11:02:33.010 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  11:02:43.233 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The element under the Entity Type 'People' is not visible under the suggestions
+2016-06-22  11:03:42.333 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  11:03:42.488 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  11:03:42.546 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  11:04:38.459 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  11:04:38.751 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  11:04:57.084 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  11:05:07.438 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The element under the Entity Type 'People' is not visible under the suggestions
+2016-06-22  11:05:59.478 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  11:05:59.647 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  11:05:59.654 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  11:06:58.810 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  11:06:59.139 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  11:07:07.804 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  11:07:18.101 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The element under the Entity Type 'People' is not visible under the suggestions
+2016-06-22  11:14:04.990 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  11:14:05.153 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  11:14:05.158 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  11:14:55.277 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  11:14:55.543 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  11:15:07.569 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  11:15:07.803 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The element under the Entity Type 'People' is not visible under the suggestions
+2016-06-22  11:17:37.335 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  11:17:37.614 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  11:17:37.619 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  11:18:33.022 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  11:18:33.276 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  11:18:51.795 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  11:18:52.050 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The element under the Entity Type 'People' is not visible under the suggestions
+2016-06-22  11:22:34.486 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  11:22:34.676 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  11:22:34.681 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  11:23:10.030 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  11:23:10.264 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  11:23:38.827 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  11:23:38.959 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-06-22  11:26:56.561 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  11:26:56.671 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  11:26:56.678 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  11:27:31.962 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  11:27:32.115 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  11:28:00.623 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  11:28:00.774 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-06-22  11:28:09.245 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-06-22  11:41:17.209 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  11:41:17.309 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  11:41:17.314 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  11:41:57.763 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  11:41:58.070 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  11:42:26.949 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  11:42:27.079 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-06-22  11:42:35.493 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-06-22  11:42:36.401 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Places
+2016-06-22  11:43:49.632 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  11:43:49.767 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  11:43:49.776 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  11:44:41.066 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  11:44:41.221 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  11:45:09.821 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  11:45:10.049 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-06-22  11:45:18.578 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-06-22  11:45:19.065 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Places
+2016-06-22  12:05:13.971 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  12:05:14.069 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  12:05:14.074 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  12:05:44.963 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  12:05:45.159 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  12:06:13.659 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  12:06:13.794 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-06-22  12:06:22.165 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-06-22  12:06:22.706 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Places
+2016-06-22  12:06:58.982 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'Places' is visible under the suggestions
+2016-06-22  12:06:59.522 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The element under the Entity Type 'Places' is not visible under the suggestions
+2016-06-22  12:07:26.476 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  12:07:26.585 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  12:07:26.590 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  12:07:56.346 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  12:07:56.495 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  12:08:25.048 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  12:08:25.174 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-06-22  12:08:33.513 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-06-22  12:08:34.030 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Places
+2016-06-22  12:09:10.097 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'Places' is visible under the suggestions
+2016-06-22  12:09:10.516 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'Places' is visible under the suggestions
+2016-06-22  12:17:16.351 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  12:17:16.525 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  12:17:16.531 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  12:17:52.296 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  12:17:52.450 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  12:18:21.000 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  12:18:21.137 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-06-22  12:18:29.486 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-06-22  12:18:29.931 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Places
+2016-06-22  12:19:10.384 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'Places' is visible under the suggestions
+2016-06-22  12:19:10.785 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'Places' is visible under the suggestions
+2016-06-22  12:28:56.722 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  12:28:56.826 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  12:28:56.831 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  12:29:36.258 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  12:29:36.413 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  12:30:04.915 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  12:30:05.047 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-06-22  12:30:13.406 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-06-22  12:30:14.243 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Places
+2016-06-22  12:31:06.096 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'Places' is visible under the suggestions
+2016-06-22  12:31:06.486 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'Places' is visible under the suggestions
+2016-06-22  14:38:56.206 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  14:38:56.444 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  14:38:56.480 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  14:39:30.461 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  14:39:31.537 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  14:40:00.210 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  14:40:00.409 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-06-22  14:40:08.814 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-06-22  14:40:09.335 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Places
+2016-06-22  14:40:51.260 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'Places' is visible under the suggestions
+2016-06-22  14:40:51.743 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'Places' is visible under the suggestions
+2016-06-22  15:07:20.246 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  15:07:20.385 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  15:07:20.417 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  15:07:54.978 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  15:07:55.151 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  15:08:24.099 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  15:08:24.235 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-06-22  15:08:32.724 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-06-22  15:08:33.236 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Places
+2016-06-22  15:09:15.140 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'Places' is visible under the suggestions
+2016-06-22  15:09:15.772 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'Places' is visible under the suggestions
+2016-06-22  15:12:13.206 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  15:12:13.348 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  15:12:13.354 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  15:12:50.744 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  15:12:50.915 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  15:13:19.518 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  15:13:19.680 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-06-22  15:13:28.067 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-06-22  15:13:28.683 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Places
+2016-06-22  15:14:10.452 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'Places' is visible under the suggestions
+2016-06-22  15:14:11.098 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'Places' is visible under the suggestions
+2016-06-22  15:14:19.927 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-06-22  15:16:55.523 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  15:16:55.634 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  15:16:55.639 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  15:17:34.535 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  15:17:34.746 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  15:18:03.298 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  15:18:03.467 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-06-22  15:18:11.883 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-06-22  15:18:12.393 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Places
+2016-06-22  15:18:54.519 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'Places' is visible under the suggestions
+2016-06-22  15:18:55.050 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'Places' is visible under the suggestions
+2016-06-22  15:19:03.884 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-06-22  15:42:42.845 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  15:42:42.988 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  15:42:42.995 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  15:43:18.785 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  15:43:18.999 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  15:43:47.764 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  15:43:47.922 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-06-22  15:43:56.372 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-06-22  15:43:56.891 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Places
+2016-06-22  15:44:54.808 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The Entity Type 'Organization' is not visible under the suggestions
+2016-06-22  15:44:55.364 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Organization
+2016-06-22  15:47:00.336 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  15:47:00.562 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  15:47:00.567 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  15:47:40.541 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  15:47:40.913 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  15:48:09.570 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  15:48:09.787 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-06-22  15:48:18.159 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-06-22  15:48:18.797 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Places
+2016-06-22  15:49:29.685 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Organization
+2016-06-22  15:52:52.565 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  15:52:52.679 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  15:52:52.683 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  15:53:29.336 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  15:53:29.513 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  15:53:58.019 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  15:53:58.150 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-06-22  15:54:07.174 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-06-22  15:54:07.684 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Organization
+2016-06-22  15:54:42.271 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'Places' is visible under the suggestions
+2016-06-22  15:54:42.688 [main] ERROR com.zaizi.sensefy.sensefyui.lEntitySearch - Unsuccessful : The element under the Entity Type 'Places' is not visible under the suggestions
+2016-06-22  15:56:52.146 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-06-22  15:56:52.255 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-06-22  15:56:52.262 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-06-22  15:57:23.383 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-06-22  15:57:23.619 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-06-22  15:57:52.240 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-06-22  15:57:52.396 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-06-22  15:58:01.912 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-06-22  15:58:03.395 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Places
+2016-06-22  15:58:45.899 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'Places' is visible under the suggestions
+2016-06-22  15:58:46.344 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'Places' is visible under the suggestions
+2016-06-22  15:58:55.140 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.

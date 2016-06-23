@@ -87,9 +87,9 @@
 		<test>
 			<username>admin</username>
 			<password>ulibranxi</password>
-			<search_term_people>mar</search_term_people>
-			<search_term_places>te</search_term_places>
-			<search_term_organization>pe</search_term_organization>
+			<search_term_people>Thomas</search_term_people>
+			<search_term_places>Dallas</search_term_places>
+			<search_term_organization>JC Penney</search_term_organization>
 			<screenshot_name>EntitySearch</screenshot_name>
 		</test>
 	</lEntitySearch>
