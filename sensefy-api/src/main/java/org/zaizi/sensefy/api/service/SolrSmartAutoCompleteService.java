@@ -120,7 +120,7 @@ public class SolrSmartAutoCompleteService extends SolrService {
 			// suggestions from primary index suggester and entity index
 			List<SolrDocument> titleSuggestions = getTitleSuggestions(numberOfSuggestions, termToComplete,
 					this.getPrimaryIndex(), user, security);
-			
+
 			responseContent.setSuggestions(shingleSuggestions);
 			responseContent.setTitles(titleSuggestions);
 			responseContent.setNumberOfSuggestions(numberOfSuggestions);
@@ -174,14 +174,21 @@ public class SolrSmartAutoCompleteService extends SolrService {
 	 * @return
 	 */
 	private List<String> getShingleSuggestions(Integer numberOfSuggestions, String termToComplete,
-			SolrClient primaryIndex) throws SolrServerException, SolrException, IOException {
+			SolrClient primaryIndex) {
 		List<String> shingleSuggestions = new ArrayList<String>();
 		SolrQuery shingleSuggestionQuery = new SolrQuery(termToComplete);
 		shingleSuggestionQuery.setRequestHandler("/autocomplete");
 		shingleSuggestionQuery.set("suggest.count", numberOfSuggestions);
-		QueryResponse shingleTitleSuggestionResponse;
-		shingleTitleSuggestionResponse = primaryIndex.query(shingleSuggestionQuery);
-		shingleSuggestions = parseSuggestionsFromJson(termToComplete, shingleTitleSuggestionResponse);
+		QueryResponse shingleTitleSuggestionResponse = null;
+		try {
+			shingleTitleSuggestionResponse = primaryIndex.query(shingleSuggestionQuery);
+		} catch (SolrException | SolrServerException | IOException e) {
+			logger.warn("Wrong input for the autocomplete : " + termToComplete);
+		}
+		if (shingleTitleSuggestionResponse != null) {
+			shingleSuggestions = parseSuggestionsFromJson(termToComplete, shingleTitleSuggestionResponse);
+		}
+
 		return shingleSuggestions;
 	}
 
@@ -189,7 +196,7 @@ public class SolrSmartAutoCompleteService extends SolrService {
 		List<String> suggestionTermsList = new ArrayList<String>();
 		NamedList autoCompleteNode = (NamedList) ((Map) shingleTitleSuggestionResponse.getResponse().get("suggest"))
 				.get(SHINGLE_AUTOCOMPLETE_NAME);
-		try{
+		try {
 			SimpleOrderedMap suggestionsNode = (SimpleOrderedMap) autoCompleteNode.get(termToComplete);
 			List<SimpleOrderedMap> suggestionList;
 			if (suggestionsNode != null) {
@@ -198,10 +205,9 @@ public class SolrSmartAutoCompleteService extends SolrService {
 					suggestionTermsList.add((String) suggestion.get("term"));
 				}
 			}
-		}catch(Exception e){
-			
+		} catch (Exception e) {
+
 		}
-		
 
 		return suggestionTermsList;
 	}
