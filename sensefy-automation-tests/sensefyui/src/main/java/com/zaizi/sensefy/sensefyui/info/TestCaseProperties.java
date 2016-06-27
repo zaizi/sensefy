@@ -224,6 +224,34 @@ public class TestCaseProperties
 		  	 driver.get(HOST_URL);
 		       return driver;
 	   }
+	   
+	   public static WebDriver getSensefyMico()
+	   {
+		   UrlFinder urlFinder = new UrlFinder();
+		  	 
+		  	 String HOST_URL = urlFinder.returnSensefyMico();
+		  	 String BROWSER_NAME = urlFinder.returnBrowser();
+		  	 
+		  	 if(BROWSER_NAME.equalsIgnoreCase("Firefox"))
+		       {
+		           FirefoxDriverStore webDrvFac = new FirefoxDriverStore();
+		           driver = webDrvFac.createWebDriver();
+		       }
+		  	 else if ("Chrome".equals(BROWSER))
+		  	 {
+		  	     ChromeDriverStore webDrvFac = new ChromeDriverStore(CHROME_DRIVER_PATH);
+		  	     System.out.println(CHROME_DRIVER_PATH);
+		  	     driver = webDrvFac.createWebDriver();
+		  	 }
+		  	 else if ("Safari".equals(BROWSER))
+		       {
+		           SafariDriverStore webDrvFac = new SafariDriverStore();
+		           driver = webDrvFac.createWebDriver();
+		       }
+		  	 
+		  	 driver.get(HOST_URL);
+		       return driver;
+	   }
 /*	   
 
 	   public static WebDriver getWebDriver(String browser) {

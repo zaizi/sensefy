@@ -13,9 +13,11 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
+import com.zaizi.sensefy.sensefyui.elements.Button;
 import com.zaizi.sensefy.sensefyui.elements.Element;
 import com.zaizi.sensefy.sensefyui.elements.Label;
 import com.zaizi.sensefy.sensefyui.elements.Link;
@@ -244,15 +246,13 @@ public class lEntitySearch
 		
 		try
 		{
-			//TestCaseProperties.getSensefyQa().getCurrentUrl();
 			driver.navigate().refresh();
 			
 			TextField searchfield = new TextField(driver, By.xpath("//input[@id='searchTerm']"));
-			//searchfield.enterText(" ");
+		
 			searchfield.clearText();
 			Thread.sleep(5000);
 			
-			//TextField searchfield = new TextField(driver, By.xpath("//input[@id='searchTerm']"));
 			searchfield.enterText("D");
 			Thread.sleep(5000);
 			searchfield.enterText("a");
@@ -331,60 +331,55 @@ public class lEntitySearch
 	}
 	
 	@Test
-	public void c_EntitySearchOrganization()
+	public void d_EntitySearchOrganization()
 	{
-		LOGGER.info("Search Result in Entity Type : Organization");
-		extent.startTest("Search Result in Entity Type : Organization");
+		LOGGER.info("Search Result in Entity Type : Organizations");
+		extent.startTest("Search Result in Entity Type : Organizations");
 		
 		try
 		{
-			//TestCaseProperties.getSensefyQa().getCurrentUrl();
 			driver.navigate().refresh();
 			
 			TextField searchfield = new TextField(driver, By.xpath("//input[@id='searchTerm']"));
-			//searchfield.enterText(" ");
+			
 			searchfield.clearText();
 			Thread.sleep(5000);
 			
-			//TextField searchfield = new TextField(driver, By.xpath("//input[@id='searchTerm']"));
-			searchfield.enterText("J");
+			searchfield.enterText("U");
 			Thread.sleep(5000);
 			searchfield.enterText("C");
 			Thread.sleep(5000);
-			searchfield.enterText(" ");
+			searchfield.enterText("h");
 			Thread.sleep(5000);
-			searchfield.enterText("P");
+			searchfield.enterText("i");
 			Thread.sleep(5000);
-			searchfield.enterText("e");
+			searchfield.enterText("c");
 			Thread.sleep(5000);
-			searchfield.enterText("n");
+			searchfield.enterText("a");
 			Thread.sleep(5000);
-			searchfield.enterText("n");
+			searchfield.enterText("g");
 			Thread.sleep(5000);
-			searchfield.enterText("e");
-			Thread.sleep(5000);
-			searchfield.enterText("y");
+			searchfield.enterText("o");
 			
-
-			String test_element1 = "//div[@class='sub-header'][text()='Organization']";
+			String test_element1 = "//div[@class='sub-header'][text()='Organizations']";
 			
 			if(Link.isElementPresent(driver, By.xpath(test_element1)))
 			{
-				LOGGER.info("Successful : The Entity Type 'Organization' is visible under the suggestions");
-        		extent.log(LogStatus.PASS, "Successful : The Entity Type 'Organization' is visible under the suggestions");
+				LOGGER.info("Successful : The Entity Type 'Organizations' is visible under the suggestions");
+        		extent.log(LogStatus.PASS, "Successful : The Entity Type 'Organizations' is visible under the suggestions");
         		Element.takescreenshot(driver,className,screenshot_name+"15");
    
-        		//String test_element2="Dallas";
-        		String test_element3 = "//div[@class='sub-header'][text()='Orgaization']//following-sibling::div[@class='et-cell et-value-wrap']//div[1]//span[1][text()='JC Penney']";
-        		//Thread.sleep(10000);
+        		String test_element2="UChicago";
+        		String test_element3 = "//div[@class='sub-header'][text()='Organizations']//following-sibling::div[@class='et-cell et-value-wrap']//div[1]//span[1][text()='UChicago']";
         		
+        		//.//*[@id='header']/div[1]/div/div[2]/ul[2]/li/div/div[3]/div[3]/div/div    
+        		//String test_element3 = ".//*[@id='header']/div[1]/div/div[2]/ul[2]/li/div/div[3]/div[3]/div/div ";
         		System.out.println("xxxxxx");
         	
-        		if(Link.isElementPresent(driver, By.xpath(search_term_organization)))
+        		if(Link.isElementPresent(driver, By.xpath(test_element3)))
         		{
-        			//div[@class='sub-header'][text()='People']//following-sibling::div[@class='et-cell et-value-wrap']//div[3]//span[text()='Mark']
-        			LOGGER.info("Successful : The element under the  Entity Type 'Organization' is visible under the suggestions");
-        			extent.log(LogStatus.PASS, "Successful : The element under the Entity Type 'Organization' is visible under the suggestions");
+        			LOGGER.info("Successful : The element under the  Entity Type 'Organizations' is visible under the suggestions");
+        			extent.log(LogStatus.PASS, "Successful : The element under the Entity Type 'Organizations' is visible under the suggestions");
         			Element.takescreenshot(driver,className,screenshot_name+"16");
         			
             		System.out.println("yyyyy");
@@ -425,6 +420,213 @@ public class lEntitySearch
         		LOGGER.error("Unsuccessful : The Entity Type 'Organization' is not visible under the suggestions");
         		Element.takescreenshot(driver,className,screenshot_name+"20");	
 			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Unsuccessful");
+		}
+	}
+	//**********************************************************************
+	@Test
+	public void e_VerifyUIFeatures()
+	{
+		LOGGER.info("Verify the UI Feature in Entity Search");
+		extent.startTest("Verify the UI Features in Entity Search");
+		
+		try
+		{
+			String test_element1 = "//body[@id='sensefy']//div[1]//div[3]//div[2]//div[@class='ui yellow searchable floating dropdown labeled icon button sorting input-select']//i[@class='filter icon']";
+			String test_element2 = "//div[@id='ds-tabs']//a[2]//span";
+			String test_element3 = "//div[@id='se-results']//div[1]//div//div//div[2]//div[1]//div//div//div//i[@class='dropdown icon']";
+			String test_element4 = "//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[@translate='filterby']";
+			
+			if(Button.isElementPresent(driver, By.xpath(test_element1)))
+			{
+				new Button(driver, By.xpath(test_element1)).Click();
+				Thread.sleep(3000);
+				
+				String sortby_Relevance = "//body[@id='sensefy']/div[1]/div[3]/div[2]/div[2]/div/div[1]";
+				String sortby_Name = "//body[@id='sensefy']/div[1]/div[3]/div[2]/div[2]/div/div[2]";
+				String sortby_Title = "//body[@id='sensefy']/div[1]/div[3]/div[2]/div[2]/div/div[3]";
+				String sortby_Created = "//body[@id='sensefy']/div[1]/div[3]/div[2]/div[2]/div/div[4]";
+				String sortby_Modified = "//body[@id='sensefy']/div[1]/div[3]/div[2]/div[2]/div/div[5]";
+				String sortby_Creator = "//body[@id='sensefy']/div[1]/div[3]/div[2]/div[2]/div/div[6]";
+				String sortby_Modifier = "//body[@id='sensefy']/div[1]/div[3]/div[2]/div[2]/div/div[7]";
+				
+				if(Button.isElementPresent(driver, By.xpath(sortby_Relevance)))
+				{
+					new Link(driver, By.xpath(sortby_Relevance)).Click();
+					Thread.sleep(5000);
+					
+					LOGGER.info("Successful : The sort by Relevance is available");
+					extent.log(LogStatus.PASS, "Successful : The sort by Relevance is available");
+					/*
+					//****************
+				    String relevance_result = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a//span";
+					String relevance_output = "26780803.1075855789160.JavaMail.evans@thyme.txt";
+										
+					System.out.println((relevance_result).toString());
+					
+					if(Link.isElementPresent(driver, By.xpath(relevance_result)).toString().equals(relevance_output))
+					{
+						LOGGER.info("Successful : Successfully Sorted by Relevance.");
+		    			extent.log(LogStatus.PASS, "Successful : Successfully Sorted by Relevance.");
+					}
+					else
+					{
+						extent.log(LogStatus.FAIL, "Unsuccessful : Unsuccessfully sorted by Relevance");
+		        		LOGGER.error("Unsuccessful : Unsuccessfully sorted by Relevance");
+					}
+					//*****************
+					*/
+					if(Button.isElementPresent(driver, By.xpath(sortby_Name)))
+					{
+						LOGGER.info("Successful : The sort by Name is available");
+		    			extent.log(LogStatus.PASS, "Successful : The sort by Name is available");
+		    			
+						if(Button.isElementPresent(driver, By.xpath(sortby_Title)))
+						{
+							LOGGER.info("Successful : The sort by Title is available");
+			    			extent.log(LogStatus.PASS, "Successful : The sort by Title is available");
+			    			
+							if(Button.isElementPresent(driver, By.xpath(sortby_Created)))
+							{
+								LOGGER.info("Successful : The sort by Created is available");
+				    			extent.log(LogStatus.PASS, "Successful : The sort by Created is available");
+				    			
+								if(Button.isElementPresent(driver, By.xpath(sortby_Modified)))
+								{
+									LOGGER.info("Successful : The sort by Modified is available");
+					    			extent.log(LogStatus.PASS, "Successful : The sort by Modified is available");
+					    			
+									if(Button.isElementPresent(driver, By.xpath(sortby_Creator)))
+									{
+										LOGGER.info("Successful : The sort by Creator is available");
+						    			extent.log(LogStatus.PASS, "Successful : The sort by Creator is available");
+						    			
+										if(Button.isElementPresent(driver, By.xpath(sortby_Modifier)))
+										{
+											LOGGER.info("Successful : The sort by Modifier is available");
+							    			extent.log(LogStatus.PASS, "Successful : The sort by Modifier is available");
+							    			Element.takescreenshot(driver,className,screenshot_name+"21");
+										}
+										else
+										{
+											extent.log(LogStatus.FAIL, "Unsuccessful : The sort by Modifier is not available");
+							        		LOGGER.error("Unsuccessful : The sort by Modifier is not available");
+										}
+									}
+									else
+									{
+										extent.log(LogStatus.FAIL, "Unsuccessful : The sort by Creator is not available");
+						        		LOGGER.error("Unsuccessful : The sort by Creator is not available");
+									}
+								}
+								else
+								{
+									extent.log(LogStatus.FAIL, "Unsuccessful : The sort by Modified is not available");
+					        		LOGGER.error("Unsuccessful : The sort by Modified is not available");
+								}
+							}
+							else
+							{
+								extent.log(LogStatus.FAIL, "Unsuccessful : The sort by Created is not available");
+				        		LOGGER.error("Unsuccessful : The sort by Created is not available");
+							}
+						}
+						else
+						{
+							extent.log(LogStatus.FAIL, "Unsuccessful : The sort by Title is not available");
+			        		LOGGER.error("Unsuccessful : The sort by Title is not available");
+						}
+					}
+					else
+					{
+						extent.log(LogStatus.FAIL, "Unsuccessful : The sort by Name is not available");
+		        		LOGGER.error("Unsuccessful : The sort by Name is not available");
+					}
+				}
+    			
+				LOGGER.info("Successful : The sort by Relevance is available");
+    			extent.log(LogStatus.PASS, "Successful : The sort by Relevance is available");
+    			
+			}
+			else
+			{
+				extent.log(LogStatus.FAIL, "Unsuccessful : The sort by Feature is not available");
+        		LOGGER.error("Unsuccessful : The sort by Feature is not available");
+        		Element.takescreenshot(driver,className,screenshot_name+"211");
+			}
+			
+			Thread.sleep(3000);
+			
+			if(Button.isElementPresent(driver, By.xpath(test_element2)))
+			{
+				new Button(driver, By.xpath(test_element2)).Click();
+				
+    			LOGGER.info("Successful : The Alfresco Data source is available");
+    			extent.log(LogStatus.PASS, "Successful : The Alfresco Data source is available");
+    			Element.takescreenshot(driver,className,screenshot_name+"22");
+			}
+			else
+			{
+				extent.log(LogStatus.FAIL, "Unsuccessful : The Alfresco Data source is not available");
+        		LOGGER.error("Unsuccessful : The Alfresco Data source is not available");
+        		Element.takescreenshot(driver,className,screenshot_name+"24");
+			}
+			
+			Thread.sleep(3000);
+			
+			if(Button.isElementPresent(driver, By.xpath(test_element3)))
+			{
+				new Button(driver, By.xpath(test_element3)).Click();
+				
+				Thread.sleep(3000);
+				
+    			LOGGER.info("Successful : The Results per page drop down icon is available");
+    			extent.log(LogStatus.PASS, "Successful : The Results per page drop down icon is available");
+    			Element.takescreenshot(driver,className,screenshot_name+"25");
+    			
+			}
+			else
+			{
+				extent.log(LogStatus.FAIL, "Unsuccessful : The Results per page drop down icon is not available");
+        		LOGGER.error("Unsuccessful : The Results per page drop down icon is not available");
+        		Element.takescreenshot(driver,className,screenshot_name+"26");
+			}
+			
+			Thread.sleep(3000);
+			
+			if(Button.isElementPresent(driver, By.xpath(test_element4)))
+			{
+				//new Button(driver, By.xpath(test_element4)).Click();
+				String filter_By_Creator = "//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//header";
+    			String filter_By_DocumentType = "//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[2]//header";
+    			String filter_By_Language = "//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//header";
+    			String filter_By_Size = "//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[4]//header";
+    			
+    			if(Label.isElementPresent(driver, By.xpath(filter_By_Creator)) && Label.isElementPresent(driver, By.xpath(filter_By_DocumentType)) && 
+    					Label.isElementPresent(driver, By.xpath(filter_By_DocumentType)) && Label.isElementPresent(driver, By.xpath(filter_By_Size)))
+    			{
+    				LOGGER.info("Successful : The Fiter By facet is available");
+        			extent.log(LogStatus.PASS, "Successful : The Fiter By facet is available");
+        			Element.takescreenshot(driver,className,screenshot_name+"27");
+    			}
+    			else
+    			{
+    				extent.log(LogStatus.FAIL, "Unsuccessful : The Fiter By facet is not available");
+            		LOGGER.error("Unsuccessful : The Fiter By facet is not available");
+            		Element.takescreenshot(driver,className,screenshot_name+"28");
+    			}   			
+			}
+			else
+			{
+				extent.log(LogStatus.FAIL, "Unsuccessful : The Fiter By facet is not available");
+        		LOGGER.error("Unsuccessful : The Fiter By facet is not available");
+        		Element.takescreenshot(driver,className,screenshot_name+"29");
+			}
+			
+					
 		}
 		catch(Exception e)
 		{

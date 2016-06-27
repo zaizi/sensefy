@@ -89,8 +89,23 @@
 			<password>ulibranxi</password>
 			<search_term_people>Thomas</search_term_people>
 			<search_term_places>Dallas</search_term_places>
-			<search_term_organization>JC Penney</search_term_organization>
+			<search_term_organization>UChicago</search_term_organization>
 			<screenshot_name>EntitySearch</screenshot_name>
 		</test>
 	</lEntitySearch>
+	<mVideoSearch>
+		<test>
+			<username1>admin</username1>
+			<password1>ulibranxi</password1>
+			<videoname>'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR&#46;mp4</videoname>
+			<sortby_Relevance>'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR&#46;mp4</sortby_Relevance>
+			<sortby_Name>'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR&#46;mp4</sortby_Name>
+			<sortby_Title>'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR&#46;mp4</sortby_Title>
+			<sortby_Created>'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR&#46;mp4</sortby_Created>
+			<sortby_Modified>'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR&#46;mp4</sortby_Modified>
+			<sortby_Creator>'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR&#46;mp4</sortby_Creator>
+			<sortby_Modifier>'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR&#46;mp4</sortby_Modifier>
+			<screenshot_name>VideoSearch</screenshot_name>
+		</test>
+	</mVideoSearch>
 </TestData>

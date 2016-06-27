@@ -158,6 +158,24 @@ public class TestCaseValues {
                 	bar[k]=foo;
                 	System.out.println("Values Loaded - Entity Search");                	
                 }
+                else if(("mVideoSearch").equals(testCaseName))
+                {
+                	Object[] foo = { getValue("username1", valueElement), 
+                						getValue("password1", valueElement),
+                						getValue("videoname", valueElement),
+                						getValue("sortby_Relevance", valueElement),
+                						getValue("sortby_Name", valueElement),
+                						getValue("sortby_Title", valueElement),
+                						getValue("sortby_Created", valueElement),
+                						getValue("sortby_Modified", valueElement),
+                						getValue("sortby_Creator", valueElement),
+                						getValue("sortby_Modifier", valueElement),
+                  						getValue("screenshot_name", valueElement), 
+                	};
+                	
+                	bar[k]=foo;
+                	System.out.println("Values Loaded - Entity Search");                	
+                }
                 k++;
             }
         }
