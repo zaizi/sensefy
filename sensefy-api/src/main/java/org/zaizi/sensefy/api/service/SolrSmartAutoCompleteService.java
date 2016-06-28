@@ -129,6 +129,7 @@ public class SolrSmartAutoCompleteService extends SolrService {
 			if (semantic) {
 				// First query to suggest named entities, showing mini details
 				// <field>:<value>
+				numberOfSuggestions = 6;
 				QueryResponse namedEntitiesQueryResponse = getSmartSuggestions(termToComplete, numberOfSuggestions,
 						this.getEntityCore());
 
