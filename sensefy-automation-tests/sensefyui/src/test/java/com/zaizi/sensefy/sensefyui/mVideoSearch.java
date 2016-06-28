@@ -192,7 +192,7 @@ public class mVideoSearch
 			if(Link.isElementPresent(driver, By.xpath("//div[@class='sub-header'][text()='Concepts']")))
 			{
 				extent.log(LogStatus.INFO, "Expected Results : Concepts");
-				extent.log(LogStatus.INFO, "Current Results : " + driver.findElement(By.xpath("//div[@class='sub-header'][text()='Concepts']")).getText().toString());
+				extent.log(LogStatus.INFO, "Current Results : " +(driver.findElement(By.xpath("//div[@class='sub-header'][text()='Concepts']")).getText().toString()));
 				LOGGER.info("Successful : The Entity Type 'Concepts' is visible under the suggestions");
         		extent.log(LogStatus.PASS, "Successful : The Entity Type 'Concepts' is visible under the suggestions");
         		
@@ -200,8 +200,8 @@ public class mVideoSearch
         		
         		if(Link.isElementPresent(driver, By.xpath(test_element1)))
         		{
-        			extent.log(LogStatus.INFO, "Expected Results : " + test_element1);
-    				extent.log(LogStatus.INFO, "Current Results : " + test_element1);
+        			extent.log(LogStatus.INFO, "Expected Results : " + (driver.findElement(By.xpath(test_element1)).getText().toString()));
+    				extent.log(LogStatus.INFO, "Current Results : " + (driver.findElement(By.xpath(test_element1)).getText().toString()));
         			LOGGER.info("Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions");
             		extent.log(LogStatus.PASS, "Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions");
             		
@@ -218,20 +218,20 @@ public class mVideoSearch
             		
             		if(Label.isElementPresent(driver, By.xpath(test_element4)) && Label.isElementPresent(driver, By.xpath(test_element5)))
             		{
-            			extent.log(LogStatus.INFO, "Expected Results : " + test_element4);
-        				extent.log(LogStatus.INFO, "Current Results : " + test_element4);
-        				extent.log(LogStatus.INFO, "Expected Results : " + test_element5);
-        				extent.log(LogStatus.INFO, "Current Results : " + test_element5);
+            			extent.log(LogStatus.INFO, "Expected Results : " + (driver.findElement(By.xpath(test_element4)).getText().toString()));
+        				extent.log(LogStatus.INFO, "Current Results : " + (driver.findElement(By.xpath(test_element4)).getText().toString()));
+        				extent.log(LogStatus.INFO, "Expected Results : " + (driver.findElement(By.xpath(test_element5)).getText().toString()));
+        				extent.log(LogStatus.INFO, "Current Results : " + (driver.findElement(By.xpath(test_element5)).getText().toString()));
             			LOGGER.info("Successful : The element information is displayed.");
                 		extent.log(LogStatus.PASS, "Successful : The element information is displayed.");
                 		Element.takescreenshot(driver,className,screenshot_name+"3");
             		}
             		else
             		{
-            			extent.log(LogStatus.INFO, "Expected Results : " + test_element4);
-        				extent.log(LogStatus.INFO, "Current Results : " + test_element4);
-        				extent.log(LogStatus.INFO, "Expected Results : " + test_element5);
-        				extent.log(LogStatus.INFO, "Current Results : " + test_element5);
+            			extent.log(LogStatus.INFO, "Expected Results : " + (driver.findElement(By.xpath(test_element4)).getText().toString()));
+        				extent.log(LogStatus.INFO, "Current Results : " + (driver.findElement(By.xpath(test_element4)).getText().toString()));
+        				extent.log(LogStatus.INFO, "Expected Results : " + (driver.findElement(By.xpath(test_element5)).getText().toString()));
+        				extent.log(LogStatus.INFO, "Current Results : " + (driver.findElement(By.xpath(test_element5)).getText().toString()));
             			extent.log(LogStatus.FAIL, "Unsuccessful : The element information is not displayed.");
                 		LOGGER.error("Unsuccessful : The element information is not displayed.");
                 		Element.takescreenshot(driver,className,screenshot_name+"4");
@@ -258,8 +258,8 @@ public class mVideoSearch
         		}
         		else
         		{
-    				extent.log(LogStatus.INFO, "Expected Results : " + test_element1);
-    				extent.log(LogStatus.INFO, "Current Results : " + test_element1);
+    				extent.log(LogStatus.INFO, "Expected Results : " + (driver.findElement(By.xpath(test_element1)).getText().toString()));
+    				extent.log(LogStatus.INFO, "Current Results : " + (driver.findElement(By.xpath(test_element1)).getText().toString()));
         			extent.log(LogStatus.FAIL, "Unsuccessful : The element under the Entity Type 'Concepts' is not visible under the suggestions");
             		LOGGER.error("Unsuccessful : The element under the Entity Type 'Concepts' is not visible under the suggestions");
             		Element.takescreenshot(driver,className,screenshot_name+"7");
@@ -268,7 +268,7 @@ public class mVideoSearch
 			else
 			{
 				extent.log(LogStatus.INFO, "Expected Results : Concepts");
-				extent.log(LogStatus.INFO, "Current Results : " + driver.findElement(By.xpath("//div[@class='sub-header'][text()='Concepts']")).getText().toString());
+				extent.log(LogStatus.INFO, "Current Results : " +(driver.findElement(By.xpath("//div[@class='sub-header'][text()='Concepts']")).getText().toString()));
 				extent.log(LogStatus.FAIL, "Unsuccessful : The Entity Type 'Concepts' is not visible under the suggestions");
         		LOGGER.error("Unsuccessful : The Entity Type 'Concepts' is not visible under the suggestions");
         		Element.takescreenshot(driver,className,screenshot_name+"8");
@@ -374,6 +374,152 @@ public class mVideoSearch
         		LOGGER.error("Unsuccessful : The results are not sorted by Name.");
         		Element.takescreenshot(driver,className,screenshot_name+"14");
 			}
+			
+			new Button(driver, By.xpath(test_element1)).Click();
+			Thread.sleep(3000);
+			
+			new Link(driver, By.xpath("//body[@id='sensefy']/div[1]/div[3]/div[2]/div[2]/div/div[4]")).Click();
+			Thread.sleep(5000);
+			
+			if(sortby_Modifier.equals(sortby_result))
+			{
+				System.out.println(driver.findElement(By.xpath(check_sortby_Result)).getText().toString());
+				extent.log(LogStatus.INFO, "Expected Results : " + sortby_Modifier);
+				extent.log(LogStatus.INFO, "Current Results : " + sortby_result);
+				LOGGER.info("Successful : The results are sorted by Modifier.");
+        		extent.log(LogStatus.PASS, "Successful : The results are sorted by Modifier.");
+        		Element.takescreenshot(driver,className,screenshot_name+"15");
+			}
+			else
+			{
+				System.out.println(driver.findElement(By.xpath(check_sortby_Result)).getText().toString());
+				extent.log(LogStatus.INFO, "Expected Results : " + sortby_Modifier);
+				extent.log(LogStatus.INFO, "Current Results : " + sortby_result);
+				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not sorted by Modifier.");
+        		LOGGER.error("Unsuccessful : The results are not sorted by Modifier.");
+        		Element.takescreenshot(driver,className,screenshot_name+"16");
+			}
+			
+			new Button(driver, By.xpath(test_element1)).Click();
+			Thread.sleep(3000);
+			
+			new Link(driver, By.xpath("//body[@id='sensefy']/div[1]/div[3]/div[2]/div[2]/div/div[5]")).Click();
+			Thread.sleep(5000);
+			
+			if(sortby_Creator.equals(sortby_result))
+			{
+				System.out.println(driver.findElement(By.xpath(check_sortby_Result)).getText().toString());
+				extent.log(LogStatus.INFO, "Expected Results : " + sortby_Creator);
+				extent.log(LogStatus.INFO, "Current Results : " + sortby_result);
+				LOGGER.info("Successful : The results are sorted by Creator.");
+        		extent.log(LogStatus.PASS, "Successful : The results are sorted by Creator.");
+        		Element.takescreenshot(driver,className,screenshot_name+"17");
+			}
+			else
+			{
+				System.out.println(driver.findElement(By.xpath(check_sortby_Result)).getText().toString());
+				extent.log(LogStatus.INFO, "Expected Results : " + sortby_Creator);
+				extent.log(LogStatus.INFO, "Current Results : " + sortby_result);
+				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not sorted by Creator.");
+        		LOGGER.error("Unsuccessful : The results are not sorted by Creator.");
+        		Element.takescreenshot(driver,className,screenshot_name+"18");
+			}
+			
+			new Button(driver, By.xpath(test_element1)).Click();
+			Thread.sleep(3000);
+			
+			new Link(driver, By.xpath("//body[@id='sensefy']/div[1]/div[3]/div[2]/div[2]/div/div[6]")).Click();
+			Thread.sleep(5000);
+			
+			if(sortby_Modified.equals(sortby_result))
+			{
+				System.out.println(driver.findElement(By.xpath(check_sortby_Result)).getText().toString());
+				extent.log(LogStatus.INFO, "Expected Results : " + sortby_Modified);
+				extent.log(LogStatus.INFO, "Current Results : " + sortby_result);
+				LOGGER.info("Successful : The results are sorted by Modified.");
+        		extent.log(LogStatus.PASS, "Successful : The results are sorted by Modified.");
+        		Element.takescreenshot(driver,className,screenshot_name+"19");
+			}
+			else
+			{
+				System.out.println(driver.findElement(By.xpath(check_sortby_Result)).getText().toString());
+				extent.log(LogStatus.INFO, "Expected Results : " + sortby_Modified);
+				extent.log(LogStatus.INFO, "Current Results : " + sortby_result);
+				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not sorted by Modified.");
+        		LOGGER.error("Unsuccessful : The results are not sorted by Modified.");
+        		Element.takescreenshot(driver,className,screenshot_name+"20");
+			}
+			
+			new Button(driver, By.xpath(test_element1)).Click();
+			Thread.sleep(3000);
+			
+			new Link(driver, By.xpath("//body[@id='sensefy']/div[1]/div[3]/div[2]/div[2]/div/div[7]")).Click();
+			Thread.sleep(5000);
+			
+			if(sortby_Created.equals(sortby_result))
+			{
+				System.out.println(driver.findElement(By.xpath(check_sortby_Result)).getText().toString());
+				extent.log(LogStatus.INFO, "Expected Results : " + sortby_Created);
+				extent.log(LogStatus.INFO, "Current Results : " + sortby_result);
+				LOGGER.info("Successful : The results are sorted by Created.");
+        		extent.log(LogStatus.PASS, "Successful : The results are sorted by Created.");
+        		Element.takescreenshot(driver,className,screenshot_name+"21");
+			}
+			else
+			{
+				System.out.println(driver.findElement(By.xpath(check_sortby_Result)).getText().toString());
+				extent.log(LogStatus.INFO, "Expected Results : " + sortby_Created);
+				extent.log(LogStatus.INFO, "Current Results : " + sortby_result);
+				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not sorted by Created.");
+        		LOGGER.error("Unsuccessful : The results are not sorted by Created.");
+        		Element.takescreenshot(driver,className,screenshot_name+"22");
+			}
+			
+			Thread.sleep(5000);
+			
+		}
+		catch(Exception e)
+		{
+			System.out.println("Unsuccessful");
+		}
+	}
+	
+	@Test
+	public void d_FilterByFunction()
+	{
+		LOGGER.info("Filter By Functionality");
+		extent.startTest("Filter By Functionality");
+		
+		try
+		{
+			new Link(driver, By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//span")).Click();
+			Thread.sleep(3000);
+			
+			String check_filterby_Result = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a//span";
+			String filterby_result = driver.findElement(By.xpath(check_filterby_Result)).getText().toString();
+			
+			if(videoname.equals(filterby_result))
+			{
+				//System.out.println(driver.findElement(By.xpath(check_sortby_Result)).getText().toString());
+				extent.log(LogStatus.INFO, "Expected Results : " + videoname);
+				extent.log(LogStatus.INFO, "Current Results : " + filterby_result);
+				LOGGER.info("Successful : The results are filter by the Document Type " +
+				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//span")).getText().toString()));
+        		extent.log(LogStatus.PASS, "Successful : The results are filter by the Document Type " +
+				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//span")).getText().toString()));
+        		Element.takescreenshot(driver,className,screenshot_name+"23");
+			}
+			else
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + videoname);
+				extent.log(LogStatus.INFO, "Current Results : " + filterby_result);
+				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not filter by the Document Type " +
+				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//span")).getText().toString()));
+        		LOGGER.error("Unsuccessful : The results are not filter by the Document Type " +
+				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//span")).getText().toString()));
+        		Element.takescreenshot(driver,className,screenshot_name+"24");
+			}
+			
 		}
 		catch(Exception e)
 		{
