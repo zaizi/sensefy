@@ -491,39 +491,35 @@ public class mVideoSearch
 		
 		try
 		{
-			
+			/*
 			String check_filterby_Result = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a//span";
 			String filterby_result = driver.findElement(By.xpath(check_filterby_Result)).getText().toString();
 			
-			/*Link DocumentType = new Link(driver, By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//span"));
+			Link DocumentType = new Link(driver, By.xpath("//div[@class='ng-scope']//div[1]//ul//li//span//span//span"));
 			DocumentType.Click();
-			Thread.sleep(3000);*/
-
-			/*
+			Thread.sleep(3000);
+	
 			if(videoname.equals(filterby_result))
 			{
 				extent.log(LogStatus.INFO, "Expected Results : " + videoname);
 				extent.log(LogStatus.INFO, "Current Results : " + filterby_result);
-				LOGGER.info("Successful : The results are filter by the Document Type " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//span")).getText().toString()));
-        		extent.log(LogStatus.PASS, "Successful : The results are filter by the Document Type " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//span")).getText().toString()));
+				LOGGER.info("Successful : The results are filter by the Document Type " +(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//span")).getText().toString()));
+        		extent.log(LogStatus.PASS, "Successful : The results are filter by the Document Type " +(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//span")).getText().toString()));
         		Element.takescreenshot(driver,className,screenshot_name+"23");
-        		DocumentType.Click();
-			}
+   			}
 			else
 			{
 				extent.log(LogStatus.INFO, "Expected Results : " + videoname);
 				extent.log(LogStatus.INFO, "Current Results : " + filterby_result);
-				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not filter by the Document Type " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//span")).getText().toString()));
-        		LOGGER.error("Unsuccessful : The results are not filter by the Document Type " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//span")).getText().toString()));
+				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not filter by the Document Type " +(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//span")).getText().toString()));
+        		LOGGER.error("Unsuccessful : The results are not filter by the Document Type " +(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//span")).getText().toString()));
         		Element.takescreenshot(driver,className,screenshot_name+"24");
 			}
 			
-			//DocumentType.Click();
+			DocumentType.Click();
 			Thread.sleep(3000);
+			
+			//-----------------------------------------------
 			
 			//************Language Type***************
 			/*Thread.sleep(3000);
@@ -551,75 +547,87 @@ public class mVideoSearch
 			}*/
 			//*********LAnguage Type****************
 			
-			/*Link Size1 = new Link(driver, By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[1]"));
-			Size1.Click();
-			Thread.sleep(3000);
-			System.out.println(filterby_result);
-			if(size1.equals(filterby_result))
+			//---------------------------------------------
+
+			//check on 1st Size range
+			driver.findElement(By.xpath("//div[@class='ng-scope']//div[3]//ul//li[1]//span[1]//span//span")).click();
+			Thread.sleep(5000);
+			System.out.println(driver.findElement(By.xpath("//div[@class='ng-scope']//div[3]//ul//li[1]//span[1]//span//span")).getText().toString());
+			
+			String result1 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
+			String final1 = driver.findElement(By.xpath(result1)).getText().toString();
+			System.out.println(final1);
+									
+			if(size1.equals(final1))
 			{
 				extent.log(LogStatus.INFO, "Expected Results : " + size1);
-				extent.log(LogStatus.INFO, "Current Results : " + filterby_result);
-				LOGGER.info("Successful : The results are filter by the Size " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[1]")).getText().toString()));
-        		extent.log(LogStatus.PASS, "Successful : The results are filter by the Size " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[1]")).getText().toString()));
+				extent.log(LogStatus.INFO, "Current Results : " + final1);
+				LOGGER.info("Successful : The results are filter by the Size " +(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[1]")).getText().toString()));
+        		extent.log(LogStatus.PASS, "Successful : The results are filter by the Size " +(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[1]")).getText().toString()));
         		Element.takescreenshot(driver,className,screenshot_name+"27");
 			}
 			else
 			{
 				extent.log(LogStatus.INFO, "Expected Results : " + size1);
-				extent.log(LogStatus.INFO, "Current Results : " + filterby_result);
-				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not filter by the Size " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[1]")).getText().toString()));
-        		LOGGER.error("Unsuccessful : The results are not filter by the Size " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[1]")).getText().toString()));
+				extent.log(LogStatus.INFO, "Current Results : " + final1);
+				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not filter by the Size " +(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[1]")).getText().toString()));
+        		LOGGER.error("Unsuccessful : The results are not filter by the Size " +(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[1]")).getText().toString()));
         		Element.takescreenshot(driver,className,screenshot_name+"28");
 			}
 			
-			//Size1.Click();
-			Thread.sleep(3000);
-			System.out.println("done");
-			
-			//*****************
-			/*
-			Link Size2 = new Link(driver, By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[2]"));
-			Size2.Click();
+			//uncheck the 1st Size Range
+			driver.findElement(By.xpath("//div[@class='ng-scope']//div[3]//ul//li[1]//span[1]//span//span")).click();
 			Thread.sleep(3000);
 			
-			if(videoname.equals(filterby_result))
+			//-----------------------------------------------
+			
+			//check on the 2nd Size Range
+			driver.findElement(By.xpath("//div[@class='ng-scope']//div[3]//ul//li[2]//span[1]//span//span")).click();
+
+			Thread.sleep(5000);
+			System.out.println(driver.findElement(By.xpath("//div[@class='ng-scope']//div[3]//ul//li[2]//span[1]//span//span")).getText().toString());
+			
+			String result2 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
+			String final2 = driver.findElement(By.xpath(result2)).getText().toString();
+			System.out.println(final2);
+			
+			if(videoname.equals(final2))
 			{
 				extent.log(LogStatus.INFO, "Expected Results : " + videoname);
-				extent.log(LogStatus.INFO, "Current Results : " + filterby_result);
-				LOGGER.info("Successful : The results are filter by the Size " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[2]")).getText().toString()));
-        		extent.log(LogStatus.PASS, "Successful : The results are filter by the Size " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[2]")).getText().toString()));
+				extent.log(LogStatus.INFO, "Current Results : " + final2);
+				LOGGER.info("Successful : The results are filter by the Size 10.00 MB - 20.00 MB");
+        		extent.log(LogStatus.PASS, "Successful : The results are filter by the Size 10.00 MB - 20.00 MB");
         		Element.takescreenshot(driver,className,screenshot_name+"29");
 			}
 			else
 			{
 				extent.log(LogStatus.INFO, "Expected Results : " + videoname);
-				extent.log(LogStatus.INFO, "Current Results : " + filterby_result);
-				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not filter by the Size " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[2]")).getText().toString()));
-        		LOGGER.error("Unsuccessful : The results are not filter by the Size " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[2]")).getText().toString()));
+				extent.log(LogStatus.INFO, "Current Results : " + final2);
+				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not filter by the Size " +(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[2]")).getText().toString()));
+        		LOGGER.error("Unsuccessful : The results are not filter by the Size " +(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[2]")).getText().toString()));
         		Element.takescreenshot(driver,className,screenshot_name+"30");
 			}
 			
-			//*************
-			
-			Size2.Click();
-			Thread.sleep(3000);*/
-			
-			Link Size3 = new Link(driver, By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[3]"));
-			Size3.Click();
+			//Uncheck the 2nd Range of Size
+			driver.findElement(By.xpath("//div[@class='ng-scope']//div[3]//ul//li[2]//span[1]//span//span")).click();
 			Thread.sleep(3000);
 			
-			if(size3.equals(filterby_result))
+			//----------------------------------------------
+			
+			//Check on the 3rd Size Range
+			driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[3]//span[1]//span//span")).click();
+			
+			Thread.sleep(3000);
+			String test = driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[3]//span[1]//span//span")).getText().toString();
+						
+			String result3 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
+			String final3 = driver.findElement(By.xpath(result3)).getText().toString();
+			System.out.println(final1);
+			
+			if(size3.equals(final3))
 			{
 				extent.log(LogStatus.INFO, "Expected Results : " + size3);
-				extent.log(LogStatus.INFO, "Current Results : " + filterby_result);
+				extent.log(LogStatus.INFO, "Current Results : " + final3);
 				LOGGER.info("Successful : The results are filter by the Size " +
 				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[3]")).getText().toString()));
         		extent.log(LogStatus.PASS, "Successful : The results are filter by the Size " +
@@ -629,7 +637,7 @@ public class mVideoSearch
 			else
 			{
 				extent.log(LogStatus.INFO, "Expected Results : " + size3);
-				extent.log(LogStatus.INFO, "Current Results : " + filterby_result);
+				extent.log(LogStatus.INFO, "Current Results : " + final3);
 				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not filter by the Size " +
 				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[3]")).getText().toString()));
         		LOGGER.error("Unsuccessful : The results are not filter by the Size " +
@@ -637,7 +645,8 @@ public class mVideoSearch
         		Element.takescreenshot(driver,className,screenshot_name+"32");
 			}
 			
-			Size3.Click();
+			//Uncheck on the 3rd range on Size
+			driver.findElement(By.xpath("/body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[3]//span[1]//span//span")).click();
 			Thread.sleep(3000);
 			
 			//*******
@@ -647,14 +656,20 @@ public class mVideoSearch
 			
 			//*******
 			
-			Link Size4 = new Link(driver, By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[4]"));
-			Size4.Click();
-			Thread.sleep(3000);
+			//Check on the 4th range of Size
+			driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[4]")).click();
 			
-			if(size4.equals(filterby_result))
+			Thread.sleep(3000);
+			String test1 = driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[3]")).getText().toString();
+			
+			String result4 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
+			String final4 = driver.findElement(By.xpath(result4)).getText().toString();
+			System.out.println(final1);
+			
+			if(size4.equals(final4))
 			{
 				extent.log(LogStatus.INFO, "Expected Results : " + size4);
-				extent.log(LogStatus.INFO, "Current Results : " + filterby_result);
+				extent.log(LogStatus.INFO, "Current Results : " + final4);
 				LOGGER.info("Successful : The results are filter by the Size " +
 				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[4]")).getText().toString()));
         		extent.log(LogStatus.PASS, "Successful : The results are filter by the Size " +
@@ -664,7 +679,7 @@ public class mVideoSearch
 			else
 			{
 				extent.log(LogStatus.INFO, "Expected Results : " + size4);
-				extent.log(LogStatus.INFO, "Current Results : " + filterby_result);
+				extent.log(LogStatus.INFO, "Current Results : " + final4);
 				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not filter by the Size " +
 				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[4]")).getText().toString()));
         		LOGGER.error("Unsuccessful : The results are not filter by the Size " +
@@ -672,8 +687,8 @@ public class mVideoSearch
         		Element.takescreenshot(driver,className,screenshot_name+"34");
 			}
 			
-			
-			
+			//Uncheck on the 4th Range of Size
+			driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[4]")).click();
 		}
 		catch(Exception e)
 		{

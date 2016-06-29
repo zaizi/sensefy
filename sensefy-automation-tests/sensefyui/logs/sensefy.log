@@ -230,3 +230,254 @@
 2016-05-11  10:27:10.795 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Expected Results : video1.mp4
 2016-05-11  10:27:11.019 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Current Test Results : video1.mp4
 2016-05-11  10:27:11.639 [main] INFO  com.zaizi.sensefy.sensefyui.kMediaSearch - Logout From Alfresco
+2016-06-29  13:14:03.750 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  13:14:03.975 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  13:14:04.006 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  13:14:56.363 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  13:14:56.598 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  13:15:37.521 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  13:15:37.657 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  13:15:43.712 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-06-29  13:15:44.030 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-06-29  13:15:44.351 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  13:15:47.646 [main] ERROR com.zaizi.sensefy.sensefyui.mVideoSearch - Unsuccessful : The results are not filter by the Size 10.00 MB - 20.00 MB
+4
+2016-06-29  13:34:35.743 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  13:34:35.853 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  13:34:35.860 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  13:34:59.793 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  13:34:59.961 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  13:35:40.786 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  13:35:40.892 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  13:35:46.400 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-06-29  13:35:47.089 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-06-29  13:35:47.360 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  13:35:50.784 [main] ERROR com.zaizi.sensefy.sensefyui.mVideoSearch - Unsuccessful : The results are not filter by the Size 10.00 MB - 20.00 MB
+4
+2016-06-29  13:38:26.159 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  13:38:26.262 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  13:38:26.275 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  13:38:52.750 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  13:38:52.912 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  13:39:33.545 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  13:39:33.643 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  13:39:39.697 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-06-29  13:39:40.016 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-06-29  13:39:40.294 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  13:39:43.663 [main] ERROR com.zaizi.sensefy.sensefyui.mVideoSearch - Unsuccessful : The results are not filter by the Size 10.00 MB - 20.00 MB
+4
+2016-06-29  13:49:57.448 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  13:49:57.546 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  13:49:57.552 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  13:50:54.869 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  13:50:55.022 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  13:51:35.744 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  13:51:35.862 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  13:51:41.393 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-06-29  13:51:41.736 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-06-29  13:51:42.052 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  13:51:45.492 [main] ERROR com.zaizi.sensefy.sensefyui.mVideoSearch - Unsuccessful : The results are not filter by the Size 0.00 B - 10.00 MB
+4
+2016-06-29  13:54:38.184 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  13:54:38.288 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  13:54:38.293 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  13:55:22.287 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  13:55:22.437 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  13:56:03.118 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  13:56:03.228 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  13:56:08.236 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-06-29  13:56:08.585 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-06-29  13:56:08.896 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  13:56:12.133 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Size 0.00 B - 10.00 MB
+4
+2016-06-29  14:07:23.012 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  14:07:23.159 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  14:07:23.165 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  14:07:56.933 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  14:07:57.690 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  14:08:39.038 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  14:08:39.176 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  14:08:46.239 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-06-29  14:08:46.651 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-06-29  14:08:46.964 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  14:08:52.369 [main] ERROR com.zaizi.sensefy.sensefyui.mVideoSearch - Unsuccessful : The results are not filter by the Size 0.00 B - 10.00 MB
+4
+2016-06-29  14:09:34.891 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  14:09:35.078 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  14:09:35.082 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  14:10:06.640 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  14:10:06.881 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  14:10:47.796 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  14:10:47.903 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  14:10:55.644 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-06-29  14:10:55.973 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-06-29  14:10:56.298 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  14:11:02.150 [main] ERROR com.zaizi.sensefy.sensefyui.mVideoSearch - Unsuccessful : The results are not filter by the Size 0.00 B - 10.00 MB
+4
+2016-06-29  14:13:45.771 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  14:13:46.634 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  14:13:46.641 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  14:14:26.297 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  14:14:26.613 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  14:15:07.728 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  14:15:07.930 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  14:15:13.163 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-06-29  14:15:13.640 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-06-29  14:15:13.950 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  14:15:19.343 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Size 0.00 B - 10.00 MB
+4
+2016-06-29  14:20:41.564 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  14:20:41.771 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  14:20:41.778 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  14:21:28.981 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  14:21:28.990 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  14:22:30.493 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  14:22:30.667 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  14:22:30.673 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  14:22:58.228 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  14:22:58.386 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  14:23:39.443 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  14:23:39.638 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  14:23:45.662 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-06-29  14:23:45.981 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-06-29  14:23:46.367 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  14:23:49.606 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Document Type MPEG4 Video
+2016-06-29  14:28:46.203 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  14:28:46.302 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  14:28:46.309 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  14:29:11.915 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  14:29:12.068 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  14:29:52.909 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  14:29:53.029 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  14:29:57.968 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-06-29  14:29:58.289 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-06-29  14:29:58.566 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  14:30:01.842 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Document Type MPEG4 Video
+2016-06-29  14:34:34.534 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  14:34:34.630 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  14:34:34.636 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  14:34:58.290 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  14:34:58.503 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  14:35:39.292 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  14:35:39.393 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  14:35:44.589 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-06-29  14:35:44.974 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-06-29  14:35:45.270 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  14:35:48.530 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Document Type MPEG4 Video
+2016-06-29  14:38:17.287 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  14:38:17.461 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  14:38:17.467 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  14:38:46.731 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  14:38:46.866 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  14:38:46.901 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  14:39:41.356 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  14:39:41.470 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  14:39:41.477 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  14:40:31.866 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  14:40:31.879 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  14:40:44.675 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  14:40:44.784 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  14:40:44.789 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  14:42:22.172 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  14:42:22.278 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  14:42:22.285 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  14:43:17.938 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  14:43:17.963 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  14:44:01.446 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  14:44:01.459 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  14:44:26.413 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  14:44:26.550 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  14:44:26.556 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  14:44:49.793 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  14:44:49.939 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  14:45:31.760 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  14:45:31.862 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  14:45:31.867 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  14:45:56.093 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  14:45:56.244 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  14:46:36.985 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  14:46:37.087 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  14:46:42.576 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-06-29  14:46:42.891 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-06-29  14:46:43.198 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  14:46:48.527 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Size 0.00 B - 10.00 MB
+4
+2016-06-29  15:00:30.858 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  15:00:31.164 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  15:00:31.170 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  15:00:58.656 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  15:00:58.825 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  15:01:39.460 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  15:01:39.560 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  15:01:45.363 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-06-29  15:01:45.694 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-06-29  15:01:46.030 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  15:06:48.222 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  15:06:48.435 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  15:06:48.441 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  15:07:16.036 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  15:07:16.189 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  15:07:56.895 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  15:07:57.320 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  15:08:03.408 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-06-29  15:08:03.726 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-06-29  15:08:04.047 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  15:08:09.342 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Size 0.00 B - 10.00 MB
+4
+2016-06-29  15:08:17.988 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Size 0.00 B - 10.00 MB
+4
+2016-06-29  15:16:26.202 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  15:16:26.309 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  15:16:26.314 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  15:16:52.534 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  15:16:52.710 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  15:17:33.382 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  15:17:33.484 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  15:17:39.561 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-06-29  15:17:39.901 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-06-29  15:17:40.251 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  15:17:45.553 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Size 0.00 B - 10.00 MB
+4
+2016-06-29  15:17:54.217 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Size 0.00 B - 10.00 MB
+4
+2016-06-29  15:21:12.589 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  15:21:12.690 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  15:21:12.696 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  15:21:36.348 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  15:21:36.507 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  15:22:17.273 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  15:22:17.392 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  15:22:22.367 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-06-29  15:22:22.692 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-06-29  15:22:23.034 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  15:22:28.407 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Size 0.00 B - 10.00 MB
+4
+2016-06-29  15:22:37.115 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Size 0.00 B - 10.00 MB
+2016-06-29  15:24:17.014 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  15:24:17.119 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  15:24:17.126 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  15:24:41.437 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  15:24:41.629 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  15:25:22.446 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  15:25:22.548 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  15:25:28.612 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-06-29  15:25:28.959 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-06-29  15:25:29.286 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  15:25:34.583 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Size 0.00 B - 10.00 MB
+4
+2016-06-29  15:25:43.208 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Size 0.00 B - 10.00 MB
+2016-06-29  15:32:46.339 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-06-29  15:32:46.548 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-06-29  15:32:46.555 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-06-29  15:33:16.581 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-06-29  15:33:16.732 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-06-29  15:33:57.502 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  15:33:57.600 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-06-29  15:34:03.546 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-06-29  15:34:03.889 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-06-29  15:34:04.184 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-06-29  15:34:09.513 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Size 0.00 B - 10.00 MB
+4
+2016-06-29  15:34:18.102 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Size 10.00 MB - 20.00 MB
+2016-06-29  15:34:24.792 [main] ERROR com.zaizi.sensefy.sensefyui.mVideoSearch - Unsuccessful : The results are not filter by the Size 0.00 B - 10.00 MB
+4
