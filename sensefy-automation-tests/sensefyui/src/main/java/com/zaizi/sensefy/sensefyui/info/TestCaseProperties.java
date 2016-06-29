@@ -2,8 +2,6 @@ package com.zaizi.sensefy.sensefyui.info;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -11,10 +9,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -254,151 +249,7 @@ public class TestCaseProperties
   }
 
 
-/*	   
 
-	   public static WebDriver getWebDriver(String browser) {
-//			FirefoxDriverStore webDrvFac;
-			System.out.println("driver..." + driver);
-			if (driver != null) {
-				closeDriver(driver);
-			}
-			if ("Firefox".equals(browser)) {
-//				WebDriverEventListener eventListener = new MyEventListener();
-				System.out.println("Firefox calling...");
-				FirefoxDriverStore webDrvFac = new FirefoxDriverStore();
-				driver = webDrvFac.createWebDriver();
-//				 driver = new EventFiringWebDriver(new FirefoxDriver()).register(eventListener);
-//				driver = new EventFiringWebDriver(webDrvFac.createWebDriver()).register(eventListener);
-			} else if ("Chrome".equals(browser)) {
-//				WebDriverEventListener eventListener = new MyEventListener();
-				ChromeDriverStore webDrvFac = new ChromeDriverStore(
-						CHROME_DRIVER_PATH);
-				driver = webDrvFac.createWebDriver();
-//				driver = new EventFiringWebDriver(webDrvFac.createWebDriver()).register(eventListener);
-			} else if ("Safari".equals(browser)) {
-//				WebDriverEventListener eventListener = new MyEventListener();
-				SafariDriverStore webDrvFac = new SafariDriverStore();
-				driver = webDrvFac.createWebDriver();
-//				driver = new EventFiringWebDriver(webDrvFac.createWebDriver()).register(eventListener);
-			}
-			else if ("IE".equals(browser)) {
-//				WebDriverEventListener eventListener = new MyEventListener();
-				IEDriverStore webDrvFac = new IEDriverStore();
-				driver = webDrvFac.createWebDriver();
-//				driver = new EventFiringWebDriver(webDrvFac.createWebDriver()).register(eventListener);
-			}
-			return driver;
-		}
-	   
-	   public static WebDriver gridDriver(String browser,String operatingSystem) throws MalformedURLException {
-			if (driver != null) {
-				closeDriver(driver);
-			}
-			if ("Firefox".equals(browser) && "MAC".equals(operatingSystem)) {
-				DesiredCapabilities capability = DesiredCapabilities.firefox();
-				capability.setBrowserName("firefox");
-				capability.setCapability("ignoreZoomSetting", true);
-				capability.setPlatform(Platform.MAC);
-				capability.setVersion("ANY");
-				capability.setCapability("nativeEvents", false);
-				driver = new RemoteWebDriver(new URL(NODEURL), capability);
-			} else if ("Firefox".equals(browser) && "VISTA".equals(operatingSystem)) {
-				DesiredCapabilities capability = DesiredCapabilities.firefox();
-				capability.setBrowserName("firefox");
-				capability.setCapability("ignoreZoomSetting", true);
-				capability.setPlatform(Platform.VISTA);
-				capability.setVersion("ANY");
-				capability.setCapability("nativeEvents", false);
-				driver = new RemoteWebDriver(new URL(NODEURL), capability);
-			} else if ("Firefox".equals(browser) && "WINDOWS".equals(operatingSystem)) {
-				DesiredCapabilities capability = DesiredCapabilities.firefox();
-				capability.setBrowserName("firefox");
-				capability.setCapability("ignoreZoomSetting", true);
-				capability.setPlatform(Platform.WINDOWS);
-				capability.setVersion("ANY");
-				capability.setCapability("nativeEvents", false);
-				driver = new RemoteWebDriver(new URL(NODEURL), capability);
-			} else if ("Chrome".equals(browser) && "VISTA".equals(operatingSystem)) {
-				DesiredCapabilities capability = DesiredCapabilities.chrome();
-				capability.setBrowserName("chrome");
-				capability.setCapability("ignoreZoomSetting", true);
-				capability.setPlatform(Platform.VISTA);
-				capability.setVersion("ANY");
-				capability.setCapability("nativeEvents", false);
-				driver = new RemoteWebDriver(new URL(NODEURL), capability);
-			} else if ("Chrome".equals(browser) && "MAC".equals(operatingSystem)) {
-				DesiredCapabilities capability = DesiredCapabilities.chrome();
-				capability.setBrowserName("chrome");
-				capability.setCapability("ignoreZoomSetting", true);
-				capability.setPlatform(Platform.MAC);
-				capability.setVersion("ANY");
-				capability.setCapability("nativeEvents", false);
-				driver = new RemoteWebDriver(new URL(NODEURL), capability);
-			} else if ("Chrome".equals(browser) && "WINDOWS".equals(operatingSystem)) {
-				DesiredCapabilities capability = DesiredCapabilities.chrome();
-				capability.setBrowserName("chrome");
-				capability.setCapability("ignoreZoomSetting", true);
-				capability.setPlatform(Platform.WINDOWS);
-				capability.setVersion("ANY");
-				capability.setCapability("nativeEvents", false);
-				driver = new RemoteWebDriver(new URL(NODEURL), capability);
-			} else if ("IE".equals(browser) && "VISTA".equals(operatingSystem) ) {
-				DesiredCapabilities capability = DesiredCapabilities.internetExplorer();
-				capability.setBrowserName("internet explorer");
-				capability.setCapability("ignoreZoomSetting", true);
-		        capability.setPlatform(Platform.VISTA);
-		        capability.setVersion("ANY");
-		        capability.setCapability("nativeEvents",false);
-		        capability.setCapability("name", "Remote File Upload using Selenium 2's FileDetectors");
-		        driver = new RemoteWebDriver(new URL(NODEURL), capability);
-			} else if ("IE".equals(browser) && "WINDOWS".equals(operatingSystem) ) {
-				DesiredCapabilities capability = DesiredCapabilities.internetExplorer();
-				capability.setBrowserName("internet explorer");
-				capability.setCapability("ignoreZoomSetting", true);
-		        capability.setPlatform(Platform.WINDOWS);
-		        capability.setVersion("ANY");
-		        capability.setCapability("nativeEvents",false);
-		        driver = new RemoteWebDriver(new URL(NODEURL), capability);
-			}else if ("Safari".equals(browser) && "MAC".equals(operatingSystem) ) {
-				DesiredCapabilities capability = DesiredCapabilities.safari();
-				capability.setBrowserName("safari");
-				capability.setCapability("ignoreZoomSetting", true);
-		        capability.setPlatform(Platform.MAC);
-		        capability.setVersion("ANY");
-		        capability.setCapability("nativeEvents",false);
-		        driver = new RemoteWebDriver(new URL(NODEURL), capability);
-			}
-			return driver;
-		}
-	   
-	   public static WebDriver driverType(String browser,String operatingSystem) throws MalformedURLException {
-			if (driver != null) {
-				closeDriver(driver);
-			}
-			if ("SeleniumGrid".equals(DRIVERTYPE)) {
-				if ("SeleniumGrid".equals(DRIVERTYPE)) {
-					
-					return gridDriver(browser, operatingSystem);
-				}
-				if ("SeleniumGrid".equals(DRIVERTYPE)) {
-					
-					return gridDriver(browser, operatingSystem);
-				}
-				if ("SeleniumGrid".equals(DRIVERTYPE)) {
-					
-					return gridDriver(browser, operatingSystem);
-				}
-				//return gridDriver(browser, operatingSystem);
-			}
-			
-			else if ("SeleniumWebDriver".equals(DRIVERTYPE)) {
-				return getWebDriver(browser);
-			}
-			return driver;
-			
-			}
-	  //-----------------------------------------------
-	   * */
 	  
 //Get webdriver for AdminUI
 
