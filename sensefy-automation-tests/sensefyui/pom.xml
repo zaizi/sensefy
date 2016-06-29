@@ -30,7 +30,6 @@
     <alfrescopath>http://sensefyqa.zaizicloud.net/share/page/</alfrescopath>
     <manifoldpath>http://192.168.1.72:8345/mcf-crawler-ui/login.jsp</manifoldpath>
     <sensefylocalhost>http://192.168.1.72:9099</sensefylocalhost>
-    <sensefymico>http://mico.zaizicloud.net</sensefymico>
   </properties>
 
   <dependencies>
