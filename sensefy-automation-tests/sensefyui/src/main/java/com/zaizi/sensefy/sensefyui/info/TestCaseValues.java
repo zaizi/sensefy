@@ -170,6 +170,9 @@ public class TestCaseValues {
                 						getValue("sortby_Modified", valueElement),
                 						getValue("sortby_Creator", valueElement),
                 						getValue("sortby_Modifier", valueElement),
+                						getValue("size1", valueElement),
+                						getValue("size3", valueElement),
+                						getValue("size4", valueElement),
                   						getValue("screenshot_name", valueElement), 
                 	};
                 	
