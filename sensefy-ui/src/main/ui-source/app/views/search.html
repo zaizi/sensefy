@@ -165,8 +165,8 @@
                  current-page="currentPage"-->
             <!-- Set the carent icon when hover to result -->
             <div class="doc-thumb" ng-show="document.thumbnail_base64">
-                <img src="data:image/jpeg;base64,{{document.thumbnail_base64}}" ng-if="document.mimetype != 'video/mp4'">
-                <img src="images/video.png" ng-if="document.mimetype == 'video/mp4'">
+                <img src="images/{{thumbType}}.png" ng-show="pickThumbnail(document.mimetype)">
+                <img src="data:image/jpeg;base64,{{document.thumbnail_base64}}" ng-show="!thumbType">
             </div>
 
             <i class="caret right icon hover-result"></i>
