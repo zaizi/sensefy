@@ -911,7 +911,7 @@
                         processHighlightInfo($scope.documents, response.data.searchResults.highlight);
                         $scope.selectedEntity = response.data.searchResults.entity || $scope.selectedEntity;
                         $scope.totalDocuments = response.data.searchResults.numFound;
-                        $scope.updateDocumentOffset();
+                        $scope.updateDocumentOffset(false);
                         parseFacets(response.data);
                         $scope.responsedData = response.data;
                         initDataSources(true);
@@ -1058,7 +1058,7 @@
                                         angular.element('#sensefy').removeClass('ggl');
                                         clearTimeout(addGGLclass2);
                                     }, 25);
-                                    $scope.updateDocumentOffset();
+                                    $scope.updateDocumentOffset(false);
                                 }
 
                                 if (response.data.searchResults.collationQuery) {

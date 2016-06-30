@@ -23,10 +23,19 @@
             if (end == null) {
                 end = "...";
             }
-            if (text.length > numCharacters) {
-                return text.substring(0, numCharacters) + end;
-            } else {
-                return text;
+            if (text == null || text ==='') {
+                text = null;
+            }
+
+            if(text !== null){
+                if (text.length > numCharacters) {
+                    return text.substring(0, numCharacters) + end;
+                } else {
+                    return text;
+                }
+            }
+            else{
+                return text = '';
             }
         };
     }).filter("highlight", function () {
