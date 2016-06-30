@@ -799,10 +799,10 @@
                     }
 
                     if($scope.documentsOffsetEnd <= $scope.totalDocuments){
-                        $scope.documentsOffsetEnd = parseInt($scope.documentsOffsetStart + $scope.documentsPerPage);
+                        $scope.documentsOffsetEnd = parseInt($scope.documentsOffsetStart) + parseInt($scope.documentsPerPage);
                     }
                     if($scope.docFromTo <= $scope.totalDocuments){
-                        $scope.docFromTo = parseInt($scope.documentsOffsetStart + $scope.documentsPerPage);
+                        $scope.docFromTo = parseInt($scope.documentsOffsetStart) + parseInt($scope.documentsPerPage);
                     }
                 };
                 $scope.titleSelected = function (title, removeFilters) {
