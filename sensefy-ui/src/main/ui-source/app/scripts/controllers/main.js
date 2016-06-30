@@ -1519,7 +1519,8 @@
                 $scope.pickThumbnail = function (mimetype) {
                     var mimetype;
                     if (mimetype !== null) {
-                        mimetype = mimetype.split[0]
+                        mimetype = mimetype.split('/');
+                        mimetype = mimetype[0];
                     };
 
                     switch (mimetype) {
