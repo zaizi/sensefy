@@ -23,6 +23,7 @@ import com.zaizi.sensefy.sensefyui.drivers.SafariDriverStore;
 
 public class TestCaseProperties 
 {
+
 	/**
 	 * Defining log4j
 	 */
@@ -32,13 +33,7 @@ public class TestCaseProperties
 	   public static final String TEXT_TEST_EXECUTING = "Executing Test :  {} ...";
 	   public static final String TEXT_TEST_PASS = "Test Case : {} PASSED!";
 	   public static final String TEXT_TEST_FAIL = "Test Case : {} FAILED!";
-	   
-	   /**
-	    * Defining Browser (Firefox or Safari or Chrome)
-	    */
-	   public static final String BROWSER = getPropertyValue("Browser");
-	   //public static final String BROWSER = System.getProperty("Browser");
-	   
+	   	 
 	   /**
 	    * Defining Chrome driver path
 	    */
@@ -59,8 +54,7 @@ public class TestCaseProperties
 	   	 */
 	   private static final String TEST_CASE_PROPERTIES_XML = "src/test/resources/TestProperties.xml";
 
-   //--------------------------
-	   /**
+  	   /**
 	    * Report path is defined here
 	    */
 	   public static final String REPORT_TEST_PATH = getPropertyValue("ReportPath");
@@ -70,42 +64,30 @@ public class TestCaseProperties
 	    */
 	   public static final String UPLOAD_DOC_PATH = getPropertyValue("UploadPath");
 	   
-	   /**
-		 * Defining IE driver path
-		 */
-		//public static final String IE_DRIVER_PATH = getPropertyValue("IEDriverPath");
-		
-		/**
-		 * Defining nodeURL
-		 */
-		//public static final String NODEURL = getPropertyValue("NodeURL");
-		/**
-		 * Defining nodeURL
-		 */
-		//public static final String DRIVERTYPE = getPropertyValue("DriverType");
 	   
-//	   /**
-//	    * alfresco path
-//	    */
-//	   public static final String ALFRESCO_PATH =	getPropertyValue("AlfrescoPath");
-//	   
-//	   /**
-//	    * Alfresco username and password
-//	    */
-//	   public static final String ALFRESCO_USERNAME = getPropertyValue("AlfrescoUsername");
-//	   public static final String ALFRESCO_PASSWORD = getPropertyValue("AlfrescoPassword");
+		//public static final String IE_DRIVER_PATH = getPropertyValue("IEDriverPath");
+		//public static final String NODEURL = getPropertyValue("NodeURL");
+		//public static final String DRIVERTYPE = getPropertyValue("DriverType");
+	    //public static final String ALFRESCO_PATH =	getPropertyValue("AlfrescoPath");
+	   //public static final String ALFRESCO_USERNAME = getPropertyValue("AlfrescoUsername");
+	   //public static final String ALFRESCO_PASSWORD = getPropertyValue("AlfrescoPassword");
+	   
 	   //--------------------------
-	  
+
+	   /**
+	    * Defining Browser (Firefox or Safari or Chrome)
+	    */
+	   public static final String BROWSER = getPropertyValue("Browser");
+
+	   
+	  //----------------
 	   public static final String NOBJECT=null;
 	   
 	   /**
 	    * Defining WebDriver
 	    */
 	   private static WebDriver driver = null;
- /**
-  * getWebDriver method
-  * @return
-  */
+
 
 	 //---------------------------------------------------
 	   public static WebDriver getAlfresco()
