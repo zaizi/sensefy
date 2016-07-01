@@ -164,9 +164,9 @@
                  total-items="totalDocuments"
                  current-page="currentPage"-->
             <!-- Set the carent icon when hover to result -->
-            <div class="doc-thumb" ng-show="document.thumbnail_base64">
-                <img src="images/{{thumbType}}.png" ng-show="pickThumbnail(document.mimetype)">
-                <img src="data:image/jpeg;base64,{{document.thumbnail_base64}}" ng-show="!thumbType">
+            <div class="doc-thumb" ng-if="pickThumbnail(document.mimetype)">
+                <img src="images/{{thumbType}}.png" ng-show="isThumb">
+                <img src="data:image/jpeg;base64,{{document.thumbnail_base64}}" ng-show="!isThumb">
             </div>
 
             <i class="caret right icon hover-result"></i>

@@ -78,6 +78,10 @@ table {
     cursor: default;
 }
 
+.hide{
+    display: none;
+}
+
 .meta-font {
     font-size: 12px;
 }

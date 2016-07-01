@@ -1516,29 +1516,29 @@
                     return docIcon;
                 };
 
+                $scope.thumbType = 'placeholder';
+                $scope.isThumb = false;
                 $scope.pickThumbnail = function (mimetype) {
                     var mimetype;
                     if (mimetype !== null) {
                         mimetype = mimetype.split('/');
                         mimetype = mimetype[0];
-                    };
+                    }
 
                     switch (mimetype) {
                         case 'video':
-                            thumbType = "video";
-                            isThumb = true;
+                            $scope.thumbType = "video";
+                            $scope.isThumb = true;
                             break;
                         case 'audio':
-                            thumbType = "audio";
-                            isThumb = true;
+                            $scope.thumbType = "audio";
+                            $scope.isThumb = true;
                             break;
                         default:
-                            isThumb = false;
+                            $scope.thumbType = 'placeholder';
+                            $scope.isThumb = false;
                     }
-
-                    if(isThumb){
-                        return thumbType;
-                    }
+                    return mimetype;
                 };
                 /*$scope.viewer = pdf.Instance("viewer");
                 $scope.isClose = false;
