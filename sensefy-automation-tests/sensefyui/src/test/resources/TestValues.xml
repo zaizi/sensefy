@@ -105,10 +105,22 @@
 			<sortby_Modified>'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR&#46;mp4</sortby_Modified>
 			<sortby_Creator>'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR&#46;mp4</sortby_Creator>
 			<sortby_Modifier>'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR&#46;mp4</sortby_Modifier>
+			<filterbyLanguage>AP880221-0063 &#46;txt</filterbyLanguage>
 			<size1>UN considers ethics of 'killer robots'&#46;mp4</size1>
 			<size3>Making 'digital animals' from old phones&#46;mp4</size3>
-			<size4>'Army at war with Islamic State'&#46;mp4</size4>
+			<size4>Syria- 'Army at war with Islamic State'&#46;mp4</size4>
 			<screenshot_name>VideoSearch</screenshot_name>
 		</test>
 	</mVideoSearch>
+	<nResultsperpage>
+		<test>
+			<username1>admin</username1>
+			<password1>ulibranxi</password1>
+			<searchTerm>*</searchTerm>
+			<results1>Defence Research&#46;pdf</results1>
+			<results2>understanding-earth&#46;pdf</results2>
+			<results3>Defence Research&#46;pdf</results3>
+			<screenshot_name>ResultsperPage</screenshot_name>
+		</test>
+	</nResultsperpage>
 </TestData>

@@ -41,6 +41,7 @@ public class MicoIndexUpdater {
 	private static final String MICO_URI_FIELD = "mico_uri";
 	private static final String MICO_PROSSESED_FIELD = "is_processed_mico";
 	private static final String MIMETYPE = "mimetype";
+	private static final String LANG = "language";
 	private static final String DOC_IDS_FIELD = "doc_ids";
 	private static final String THUMBNAIL_FIELD = "thumbnail";
 	private static final String DESCRIPTION_FIELD = "description";
@@ -115,6 +116,7 @@ public class MicoIndexUpdater {
 				Map<String, Object> fieldModifier = new HashMap<String, Object>();
 				fieldModifier.put("set", true);
 				primaryDoc.addField(MICO_PROSSESED_FIELD, fieldModifier);
+				primaryDoc.setField(LANG, micoItem.getLanguage());
 				primaryIndexClient.add(primaryDoc);
 			}
 			
@@ -201,7 +203,7 @@ public class MicoIndexUpdater {
 	public List<MicoItem> queryDocuments(SolrClient client, SolrQuery solrQuery) {
 		List<MicoItem> micoItems = new ArrayList<>();
 		solrQuery.setSort(SortClause.asc(ID_FIELD));
-		solrQuery.set("fl", ID_FIELD+","+MICO_URI_FIELD+","+MIMETYPE);
+		solrQuery.set("fl", ID_FIELD+","+MICO_URI_FIELD+","+MIMETYPE+","+LANG);
 		String cursorMark = CursorMarkParams.CURSOR_MARK_START;
 		try {
 			boolean done = false;
@@ -214,6 +216,7 @@ public class MicoIndexUpdater {
 					String id = (String) solrDocument.getFieldValue(ID_FIELD);
 					String micoUri = (String) solrDocument.getFieldValue(MICO_URI_FIELD);
 					String mimetype = (String) solrDocument.getFieldValue(MIMETYPE);
+					String lang = (String)solrDocument.getFieldValue(LANG);
 					if(mimetype == null){
 						mimetype = "";
 					}
@@ -222,6 +225,7 @@ public class MicoIndexUpdater {
 					MicoItem micoItem = new MicoItem();
 					micoItem.setSolrId(id);
 					micoItem.setMicoUri(micoUri);
+					micoItem.setLanguage(lang);
 					if(baseType.equals("image")){
 						micoItem.setContentType(ContentType.IMAGE);
 					}else if (baseType.equals("video")) {

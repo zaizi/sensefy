@@ -170,9 +170,24 @@ public class TestCaseValues {
                 						getValue("sortby_Modified", valueElement),
                 						getValue("sortby_Creator", valueElement),
                 						getValue("sortby_Modifier", valueElement),
+                						getValue("filterbyLanguage", valueElement),
                 						getValue("size1", valueElement),
                 						getValue("size3", valueElement),
                 						getValue("size4", valueElement),
+                  						getValue("screenshot_name", valueElement), 
+                	};
+                	
+                	bar[k]=foo;
+                	System.out.println("Values Loaded - Entity Search");                	
+                }
+                else if(("nResultsperpage").equals(testCaseName))
+                {
+                	Object[] foo = { getValue("username1", valueElement), 
+                						getValue("password1", valueElement),
+                						getValue("searchTerm", valueElement), 
+                						getValue("results1", valueElement), 
+                						getValue("results2", valueElement), 
+                						getValue("results3", valueElement), 
                   						getValue("screenshot_name", valueElement), 
                 	};
                 	

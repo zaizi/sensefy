@@ -56,6 +56,7 @@ public class mVideoSearch
 	public String sortby_Modified;
 	public String sortby_Creator;
 	public String sortby_Modifier;
+	public String filterbyLanguage;
 	public String size1;
 	public String size3;
 	public String size4;
@@ -80,7 +81,7 @@ public class mVideoSearch
 	
 	public mVideoSearch(String username1, String password1, String videoname, String sortby_Relevance,
 			String sortby_Name, String sortby_Title, String sortby_Created, String sortby_Modified,
-			String sortby_Creator, String sortby_Modifier,String size1,String size3,String size4,String screenshot_name) 
+			String sortby_Creator, String sortby_Modifier,String filterbyLanguage,String size1,String size3,String size4,String screenshot_name) 
 	{
 		this.username1 = username1;
 		this.password1 = password1;
@@ -92,6 +93,7 @@ public class mVideoSearch
 		this.sortby_Modified = sortby_Modified;
 		this.sortby_Creator = sortby_Creator;
 		this.sortby_Modifier = sortby_Modifier;
+		this.filterbyLanguage = filterbyLanguage;
 		this.size1 = size1;
 		this.size3 = size3;
 		this.size4 = size4;
@@ -286,7 +288,7 @@ public class mVideoSearch
 			System.out.println("Unsuccessful");
 		}
 	}
-	/*
+	
 	@Test
 	public void c_SortByFunction()
 	{
@@ -482,7 +484,7 @@ public class mVideoSearch
 			System.out.println("Unsuccessful");
 		}
 	}
-	*/
+	
 	@Test
 	public void d_FilterByFunction()
 	{
@@ -491,12 +493,12 @@ public class mVideoSearch
 		
 		try
 		{
-			/*
+			
 			String check_filterby_Result = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a//span";
 			String filterby_result = driver.findElement(By.xpath(check_filterby_Result)).getText().toString();
 			
-			Link DocumentType = new Link(driver, By.xpath("//div[@class='ng-scope']//div[1]//ul//li//span//span//span"));
-			DocumentType.Click();
+			driver.findElement(By.xpath("//div[@class='ng-scope']//div[1]//ul//li//span//span//span[text()='MPEG4 Video']")).click();;
+			
 			Thread.sleep(3000);
 	
 			if(videoname.equals(filterby_result))
@@ -516,37 +518,35 @@ public class mVideoSearch
         		Element.takescreenshot(driver,className,screenshot_name+"24");
 			}
 			
-			DocumentType.Click();
+			driver.findElement(By.xpath("//div[@class='ng-scope']//div[1]//ul//li//span//span//span[text()='MPEG4 Video']")).click();
 			Thread.sleep(3000);
 			
 			//-----------------------------------------------
 			
-			//************Language Type***************
-			/*Thread.sleep(3000);
-			new Link(driver, By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[2]//ul//li//span[1]//span//span"));
+
+			Thread.sleep(3000);
+			new Link(driver, By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[2]//ul//li//span[1]//span//span[text()='English']"));
 			
 			if(videoname.equals(filterby_result))
 			{
-				extent.log(LogStatus.INFO, "Expected Results : " + videoname);
+				extent.log(LogStatus.INFO, "Expected Results : " + filterbyLanguage);
 				extent.log(LogStatus.INFO, "Current Results : " + filterby_result);
-				LOGGER.info("Successful : The results are filter by the Document Type " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//span")).getText().toString()));
-        		extent.log(LogStatus.PASS, "Successful : The results are filter by the Document Type " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//span")).getText().toString()));
-        		Element.takescreenshot(driver,className,screenshot_name+"23");
+				LOGGER.info("Successful : The results are filter by the Language " +
+				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[2]//ul//li//span[1]//span//span[text()='English']")).getText().toString()));
+        		extent.log(LogStatus.PASS, "Successful : The results are filter by the Language " +
+				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[2]//ul//li//span[1]//span//span[text()='English']")).getText().toString()));
+        		Element.takescreenshot(driver,className,screenshot_name+"25");
 			}
 			else
 			{
-				extent.log(LogStatus.INFO, "Expected Results : " + videoname);
+				extent.log(LogStatus.INFO, "Expected Results : " + filterbyLanguage);
 				extent.log(LogStatus.INFO, "Current Results : " + filterby_result);
-				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not filter by the Document Type " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//span")).getText().toString()));
-        		LOGGER.error("Unsuccessful : The results are not filter by the Document Type " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//span")).getText().toString()));
-        		Element.takescreenshot(driver,className,screenshot_name+"24");
-			}*/
-			//*********LAnguage Type****************
-			
+				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not filter by the Language " +
+				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[2]//ul//li//span[1]//span//span[text()='English']")).getText().toString()));
+        		LOGGER.error("Unsuccessful : The results are not filter by the Language " +
+				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[2]//ul//li//span[1]//span//span[text()='English']")).getText().toString()));
+        		Element.takescreenshot(driver,className,screenshot_name+"26");
+			}
 			//---------------------------------------------
 
 			//check on 1st Size range
@@ -577,7 +577,7 @@ public class mVideoSearch
 			
 			//uncheck the 1st Size Range
 			driver.findElement(By.xpath("//div[@class='ng-scope']//div[3]//ul//li[1]//span[1]//span//span")).click();
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			
 			//-----------------------------------------------
 			
@@ -603,13 +603,13 @@ public class mVideoSearch
 			{
 				extent.log(LogStatus.INFO, "Expected Results : " + videoname);
 				extent.log(LogStatus.INFO, "Current Results : " + final2);
-				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not filter by the Size " +(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[2]")).getText().toString()));
-        		LOGGER.error("Unsuccessful : The results are not filter by the Size " +(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[2]")).getText().toString()));
+				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not filter by the Size 10.00 MB - 20.00 MB");
+        		LOGGER.error("Unsuccessful : The results are not filter by the Size 10.00 MB - 20.00 MB");
         		Element.takescreenshot(driver,className,screenshot_name+"30");
 			}
 			
 			//Uncheck the 2nd Range of Size
-			driver.findElement(By.xpath("//div[@class='ng-scope']//div[3]//ul//li[2]//span[1]//span//span")).click();
+			driver.findElement(By.xpath("//div[@class='ng-scope']//div[3]//ul//li[1]//span[1]//span//span")).click();
 			Thread.sleep(3000);
 			
 			//----------------------------------------------
@@ -622,36 +622,33 @@ public class mVideoSearch
 						
 			String result3 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
 			String final3 = driver.findElement(By.xpath(result3)).getText().toString();
-			System.out.println(final1);
+			System.out.println(final3);
 			
 			if(size3.equals(final3))
 			{
 				extent.log(LogStatus.INFO, "Expected Results : " + size3);
 				extent.log(LogStatus.INFO, "Current Results : " + final3);
-				LOGGER.info("Successful : The results are filter by the Size " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[3]")).getText().toString()));
-        		extent.log(LogStatus.PASS, "Successful : The results are filter by the Size " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[3]")).getText().toString()));
-        		Element.takescreenshot(driver,className,screenshot_name+"31");
+				LOGGER.info("Successful : The results are filter by the Size 30.00 MB - 40.00 MB");
+        		extent.log(LogStatus.PASS, "Successful : The results are filter by the Size 30.00 MB - 40.00 MB");
+        		Element.takescreenshot(driver,className,screenshot_name+"30");
 			}
 			else
 			{
 				extent.log(LogStatus.INFO, "Expected Results : " + size3);
 				extent.log(LogStatus.INFO, "Current Results : " + final3);
-				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not filter by the Size " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[3]")).getText().toString()));
-        		LOGGER.error("Unsuccessful : The results are not filter by the Size " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[3]")).getText().toString()));
+				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not filter by the Size 30.00 MB - 40.00 MB");
+        		LOGGER.error("Unsuccessful : The results are not filter by the Size 30.00 MB - 40.00 MB");
         		Element.takescreenshot(driver,className,screenshot_name+"32");
 			}
 			
 			//Uncheck on the 3rd range on Size
-			driver.findElement(By.xpath("/body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[3]//span[1]//span//span")).click();
+			driver.findElement(By.xpath("//div[@class='ng-scope']//div[3]//ul//li[1]//span[1]//span//span")).click();
 			Thread.sleep(3000);
 			
 			//*******
 			
-			Button plus_forMore = new Button(driver, By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//div//i[2]"));
+			driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//div//i[@class='add circle icon']")).click();
+			
 			Thread.sleep(3000);
 			
 			//*******
@@ -664,26 +661,22 @@ public class mVideoSearch
 			
 			String result4 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
 			String final4 = driver.findElement(By.xpath(result4)).getText().toString();
-			System.out.println(final1);
+			System.out.println(final4);
 			
 			if(size4.equals(final4))
 			{
 				extent.log(LogStatus.INFO, "Expected Results : " + size4);
 				extent.log(LogStatus.INFO, "Current Results : " + final4);
-				LOGGER.info("Successful : The results are filter by the Size " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[4]")).getText().toString()));
-        		extent.log(LogStatus.PASS, "Successful : The results are filter by the Size " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[4]")).getText().toString()));
+				LOGGER.info("Successful : The results are filter by the Size 50.00 MB - 60.00 MB");
+        		extent.log(LogStatus.PASS, "Successful : The results are filter by the Size 50.00 MB - 60.00 MB");
         		Element.takescreenshot(driver,className,screenshot_name+"33");
 			}
 			else
 			{
 				extent.log(LogStatus.INFO, "Expected Results : " + size4);
 				extent.log(LogStatus.INFO, "Current Results : " + final4);
-				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not filter by the Size " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[4]")).getText().toString()));
-        		LOGGER.error("Unsuccessful : The results are not filter by the Size " +
-				(driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[4]")).getText().toString()));
+				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not filter by the Size 50.00 MB - 60.00 MB");
+        		LOGGER.error("Unsuccessful : The results are not filter by the Size 50.00 MB - 60.00 MB");
         		Element.takescreenshot(driver,className,screenshot_name+"34");
 			}
 			
