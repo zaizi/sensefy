@@ -1518,12 +1518,18 @@
 
                 $scope.thumbType = 'placeholder';
                 $scope.isThumb = false;
-                $scope.pickThumbnail = function (mimetype) {
+                $scope.pickThumbnail = function (mimetypeParam) {
                     var mimetype;
-                    if (mimetype !== null) {
-                        mimetype = mimetype.split('/');
+                    if (mimetypeParam !== null) {
+                        mimetype = mimetypeParam.split('/');
                         mimetype = mimetype[0];
                     }
+
+                    if(mimetypeParam === 'text/plain'){
+                        mimetype = 'text/plain';
+                    }
+
+
 
                     switch (mimetype) {
                         case 'video':
@@ -1532,6 +1538,10 @@
                             break;
                         case 'audio':
                             $scope.thumbType = "audio";
+                            $scope.isThumb = true;
+                            break;
+                        case 'text/plain':
+                            $scope.thumbType = "text";
                             $scope.isThumb = true;
                             break;
                         default:
