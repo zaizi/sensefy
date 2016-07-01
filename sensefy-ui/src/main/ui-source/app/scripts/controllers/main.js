@@ -799,10 +799,10 @@
                     }
 
                     if($scope.documentsOffsetEnd <= $scope.totalDocuments){
-                        $scope.documentsOffsetEnd = $scope.documentsOffsetStart + $scope.documentsPerPage;
+                        $scope.documentsOffsetEnd = parseInt($scope.documentsOffsetStart) + parseInt($scope.documentsPerPage);
                     }
                     if($scope.docFromTo <= $scope.totalDocuments){
-                        $scope.docFromTo = $scope.documentsOffsetStart + $scope.documentsPerPage;
+                        $scope.docFromTo = parseInt($scope.documentsOffsetStart) + parseInt($scope.documentsPerPage);
                     }
                 };
                 $scope.titleSelected = function (title, removeFilters) {
@@ -1514,6 +1514,31 @@
                     }
 
                     return docIcon;
+                };
+
+                $scope.pickThumbnail = function (mimetype) {
+                    var mimetype;
+                    if (mimetype !== null) {
+                        mimetype = mimetype.split('/');
+                        mimetype = mimetype[0];
+                    };
+
+                    switch (mimetype) {
+                        case 'video':
+                            thumbType = "video";
+                            isThumb = true;
+                            break;
+                        case 'audio':
+                            thumbType = "audio";
+                            isThumb = true;
+                            break;
+                        default:
+                            isThumb = false;
+                    }
+
+                    if(isThumb){
+                        return thumbType;
+                    }
                 };
                 /*$scope.viewer = pdf.Instance("viewer");
                 $scope.isClose = false;
