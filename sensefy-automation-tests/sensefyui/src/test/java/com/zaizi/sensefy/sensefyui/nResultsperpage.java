@@ -291,7 +291,7 @@ public class nResultsperpage
         		LOGGER.error("Unsuccessful : Failure in Navigating to the 2nd Results Page");
         		Element.takescreenshot(driver,className,screenshot_name+"12");
 			}		
-			
+										
 			
 		}
 		catch(Exception e)

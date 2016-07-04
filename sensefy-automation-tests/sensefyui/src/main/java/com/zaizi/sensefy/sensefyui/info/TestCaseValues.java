@@ -194,6 +194,24 @@ public class TestCaseValues {
                 	bar[k]=foo;
                 	System.out.println("Values Loaded - Entity Search");                	
                 }
+                else if(("oAudioSearch").equals(testCaseName))
+                {
+                	Object[] foo = { getValue("username", valueElement), 
+                						getValue("password", valueElement),
+                						getValue("searchTerm", valueElement), 
+                						getValue("results", valueElement), 
+                						getValue("size1", valueElement), 
+                						getValue("size2", valueElement), 
+                						getValue("size3", valueElement), 
+                						getValue("lang1", valueElement), 
+                						getValue("lang2", valueElement), 
+                						getValue("lang3", valueElement), 
+                  						getValue("screenshot_name", valueElement), 
+                	};
+                	
+                	bar[k]=foo;
+                	System.out.println("Values Loaded - Entity Search");                	
+                }
                 k++;
             }
         }

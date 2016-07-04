@@ -43,7 +43,7 @@ public class Element {
 		return this.driver;
 	}
 	
-	//Returning elements' attribute
+	//Returning elements' attribute 
 	public String getElementAttribute(String attribute)
     {
         return element.getAttribute(attribute);

@@ -123,4 +123,19 @@
 			<screenshot_name>ResultsperPage</screenshot_name>
 		</test>
 	</nResultsperpage>
+	<oAudioSearch>
+		<test>
+			<username>admin</username>
+			<password>ulibranxi</password>
+			<searchTerm>*</searchTerm>
+			<results>European Union&#46;wav</results>
+			<size1>Ocean&#46;wav</size1>
+			<size2>war&#46;wav</size2>
+			<size3>European Union&#46;wav</size3>
+			<lang1>war&#46;wav</lang1>
+			<lang2>Tsunami&#46;wav</lang2>
+			<lang3>Biggest Cruise&#46;wav</lang3>
+			<screenshot_name>audioResult</screenshot_name>
+		</test>
+	</oAudioSearch>
 </TestData>

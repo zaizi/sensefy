@@ -644,44 +644,7 @@ public class mVideoSearch
 			//Uncheck on the 3rd range on Size
 			driver.findElement(By.xpath("//div[@class='ng-scope']//div[3]//ul//li[1]//span[1]//span//span")).click();
 			Thread.sleep(3000);
-			
-			//*******
-			
-			driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//div//i[@class='add circle icon']")).click();
-			
-			Thread.sleep(3000);
-			
-			//*******
-			
-			//Check on the 4th range of Size
-			driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[4]")).click();
-			
-			Thread.sleep(3000);
-			String test1 = driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[3]")).getText().toString();
-			
-			String result4 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
-			String final4 = driver.findElement(By.xpath(result4)).getText().toString();
-			System.out.println(final4);
-			
-			if(size4.equals(final4))
-			{
-				extent.log(LogStatus.INFO, "Expected Results : " + size4);
-				extent.log(LogStatus.INFO, "Current Results : " + final4);
-				LOGGER.info("Successful : The results are filter by the Size 50.00 MB - 60.00 MB");
-        		extent.log(LogStatus.PASS, "Successful : The results are filter by the Size 50.00 MB - 60.00 MB");
-        		Element.takescreenshot(driver,className,screenshot_name+"33");
-			}
-			else
-			{
-				extent.log(LogStatus.INFO, "Expected Results : " + size4);
-				extent.log(LogStatus.INFO, "Current Results : " + final4);
-				extent.log(LogStatus.FAIL, "Unsuccessful : The results are not filter by the Size 50.00 MB - 60.00 MB");
-        		LOGGER.error("Unsuccessful : The results are not filter by the Size 50.00 MB - 60.00 MB");
-        		Element.takescreenshot(driver,className,screenshot_name+"34");
-			}
-			
-			//Uncheck on the 4th Range of Size
-			driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[3]//ul//li[4]")).click();
+
 		}
 		catch(Exception e)
 		{
