@@ -6,6 +6,8 @@ Sensefy is **Semantic** because it enriches the documents semantically to extrac
 
 Sensefy is **Enterprise** because it offers federated search, allowing the user to index the content from heterogeneous data sources, search all of them from a unified search endpoint keeping ACLs of the documents to allow only permitted users to access relevant documents.
 
+With MICO integration Sensefy allows user to search across different media types such as text, audios and videos with a single query
+
 ## Project Structure
 
 Sensefy consists of the following components:
@@ -14,6 +16,7 @@ Sensefy consists of the following components:
  - Sensefy-API : Spring-Boot based Sensefy API consists of secure Restful API to communicate between Sensefy UI and backend components such as Solr and ManifoldCF
  - Sensefy Authentication Server : Sensefy Auth Server uses OAuth2 to authenticate the applications and helps the other application to communicate securely by using Single Sign On
  - Sensefy-Runner : Runner project to build and run all in one, downloading the dependent components in Sensefy  and configuring Sensefy to run as a maven command
+ - Dataprocessing API - Spring-boot based application for injecting MICO analyzed metadata to Sensefy backend
 
 ## Sensefy Dependencies
 
@@ -24,8 +27,6 @@ Sensefy uses several open-source projects under the hood. Following are the open
 
 - Apache Solr 5.3.1 : Search server to index and query content. The Solr project site can be accessed here : http://lucene.apache.org/solr/
 
-- Apache Stanbol 0.12 : 
-    Semantic engine for content enhancements used by Sensefy to provide semantic search functionalities. The Stanbol project can be accessed here : http://stanbol.apache.org/
 
 ## Build and Run Sensefy
 
@@ -105,26 +106,15 @@ After this execution, next URLs will be available:
 * http://localhost:9099/solr/#/ : Solr
 * http://localhost:9099/mcf-combined-service : ManifoldCF
 
-### Run Sensefy with the pre-built binary
+#### Build and run Dataprocessing API
 
-For your convenience in running Sensefy, we have provided a pre-configured Sensefy binary here: http://sensefyqa.zaizicloud.net/downloads/
-
-* You can start Sensefy with: 
-``` bin/sensefy2.sh start```
-    
-* You can stop Sensefy with ```bin/sensefy2.sh stop```
-
-* You can check status of Sensefy with ```bin/sensefy2.sh status```
-
-* You can get help on the commands with Sensefy with ```bin/sensefy2.sh help```
-
-After stating Sensefy following Sensefy micro-services will be available on the given ports on localhost.
-
-* Solr : 8983
-* ManifoldCF : 8345
-* Stanbol : 8181
-
-After starting Sensefy, you can access UIs of below Sensefy components.
+```
+cd dataprocessingAPI
+mvn clean install -DskipTests
+cd target
+cp -R ../config config/
+java -jar dataprocessingAPI-0.0.1-SNAPSHOT.jar
+```
 
 ##### Accessing the Search UI
 You can access the Sensefy UI at http://localhost:9099/
@@ -144,10 +134,6 @@ We have pre-configured 2 ManifoldCF jobs for your convenience.
 Apache Solr is used in Sensefy as the search engine and indexer. You can access the Solr UI at http://localhost:8983/solr/
 
 In the Solr, your documents are indexed in PrimaryIndex core. The extracted entities and entityTypes in the documents are indexed in Entity and EntityType cores.
-
-##### Accessing the Stanbol UI
-
-Apache Stanbol is the semantic enhancement engine used in Sensefy for detecting entities in the content. You can access the Stanbol UI at http://localhost:8181/
 
 
 #### Copyright
