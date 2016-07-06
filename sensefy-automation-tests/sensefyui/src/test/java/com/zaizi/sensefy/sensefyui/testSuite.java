@@ -9,7 +9,8 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class) 
 @SuiteClasses({ 
 	mVideoSearch.class,
-	nResultsperpage.class
+	nResultsperpage.class,
+	oAudioSearch.class
 })
 public class testSuite 
 {

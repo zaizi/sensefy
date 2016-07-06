@@ -110,205 +110,183 @@ public class oAudioSearch
     }
 	
 	@Test
-	public void a_LogintoSensefy()
-	{
-		//driver.manage().window().setSize(new Dimension(1920, 1920)); 
-		
+	public void a_LogintoSensefy() throws InterruptedException, IOException
+	{	
 		LOGGER.info("Login to Sensefy Mico");
 		extent.startTest("Login to Sensefy Mico");
 		
-		try
-		{
-			LOGGER.info("Navigate to Sensefy Mico Url");
-            driver = TestCaseProperties.getSensefyMico();
-            driver.manage().window().setSize(new Dimension(1920, 1920)); 
-            String currentUrl1 = driver.getCurrentUrl().toString();
+		LOGGER.info("Navigate to Sensefy Mico Url");
+        driver = TestCaseProperties.getSensefyMico();
+        driver.manage().window().setSize(new Dimension(1920, 1920)); 
+        String currentUrl1 = driver.getCurrentUrl().toString();
             
-            System.out.println(currentUrl1);
+        System.out.println(currentUrl1);
             
-            sensefypage sensefypage = new sensefypage(driver);
-            sensefypage.logintosensefy(username, password);
+        sensefypage sensefypage = new sensefypage(driver);
+        sensefypage.logintosensefy(username, password);
             
-            String sensefyurl = "http://mico.zaizicloud.net";
-            
-            String currentUrl2 = driver.getCurrentUrl().toString();
+        String sensefyurl = "http://mico.zaizicloud.net";
+           
+        String currentUrl2 = driver.getCurrentUrl().toString();
 
-        	if(!currentUrl2.equalsIgnoreCase(sensefyurl))
-            {
-               	LOGGER.info("Successfully Login to Sensefy Mico");
-        		extent.log(LogStatus.PASS, "Successfully Login to Sensefy Mico");
+      	if(!currentUrl2.equalsIgnoreCase(sensefyurl))
+        {
+           	LOGGER.info("Successfully Login to Sensefy Mico");
+       		extent.log(LogStatus.PASS, "Successfully Login to Sensefy Mico");
         		
-        		Element.takescreenshot(driver,className,screenshot_name+"1");
-            }
-            else
-            {
-            	extent.log(LogStatus.FAIL, "UnSuccessfull - Login Failed");
-        		LOGGER.error("UnSuccessfull - Login Failed");
-        		Element.takescreenshot(driver,className,screenshot_name+"2");
-            }
-                  
-		}
-		catch(Exception e)
-		{
-			System.out.println("Unsuccessful");
-		}
-	}
+       		Element.takescreenshot(driver,className,screenshot_name+"1");
+         }
+         else
+         {
+           	extent.log(LogStatus.FAIL, "UnSuccessfull - Login Failed");
+       		LOGGER.error("UnSuccessfull - Login Failed");
+       		Element.takescreenshot(driver,className,screenshot_name+"2");
+         }
+ 	}
 	
 	@Test
-	public void b_searchAudio()
+	public void b_searchAudio() throws InterruptedException, IOException
 	{
 		LOGGER.info("Search the Audio file");
 		extent.startTest("Search the Audio file");
 		
-		try
-		{
-			TextField searchfield = new TextField(driver, By.xpath("//input[@id='searchTerm']"));
-			
-			searchfield.clearText();
-			Thread.sleep(5000);
-			
-			searchfield.enterText(search_term);
-			driver.findElement(By.xpath("//div[@id='header']/div[1]/div/div[1]/div[2][text()='Search']")).click();
-			Thread.sleep(3000);
-			
-			//Plus button
-			driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//div//i[2]")).click();
-			Thread.sleep(3000);
-			
-			//select type
-			driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li[5]//span[1]//span//span[text()='WAV Audio']")).click();
-			Thread.sleep(3000);
-			
-			String result1 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
-			String final1 = driver.findElement(By.xpath(result1)).getText().toString();
-			System.out.println(final1);
-									
-			if(result.equals(final1))
-			{
-				extent.log(LogStatus.INFO, "Expected Results : " + result);
-				extent.log(LogStatus.INFO, "Current Results : " + final1);
-				LOGGER.info("Successful : The Audio Files are filtered by the Document Type .Wav File.");
-        		extent.log(LogStatus.PASS, "Successful : The Audio Files are filtered by the Document Type .Wav File.");
-        		Element.takescreenshot(driver,className,screenshot_name+"3");
-			}
-			else
-			{
-				extent.log(LogStatus.INFO, "Expected Results : " + result);
-				extent.log(LogStatus.INFO, "Current Results : " + final1);
-				extent.log(LogStatus.FAIL, "Unsuccessful : TThe Audio Files are not filtered by the Document Type .Wav File.");
-        		LOGGER.error("Unsuccessful : The Audio Files are not filtered by the Document Type .Wav File.");
-        		Element.takescreenshot(driver,className,screenshot_name+"4");
-			}
 
-		}
-		catch(Exception e)
+		TextField searchfield = new TextField(driver, By.xpath("//input[@id='searchTerm']"));
+			
+		searchfield.clearText();
+		Thread.sleep(5000);
+		
+		searchfield.enterText(search_term);
+		driver.findElement(By.xpath("//div[@id='header']/div[1]/div/div[1]/div[2][text()='Search']")).click();
+		Thread.sleep(3000);
+		
+		//Plus button
+		driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//div//i[2]")).click();
+		Thread.sleep(3000);
+		
+		//select type
+		driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li[5]//span[1]//span//span[text()='WAV Audio']")).click();
+		Thread.sleep(3000);
+		
+		String result1 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
+		String final1 = driver.findElement(By.xpath(result1)).getText().toString();
+		System.out.println(final1);
+								
+		if(result.equals(final1))
 		{
-			System.out.println("Unsuccessful");
+			extent.log(LogStatus.INFO, "Expected Results : " + result);
+			extent.log(LogStatus.INFO, "Current Results : " + final1);
+			LOGGER.info("Successful : The Audio Files are filtered by the Document Type .Wav File.");
+       		extent.log(LogStatus.PASS, "Successful : The Audio Files are filtered by the Document Type .Wav File.");
+       		Element.takescreenshot(driver,className,screenshot_name+"3");
 		}
-	
+		else
+		{
+			extent.log(LogStatus.INFO, "Expected Results : " + result);
+			extent.log(LogStatus.INFO, "Current Results : " + final1);
+			extent.log(LogStatus.FAIL, "Unsuccessful : TThe Audio Files are not filtered by the Document Type .Wav File.");
+       		LOGGER.error("Unsuccessful : The Audio Files are not filtered by the Document Type .Wav File.");
+       		Element.takescreenshot(driver,className,screenshot_name+"4");
+		}
+
 	}
 	
 
 	@Test
-	public void c_FilterbySize()
+	public void c_FilterbySize() throws InterruptedException, IOException
 	{
 		LOGGER.info("Filter Audio file by Size");
 		extent.startTest("Filter Audio file by Size");
 		
-		try
+ 		driver.findElement(By.xpath("//div[@class='ui segment']//div[3]//div[3]//ul//li[1]")).click();
+		Thread.sleep(3000);
+		
+		String audio_result1 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
+		String final_result1 = driver.findElement(By.xpath(audio_result1)).getText().toString();
+		
+		if(size1.equals(final_result1))
 		{
-			driver.findElement(By.xpath("//div[@class='ui segment']//div[3]//div[3]//ul//li[1]")).click();
-			Thread.sleep(3000);
-			
-			String audio_result1 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
-			String final_result1 = driver.findElement(By.xpath(audio_result1)).getText().toString();
-			
-			if(size1.equals(final_result1))
-			{
-				extent.log(LogStatus.INFO, "Expected Results : " + size1);
-				extent.log(LogStatus.INFO, "Current Results : " + final_result1);
-				LOGGER.info("Successful : .The Audio files are sorted by Size 0.00 B -  10.00 MB");
-        		extent.log(LogStatus.PASS, "Successful : The Audio files are sorted by Size 0.00 B -  10.00 MB.");
-        		Element.takescreenshot(driver,className,screenshot_name+"5");
-			}
-			else
-			{
-				extent.log(LogStatus.INFO, "Expected Results : " + size1);
-				extent.log(LogStatus.INFO, "Current Results : " + final_result1);
-				extent.log(LogStatus.FAIL, "Unsuccessful : The Audio files are not sorted by Size 0.00 B -  10.00 MB.");
-        		LOGGER.error("Unsuccessful : The Audio files are not sorted by Size 0.00 B -  10.00 MB.");
-        		Element.takescreenshot(driver,className,screenshot_name+"6");
-			}
-			
-			driver.findElement(By.xpath("//div[@class='ui segment']//div[3]//div[3]//ul//li[1]")).click();
-			Thread.sleep(3000);
-			
-			driver.findElement(By.xpath("//div[@class='ui segment']//div[3]//div[3]//ul//li[2]")).click();
-			Thread.sleep(3000);
-			
-			String audio_result2 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
-			String final_result2 = driver.findElement(By.xpath(audio_result2)).getText().toString();
-			
-			if(size2.equals(final_result2))
-			{
-				extent.log(LogStatus.INFO, "Expected Results : " + size2);
-				extent.log(LogStatus.INFO, "Current Results : " + final_result2);
-				LOGGER.info("Successful : .The Audio files are sorted by Size 0.00 B -  10.00 MB");
-        		extent.log(LogStatus.PASS, "Successful : The Audio files are sorted by Size 10.00 B -  20.00 MB.");
-        		Element.takescreenshot(driver,className,screenshot_name+"7");
-			}
-			else
-			{
-				extent.log(LogStatus.INFO, "Expected Results : " + size2);
-				extent.log(LogStatus.INFO, "Current Results : " + final_result2);
-				extent.log(LogStatus.FAIL, "Unsuccessful : The Audio files are not sorted by Size 10.00 B -  20.00 MB.");
-        		LOGGER.error("Unsuccessful : The Audio files are not sorted by Size 10.00 B -  20.00 MB.");
-        		Element.takescreenshot(driver,className,screenshot_name+"8");
-			}
-			
-			driver.findElement(By.xpath("//div[@class='ui segment']//div[3]//div[3]//ul//li[1]")).click();
-			Thread.sleep(3000);
-			
-			driver.findElement(By.xpath("//div[@class='ui segment']//div[3]//div[3]//ul//li[3]")).click();
-			Thread.sleep(3000);
-			
-			String audio_result3 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
-			String final_result3 = driver.findElement(By.xpath(audio_result3)).getText().toString();
-			
-			if(size3.equals(final_result3))
-			{
-				extent.log(LogStatus.INFO, "Expected Results : " + size3);
-				extent.log(LogStatus.INFO, "Current Results : " + final_result3);
-				LOGGER.info("Successful : .The Audio files are sorted by Size 20.00 B -  30.00 MB");
-        		extent.log(LogStatus.PASS, "Successful : The Audio files are sorted by Size 20.00 B -  30.00 MB.");
-        		Element.takescreenshot(driver,className,screenshot_name+"7");
-			}
-			else
-			{
-				extent.log(LogStatus.INFO, "Expected Results : " + size3);
-				extent.log(LogStatus.INFO, "Current Results : " + final_result3);
-				extent.log(LogStatus.FAIL, "Unsuccessful : The Audio files are not sorted by Size 20.00 B -  30.00 MB.");
-        		LOGGER.error("Unsuccessful : The Audio files are not sorted by Size 20.00 B -  30.00 MB.");
-        		Element.takescreenshot(driver,className,screenshot_name+"8");
-			}
-			driver.findElement(By.xpath("//div[@class='ui segment']//div[3]//div[3]//ul//li[1]")).click();
-			Thread.sleep(3000);
+			extent.log(LogStatus.INFO, "Expected Results : " + size1);
+			extent.log(LogStatus.INFO, "Current Results : " + final_result1);
+			LOGGER.info("Successful : .The Audio files are sorted by Size 0.00 B -  10.00 MB");
+       		extent.log(LogStatus.PASS, "Successful : The Audio files are sorted by Size 0.00 B -  10.00 MB.");
+       		Element.takescreenshot(driver,className,screenshot_name+"5");
 		}
-		catch(Exception e)
+		else
 		{
-			System.out.println("Unsuccessful");
+			extent.log(LogStatus.INFO, "Expected Results : " + size1);
+			extent.log(LogStatus.INFO, "Current Results : " + final_result1);
+			extent.log(LogStatus.FAIL, "Unsuccessful : The Audio files are not sorted by Size 0.00 B -  10.00 MB.");
+       		LOGGER.error("Unsuccessful : The Audio files are not sorted by Size 0.00 B -  10.00 MB.");
+       		Element.takescreenshot(driver,className,screenshot_name+"6");
 		}
+		
+		driver.findElement(By.xpath("//div[@class='ui segment']//div[3]//div[3]//ul//li[1]")).click();
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("//div[@class='ui segment']//div[3]//div[3]//ul//li[2]")).click();
+		Thread.sleep(3000);
+		
+		String audio_result2 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
+		String final_result2 = driver.findElement(By.xpath(audio_result2)).getText().toString();
+		
+		if(size2.equals(final_result2))
+		{
+			extent.log(LogStatus.INFO, "Expected Results : " + size2);
+			extent.log(LogStatus.INFO, "Current Results : " + final_result2);
+			LOGGER.info("Successful : .The Audio files are sorted by Size 0.00 B -  10.00 MB");
+       		extent.log(LogStatus.PASS, "Successful : The Audio files are sorted by Size 10.00 B -  20.00 MB.");
+       		Element.takescreenshot(driver,className,screenshot_name+"7");
+		}
+		else
+		{
+			extent.log(LogStatus.INFO, "Expected Results : " + size2);
+			extent.log(LogStatus.INFO, "Current Results : " + final_result2);
+			extent.log(LogStatus.FAIL, "Unsuccessful : The Audio files are not sorted by Size 10.00 B -  20.00 MB.");
+       		LOGGER.error("Unsuccessful : The Audio files are not sorted by Size 10.00 B -  20.00 MB.");
+       		Element.takescreenshot(driver,className,screenshot_name+"8");
+		}
+		
+		driver.findElement(By.xpath("//div[@class='ui segment']//div[3]//div[3]//ul//li[1]")).click();
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("//div[@class='ui segment']//div[3]//div[3]//ul//li[3]")).click();
+		Thread.sleep(3000);
+		
+		String audio_result3 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
+		String final_result3 = driver.findElement(By.xpath(audio_result3)).getText().toString();
+		
+		if(size3.equals(final_result3))
+		{
+			extent.log(LogStatus.INFO, "Expected Results : " + size3);
+			extent.log(LogStatus.INFO, "Current Results : " + final_result3);
+			LOGGER.info("Successful : .The Audio files are sorted by Size 20.00 B -  30.00 MB");
+       		extent.log(LogStatus.PASS, "Successful : The Audio files are sorted by Size 20.00 B -  30.00 MB.");
+       		Element.takescreenshot(driver,className,screenshot_name+"7");
+		}
+		else
+		{
+			extent.log(LogStatus.INFO, "Expected Results : " + size3);
+			extent.log(LogStatus.INFO, "Current Results : " + final_result3);
+			extent.log(LogStatus.FAIL, "Unsuccessful : The Audio files are not sorted by Size 20.00 B -  30.00 MB.");
+       		LOGGER.error("Unsuccessful : The Audio files are not sorted by Size 20.00 B -  30.00 MB.");
+       		Element.takescreenshot(driver,className,screenshot_name+"8");
+		}
+		driver.findElement(By.xpath("//div[@class='ui segment']//div[3]//div[3]//ul//li[1]")).click();
+		Thread.sleep(3000);
 	}
 	
 	@Test
-	public void d_filterByLanguage()
+	public void d_filterByLanguage() throws InterruptedException, IOException
 	{
 		LOGGER.info("Filter Audio file by Language");
 		extent.startTest("Filter Audio file by Language");
 		
-		try
-		{
-			driver.findElement(By.xpath("//div[@class='ui segment']//div//div[2]//ul//li[1]")).click();
+		
+			//driver.findElement(By.xpath("//div[@class='ui segment']//div//div[2]//ul//li[1]")).click();
+			//Thread.sleep(3000);
+			
+			driver.findElement(By.xpath("//div[@class='ui segment']//div//div[2]//ul//li[1]//span//span[text()='English']")).click();
 			Thread.sleep(3000);
 			
 			String audio_result4 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
@@ -330,10 +308,10 @@ public class oAudioSearch
         		LOGGER.error("Unsuccessful : The Audio files are not sorted by Language English.");
         		Element.takescreenshot(driver,className,screenshot_name+"10");
 			}
-			driver.findElement(By.xpath("//div[@class='ui segment']//div//div[2]//ul//li[1]")).click();
+			driver.findElement(By.xpath("//div[@class='ui segment']//div//div[2]//ul//li[1]//span//span[text()='English']")).click();
 			Thread.sleep(3000);
 			
-			driver.findElement(By.xpath("//div[@class='ui segment']//div//div[2]//ul//li[2]")).click();
+			driver.findElement(By.xpath("//div[@class='ui segment']//div//div[2]//ul//li[2]//span//span[text()='Estonian']")).click();
 			Thread.sleep(3000);
 			
 			String audio_result5 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
@@ -355,10 +333,10 @@ public class oAudioSearch
         		LOGGER.error("Unsuccessful : The Audio files are not sorted by Language Estonian.");
         		Element.takescreenshot(driver,className,screenshot_name+"10");
 			}
-			driver.findElement(By.xpath("//div[@class='ui segment']//div//div[2]//ul//li[1]")).click();
+			driver.findElement(By.xpath("//div[@class='ui segment']//div//div[2]//ul//li[1]//span//span[text()='Estonian']")).click();
 			Thread.sleep(3000);
 			
-			driver.findElement(By.xpath("//div[@class='ui segment']//div//div[2]//ul//li[3]")).click();
+			driver.findElement(By.xpath("//div[@class='ui segment']//div//div[2]//ul//li[3]//span//span[text()='French']")).click();
 			Thread.sleep(3000);
 			
 			String audio_result6 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
@@ -380,17 +358,9 @@ public class oAudioSearch
         		LOGGER.error("Unsuccessful : The Audio files are not sorted by Language French.");
         		Element.takescreenshot(driver,className,screenshot_name+"10");
 			}
-			driver.findElement(By.xpath("//div[@class='ui segment']//div//div[2]//ul//li[1]")).click();
-			Thread.sleep(3000);
-			
-		}
-		catch(Exception e)
-		{
-			System.out.println("Unsuccessful");
-		}
+			driver.findElement(By.xpath("//div[@class='ui segment']//div//div[2]//ul//li[1]//span//span[text()='French']")).click();
+			Thread.sleep(3000);						
 	}
-	
-	
 	
 
 }
