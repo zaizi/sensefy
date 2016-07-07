@@ -1990,3 +1990,52 @@
 2016-07-07  13:30:25.578 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Successful : .The Audio files are sorted by Language English.
 2016-07-07  13:30:32.204 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Successful : .The Audio files are sorted by Language Estonian.
 2016-07-07  13:30:38.916 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Successful : .The Audio files are sorted by Language French.
+2016-07-07  15:53:52.776 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Preparing For mVideoSearch ...
+2016-07-07  15:53:52.825 [main] INFO  com.zaizi.sensefy.sensefyui.nResultsperpage - Preparing For nResultsperpage ...
+2016-07-07  15:53:52.835 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Preparing For oAudioSearch ...
+2016-07-07  15:53:53.293 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Login to Sensefy Mico
+2016-07-07  15:53:53.299 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Navigate to Sensefy Mico Url
+2016-07-07  15:54:36.149 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successfully Login to Sensefy Mico
+2016-07-07  15:54:36.427 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Search the Video
+2016-07-07  15:55:17.346 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The Entity Type 'Concepts' is visible under the suggestions
+2016-07-07  15:55:17.456 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The element under the  Entity Type 'Concepts' is visible under the suggestions
+2016-07-07  15:55:23.303 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The element information is displayed.
+2016-07-07  15:55:23.795 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful :The 'DIARIES COULD CHANGE PERCEPTIONS OF THE GREAT WAR.mp4 is displayed.
+2016-07-07  15:55:24.145 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Sort By Functionality
+2016-07-07  15:55:32.514 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are sorted by Relevance.
+2016-07-07  15:55:43.849 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are sorted by Title.
+2016-07-07  15:55:52.768 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are sorted by Name.
+2016-07-07  15:56:01.473 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are sorted by Modifier.
+2016-07-07  15:56:10.016 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are sorted by Creator.
+2016-07-07  15:56:18.736 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are sorted by Modified.
+2016-07-07  15:56:27.307 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are sorted by Created.
+2016-07-07  15:56:32.614 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
+2016-07-07  15:56:36.256 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Document Type MPEG4 Video
+2016-07-07  15:56:42.879 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Language English
+2016-07-07  15:56:48.555 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Size 0.00 B - 10.00 MB
+6
+2016-07-07  15:56:59.310 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Size 10.00 MB - 20.00 MB
+2016-07-07  15:57:06.201 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Successful : The results are filter by the Size 30.00 MB - 40.00 MB
+2016-07-07  15:57:09.565 [main] INFO  com.zaizi.sensefy.sensefyui.nResultsperpage - Login to Sensefy Mico
+2016-07-07  15:57:09.567 [main] INFO  com.zaizi.sensefy.sensefyui.nResultsperpage - Navigate to Sensefy Mico Url
+2016-07-07  15:57:43.081 [main] INFO  com.zaizi.sensefy.sensefyui.nResultsperpage - Successfully Login to Sensefy Mico
+2016-07-07  15:57:43.245 [main] INFO  com.zaizi.sensefy.sensefyui.nResultsperpage - Search for the Documents and Verify the Pagination Control
+2016-07-07  15:57:47.612 [main] INFO  com.zaizi.sensefy.sensefyui.nResultsperpage - Successful : Successfully navigated to the Results Page
+2016-07-07  15:57:48.014 [main] INFO  com.zaizi.sensefy.sensefyui.nResultsperpage - Successful : Results per page 10
+2016-07-07  15:57:48.055 [main] INFO  com.zaizi.sensefy.sensefyui.nResultsperpage - Successful : Number of Showing Results are Correct
+2016-07-07  15:57:53.563 [main] INFO  com.zaizi.sensefy.sensefyui.nResultsperpage - Successful : Successfully navigated to the 2nd Results Page
+2016-07-07  15:57:53.992 [main] INFO  com.zaizi.sensefy.sensefyui.nResultsperpage - Successful : Results per page 10
+2016-07-07  15:57:54.035 [main] INFO  com.zaizi.sensefy.sensefyui.nResultsperpage - Successful : Number of Showing Results are Correct
+2016-07-07  15:57:54.373 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Login to Sensefy Mico
+2016-07-07  15:57:54.375 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Navigate to Sensefy Mico Url
+2016-07-07  15:58:28.895 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Successfully Login to Sensefy Mico
+2016-07-07  15:58:29.123 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Search the Audio file
+2016-07-07  15:58:44.444 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Successful : The Audio Files are filtered by the Document Type .Wav File.
+2016-07-07  15:58:44.634 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Filter Audio file by Size
+2016-07-07  15:58:47.846 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Successful : .The Audio files are sorted by Size 0.00 B -  10.00 MB
+2016-07-07  15:58:54.314 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Successful : .The Audio files are sorted by Size 0.00 B -  10.00 MB
+2016-07-07  15:59:00.837 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Successful : .The Audio files are sorted by Size 20.00 B -  30.00 MB
+2016-07-07  15:59:04.088 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Filter Audio file by Language
+2016-07-07  15:59:07.295 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Successful : .The Audio files are sorted by Language English.
+2016-07-07  15:59:13.751 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Successful : .The Audio files are sorted by Language Estonian.
+2016-07-07  15:59:20.264 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Successful : .The Audio files are sorted by Language French.
