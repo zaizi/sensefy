@@ -1477,3 +1477,31 @@
 2016-06-29  10:46:23.511 [main] INFO  com.zaizi.sensefy.sensefyui.mVideoSearch - Filter By Functionality
 2016-06-29  10:46:26.870 [main] ERROR com.zaizi.sensefy.sensefyui.mVideoSearch - Unsuccessful : The results are not filter by the Size 10.00 MB - 20.00 MB
 4
+2016-07-07  16:16:12.978 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-07-07  16:16:13.281 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-07-07  16:16:13.288 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-07-07  16:16:43.786 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-07-07  16:16:43.972 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-07-07  16:17:12.536 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-07-07  16:17:12.729 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-07-07  16:17:21.313 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-07-07  16:17:22.162 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Places
+2016-07-07  16:18:02.252 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'Places' is visible under the suggestions
+2016-07-07  16:18:02.712 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'Places' is visible under the suggestions
+2016-07-07  16:18:11.408 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-07-07  16:18:11.873 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Organizations
+2016-07-07  16:19:03.801 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'Organizations' is visible under the suggestions
+2016-07-07  16:19:04.211 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'Organizations' is visible under the suggestions
+2016-07-07  16:19:12.912 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-07-07  16:19:13.368 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Verify the UI Feature in Entity Search
+2016-07-07  16:19:21.661 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Relevance is available
+2016-07-07  16:19:21.709 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Name is available
+2016-07-07  16:19:21.753 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Title is available
+2016-07-07  16:19:21.786 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Created is available
+2016-07-07  16:19:21.821 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Modified is available
+2016-07-07  16:19:21.852 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Creator is available
+2016-07-07  16:19:21.885 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Modifier is available
+2016-07-07  16:19:22.299 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Relevance is available
+2016-07-07  16:19:25.437 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Alfresco Data source is available
+2016-07-07  16:19:32.059 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Results per page drop down icon is available
+2016-07-07  16:19:35.864 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Fiter By facet is available
