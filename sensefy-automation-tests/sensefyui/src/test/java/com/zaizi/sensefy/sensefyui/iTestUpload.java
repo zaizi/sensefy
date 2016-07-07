@@ -48,8 +48,7 @@ public class iTestUpload
 	 */
 	
 	public static WebDriver driver;
-	
-	private static final String TEST_CASE_PROPERTIES_XML = "pom.xml";
+
 	
 	/**
 	 * variable declaration

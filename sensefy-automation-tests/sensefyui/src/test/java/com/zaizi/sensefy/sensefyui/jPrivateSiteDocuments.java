@@ -31,7 +31,6 @@ import com.zaizi.sensefy.sensefyui.elements.Link;
 import com.zaizi.sensefy.sensefyui.exceptions.IterableException;
 import com.zaizi.sensefy.sensefyui.info.TestCaseProperties;
 import com.zaizi.sensefy.sensefyui.info.TestCaseValues;
-import com.zaizi.sensefy.sensefyui.info.UrlFinder;
 import com.zaizi.sensefy.sensefyui.pages.AlfrescoPage;
 import com.zaizi.sensefy.sensefyui.pages.Manifold;
 import com.zaizi.sensefy.sensefyui.pages.SearchLogin;
@@ -364,9 +363,7 @@ public class jPrivateSiteDocuments
 	           
 	        System.out.println("login to Manifold");
 	          
-	        UrlFinder urlFinder = new UrlFinder();
-	            
-	        String manifoldurl = urlFinder.returnManifold();
+	        String manifoldurl = TestCaseProperties.returnManifold();
 	            
 	        String currentUrl = driver.getCurrentUrl().toString();
 	            

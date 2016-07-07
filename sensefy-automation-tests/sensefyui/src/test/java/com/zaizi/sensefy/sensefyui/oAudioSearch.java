@@ -34,11 +34,6 @@ public class oAudioSearch
 	public static WebDriver driver;
 	
 	/**
-	 * 
-	 */
-	private static final String TEST_CASE_PROPERTIES_XML = "pom.xml";
-	
-	/**
 	 * Variable declaration
 	 */
 	public String username;

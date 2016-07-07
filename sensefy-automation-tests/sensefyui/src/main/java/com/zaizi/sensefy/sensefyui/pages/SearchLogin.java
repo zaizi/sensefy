@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 import com.zaizi.sensefy.sensefyui.elements.Button;
 import com.zaizi.sensefy.sensefyui.elements.TextField;
 import com.zaizi.sensefy.sensefyui.info.TestCaseProperties;
-import com.zaizi.sensefy.sensefyui.info.UrlFinder;
 
 public class SearchLogin 
 {
@@ -48,8 +47,7 @@ public class SearchLogin
      */
     public void prepareElements()
     {
-    	UrlFinder unf=new UrlFinder();
-        driver.get(unf.urlcaterher());
+    	TestCaseProperties.searchUrlCatcher();
     }
     
     //attemp to login to searchui
