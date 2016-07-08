@@ -38,9 +38,8 @@ public class aLoginTest
 	public static final Logger LOGGER = LogManager.getLogger(aLoginTest.class.getName());
 	
 	public static final ExtentReports extent = ExtentReports.get(aLoginTest.class);
-	private static final String TEST_CASE_PROPERTIES_XML = "pom.xml";
-	private String loginURL="http://sensefyqa.zaizicloud.net/auth/login";
-	//private String loginURL="http://192.168.1.72:9099/auth/login";
+	
+	private String loginURL="http://sensefyqa.zaizicloud.net/auth/login#/";
 	
 	private String username;
     private String password;
@@ -59,7 +58,7 @@ public class aLoginTest
 	
 	@BeforeClass
     public static void beforeClass() {
-        //extent.init("/Users/deranthika/Desktop/myreport1.html", true);
+        
 		extent.init("logs/sensefy.html", true);
         extent.config().documentTitle("SensefyUI Automation Test Report");
         extent.config().reportTitle("SensefyUI Automation");
@@ -80,39 +79,33 @@ public class aLoginTest
     {
     	LOGGER.info("Running Verify SensefyURL Test");
     	extent.startTest("Verify SensefyURL Test");
-    	try
+  
+    	extent.startTest("Verify SensefyURL");
+            
+    	System.out.println("Running Test for Sensefy URL");
+            
+    	driver = TestCaseProperties.getWebDriverForSearch();
+            
+    	String currentUrl = driver.getCurrentUrl().toString();
+            
+    	System.out.println(currentUrl);
+            
+    	if(driver.getCurrentUrl().equals(loginURL))
     	{
-    		extent.startTest("Verify SensefyURL");
-            
-    		System.out.println("Running Test for Sensefy URL");
-            
-            driver = TestCaseProperties.getWebDriverForSearch();
-            
-            String currentUrl = driver.getCurrentUrl().toString();
-            
-            System.out.println(currentUrl);
-            
-            if(driver.getCurrentUrl().equals(loginURL))
-            {
-            	LOGGER.info("Current URL : "+driver.getCurrentUrl().toString());
-        		LOGGER.info("SensefyURL Verified Successfully");
-        		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "SensefyURL Verified Successfully");
-        		extent.log(LogStatus.PASS, "SensefyURL Verified Successfully");
-            }
-            else
-            {
-            	extent.log(LogStatus.FAIL, "SensefyURL Verification Failed");
-        		LOGGER.error("SensefyURL Verification Failed");
-            }
+    		LOGGER.info("Current URL : "+driver.getCurrentUrl().toString());
+    		LOGGER.info("SensefyURL Verified Successfully");
+    		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "SensefyURL Verified Successfully");
+    		extent.log(LogStatus.PASS, "SensefyURL Verified Successfully");
     	}
-    	catch(Exception e)
+    	else
     	{
     		extent.log(LogStatus.FAIL, "SensefyURL Verification Failed");
     		LOGGER.error("SensefyURL Verification Failed");
     	}
-    	
     }
-   
+
+    	
+    
     //Valid login scenario
    @Test
     public void b_validLog() throws InterruptedException
@@ -236,7 +229,7 @@ public class aLoginTest
     
     private static Node getProperty(String propertyName) throws ParserConfigurationException, SAXException, IOException
 	 {
-	     File testValues = new File(TEST_CASE_PROPERTIES_XML);
+	     File testValues = new File(TestCaseProperties.returnTestPropertiesXml());
 	     DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	     DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 	     Document doc = dBuilder.parse(testValues);

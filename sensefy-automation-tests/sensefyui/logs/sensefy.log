@@ -1505,3 +1505,292 @@
 2016-07-07  16:19:25.437 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Alfresco Data source is available
 2016-07-07  16:19:32.059 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Results per page drop down icon is available
 2016-07-07  16:19:35.864 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Fiter By facet is available
+2016-07-08  10:46:31.689 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-07-08  10:46:31.997 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-07-08  10:46:32.003 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-07-08  10:47:35.036 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-07-08  10:47:36.312 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-07-08  10:48:05.109 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-07-08  10:48:05.498 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-07-08  10:48:13.994 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-07-08  10:48:14.683 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Places
+2016-07-08  10:48:58.719 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'Places' is visible under the suggestions
+2016-07-08  10:48:59.396 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'Places' is visible under the suggestions
+2016-07-08  10:49:08.581 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-07-08  10:49:09.168 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Organizations
+2016-07-08  10:50:05.558 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'Organizations' is visible under the suggestions
+2016-07-08  10:50:06.052 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'Organizations' is visible under the suggestions
+2016-07-08  10:50:14.846 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-07-08  10:50:15.444 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Verify the UI Feature in Entity Search
+2016-07-08  10:50:23.906 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Relevance is available
+2016-07-08  10:50:23.957 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Name is available
+2016-07-08  10:50:23.988 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Title is available
+2016-07-08  10:50:24.019 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Created is available
+2016-07-08  10:50:24.051 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Modified is available
+2016-07-08  10:50:24.298 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Creator is available
+2016-07-08  10:50:24.737 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Modifier is available
+2016-07-08  10:50:25.161 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Relevance is available
+2016-07-08  10:50:28.301 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Alfresco Data source is available
+2016-07-08  10:50:35.080 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Results per page drop down icon is available
+2016-07-08  10:50:38.701 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Fiter By facet is available
+2016-07-08  10:53:19.720 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ***Sensefy Automation Test Started***
+2016-07-08  10:53:19.722 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Preparing For LoginTest ...
+2016-07-08  10:53:19.833 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify SensefyURL Test
+2016-07-08  10:53:39.614 [main] ERROR com.zaizi.sensefy.sensefyui.aLoginTest - SensefyURL Verification Failed
+2016-07-08  10:53:39.742 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Valid logging Test
+2016-07-08  10:54:27.567 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Valid logging Verified Successfully
+2016-07-08  10:54:27.568 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : Valid logging Verified Successfully PASSED!
+2016-07-08  10:54:27.581 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ---------------------------
+2016-07-08  10:54:27.674 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify empty logging Test
+2016-07-08  10:54:48.073 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - empty logging Verified Successfully
+2016-07-08  10:54:48.073 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : empty logging Verified Successfully PASSED!
+2016-07-08  10:54:48.088 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ---------------------------
+2016-07-08  10:54:48.172 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Invalid logging Test
+2016-07-08  10:55:09.567 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Invalid logging Verified Successfully
+2016-07-08  10:55:09.619 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : Invalid logging Verified Successfully PASSED!
+2016-07-08  10:55:09.637 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ---------------------------
+2016-07-08  10:55:09.720 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Logingout Test
+2016-07-08  10:55:55.296 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Logingout Verified Successfully
+2016-07-08  10:55:55.297 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : Logingout Verified Successfully PASSED!
+2016-07-08  10:55:55.321 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ---------------------------
+2016-07-08  11:03:17.826 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ***Sensefy Automation Test Started***
+2016-07-08  11:03:17.829 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Preparing For LoginTest ...
+2016-07-08  11:03:17.847 [main] INFO  com.zaizi.sensefy.sensefyui.bSearchTest - Preparing For SearchTest ...
+2016-07-08  11:03:17.856 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - Preparing For SortTest ...
+2016-07-08  11:03:17.866 [main] INFO  com.zaizi.sensefy.sensefyui.dResultsPerPage - Preparing For ResultsPerPageTest ...
+2016-07-08  11:03:17.872 [main] INFO  com.zaizi.sensefy.sensefyui.eLanguageChangeTest - Preparing For SearchPageTest ...
+2016-07-08  11:03:17.888 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - Preparing For Facet Testing ...
+2016-07-08  11:03:17.893 [main] INFO  com.zaizi.sensefy.sensefyui.gSearchPageTest - Preparing For SearchPageTest ...
+2016-07-08  11:03:17.900 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-07-08  11:03:17.985 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify SensefyURL Test
+2016-07-08  11:03:52.160 [main] ERROR com.zaizi.sensefy.sensefyui.aLoginTest - SensefyURL Verification Failed
+2016-07-08  11:03:52.261 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Valid logging Test
+2016-07-08  11:04:29.974 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Valid logging Verified Successfully
+2016-07-08  11:04:30.004 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : Valid logging Verified Successfully PASSED!
+2016-07-08  11:04:30.059 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ---------------------------
+2016-07-08  11:04:30.224 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify empty logging Test
+2016-07-08  11:04:56.072 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - empty logging Verified Successfully
+2016-07-08  11:04:56.073 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : empty logging Verified Successfully PASSED!
+2016-07-08  11:04:56.127 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ---------------------------
+2016-07-08  11:04:56.218 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Invalid logging Test
+2016-07-08  11:05:22.568 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Invalid logging Verified Successfully
+2016-07-08  11:05:22.568 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : Invalid logging Verified Successfully PASSED!
+2016-07-08  11:05:22.622 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ---------------------------
+2016-07-08  11:05:22.720 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Logingout Test
+2016-07-08  11:06:02.177 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Logingout Verified Successfully
+2016-07-08  11:06:02.196 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : Logingout Verified Successfully PASSED!
+2016-07-08  11:06:02.288 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ---------------------------
+2016-07-08  11:06:02.444 [main] INFO  com.zaizi.sensefy.sensefyui.bSearchTest - Running Verify Exact Keyword search Test
+2016-07-08  11:06:48.556 [main] ERROR com.zaizi.sensefy.sensefyui.bSearchTest - Exact Keyword search Verification Failed
+2016-07-08  11:06:48.787 [main] INFO  com.zaizi.sensefy.sensefyui.bSearchTest - ---------------------------
+2016-07-08  11:06:48.787 [main] INFO  com.zaizi.sensefy.sensefyui.bSearchTest - Running Verify not exist document search Test
+2016-07-08  11:07:42.192 [main] ERROR com.zaizi.sensefy.sensefyui.bSearchTest - not exist document search Verification Failed
+2016-07-08  11:07:42.201 [main] INFO  com.zaizi.sensefy.sensefyui.bSearchTest - ---------------------------
+2016-07-08  11:07:42.201 [main] INFO  com.zaizi.sensefy.sensefyui.bSearchTest - Running Verify data source search Test
+2016-07-08  11:08:24.227 [main] ERROR com.zaizi.sensefy.sensefyui.bSearchTest - data source search Verification Failed
+2016-07-08  11:08:24.235 [main] INFO  com.zaizi.sensefy.sensefyui.bSearchTest - ---------------------------
+2016-07-08  11:08:24.247 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - Running Verify SortByCreator Test
+2016-07-08  11:09:39.767 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - SortByCreator Verified Successfully
+2016-07-08  11:09:39.768 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - Test Case : SortByCreator Verified Successfully PASSED!
+2016-07-08  11:09:39.866 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - ---------------------------
+2016-07-08  11:09:39.867 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - Running Verify SortByName Test
+2016-07-08  11:10:39.504 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - SortByName Verified Successfully
+2016-07-08  11:10:39.505 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - Test Case : SortByName Verified Successfully PASSED!
+2016-07-08  11:10:39.524 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - ---------------------------
+2016-07-08  11:10:39.525 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - Running Verify SortByCreated Test
+2016-07-08  11:11:44.643 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - SortByCreated Verified Successfully
+2016-07-08  11:11:44.643 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - Test Case : SortByCreated Verified Successfully PASSED!
+2016-07-08  11:11:44.662 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - ---------------------------
+2016-07-08  11:11:44.663 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - Running Verify SortByModifier Test
+2016-07-08  11:13:25.682 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - SortByModifier Verified Successfully
+2016-07-08  11:13:25.683 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - Test Case : SortByModifier Verified Successfully PASSED!
+2016-07-08  11:13:25.702 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - ---------------------------
+2016-07-08  11:13:25.703 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - Running Verify SortByModified Test
+2016-07-08  11:14:17.254 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - SortByModified Verified Successfully
+2016-07-08  11:14:17.255 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - Test Case : SortByModified Verified Successfully PASSED!
+2016-07-08  11:14:17.278 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - ---------------------------
+2016-07-08  11:14:17.278 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - Running Verify SortByRelevance Test
+2016-07-08  11:15:05.944 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - SortByRelevance Verified Successfully
+2016-07-08  11:15:05.945 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - Test Case : SortByRelevance Verified Successfully PASSED!
+2016-07-08  11:15:05.961 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - ---------------------------
+2016-07-08  11:15:05.961 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - Running Verify SortByTitle Test
+2016-07-08  11:15:57.380 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - SortByTitle Verified Successfully
+2016-07-08  11:15:57.381 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - Test Case : SortByTitle Verified Successfully PASSED!
+2016-07-08  11:15:57.403 [main] INFO  com.zaizi.sensefy.sensefyui.cSortTest - ---------------------------
+2016-07-08  11:15:57.413 [main] INFO  com.zaizi.sensefy.sensefyui.dResultsPerPage - Running Verify 10ResultsPerPage Test
+2016-07-08  11:16:38.595 [main] INFO  com.zaizi.sensefy.sensefyui.dResultsPerPage - 10ResultsPerPage Verified Successfully
+2016-07-08  11:16:38.595 [main] INFO  com.zaizi.sensefy.sensefyui.dResultsPerPage - Test Case : 10ResultsPerPage Verified Successfully PASSED!
+2016-07-08  11:16:38.605 [main] INFO  com.zaizi.sensefy.sensefyui.dResultsPerPage - ---------------------------
+2016-07-08  11:16:38.691 [main] INFO  com.zaizi.sensefy.sensefyui.dResultsPerPage - Running Verify 20ResultsPerPage Test
+2016-07-08  11:17:42.541 [main] INFO  com.zaizi.sensefy.sensefyui.dResultsPerPage - 20ResultsPerPage Verified Successfully
+2016-07-08  11:17:42.541 [main] INFO  com.zaizi.sensefy.sensefyui.dResultsPerPage - Test Case : 20ResultsPerPage Verified Successfully PASSED!
+2016-07-08  11:17:42.616 [main] INFO  com.zaizi.sensefy.sensefyui.dResultsPerPage - ---------------------------
+2016-07-08  11:17:42.814 [main] INFO  com.zaizi.sensefy.sensefyui.dResultsPerPage - Running Verify 50ResultsPerPage Test
+2016-07-08  11:18:42.591 [main] INFO  com.zaizi.sensefy.sensefyui.dResultsPerPage - 50ResultsPerPage Verified Successfully
+2016-07-08  11:18:42.619 [main] INFO  com.zaizi.sensefy.sensefyui.dResultsPerPage - Test Case : 50ResultsPerPage Verified Successfully PASSED!
+2016-07-08  11:18:42.667 [main] INFO  com.zaizi.sensefy.sensefyui.dResultsPerPage - ---------------------------
+2016-07-08  11:18:42.812 [main] INFO  com.zaizi.sensefy.sensefyui.dResultsPerPage - Running Verify 100ResultsPerPage Test
+2016-07-08  11:20:04.887 [main] INFO  com.zaizi.sensefy.sensefyui.dResultsPerPage - 100ResultsPerPage Verified Successfully
+2016-07-08  11:20:04.915 [main] INFO  com.zaizi.sensefy.sensefyui.dResultsPerPage - Test Case : 100ResultsPerPage Verified Successfully PASSED!
+2016-07-08  11:20:05.132 [main] INFO  com.zaizi.sensefy.sensefyui.dResultsPerPage - ---------------------------
+2016-07-08  11:20:05.428 [main] INFO  com.zaizi.sensefy.sensefyui.eLanguageChangeTest - Running Verify changeToSpanish Test
+2016-07-08  11:20:46.776 [main] INFO  com.zaizi.sensefy.sensefyui.eLanguageChangeTest - changeToSpanish Verified Successfully
+2016-07-08  11:20:46.776 [main] INFO  com.zaizi.sensefy.sensefyui.eLanguageChangeTest - Test Case : changeToSpanish Verified Successfully PASSED!
+2016-07-08  11:20:46.790 [main] INFO  com.zaizi.sensefy.sensefyui.eLanguageChangeTest - ---------------------------
+2016-07-08  11:20:46.873 [main] INFO  com.zaizi.sensefy.sensefyui.eLanguageChangeTest - Running Verify changeToEnglish Test
+2016-07-08  11:21:19.288 [main] INFO  com.zaizi.sensefy.sensefyui.eLanguageChangeTest - changeToEnglish Verified Successfully
+2016-07-08  11:21:19.289 [main] INFO  com.zaizi.sensefy.sensefyui.eLanguageChangeTest - Test Case : changeToEnglish Verified Successfully PASSED!
+2016-07-08  11:21:19.306 [main] INFO  com.zaizi.sensefy.sensefyui.eLanguageChangeTest - ---------------------------
+2016-07-08  11:21:19.411 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - Running Filter by Cretor Facets
+2016-07-08  11:22:05.236 [main] ERROR com.zaizi.sensefy.sensefyui.fFacetsTest - Verifying Creator Facets Failed
+2016-07-08  11:22:05.243 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - ---------------------------
+2016-07-08  11:22:05.327 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - Running Filter by DocumentType Facets
+2016-07-08  11:23:00.475 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - Verifying DocumentType Facets Success
+2016-07-08  11:23:00.475 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - Test Case : DocumentType Facets Verification Successfully PASSED!
+2016-07-08  11:23:00.490 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - ---------------------------
+2016-07-08  11:23:00.576 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - Running Filter by Language Facets
+2016-07-08  11:23:49.278 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - Verifying Language Facets Success
+2016-07-08  11:23:49.278 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - Test Case : Language Facets Verification Successfully PASSED!
+2016-07-08  11:23:49.289 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - ---------------------------
+2016-07-08  11:23:49.370 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - Running Filter by Size Facets
+2016-07-08  11:24:40.981 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - Verifying Size Success
+2016-07-08  11:24:40.982 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - Test Case : Size Facets Verification Successfully PASSED!
+2016-07-08  11:24:40.991 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - ---------------------------
+2016-07-08  11:24:41.076 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - Running Filter by Sharpness Facets
+2016-07-08  11:25:28.220 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - Verifying Sharpness Success
+2016-07-08  11:25:28.220 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - Test Case : Sharpness Facets Verification Successfully PASSED!
+2016-07-08  11:25:28.241 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - ---------------------------
+2016-07-08  11:25:28.335 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - Running Filter by LastModifiedDate Facets
+2016-07-08  11:26:16.654 [main] ERROR com.zaizi.sensefy.sensefyui.fFacetsTest - Verifying LastModifiedDate Facets Failed
+2016-07-08  11:26:16.662 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - ---------------------------
+2016-07-08  11:26:16.740 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - Running Filter by CreationDate Facets
+2016-07-08  11:27:07.198 [main] ERROR com.zaizi.sensefy.sensefyui.fFacetsTest - Verifying CreationDate Facets Failed
+2016-07-08  11:27:07.205 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - ---------------------------
+2016-07-08  11:27:07.293 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - Running Filter by Topic Facets
+2016-07-08  11:27:56.739 [main] ERROR com.zaizi.sensefy.sensefyui.fFacetsTest - Verifying Topic Facets Failed
+2016-07-08  11:27:56.824 [main] INFO  com.zaizi.sensefy.sensefyui.fFacetsTest - ---------------------------
+2016-07-08  11:27:56.933 [main] INFO  com.zaizi.sensefy.sensefyui.gSearchPageTest - Running Verify Footer Test
+2016-07-08  11:28:28.694 [main] ERROR com.zaizi.sensefy.sensefyui.gSearchPageTest - Footer Verification Failed
+2016-07-08  11:28:28.704 [main] INFO  com.zaizi.sensefy.sensefyui.gSearchPageTest - ---------------------------
+2016-07-08  11:28:28.796 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-07-08  11:28:28.800 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-07-08  11:29:06.629 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-07-08  11:29:07.302 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-07-08  11:29:35.934 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-07-08  11:29:36.156 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-07-08  11:29:44.679 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-07-08  11:29:45.492 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Places
+2016-07-08  11:30:26.112 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'Places' is visible under the suggestions
+2016-07-08  11:30:27.098 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'Places' is visible under the suggestions
+2016-07-08  11:30:36.348 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-07-08  11:30:36.893 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Organizations
+2016-07-08  11:31:27.815 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'Organizations' is visible under the suggestions
+2016-07-08  11:31:28.300 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'Organizations' is visible under the suggestions
+2016-07-08  11:31:37.061 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-07-08  11:31:37.573 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Verify the UI Feature in Entity Search
+2016-07-08  11:31:46.078 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Relevance is available
+2016-07-08  11:31:46.117 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Name is available
+2016-07-08  11:31:46.153 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Title is available
+2016-07-08  11:31:46.187 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Created is available
+2016-07-08  11:31:46.223 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Modified is available
+2016-07-08  11:31:46.254 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Creator is available
+2016-07-08  11:31:46.301 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Modifier is available
+2016-07-08  11:31:46.752 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Relevance is available
+2016-07-08  11:31:49.957 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Alfresco Data source is available
+2016-07-08  11:31:56.562 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Results per page drop down icon is available
+2016-07-08  11:32:00.409 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Fiter By facet is available
+2016-07-08  11:55:06.989 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Preparing For lEntitySearch ...
+2016-07-08  11:55:07.363 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Login to Sensefy QA
+2016-07-08  11:55:07.369 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Navigate to Sensefy QA Url
+2016-07-08  11:55:54.891 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successfully Login to Sensefy QA
+2016-07-08  11:55:55.233 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : People
+2016-07-08  11:56:24.127 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'People' is visible under the suggestions
+2016-07-08  11:56:24.282 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'People' is visible under the suggestions
+2016-07-08  11:56:32.781 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-07-08  11:56:33.297 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Places
+2016-07-08  11:57:16.771 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'Places' is visible under the suggestions
+2016-07-08  11:57:17.159 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'Places' is visible under the suggestions
+2016-07-08  11:57:25.884 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-07-08  11:57:26.326 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Search Result in Entity Type : Organizations
+2016-07-08  11:58:21.735 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Entity Type 'Organizations' is visible under the suggestions
+2016-07-08  11:58:22.261 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element under the  Entity Type 'Organizations' is visible under the suggestions
+2016-07-08  11:58:31.187 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The element information is displayed.
+2016-07-08  11:58:31.642 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Verify the UI Feature in Entity Search
+2016-07-08  11:58:40.003 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Relevance is available
+2016-07-08  11:58:40.042 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Name is available
+2016-07-08  11:58:40.151 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Title is available
+2016-07-08  11:58:40.204 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Created is available
+2016-07-08  11:58:40.238 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Modified is available
+2016-07-08  11:58:40.302 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Creator is available
+2016-07-08  11:58:40.344 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Modifier is available
+2016-07-08  11:58:40.782 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The sort by Relevance is available
+2016-07-08  11:58:43.932 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Alfresco Data source is available
+2016-07-08  11:58:50.571 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Results per page drop down icon is available
+2016-07-08  11:58:54.278 [main] INFO  com.zaizi.sensefy.sensefyui.lEntitySearch - Successful : The Fiter By facet is available
+2016-07-08  12:00:44.853 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ***Sensefy Automation Test Started***
+2016-07-08  12:00:44.856 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Preparing For LoginTest ...
+2016-07-08  12:00:44.949 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify SensefyURL Test
+2016-07-08  12:01:07.362 [main] ERROR com.zaizi.sensefy.sensefyui.aLoginTest - SensefyURL Verification Failed
+2016-07-08  12:01:07.493 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Valid logging Test
+2016-07-08  12:01:40.923 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Valid logging Verified Successfully
+2016-07-08  12:01:40.952 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : Valid logging Verified Successfully PASSED!
+2016-07-08  12:01:41.003 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ---------------------------
+2016-07-08  12:01:41.096 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify empty logging Test
+2016-07-08  12:02:02.104 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - empty logging Verified Successfully
+2016-07-08  12:02:02.130 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : empty logging Verified Successfully PASSED!
+2016-07-08  12:02:02.173 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ---------------------------
+2016-07-08  12:02:02.258 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Invalid logging Test
+2016-07-08  12:02:23.243 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Invalid logging Verified Successfully
+2016-07-08  12:02:23.287 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : Invalid logging Verified Successfully PASSED!
+2016-07-08  12:02:23.315 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ---------------------------
+2016-07-08  12:02:23.404 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Logingout Test
+2016-07-08  12:02:58.006 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Logingout Verified Successfully
+2016-07-08  12:02:58.033 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : Logingout Verified Successfully PASSED!
+2016-07-08  12:02:58.080 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ---------------------------
+2016-07-08  12:08:03.200 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ***Sensefy Automation Test Started***
+2016-07-08  12:08:03.203 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Preparing For LoginTest ...
+2016-07-08  12:08:03.299 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify SensefyURL Test
+2016-07-08  12:08:19.793 [main] ERROR com.zaizi.sensefy.sensefyui.aLoginTest - SensefyURL Verification Failed
+2016-07-08  12:08:19.903 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Valid logging Test
+2016-07-08  12:08:46.846 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Valid logging Verified Successfully
+2016-07-08  12:08:46.846 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : Valid logging Verified Successfully PASSED!
+2016-07-08  12:08:46.864 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ---------------------------
+2016-07-08  12:08:46.954 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify empty logging Test
+2016-07-08  12:09:01.246 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - empty logging Verified Successfully
+2016-07-08  12:09:01.246 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : empty logging Verified Successfully PASSED!
+2016-07-08  12:09:01.258 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ---------------------------
+2016-07-08  12:09:01.343 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Invalid logging Test
+2016-07-08  12:09:09.200 [main] ERROR com.zaizi.sensefy.sensefyui.aLoginTest - Invalid logging Verification Failed
+2016-07-08  12:09:09.206 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Logingout Test
+2016-07-08  12:09:59.120 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ***Sensefy Automation Test Started***
+2016-07-08  12:09:59.122 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Preparing For LoginTest ...
+2016-07-08  12:09:59.213 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify SensefyURL Test
+2016-07-08  12:10:12.599 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Current URL : http://sensefyqa.zaizicloud.net/auth/login#/
+2016-07-08  12:10:12.599 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - SensefyURL Verified Successfully
+2016-07-08  12:10:12.600 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : SensefyURL Verified Successfully PASSED!
+2016-07-08  12:10:12.845 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Valid logging Test
+2016-07-08  12:10:41.067 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Valid logging Verified Successfully
+2016-07-08  12:10:41.068 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : Valid logging Verified Successfully PASSED!
+2016-07-08  12:10:41.082 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ---------------------------
+2016-07-08  12:10:41.172 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify empty logging Test
+2016-07-08  12:10:54.633 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - empty logging Verified Successfully
+2016-07-08  12:10:54.634 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : empty logging Verified Successfully PASSED!
+2016-07-08  12:10:54.647 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ---------------------------
+2016-07-08  12:10:54.736 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Invalid logging Test
+2016-07-08  12:11:12.154 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Invalid logging Verified Successfully
+2016-07-08  12:11:12.155 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : Invalid logging Verified Successfully PASSED!
+2016-07-08  12:11:12.166 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ---------------------------
+2016-07-08  12:11:12.254 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Running Verify Logingout Test
+2016-07-08  12:11:41.867 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Logingout Verified Successfully
+2016-07-08  12:11:41.868 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - Test Case : Logingout Verified Successfully PASSED!
+2016-07-08  12:11:41.887 [main] INFO  com.zaizi.sensefy.sensefyui.aLoginTest - ---------------------------
+2016-07-08  12:15:29.344 [main] INFO  com.zaizi.sensefy.sensefyui.bSearchTest - Preparing For SearchTest ...
+2016-07-08  12:15:29.416 [main] INFO  com.zaizi.sensefy.sensefyui.bSearchTest - Running Verify Exact Keyword search Test
+2016-07-08  12:16:04.373 [main] ERROR com.zaizi.sensefy.sensefyui.bSearchTest - Exact Keyword search Verification Failed
+2016-07-08  12:16:04.385 [main] INFO  com.zaizi.sensefy.sensefyui.bSearchTest - ---------------------------
+2016-07-08  12:16:04.386 [main] INFO  com.zaizi.sensefy.sensefyui.bSearchTest - Running Verify not exist document search Test
+2016-07-08  12:16:39.026 [main] ERROR com.zaizi.sensefy.sensefyui.bSearchTest - not exist document search Verification Failed
+2016-07-08  12:16:39.036 [main] INFO  com.zaizi.sensefy.sensefyui.bSearchTest - ---------------------------
+2016-07-08  12:16:39.037 [main] INFO  com.zaizi.sensefy.sensefyui.bSearchTest - Running Verify data source search Test
+2016-07-08  12:17:14.740 [main] ERROR com.zaizi.sensefy.sensefyui.bSearchTest - data source search Verification Failed
+2016-07-08  12:17:14.751 [main] INFO  com.zaizi.sensefy.sensefyui.bSearchTest - ---------------------------

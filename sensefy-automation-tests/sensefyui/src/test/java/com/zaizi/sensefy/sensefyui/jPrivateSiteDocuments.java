@@ -31,7 +31,6 @@ import com.zaizi.sensefy.sensefyui.elements.Link;
 import com.zaizi.sensefy.sensefyui.exceptions.IterableException;
 import com.zaizi.sensefy.sensefyui.info.TestCaseProperties;
 import com.zaizi.sensefy.sensefyui.info.TestCaseValues;
-import com.zaizi.sensefy.sensefyui.info.UrlFinder;
 import com.zaizi.sensefy.sensefyui.pages.AlfrescoPage;
 import com.zaizi.sensefy.sensefyui.pages.Manifold;
 import com.zaizi.sensefy.sensefyui.pages.SearchLogin;
@@ -53,8 +52,7 @@ public class jPrivateSiteDocuments
 	 */
 	public static WebDriver driver;
 	
-	private static final String TEST_CASE_PROPERTIES_XML = "pom.xml";
-	
+
 	/**
 	 * Variable declaration
 	 */
@@ -363,10 +361,8 @@ public class jPrivateSiteDocuments
 	        searchLogin.manifoldLogin(username,password);
 	           
 	        System.out.println("login to Manifold");
-	          
-	        UrlFinder urlFinder = new UrlFinder();
-	            
-	        String manifoldurl = urlFinder.returnManifold();
+	                     
+	        String manifoldurl = TestCaseProperties.returnManifold();
 	            
 	        String currentUrl = driver.getCurrentUrl().toString();
 	            
@@ -557,7 +553,7 @@ public class jPrivateSiteDocuments
 	
 	private static Node getProperty(String propertyName) throws ParserConfigurationException, SAXException, IOException
 	{
-		File testValues = new File(TEST_CASE_PROPERTIES_XML);
+		File testValues = new File(TestCaseProperties.returnTestPropertiesXml());
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(testValues);

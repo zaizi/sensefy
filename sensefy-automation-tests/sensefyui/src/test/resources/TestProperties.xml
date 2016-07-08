@@ -2,13 +2,21 @@
 
 <TestProperties>
 	<TestProperty>
-		<Browser>Chrome</Browser>
+		<Browser>Firefox</Browser>
 		<ChromeDriverPath>./drivers/chromedriver/</ChromeDriverPath>
 		<FoundZeroResultsString>found 0 results.</FoundZeroResultsString>
 		<FoundZeroSitesString>0 result(s) found in all sites.</FoundZeroSitesString>
 		<ReportPath>/Users/ljayasinghe/Desktop/</ReportPath>
 		<UploadPath>/Users/ljayasinghe/Documents/</UploadPath>
 		<!-- <DriverType>SeleniumGrid</DriverType> -->
+		<adminrest>/admin/#/login</adminrest>
+     	<searchserverurl>http://sensefyqa.zaizicloud.net</searchserverurl>
+     	<searchport>NA</searchport>
+    	<searchrest>/#/</searchrest>
+    	<alfrescopath>http://sensefyqa.zaizicloud.net/share/page/</alfrescopath>
+    	<manifoldpath>http://192.168.1.72:8345/mcf-crawler-ui/login.jsp</manifoldpath>
+    	<sensefylocalhost>http://192.168.1.72:9099</sensefylocalhost>
+      	<DriverType>SeleniumWebDriver</DriverType>
 		</TestProperty>
 </TestProperties>
 

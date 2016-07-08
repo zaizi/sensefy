@@ -39,8 +39,7 @@ public class gSearchPageTest {
 	public static final Logger LOGGER = LogManager.getLogger(gSearchPageTest.class.getName());
 	
 	public static final ExtentReports extent = ExtentReports.get(gSearchPageTest.class);
-	private static final String TEST_CASE_PROPERTIES_XML = "pom.xml";
-	
+		
 	private String username;
     private String password;
 
@@ -110,7 +109,7 @@ public class gSearchPageTest {
     
     private static Node getProperty(String propertyName) throws ParserConfigurationException, SAXException, IOException
 	 {
-	     File testValues = new File(TEST_CASE_PROPERTIES_XML);
+	     File testValues = new File(TestCaseProperties.returnTestPropertiesXml());
 	     DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	     DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 	     Document doc = dBuilder.parse(testValues);

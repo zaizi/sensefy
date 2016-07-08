@@ -1,13 +1,9 @@
 package com.zaizi.sensefy.sensefyui;
 
-import java.awt.image.CropImageFilter;
-import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -17,10 +13,6 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.LocalFileDetector;
-import org.openqa.selenium.remote.RemoteWebElement;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
 import com.zaizi.sensefy.sensefyui.elements.Button;
@@ -48,8 +40,6 @@ public class iTestUpload
 	 */
 	
 	public static WebDriver driver;
-	
-	private static final String TEST_CASE_PROPERTIES_XML = "pom.xml";
 	
 	/**
 	 * variable declaration

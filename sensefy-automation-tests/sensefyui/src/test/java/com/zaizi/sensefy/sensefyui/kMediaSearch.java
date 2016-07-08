@@ -21,7 +21,6 @@ import com.zaizi.sensefy.sensefyui.elements.Element;
 import com.zaizi.sensefy.sensefyui.exceptions.IterableException;
 import com.zaizi.sensefy.sensefyui.info.TestCaseProperties;
 import com.zaizi.sensefy.sensefyui.info.TestCaseValues;
-import com.zaizi.sensefy.sensefyui.info.UrlFinder;
 import com.zaizi.sensefy.sensefyui.pages.AlfrescoPage;
 import com.zaizi.sensefy.sensefyui.pages.Manifold;
 import com.zaizi.sensefy.sensefyui.pages.SearchLogin;
@@ -41,9 +40,7 @@ public class kMediaSearch
 	 * Define Webdriver
 	 */
 	public static WebDriver driver;
-	
 
-	private static final String TEST_CASE_PROPERTIES_XML = "pom.xml";
 	
 	/**
 	 * Varialble Declaration
@@ -298,10 +295,8 @@ public class kMediaSearch
             //searchLogin.manifoldLogin(username,password);
            
             System.out.println("login to Manifold");
-          
-            UrlFinder urlFinder = new UrlFinder();
-            
-            String manifoldurl = urlFinder.returnManifold();
+                      
+            String manifoldurl = TestCaseProperties.returnManifold();
             
             String currentUrl = driver.getCurrentUrl().toString();
             
