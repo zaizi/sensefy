@@ -90,10 +90,11 @@ public class SearchPage {
     	}
     }
     
-    public void searchATerm(String Term)
+    public void searchATerm(String Term) throws InterruptedException
     {
     	driver.findElement(By.xpath(searchBar)).sendKeys(Term);
     	driver.findElement(By.xpath(searchButton)).click();
+    	Thread.sleep(3000);
     }
     
     public void logout()
@@ -127,7 +128,7 @@ public class SearchPage {
     public boolean footerNote()
     {
     	Boolean match=null;
-    	String footNote="© 2007 - 2015 Zaizi Limited. All rights reserved.";
+    	String footNote="© 2007 - 2016 Zaizi Limited. All rights reserved.";
     	String note=driver.findElement(By.xpath(footerNote)).getText();
     	if(note.equals(footNote))
     	{
@@ -224,7 +225,7 @@ public class SearchPage {
     //Select Creator Facet
     public void selectCreatorFacet(String creator) throws InterruptedException
     {
-    	String creatorName1 ="//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[1]/ul/li/span/span[@translate='";
+    	String creatorName1 ="//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[1]/ul/li/span/span/span[@translate='";
     	String creatorName2="']";
     	String creatorName=creatorName1+creator+creatorName2;
     	String expaned="//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[1]/div/i[@class='add circle icon']";
@@ -285,7 +286,7 @@ public class SearchPage {
     //Selecting Modified Date Facet
     public void selectLastModifiedDateFacet(String modifiedDate) throws InterruptedException
     {
-    	String modified1 ="//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[6]/ul/li/span/span[contains(.,'";
+    	String modified1 ="//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[6]/ul/li/span/span/span[contains(.,'";
     	String modified2="')]";
     	String modifiedType=modified1+modifiedDate+modified2;
     	
@@ -296,7 +297,7 @@ public class SearchPage {
     //Selecting Creation Date Facet
     public void selectCreationDateFacet(String creationDate) throws InterruptedException
     {
-    	String creation1 ="//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[7]/ul/li/span/span[contains(.,'";
+    	String creation1 ="//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[7]/ul/li/span/span/span[contains(.,'";
     	String creation2="')]";
     	String creationType=creation1+creationDate+creation2;
     	
@@ -307,7 +308,7 @@ public class SearchPage {
     //Selecting Topic Facet
     public void selectTopicFacet(String topic) throws InterruptedException
     {
-    	String topic1 ="//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[8]/ul/li/span/span[contains(.,'";
+    	String topic1 ="//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[8]/ul/li/span/span/span[contains(.,'";
     	String topic2="')]";
     	String topicType=topic1+topic+topic2;
     	

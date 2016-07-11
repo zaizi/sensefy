@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -126,8 +127,7 @@ public class lEntitySearch
 		if(!currentUrl2.equalsIgnoreCase(sensefyurl))
 		{
 			LOGGER.info("Successfully Login to Sensefy QA");
-			extent.log(LogStatus.PASS, "Successfully Login to Sensefy QA");
-        		
+			extent.log(LogStatus.PASS, "Successfully Login to Sensefy QA");	
 			Element.takescreenshot(driver,className,screenshot_name+"1");
         }
 		else

@@ -5,15 +5,17 @@
 		<test>
 			<Username>admin</Username>
 			<Password>ulibranxi</Password>
+			<screenshot_name>loginTest</screenshot_name>
 		</test>
 	</LoginTest>
 	<SearchTest>
 		<test>
 			<Username>admin</Username>
 			<Password>ulibranxi</Password>
-			<nodocword>kuluk</nodocword>
+			<nodocword>a</nodocword>
 			<didumean>gobal</didumean>
 			<closeword>alfesco</closeword>
+			<screenshot_name>searchTest</screenshot_name>
 		</test>
 	</SearchTest>
 	<SortTest>
@@ -21,6 +23,7 @@
 			<Username>admin</Username>
 			<Password>ulibranxi</Password>
 			<searchWord>page</searchWord>
+			<screenshot_name>sortTest</screenshot_name>
 		</test>
 	</SortTest>
 	<FacetTest>
@@ -36,53 +39,30 @@
 			<modifiedDate>Last Month</modifiedDate>
 			<creationDate>Last Month</creationDate>
 			<topic>Other Topics</topic>
+			<screenshot_name>facetsTest</screenshot_name>
 		</test>
 	</FacetTest>
-	<hUploadandSearch>
+	<dResultsPerPage>
 		<test>
 			<username>admin</username>
 			<password>admin</password>
-			<site_name>Sensefy</site_name>
-			<document_name>SensefyDoc</document_name>
-			<screenshot_name>sensefyImg</screenshot_name>			
+			<screenshot_name>resultsperpage</screenshot_name>			
 		</test>
-	</hUploadandSearch>
-	<iTestUpload>
+	</dResultsPerPage>
+	<eLanguageChangeTest>
 		<test>
 			<username>admin</username>
 			<password>admin</password>
-			<site_name>Sensefy</site_name>
-			<uploadDocument>SensefyDocuments&#46;rtf</uploadDocument>
+			<screenshot_name>languageTest</screenshot_name>			
 		</test>
-	</iTestUpload>
-	<jPrivateSiteDocuments>
+	</eLanguageChangeTest>
+	<gSearchPageTest>
 		<test>
 			<username>admin</username>
 			<password>admin</password>
-			<userA>userA</userA>
-			<emailA>usera@gmail.com</emailA>
-			<usernameA>usera</usernameA>
-			<passwordA>userA@123</passwordA>
-			<userB>userB</userB>
-			<emailB>userb@gmail.com</emailB>
-			<usernameB>userb</usernameB>
-			<passwordB>userB@123</passwordB>
-			<privateSiteName>SensefyPrivate</privateSiteName>
-			<documentName>SensefyPrivateDoc</documentName>
-			<screen_shot>SearchTest</screen_shot>
+			<screenshot_name>searchpagetest</screenshot_name>			
 		</test>
-	</jPrivateSiteDocuments>
-	<kMediaSearch>
-		<test>
-			<username1>admin</username1>
-			<password1>ulibranxi</password1>
-			<username2>admin</username2>
-			<password2>admin</password2>
-			<sitename>QASite</sitename>
-			<videoname>video1&#46;mp4</videoname>
-			<screenshot_name>VideoTest</screenshot_name>
-		</test>
-	</kMediaSearch>
+	</gSearchPageTest>
 	<lEntitySearch>
 		<test>
 			<username>admin</username>

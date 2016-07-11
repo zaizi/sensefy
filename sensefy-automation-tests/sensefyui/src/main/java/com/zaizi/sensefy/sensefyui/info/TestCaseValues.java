@@ -58,92 +58,86 @@ public class TestCaseValues {
                                 
                 if (("Username").equals(testCaseName))
                 {
-                    Object[] foo = { getValue("parameter1", valueElement), getValue("parameter2", valueElement),
+                    Object[] foo = { getValue("parameter1", valueElement), 
+                    		getValue("parameter2", valueElement),
                     		Boolean.valueOf(getValue("parameter3", valueElement))};
                     bar[k] = foo;
                     System.out.println("Values Loaded - TestName1");
                 }
                 else if (("LoginTest").equals(testCaseName))
                 {
-                    Object[] foo = { getValue("Username", valueElement), getValue("Password", valueElement)};
+                    Object[] foo = { getValue("Username", valueElement), 
+                    		getValue("Password", valueElement),
+                    		getValue("screenshot_name", valueElement)};
                     bar[k] = foo;
                     System.out.println("Values Loaded - LoginTest");
                 }  
                 else if (("SearchTest").equals(testCaseName))
                 {
-                	Object[] foo = { getValue("Username", valueElement), getValue("Password", valueElement),getValue("nodocword", valueElement),getValue("didumean", valueElement),getValue("closeword", valueElement)};
+                	Object[] foo = { getValue("Username", valueElement), 
+                			getValue("Password", valueElement),
+                			getValue("nodocword", valueElement),
+                			getValue("didumean", valueElement),
+                			getValue("closeword", valueElement),
+                			getValue("screenshot_name", valueElement)};
                     bar[k] = foo;
                     System.out.println("Values Loaded - SearchTest");
                 }
                 else if (("SortTest").equals(testCaseName))
                 {
-                	Object[] foo = { getValue("Username", valueElement), getValue("Password", valueElement),getValue("searchWord", valueElement)};
+                	Object[] foo = { getValue("Username", valueElement), 
+                			getValue("Password", valueElement),
+                			getValue("searchWord", valueElement),
+                			getValue("screenshot_name", valueElement)};
                     bar[k] = foo;
                     System.out.println("Values Loaded - SortTest");
                 }
                 else if (("FacetTest").equals(testCaseName))
                 {
-                	Object[] foo = { getValue("Username", valueElement), getValue("Password", valueElement),getValue("searchWord", valueElement), getValue("creator", valueElement), getValue("doctype", valueElement),getValue("language", valueElement),getValue("size", valueElement),
-                			getValue("sharpness", valueElement), getValue("modifiedDate", valueElement),getValue("creationDate", valueElement),getValue("topic", valueElement),};
+                	Object[] foo = { getValue("Username", valueElement), 
+                			getValue("Password", valueElement),
+                			getValue("searchWord", valueElement), 
+                			getValue("creator", valueElement), 
+                			getValue("doctype", valueElement),
+                			getValue("language", valueElement),
+                			getValue("size", valueElement),
+                			getValue("sharpness", valueElement), 
+                			getValue("modifiedDate", valueElement),
+                			getValue("creationDate", valueElement),
+                			getValue("topic", valueElement),
+                			getValue("screenshot_name", valueElement)};
                     bar[k] = foo;
                     System.out.println("Values Loaded - FacetTest");
                 }
-                else if(("hUploadandSearch").equals(testCaseName))
+                else if(("dResultsPerPage").equals(testCaseName))
                 {
                 	Object[] foo = { getValue("username", valueElement), 
                 						getValue("password", valueElement),
-                						getValue("site_name", valueElement),
-                						getValue("document_name", valueElement),
                 						getValue("screenshot_name", valueElement)
                     						};
                 	
                 	bar[k]=foo;
-                	System.out.println("Values Loaded - Alfresco / Manifold");                	
+                	System.out.println("Values Loaded - ResultsPerPageTest");                	
                 }
-                else if(("iTestUpload").equals(testCaseName))
+                else if(("eLanguageChangeTest").equals(testCaseName))
                 {
                 	Object[] foo = { getValue("username", valueElement), 
                 						getValue("password", valueElement),
-                						getValue("site_name", valueElement),
-                						getValue("uploadDocument", valueElement),
-                						};
+                						getValue("screenshot_name", valueElement)
+                    						};
                 	
                 	bar[k]=foo;
-                	System.out.println("Values Loaded - Alfresco - File Upload");                	
+                	System.out.println("Values Loaded - LanguageChangeTest");                	
                 }
-                else if(("jPrivateSiteDocuments").equals(testCaseName))
+                else if(("gSearchPageTest").equals(testCaseName))
                 {
                 	Object[] foo = { getValue("username", valueElement), 
                 						getValue("password", valueElement),
-                						getValue("userA", valueElement),
-                						getValue("emailA", valueElement),
-                						getValue("usernameA", valueElement), 
-                						getValue("passwordA", valueElement),
-                						getValue("userB", valueElement),
-                						getValue("emailB", valueElement),
-                						getValue("usernameB", valueElement), 
-                						getValue("passwordB", valueElement),
-                						getValue("privateSiteName", valueElement),
-                						getValue("documentName", valueElement),
-                						getValue("screen_shot", valueElement), 
-                	};
+                						getValue("screenshot_name", valueElement)
+                    						};
                 	
                 	bar[k]=foo;
-                	System.out.println("Values Loaded - Alfresco - File Upload");                	
-                }
-                else if(("kMediaSearch").equals(testCaseName))
-                {
-                	Object[] foo = { getValue("username1", valueElement), 
-                						getValue("password1", valueElement),
-                						getValue("username2", valueElement), 
-                						getValue("password2", valueElement),
-                						getValue("sitename", valueElement),
-                						getValue("videoname", valueElement),
-                						getValue("screenshot_name", valueElement), 
-                	};
-                	
-                	bar[k]=foo;
-                	System.out.println("Values Loaded - Alfresco - Video Upload");                	
+                	System.out.println("Values Loaded - SearchPageTest");                	
                 }
                 else if(("lEntitySearch").equals(testCaseName))
                 {

@@ -1,5 +1,7 @@
 package com.zaizi.sensefy.sensefyui;
 
+import java.io.IOException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.After;
@@ -14,6 +16,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
+import com.zaizi.sensefy.sensefyui.elements.Element;
 import com.zaizi.sensefy.sensefyui.exceptions.IterableException;
 import com.zaizi.sensefy.sensefyui.info.TestCaseProperties;
 import com.zaizi.sensefy.sensefyui.info.TestCaseValues;
@@ -25,11 +28,17 @@ import com.zaizi.sensefy.sensefyui.pages.SearchPage;
  */
 @RunWith(value = Parameterized.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class fFacetsTest {
+public class fFacetsTest 
+{
 	
 	public static final Logger LOGGER = LogManager.getLogger(fFacetsTest.class.getName());
 	
 	public static final ExtentReports extent = ExtentReports.get(fFacetsTest.class);
+	
+	/**
+	 * defining class name
+	 */
+	public static String className = fFacetsTest.class.getSimpleName();
 	
 	private String username;
     private String password;
@@ -43,11 +52,12 @@ public class fFacetsTest {
     private String creationDate;
     private String topic;
     public String searchTerm="//input[@id='searchTerm']";
+    public String screenshot_name;
     
     static WebDriver driver;
 	public fFacetsTest(String username, String password, String searchWord, String creator,
 			String doctype, String language, String size, String sharpness, String modifiedDate, String creationDate,
-			String topic)
+			String topic,String screenshot_name)
     {
         this.username = username;
         this.password = password;
@@ -60,12 +70,13 @@ public class fFacetsTest {
         this.modifiedDate=modifiedDate;
         this.creationDate=creationDate;
         this.topic=topic;
+        this.screenshot_name = screenshot_name;
     }
 	
 	@BeforeClass
-    public static void beforeClass() {
-        //extent.init("/Users/deranthika/Desktop/myreport1.html", true);
-		extent.init("logs/sensefy.html", false);
+    public static void beforeClass() throws IOException 
+	{
+		Element.reportInitial(driver, className);
         extent.config().documentTitle("SensefyUI Automation Test Report");
         extent.config().reportTitle("SensefyUI Automation");
         extent.config().reportHeadline("Search Page Testing");
@@ -80,7 +91,7 @@ public class fFacetsTest {
 
     //Test Creator Facet
     @Test
-    public void a_filterybyCreator() throws InterruptedException
+    public void a_filterybyCreator() throws InterruptedException, IOException
     {
     	LOGGER.info("Running Filter by Cretor Facets");
     	extent.startTest("Verify Creator Facets");
@@ -100,14 +111,17 @@ public class fFacetsTest {
             searchPage.selectCreatorFacet(creator);
             Thread.sleep(5000);
             searchPage.countResults();
+            Thread.sleep(3000);
             LOGGER.info("Verifying Creator Facets Success");
     		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "Creator Facets Verification Successfully");
     		extent.log(LogStatus.PASS, "Creator Facet Verification Success");
+    		Element.takescreenshot(driver,className,screenshot_name+"1");
     	}
     	catch(Exception e)
     	{
     		extent.log(LogStatus.FAIL, "Creator Facet Verification Failed");
         	LOGGER.error("Verifying Creator Facets Failed");
+        	Element.takescreenshot(driver,className,screenshot_name+"2");
     	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");   
@@ -115,7 +129,7 @@ public class fFacetsTest {
   
     //Test Document Type Facet
     @Test
-    public void b_filterybyDocumentType() throws InterruptedException
+    public void b_filterybyDocumentType() throws InterruptedException, IOException
     {
     	LOGGER.info("Running Filter by DocumentType Facets");
     	extent.startTest("Verify DocumentType Facets");
@@ -138,11 +152,13 @@ public class fFacetsTest {
     	    LOGGER.info("Verifying DocumentType Facets Success");
     		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "DocumentType Facets Verification Successfully");
     		extent.log(LogStatus.PASS, "DocumentType Facet Verification Success");
+    		Element.takescreenshot(driver,className,screenshot_name+"3");
     	}
     	catch(Exception e)
     	{
     		extent.log(LogStatus.FAIL, "DocumentType Facet Verification Failed");
         	LOGGER.error("Verifying DocumentType Facets Failed");
+        	Element.takescreenshot(driver,className,screenshot_name+"4");
     	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");    
@@ -150,7 +166,7 @@ public class fFacetsTest {
   
     //Test Language Facet
 	@Test
-	public void c_filterybyLanguage() throws InterruptedException
+	public void c_filterybyLanguage() throws InterruptedException, IOException
 	{
 		LOGGER.info("Running Filter by Language Facets");
     	extent.startTest("Verify Language Facets");
@@ -173,11 +189,13 @@ public class fFacetsTest {
     	    LOGGER.info("Verifying Language Facets Success");
     		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "Language Facets Verification Successfully");
     		extent.log(LogStatus.PASS, "Language Facet Verification Success");
+    		Element.takescreenshot(driver,className,screenshot_name+"5");
     	}
     	catch(Exception e)
     	{
     		extent.log(LogStatus.FAIL, "Language Facet Verification Failed");
         	LOGGER.error("Verifying Language Facets Failed");
+        	Element.takescreenshot(driver,className,screenshot_name+"6");
     	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");       
@@ -185,7 +203,7 @@ public class fFacetsTest {
 	 
 	 //Test Size Facet
 	 @Test
-	 public void d_filterybySize() throws InterruptedException
+	 public void d_filterybySize() throws InterruptedException, IOException
 	 {
 		LOGGER.info("Running Filter by Size Facets");
 	    extent.startTest("Verify Size Facets");
@@ -208,11 +226,13 @@ public class fFacetsTest {
 		    LOGGER.info("Verifying Size Success");
     		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "Size Facets Verification Successfully");
     		extent.log(LogStatus.PASS, "Size Facet Verification Success");
+    		Element.takescreenshot(driver,className,screenshot_name+"7");
 	    }
 	    catch(Exception e)
 	    {
 	    	extent.log(LogStatus.FAIL, "Size Facet Verification Failed");
         	LOGGER.error("Verifying Size Facets Failed");
+        	Element.takescreenshot(driver,className,screenshot_name+"8");
 	    }
 	    TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");    
@@ -220,7 +240,7 @@ public class fFacetsTest {
 
 	 //Test Sharpness Facet
 	 @Test
-	 public void e_filterybySharpeness() throws InterruptedException
+	 public void e_filterybySharpeness() throws InterruptedException, IOException
 	 {
 		LOGGER.info("Running Filter by Sharpness Facets");
 		extent.startTest("Verify Sharpness Facets");
@@ -243,17 +263,19 @@ public class fFacetsTest {
 			LOGGER.info("Verifying Sharpness Success");
     		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "Sharpness Facets Verification Successfully");
     		extent.log(LogStatus.PASS, "Sharpness Facet Verification Success");
+    		Element.takescreenshot(driver,className,screenshot_name+"9");
 		}
 		catch(Exception e)
 		{
 			extent.log(LogStatus.FAIL, "Sharpness Facet Verification Failed");
         	LOGGER.error("Verifying Sharpness Facets Failed");
+        	Element.takescreenshot(driver,className,screenshot_name+"10");
 		}
 		TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");     
 	 }
   
-	 //Test Last Modified Date Facet
+	/* //Test Last Modified Date Facet
 	 @Test
 	 public void f_filterybyLastModifiedDate() throws InterruptedException
 	 {
@@ -357,10 +379,6 @@ public class fFacetsTest {
 		TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");      
 	 }
-  
+  */
     
-	 @After
-	 public void Teardown() {
-        driver.quit();  
-	 }
 }
