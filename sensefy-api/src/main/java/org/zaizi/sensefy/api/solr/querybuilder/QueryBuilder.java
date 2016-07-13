@@ -173,18 +173,27 @@ public class QueryBuilder {
 	 * this way we can build semantic search by entityId,entity type or entity
 	 * attributes and return the query string
 	 *
-	 * @param entityId
+	 * @param entityIds
 	 * @param entityType
 	 * @param entityAttribute
 	 * @param entityAttributeValue
 	 * @return
 	 */
-	public static String getQueryString(String entityId, String entityType, String entityAttribute,
+	public static String getQueryString(List<String> entityIds, String entityType, String entityAttribute,
 			String entityAttributeValue, SearchResponse searchResponse) {
 		String query;
 		String baseQuery = "";
-		if (entityId != null) {
-			query = SMLT_ENTITIES + ":\"" + entityId + "\"";
+		if (entityIds != null) {
+			StringBuilder sb = new StringBuilder(SMLT_ENTITIES);
+			sb.append(":\"");
+			for (int i=0; i< entityIds.size(); i++) {
+				sb.append(entityIds.get(i));
+				sb.append("\"");
+				if(i != (entityIds.size() -1)){
+					sb.append("AND");
+				}
+			}
+			query = sb.toString();
 			baseQuery = query;
 		} else {
 			if (entityAttribute == null) {

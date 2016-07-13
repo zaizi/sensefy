@@ -17,6 +17,7 @@ package org.zaizi.sensefy.api.service;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -96,7 +97,7 @@ public class SemanticSearchService extends SolrService {
 	 * This service is called with the information retrieved from the Smart
 	 * Autocomplete phases.
 	 * 
-	 * @param entityId
+	 * @param entityIds
 	 *            The unique id for the entity of interest
 	 * @param entityType
 	 *            The unique id for the entity type of interest
@@ -130,7 +131,7 @@ public class SemanticSearchService extends SolrService {
 	 * @return A json representation of the list of relevant documents for the
 	 *         input query
 	 */
-	public SearchResponse entityDrivenSearch(String entityId, String entityType, String entityAttribute,
+	public SearchResponse entityDrivenSearch(List<String> entityIds, String entityType, String entityAttribute,
 			String entityAttributeValue, String fields, String filters, int start, Integer rows, String order,
 			boolean facet, boolean security, Principal user, boolean clustering) {
 		String stringQuery;
@@ -140,27 +141,35 @@ public class SemanticSearchService extends SolrService {
 		Long startTime = System.currentTimeMillis();
 		try {
 
-			if ((entityType == null || entityType.isEmpty()) && (entityId == null || entityId.isEmpty())) {
+			if ((entityType == null || entityType.isEmpty()) && (entityIds == null || (entityIds.size() <= 0))) {
 				throw new SensefyException(400, "<entityType> or <entityId> param required");
 			}
 
-			stringQuery = QueryBuilder.getQueryString(entityId, entityType, entityAttribute, entityAttributeValue,
+			stringQuery = QueryBuilder.getQueryString(entityIds, entityType, entityAttribute, entityAttributeValue,
 					response);
 
 			SolrQuery solrQuery = QueryBuilder.getSolrQuery(stringQuery, fields, facet,
 					facetConfigurer.getFacetConfiguration(), filters, start, rows, order, security, false, clustering,
 					user);
 			// retrieve the entity
-			SolrDocument extractedEntity = getEntity(entityId);
-			responseContent.setEntity(extractedEntity);
-
+			List<SolrDocument> extractedEntities = new ArrayList<>();
+			StringBuilder sb = new StringBuilder();
+			for (String entityId : entityIds) {
+				SolrDocument extractedEntity = getEntity(entityId);
+				extractedEntities.add(extractedEntity);
+				String labelVal = (String) extractedEntity.getFieldValue(ENTITY_DRIVEN_HIGHLIGH_FIELD);
+				sb.append(labelVal);
+				sb.append(" ");
+			}
+			
+			responseContent.setEntity(extractedEntities);
 //			// retrieve the entity type
 //			EntityType extractedEntityType = getEntityType(entityType);
 //			responseContent.setEntityType(extractedEntityType);
 
-			String labelVal = (String) extractedEntity.getFieldValue(ENTITY_DRIVEN_HIGHLIGH_FIELD);
-			logger.debug("Entity label for the entity driven search : " + labelVal);
-			solrQuery.set(ENTITY_DRIVEN_HIGHLIGH_QUERY_PARAM, labelVal);
+			
+			logger.debug("Entity label for the entity driven search : " + sb.toString());
+			solrQuery.set(ENTITY_DRIVEN_HIGHLIGH_QUERY_PARAM, sb.toString());
 			queryResponse = this.getPrimaryIndex().query(solrQuery);			
 		    //get the highlights
 			 Map<String, Map<String, List<String>>> highlightingSnippets = queryResponse.getHighlighting();

@@ -51,7 +51,7 @@ public class SearchResults
 
     private Map<String, Map<String, List<String>>> highlight;
 
-    private SolrDocument entity;
+    private List<SolrDocument> entity;
 
     private EntityType entityType;
 
@@ -102,12 +102,12 @@ public class SearchResults
         this.documents = documents;
     }
 
-    public SolrDocument getEntity()
+    public List<SolrDocument> getEntity()
     {
         return entity;
     }
 
-    public void setEntity( SolrDocument entity )
+    public void setEntity( List<SolrDocument> entity )
     {
         this.entity = entity;
     }
