@@ -722,8 +722,8 @@ table {
 
 .search-header {
     width: 430px;
-    margin-top: 16px;
-    /*margin-left: 250px;*/
+    /*margin-top: 16px;
+    margin-left: 250px;*/
     margin-left: auto;
 }
 
@@ -1500,3 +1500,25 @@ div[data-tree-model] li .selected {
     margin-left: -3px;
 }
 
+
+
+.tag-search ul.tag-set{
+    margin-bottom: 4px;
+    margin-top: 6px;
+}
+
+.tag-search .tag-set li {
+    background-color: #ccc;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 11px;
+    margin-right: 4px;
+    padding: 2px;
+}
+
+.tag-search .tag-set li:first-child {
+    border: medium none;
+    margin-right: 8px;
+    background-color: none;
+}

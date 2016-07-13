@@ -516,13 +516,15 @@
                         $scope.documentsPerPage = value;
                         $scope.updateDocumentOffset(false);
                         $scope.runCurrentQuery();
+                        //alert(6)
                     }
                 });
                 $scope.infiniteScroll = function () {
                     if ($scope.totalDocuments > 0 && ($scope.currentPage * $scope.documentsPerPage < $scope.totalDocuments) && ($scope.searching === false)) {
                         $scope.updateDocumentOffset(false);
                         $scope.currentPage++;
-                        return $scope.runCurrentQuery();
+                        $scope.runCurrentQuery();
+                        //alert(7)
                     }
                 };
                 $scope.setCurrentPage = function (pageToStart) {
@@ -530,7 +532,9 @@
                     $scope.updateDocumentOffset(false);
                     $scope.currentPage = pageToStart;
                     $scope.runCurrentQuery();
+                    //alert(8)
                 };
+
                 $scope.cleanFilters = function () {
                     var activeSource;
                     $scope.filters = [];
@@ -876,7 +880,25 @@
                         }
                     });
                 };
+                $scope.entityTags = [];
+
+                $scope.removeEntityTagObj = function(entityTagObj){
+                    var index, posf;
+                    posf = $scope.entityTags.indexOf(entityTagObj);
+                    if (posf >= 0) {
+                        $scope.entityTags.splice(posf, 1);
+                    }
+                    /*index = $scope.filtersToShow.map(function (e) {
+                        return e.value;
+                    }).indexOf(filter.filter);
+
+                    if (index >= 0) {
+                        $scope.filtersToShow.splice(index, 1);
+                    }*/
+                };
+
                 $scope.entitySelected = function (entity, removeFilters) {
+                    //alert(4)
                     if(CONSOLEmode){
                         var a = '';
                         if(isJSON) {
@@ -892,6 +914,28 @@
                     if (removeFilters == null) {
                         removeFilters = true;
                     }
+
+
+                    var entityTagObj = [], entityTagObjPos;
+                    entityTagObj = {
+                        id: entity.id,
+                        label: entity.label
+                    };
+
+                    entityTagObjPos = $scope.entityTags.indexOf(entityTagObj);
+
+                    if (entityTagObjPos >= 0) {
+                        console.log('entityTagObjPos >= 0 met')
+                    } else {
+
+                        $scope.entityTags.push(entityTagObj);
+                    }
+
+
+                    console.log("-----------------");
+                    console.log(JSON.stringify($scope.entityTags));
+                    console.log("-----------------");
+
                     $scope.normalSearch = false;
                     $scope.searching = true;
                     $scope.selectedEntity = entity;
@@ -901,6 +945,7 @@
                     $scope.facets = {};
                     $scope.queryTerm = HTMLtagCleaner(entity.label);
                     $scope.updateDocumentOffset(removeFilters);
+                    /*
                     return SemanticSearchService.searchByEntity($scope.selectedEntity.id, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true, security=SensefyDocSecurity).then(
                     function (response) {
                         if(CONSOLEmode){
@@ -927,6 +972,46 @@
                             }
                         }
                     });
+                    */
+                };
+                $scope.entityUI = false;
+                $scope.entitySelectedQuery = function(){
+                    var entityIDs = [];
+                    var len = $scope.entityTags.length;
+                    for (var i = 0; i < len; i++) {
+                        entityIDs.push($scope.entityTags[i].id);
+                    }
+
+                    $scope.entityUI = true;
+
+                    console.log('entityIDs.push($scope.entityTags[i].id) '+ entityIDs)
+
+                    return SemanticSearchService.searchByEntity(entityIDs, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true, security=SensefyDocSecurity).then(
+                        function (response) {
+                            if(CONSOLEmode){
+                                console.log('SemanticSearchService.searchByEntity(entityIDs, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true, security=SensefyDocSecurity)');
+                                console.log(entityIDs+' - '+$scope.documentsOffsetStart+' - '+$scope.documentsPerPage+' - * - '+$scope.filters+' - true - '+$scope.titleSorting  );
+                            }
+                            $scope.documents = response.data.searchResults.documents || [];
+                            processHighlightInfo($scope.documents, response.data.searchResults.highlight);
+                            $scope.selectedEntity = response.data.searchResults.entity || $scope.selectedEntity;
+                            $scope.totalDocuments = response.data.searchResults.numFound;
+                            $scope.updateDocumentOffset(false);
+                            parseFacets(response.data);
+                            $scope.responsedData = response.data;
+                            initDataSources(true);
+                        },
+                        function (response) {
+                            if(SensefySearchResponseFailedIsLogout){
+                                $scope.logout();
+                                if(CONSOLEmode){
+                                    console.log('$scope.entitySelected = function (entity, removeFilters) {} is fired, but FAILED');
+                                }
+                                if(DEBUGmode){
+                                    debugger;
+                                }
+                            }
+                        });
                 };
                 $scope.entityTypeSelected = function (entityType, removeFilters) {
                     var clustering, security;
@@ -996,6 +1081,10 @@
                     });
                 };
                 $scope.query = function (restorePagination, cluster) {
+
+                    if($scope.entityTags.length > 0){
+                        return $scope.entitySelectedQuery();
+                    }
                     var apiQuery, clustering;
                     if (restorePagination === null) {
                         restorePagination = true;
@@ -1162,6 +1251,7 @@
                         return $scope.entityTypeSelected($scope.selectedEntityType, false);
                     }
                     if ($scope.selectedEntity !== null) {
+                        //alert(2)
                         return $scope.entitySelected($scope.selectedEntity, false);
                     }
                     if ($scope.selectedTitle !== null) {
@@ -1176,9 +1266,14 @@
                     return $scope.setSorting($scope.sortings[0].sortId, $scope.sortings[0].defaultSort);
                     //$scope.setSorting(newValue.defaultSort);
                 });
-                $scope.$on('entitySelected', function (event, entity) {
+                $scope.entitySelectedAction = false;
+                $scope.$on('entitySelected', function (event, entity, userAction) {
+                    //alert(3)
                     if(CONSOLEmode){
                         console.log('$scope.$on(entitySelected, function (event, entity) {}): at controller 976');
+                    }
+                    if(userAction){
+                        $scope.entitySelectedAction = true;
                     }
                     resetSelectedValues();
                     $scope.entitySelected(entity);
@@ -1386,20 +1481,23 @@
                         console.log('$scope.entitySelected === null --> $scope.initialize()');
                     }
                     $scope.runCurrentQuery();
+                    //alert(5)
                 };
                 if($scope.entitySelected === null){
                     $scope.initialize();
                     if(CONSOLEmode){
                         console.log('$scope.initialize = function () {}');
                     }
+                    //alert(8)
                 }
-                $scope.$on('$locationChangeSuccess', function (event) {
+                /*$scope.$on('$locationChangeSuccess', function (event) {
                     $scope.cleanFilters();
                     $scope.initialize();
+                    alert(9)
                     if(CONSOLEmode){
                         console.log('$scope.$on($locationChangeSuccess, function (event) {}');
                     }
-                });
+                });*/
                 $scope.logoClick = function () {
                     $scope.cleanFilters();
                     $scope.queryTerm = '';

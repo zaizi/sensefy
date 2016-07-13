@@ -207,16 +207,17 @@
                                 else{
                                     a = entity;
                                 }
-                                console.log('$scope.entitySelected -> directive @param - entity : '+ a);
+                                console.log('$scope.entitySelected -> directive @param - entity : '+ a +'-------------------------\n\n');
                             }
                             $scope.selectedEntity = entity;
                             $scope.queryTerm = entity.label;
                             angular.element('body').removeClass('ggl');
-                            $scope.$emit('entitySelected', entity);
+                            //alert(1)
+                            $scope.$emit('entitySelected', entity, true);
                         };
                         $scope.entityTypeSelected = function (entityType) {
                             if(CONSOLEmode){
-                                console.log ('$scope.entityTypeSelected');
+                                console.log ('$scope.entityTypeSelected \n\n');
                             }
                             $scope.selectedEntityType = entityType;
                             $scope.selectedEntity = null;
