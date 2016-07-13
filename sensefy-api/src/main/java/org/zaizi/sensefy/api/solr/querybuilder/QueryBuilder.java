@@ -185,14 +185,16 @@ public class QueryBuilder {
 		String baseQuery = "";
 		if (entityIds != null) {
 			StringBuilder sb = new StringBuilder(SMLT_ENTITIES);
-			sb.append(":\"");
+			sb.append(":(");
 			for (int i=0; i< entityIds.size(); i++) {
+				sb.append("\"");
 				sb.append(entityIds.get(i));
 				sb.append("\"");
 				if(i != (entityIds.size() -1)){
 					sb.append("AND");
 				}
 			}
+			sb.append(")");
 			query = sb.toString();
 			baseQuery = query;
 		} else {
