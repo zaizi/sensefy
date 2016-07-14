@@ -154,14 +154,19 @@ public class SemanticSearchService extends SolrService {
 			// retrieve the entity
 			List<SolrDocument> extractedEntities = new ArrayList<>();
 			StringBuilder sb = new StringBuilder();
-			for (String entityId : entityIds) {
-				SolrDocument extractedEntity = getEntity(entityId);
+			sb.append("(");
+			for (int i=0; i<entityIds.size(); i++) {
+				SolrDocument extractedEntity = getEntity(entityIds.get(i));
 				extractedEntities.add(extractedEntity);
 				String labelVal = (String) extractedEntity.getFieldValue(ENTITY_DRIVEN_HIGHLIGH_FIELD);
+				sb.append("\"");
 				sb.append(labelVal);
-				sb.append(" ");
+				sb.append("\"");
+				if(i != entityIds.size() -1){
+					sb.append("AND");
+				}
 			}
-			
+			sb.append(")");
 			responseContent.setEntity(extractedEntities);
 //			// retrieve the entity type
 //			EntityType extractedEntityType = getEntityType(entityType);
