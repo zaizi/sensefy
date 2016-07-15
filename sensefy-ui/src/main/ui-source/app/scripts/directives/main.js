@@ -41,6 +41,7 @@
                         $scope.autocompletePhase = "phase1";
                         $scope.selectedTitleIndex = -1;
                         $scope.originalAutocompleteQueryTerm = "";
+                        $scope.paramQuery = [];
                         $scope.autocomplete = function ($event) {
                             if ($event == null) {
                                 $event = null;
@@ -198,6 +199,7 @@
                             });
                         };
                         $scope.entitySelected = function (entity) {
+                            var currentQuery = [];
                             if(CONSOLEmode){
                                 console.log ('$scope.entitySelected at directive 191');
                                 var a = '';
@@ -210,7 +212,8 @@
                                 console.log('$scope.entitySelected -> directive @param - entity : '+ a +'-------------------------\n\n');
                             }
                             $scope.selectedEntity = entity;
-                            $scope.queryTerm = entity.label;
+                            currentQuery.push(entity.label);
+                            $scope.paramQuery = currentQuery.toString();
                             angular.element('body').removeClass('ggl');
                             //alert(1)
                             $scope.$emit('entitySelected', entity, true);
@@ -300,6 +303,9 @@
                         $timeout(function () {
                             input.focus();
                         }, 0);
+
+
+
                         input.on('focus', function () {
                             if (scope.autocompletePhase !== "") {
                                 suggestionsWrapper.fadeIn();

@@ -82,7 +82,7 @@ a {
   color: #000;
 }
 #sensefy.ggl .prompt {
-  border: 1px solid #ccc;
+  /*border: 1px solid @snfyCCC;*/
 }
 .document {
   color: #333;

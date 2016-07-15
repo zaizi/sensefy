@@ -1,7 +1,7 @@
-<div class="ui action left icon input search-header">
+<div class="ui icon input search-header">
     <div class="ui search">
         <div class="ui search">
-            <div class="ui icon input">
+            <div class="ui icon input ser-input">
                 <input class="prompt" type="text" style="{{style}}" ng-style="style" role="search"
                        id="searchTerm" name="searchTerm" placeholder="{{'txtEnterTextToSearch' | translate }}"
                        autofocus="autofocus"
@@ -10,7 +10,15 @@
                 <i class="search icon"></i>
                 <i class="remove circle icon pe-remove-keyword pe-remove-keyword-switch"></i>
             </div>
-            <div class="ui yellow button ser-btn" tabindex="0" ng-click="queryFunction()">Search</div>
+
+
+            <div class="ui yellow button ser-btn" tabindex="0" ng-click="queryFunction()">
+                <span class="ser-txt-label">
+                    Search
+                </span>
+            </div>
+
+
         </div>
 
         <div class="suggestions-wrapper selection-container">

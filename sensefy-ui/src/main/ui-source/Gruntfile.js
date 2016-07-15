@@ -535,7 +535,7 @@ module.exports = function (grunt) {
                 // 'copy:javascripts',
                 // 'rev',
                 'usemin',
-                'uglify',
+                //'uglify',
                 //'closure-compiler:frontend',
                 //'closure-compiler:vendors',
                 'purifycss',

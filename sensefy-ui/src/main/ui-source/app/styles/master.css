@@ -173,12 +173,14 @@ sub, sup {
 }
 
 #sensefy input.prompt {
-    border: none;
+    border: 0 none;
     border-radius: 5px 0 0 5px;
-    padding: 6px 1.5em 6px 2em !important;
-    width: 330px;
-    line-height: 23px;
     font-size: 14px;
+    line-height: 22px;
+    padding: 6px 1.5em 6px 2em !important;
+    position: relative;
+    top: 0px;
+    width: 100%;
 }
 
 .cur-hand{
@@ -703,10 +705,12 @@ table {
 #sensefy #header img.open {
     /*margin-bottom: 32px;
     width: 200px;
-    display: block;*/
-    padding: 1rem 0 1rem 1rem;
+    display: block;
+    padding: 2rem 0 2rem 1rem;*/
     width: 200px;
     float: left;
+    height: 44px;
+    margin-top: 16px;
 }
 
 .chrome #sensefy #header img.open {
@@ -721,11 +725,13 @@ table {
 }
 
 .search-header {
-    width: 430px;
+    width: 100%;
     /*margin-top: 16px;
-    margin-left: 250px;*/
-    margin-left: auto;
+    margin-left: 250px;
+    margin-left: 10%;*/
+    top: 2px;
 }
+.search-header.searchCompTop{top: 0;}
 
 #sensefy #search-comp {
     margin-top: 16px
@@ -754,11 +760,21 @@ table {
     border-radius: 0 0.2857rem 0.2857rem 0;
     z-index: 2;
     position: relative;
-    padding: 0.75em 1.5em;
+    padding: 0.70em 1.5em;
     margin-right: 0;
-    top: -1px;
+    float: right;
+    width: 20%;
+}
+#sensefy .ser-btn .ser-txt-label{
+    display: block;
+    vertical-align: middle;
 }
 
+#sensefy .ser-input{
+    width: 80%;
+    display: block;
+    float: left;
+}
 
 html.safari #sensefy .ser-btn {
     top: -6px;
@@ -1501,16 +1517,19 @@ div[data-tree-model] li .selected {
 }
 
 
+.tag-search {
+    width: 53%;
+    margin-bottom: 10px;
+}
+.tag-search.tagSearch{margin-bottom: 25px}
 
 .tag-search ul.tag-set{
     margin-bottom: 4px;
     margin-top: 6px;
+    width: 80%;
 }
 
 .tag-search .tag-set li {
-    background-color: #ccc;
-    border: 1px solid #ddd;
-    border-radius: 4px;
     display: inline-block;
     font-size: 11px;
     margin-right: 4px;
@@ -1520,5 +1539,23 @@ div[data-tree-model] li .selected {
 .tag-search .tag-set li:first-child {
     border: medium none;
     margin-right: 8px;
-    background-color: none;
+    background: none;
+    font-weight: bold;
+}
+
+.searchCompTop{top: 1px;}
+.tagSearch{margin-top: 0}
+
+.comp-wrapper{
+    background-color: #fff;
+    border-radius: 5px;
+    margin-top: 8px;
+}
+.tag-search.tagSearch .comp-wrapper{background: none;}
+.tagSearch .comp-wrapper {margin-top: 20px}
+
+.ui.search {width: 100%;}
+.tag-set li .ui.icon.button {
+    font-weight: normal;
+    padding: 0.485714em 3.07143em 0.485714em 0.8em !important;
 }
