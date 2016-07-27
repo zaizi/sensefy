@@ -20,8 +20,8 @@
 
 (function () {
     angular.module('SensefyDirectives', [])
-        .directive('sensefyAutocomplete', ['$timeout', 'DEBUGmode', 'CONSOLEmode', 'isJSON',
-            function ($timeout, DEBUGmode, CONSOLEmode, isJSON, SensefySearchLogin) {
+        .directive('sensefyAutocomplete', ['$timeout', 'DEBUGmode', 'CONSOLEmode', 'isJSON','SensefySuggestionsPerList',
+            function ($timeout, DEBUGmode, CONSOLEmode, isJSON, SensefySearchLogin, SensefySuggestionsPerList) {
                 return {
                     restrict: 'EA',
                     templateUrl: 'views/directive/sensefy-autocomplete/sensefy-autocomplete.html',
@@ -30,7 +30,7 @@
                         queryTerm: "=",
                         queryFunction: "&"
                     },
-                    controller: function ($scope, SemanticSearchService, SmartAutocompleteService) {
+                    controller: function ($scope, SemanticSearchService, SmartAutocompleteService, SensefySuggestionsPerList) {
                         var phase1, phase2, phase3;
                         $scope.suggestions = {};
                         $scope.showSuggestions = false;
@@ -41,7 +41,14 @@
                         $scope.autocompletePhase = "phase1";
                         $scope.selectedTitleIndex = -1;
                         $scope.originalAutocompleteQueryTerm = "";
-                        $scope.paramQuery = [];
+
+                        $scope.paramQueryCreator = function (query){
+                            var pos = $scope.paramQuery.indexOf(query);
+                            if (pos === -1) {
+                                $scope.paramQuery.push(query);
+                            }
+                        };
+
                         $scope.autocomplete = function ($event) {
                             if ($event == null) {
                                 $event = null;
@@ -113,7 +120,7 @@
                             }
 
                             $scope.originalAutocompleteQueryTerm = $scope.queryTerm;
-                            return SmartAutocompleteService.phase1($scope.queryTerm).then(function (response) {
+                            return SmartAutocompleteService.phase1($scope.queryTerm, SensefySuggestionsPerList).then(function (response) {
                                 if (response.data.header === undefined) {
                                     if (CONSOLEmode) {
                                         console.log('Phase 1 is fired - response.data.header: undefined')
@@ -199,7 +206,6 @@
                             });
                         };
                         $scope.entitySelected = function (entity) {
-                            var currentQuery = [];
                             if(CONSOLEmode){
                                 console.log ('$scope.entitySelected at directive 191');
                                 var a = '';
@@ -212,11 +218,15 @@
                                 console.log('$scope.entitySelected -> directive @param - entity : '+ a +'-------------------------\n\n');
                             }
                             $scope.selectedEntity = entity;
-                            currentQuery.push(entity.label);
-                            $scope.paramQuery = currentQuery.toString();
+
                             angular.element('body').removeClass('ggl');
-                            //alert(1)
                             $scope.$emit('entitySelected', entity, true);
+                            $scope.queryTerm = "";
+
+                            $scope.suggestions['entities'] = '';
+                            $scope.suggestions['entityTypes'] = '';
+                            $scope.suggestions['titles'] = '';
+                            $scope.suggestions['suggestions'] = '';
                         };
                         $scope.entityTypeSelected = function (entityType) {
                             if(CONSOLEmode){
@@ -370,6 +380,7 @@
                                         scope.entitySelected(selectedQueryObj.dataSet)
                                     }else {
                                         scope.queryFunction();
+                                        scope.queryTerm = input.val();
                                     }
                                     if (scope.queryTerm.length !== 0) {
                                         angular.element('body').removeClass('ggl');

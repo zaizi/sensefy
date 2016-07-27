@@ -151,8 +151,8 @@
 
     <!--div ng-include="'views/partial/entity-info-template.html'"></div -->
     <div class="group-facet facets entity-information clearfix"
-         ng-show="entityUI && selectedEntity !== null">
-        <div ng-repeat="entityItem in selectedEntity">
+         ng-show="entityUI && selectedEntity !== null && searching">
+        <div ng-repeat="entityItem in selectedEntity" class="clearfix">
             <header translate="{{entityItem.label | translate}}"></header>
             <div class="entity-info-brief">
                 <div image-switch="entityItem.thumbnail[0]"></div>

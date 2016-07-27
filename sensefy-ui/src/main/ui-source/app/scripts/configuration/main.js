@@ -37,6 +37,7 @@
         .constant('SensefyDocsPreview', 'docs/preview')
         .constant('SensefyMlt', 'docs/mlt')
         .constant('SensefyFacetsPerGroup', 2)
+        .constant('SensefySuggestionsPerList', 3)
         .constant('SensefyUNIXdate', 1000)
         .constant('SensefySearchLogin', 'logout')
         .constant('SensefySearchIsSemantic', true)

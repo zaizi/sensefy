@@ -685,6 +685,7 @@
                         if($scope.selectedEntity != null){
                             console.log($scope.selectedEntity.id);
                         }
+
                         filter = {
                             facetLabel: facetLabel,
                             label: facetItem.value,
@@ -883,18 +884,27 @@
                 $scope.entityTags = [];
 
                 $scope.removeEntityTagObj = function(entityTagObj){
-                    var index, posf;
-                    posf = $scope.entityTags.indexOf(entityTagObj);
-                    if (posf >= 0) {
-                        $scope.entityTags.splice(posf, 1);
-                    }
-                    /*index = $scope.filtersToShow.map(function (e) {
-                        return e.value;
-                    }).indexOf(filter.filter);
+                    var index, posLabel, posId, posObj;
 
-                    if (index >= 0) {
-                        $scope.filtersToShow.splice(index, 1);
-                    }*/
+                    posObj = $scope.entityTags.indexOf(entityTagObj);
+                    if (posObj >= 0) {
+                        $scope.entityTags.splice(posObj, 1);
+                    }
+
+                    posId = $scope.selectedEntities.indexOf(entityTagObj.id);
+                    if (posId >= 0) {
+                        $scope.selectedEntities.splice(posId, 1);
+                    }
+
+                    posLabel = $scope.paramQuery.indexOf(entityTagObj.label);
+                    if (posLabel >= 0) {
+                        $scope.paramQuery.splice(posLabel, 1);
+                    }
+
+                    fillLocationSearchParameters();
+
+
+                    console.log('$scope.removeEntityTagObj - fillLocationSearchParameters '+ JSON.stringify(entityTagObj));
                 };
 
                 $scope.entitySelected = function (entity, removeFilters) {
@@ -948,8 +958,16 @@
                     }
                     $scope.facets = {};
                     $scope.queryTerm = HTMLtagCleaner(entity.label);
-                    $scope.paramQuery = $scope.queryTerm.toString();
+                    $scope.paramQuery.push($scope.queryTerm.toString());
+
+                    $scope.selectedEntities.push(entity.id);
+
+                    $timeout(function () {
+                        angular.element('#searchTerm').val('');
+                    }, 100);
+
                     $scope.updateDocumentOffset(removeFilters);
+
                     /*
                     return SemanticSearchService.searchByEntity($scope.selectedEntity.id, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true, security=SensefyDocSecurity).then(
                     function (response) {
@@ -989,7 +1007,8 @@
 
                     $scope.entityUI = true;
 
-                    console.log('entityIDs.push($scope.entityTags[i].id) '+ entityIDs)
+                    console.log('entityIDs.push($scope.entityTags[i].id) '+ entityIDs);
+                    $scope.searching = false;
 
                     return SemanticSearchService.searchByEntity(entityIDs, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true, security=SensefyDocSecurity).then(
                         function (response) {
@@ -1000,12 +1019,12 @@
                             $scope.documents = response.data.searchResults.documents || [];
                             processHighlightInfo($scope.documents, response.data.searchResults.highlight);
                             $scope.selectedEntity = response.data.searchResults.entity || $scope.selectedEntity;
-                            $scope.selectedEntities.push(response.data.searchResults.entity || $scope.selectedEntity);
                             $scope.totalDocuments = response.data.searchResults.numFound;
                             $scope.updateDocumentOffset(false);
                             parseFacets(response.data);
                             $scope.responsedData = response.data;
                             initDataSources(true);
+                            $scope.searching = true;
                         },
                         function (response) {
                             if(SensefySearchResponseFailedIsLogout){
@@ -1033,6 +1052,7 @@
                     $scope.selectedEntity = null;
                     $scope.queryTerm = HTMLtagCleaner(entityType.label);
                     $scope.paramQuery.push($scope.queryTerm);
+
                     $scope.updateDocumentOffset(removeFilters);
                     var encodedURI = encodeURIComponent($scope.selectedEntityType.id);
                     return SemanticSearchService.searchByEntityType(encodedURI,$scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true, security = SensefyDocSecurity).then(
@@ -1092,6 +1112,8 @@
                     if($scope.entityTags.length > 0){
                         return $scope.entitySelectedQuery();
                     }
+
+
                     var apiQuery, clustering;
                     if (restorePagination === null) {
                         restorePagination = true;
@@ -1259,7 +1281,7 @@
                     }
                     if ($scope.selectedEntity !== null) {
                         //alert(2)
-                        return $scope.entitySelected($scope.selectedEntity, false);
+                        return $scope.entitySelectedQuery();
                     }
                     if ($scope.selectedTitle !== null) {
                         return $scope.titleSelected($scope.selectedTitle, false);
@@ -1360,8 +1382,13 @@
                 fillLocationSearchParameters = function () {
                     var filters, entityIds, paramQuery;
                     if ($scope.queryTerm) {
-                        paramQuery = $scope.paramQuery.toString();
-                        $location.search('query', paramQuery);
+                        if($scope.paramQuery && $scope.paramQuery.length !== 0){
+                            a = $scope.paramQuery.toString()
+                        }
+                        else{
+                            a = $scope.queryTerm;
+                        }
+                        $location.search('query', a);
                     }
                     if ($scope.selectedEntity) {
                         entityIds = $scope.selectedEntities.toString();
