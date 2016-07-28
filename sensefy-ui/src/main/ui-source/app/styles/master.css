@@ -1344,6 +1344,21 @@ and (orientation: landscape)
 {
     /*display: table-cell;*/
 }
+.hide-it {
+    cursor: pointer;
+    visibility: hidden;
+    display:none;
+}
+
+.did-you-mean-suggestion {
+    font-style: italic;
+}
+
+.hide-thumb {
+    position: absolute;
+    left: -3000px;
+    top: -3000px;
+}
 
 /*  Eo entity search   */
 
@@ -1373,13 +1388,7 @@ and (orientation: landscape)
 .link {
     fill: none;
     stroke: #ccc;
-    stroke-width: 1.5px;
-}
-
-.templink {
-    fill: none;
-    stroke: red;
-    stroke-width: 3px;
+    stroke-width: 1px;
 }
 
 .ghostCircle.show{
@@ -1395,17 +1404,7 @@ and (orientation: landscape)
     padding: 4px;
 }
 
-.nodisplayrow {display:none;}
 
-.did-you-mean-suggestion {
-    font-style: italic;
-}
-
-.hide-thumb {
-    position: absolute;
-    left: -3000px;
-    top: -3000px;
-}
 
 
 i.c.icon:before{content: '\f1c8'}

@@ -612,15 +612,17 @@
 
                         attrs.$observe('entityDataSet', function (val) {
 
+                            console.log(val);
+
                             var b = setTimeout(function () {
-                                $('.et-row').removeClass('nodisplayrow');
+                                $('.et-row').removeClass('hide-it');
                                 $('.et-row').each( function(i,e) {
                                     var emptyCount = 0;
 
                                     var childrens = $(this).children('.et-value-wrap').children('.et-value:visible').length;
 
                                     if(childrens === 0) {
-                                        $(this).addClass('nodisplayrow');
+                                        $(this).addClass('hide-it');
                                     }
                                 });
                                 clearTimeout(b);
@@ -630,7 +632,7 @@
 
                             if (CONSOLEmode) {
                                 var a = setTimeout(function () {
-                                    //console.log('entityData with json - '+val);
+                                    console.log('entityData with json - '+val);
                                     clearTimeout(a);
                                 }, 250);
                             }
