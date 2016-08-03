@@ -53,18 +53,6 @@
                 $scope.deviceLogo = SensefyDeviceLogo;
                 $scope.sensefyFavicon = SensefyFavicon;
 
-                /*$http.get('/user/').success(function(data) {
-                    $scope.user = data.name;
-                    if(CONSOLEmode) {
-                        console.log('rootcontroller and user GET request fired -> $scope.user '+$scope.user)
-                        console.log('rootcontroller and user GET request fired -> data.name '+data.name)
-                    }
-                });
-
-                $rootScope.user = {
-                    username: $scope.user
-                };*/
-
                 $scope.changeLanguage = function (lang) {
                     if (lang === null) {
                         lang = 'en-us';
@@ -176,8 +164,6 @@
                     $scope.user = data.name;
                     $scope.nickName = capitalizeFirstLetter(data.name);
                 });
-
-                /*$scope.nickName = 'User';*/
 
 
                 $scope.changeLanguage = function (lang) {
@@ -521,6 +507,10 @@
                         $scope.runCurrentQuery();
                     }
                 });
+                angular.element('.comp-wrapper').on('click',function(){
+                    angular.element('#searchTerm').focus();
+                });
+
                 $scope.infiniteScroll = function () {
                     if ($scope.totalDocuments > 0 && ($scope.currentPage * $scope.documentsPerPage < $scope.totalDocuments) && ($scope.searching === false)) {
                         $scope.updateDocumentOffset(false);
@@ -889,6 +879,18 @@
                     posObj = $scope.entityTags.indexOf(entityTagObj);
                     if (posObj >= 0) {
                         $scope.entityTags.splice(posObj, 1);
+                        $scope.entitySelectedQuery();
+                    }
+
+                    if($scope.entityTags.length === 0){
+                        $scope.documents = [];
+                        $scope.selectedEntity = [];
+                        $scope.sources = [];
+                        $scope.totalDocuments = -1;
+
+                        if(CONSOLEmode) {
+                            console.log('if($scope.entityTags.length === 0)');
+                        }
                     }
 
                     posId = $scope.selectedEntities.indexOf(entityTagObj.id);
@@ -902,9 +904,11 @@
                     }
 
                     fillLocationSearchParameters();
+                    $scope.suggestions = [];
 
-
-                    console.log('$scope.removeEntityTagObj - fillLocationSearchParameters '+ JSON.stringify(entityTagObj));
+                    if(CONSOLEmode) {
+                        console.log('$scope.removeEntityTagObj - fillLocationSearchParameters ' + JSON.stringify(entityTagObj));
+                    }
                 };
 
                 $scope.entitySelected = function (entity, removeFilters) {
@@ -963,7 +967,8 @@
                     $scope.selectedEntities.push(entity.id);
 
                     $timeout(function () {
-                        angular.element('#searchTerm').val('');
+                        angular.element('#searchTerm').val(' ');
+                        $scope.suggestions = [];
                     }, 100);
 
                     $scope.updateDocumentOffset(removeFilters);

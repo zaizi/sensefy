@@ -32,11 +32,10 @@
                     data-sug-type="title"></li>
             </ul>
             <ul class="entities-wrapper" ng-show="suggestions.entities">
-                <!--li class="header et" translate="txtEntities"></li-->
                 <li class="entity suggestion" entity-is-available entity-data-set="{{suggestions.entities}}">
                     <div class="et-table et-wrapper">
                         <div class="et-row one">
-                            <div class="sub-header">People</div>
+                            <div class="sub-header"><i class="user icon"></i>People</div>
                             <div class="et-cell et-label-wrap"></div>
                             <div class="et-cell et-value-wrap">
                                 <div class="et-value"
@@ -46,7 +45,7 @@
                             </div>
                         </div>
                         <div class="et-row two">
-                            <div class="sub-header">Places</div>
+                            <div class="sub-header"><i class="pin icon"></i>Places</div>
                             <div class="et-cell et-label-wrap"></div>
                             <div class="et-cell et-value-wrap">
                                 <div class="et-value"
@@ -56,7 +55,7 @@
                             </div>
                         </div>
                         <div class="et-row three" >
-                            <div class="sub-header">Organizations</div>
+                            <div class="sub-header"><i class="sitemap icon"></i>Organizations</div>
                             <div class="et-cell et-label-wrap"></div>
                             <div class="et-cell et-value-wrap">
                                 <div class="et-value"
@@ -66,7 +65,7 @@
                             </div>
                         </div>
                         <div class="et-row three" >
-                            <div class="sub-header">Concepts</div>
+                            <div class="sub-header"><i class="idea icon"></i>Concepts</div>
                             <div class="et-cell et-label-wrap"></div>
                             <div class="et-cell et-value-wrap">
                                 <div class="et-value"
@@ -86,19 +85,13 @@
                     data-info="{{suggestion}}"
                     data-sug-type="suggestions"></li>
             </ul>
-            <!-- ul class="entity-types-wrapper"
-                ng-show="suggestions.entityTypes">
-                <li class="header" translate="txtEntityTypes"></li>
-                <li class="entity-type suggestion"
-                    ng-repeat="entityType in suggestions.entityTypes"
-                    ng-include="'views/partial/entity-type-template.html'"></li>
-            </ul -->
             <ul class="no-suggestions"
                 ng-hide="suggestions.entities.length > 0 ||
                     suggestions.entityTypes.length > 0 ||
                     suggestions.titles.length > 0 ||
                     suggestions.suggestions.length ||
-                    queryTerm.length === 0">
+                    queryTerm.length === 0 ||
+                    entityTags.length > 0">
                 <li translate="txtNoSuggestions"></li>
             </ul>
         </div>
