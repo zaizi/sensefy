@@ -12,25 +12,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!-- <serverurl>http://192.168.1.72:9099</serverurl> -->
-   <serverurl>http://sensefyqa.zaizicloud.net</serverurl>
-     <!-- http://sensefyqa.zaizicloud.net -->
-    <port>NA</port>
-    <adminrest>/admin/#/login</adminrest>
-    <searchserverurl>http://sensefyqa.zaizicloud.net</searchserverurl>
-    <!-- http://sensefyqa.zaizicloud.net -->
-    <searchport>NA</searchport>
-    <searchrest>/#/</searchrest>
-    <admin>http://localhost:9090/admin/#/login</admin>
-    <!-- <admin>${loginUrl}</admin>
-    <search>localhost</search> -->
-    <jstname>${loginUrl}</jstname>
-    <browser>Firefox</browser>
-    <!-- <alfrescopath>http://192.168.1.72:8080/share/page/</alfrescopath>  -->
-    <alfrescopath>http://sensefyqa.zaizicloud.net/share/page/</alfrescopath>
-    <manifoldpath>http://192.168.1.72:8345/mcf-crawler-ui/login.jsp</manifoldpath>
-    <sensefylocalhost>http://192.168.1.72:9099</sensefylocalhost>
-  </properties>
+    </properties>
 
   <dependencies>
   <dependency>
@@ -55,7 +37,7 @@
 	<groupId>org.seleniumhq.selenium</groupId>
 	<artifactId>selenium-firefox-driver</artifactId>
 	<version>2.52.0</version>
-</dependency>
+	</dependency>
 
 	<dependency>
 		<groupId>org.seleniumhq.selenium</groupId>
