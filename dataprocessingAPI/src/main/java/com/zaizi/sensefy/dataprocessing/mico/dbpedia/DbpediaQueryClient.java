@@ -15,20 +15,22 @@ public class DbpediaQueryClient {
 			+ "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
 			+ "PREFIX foaf: <http://xmlns.com/foaf/0.1/>"
 			+ "PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>"
+			+ "PREFIX dbont: <http://dbpedia.org/ontology/>"
 			+ "SELECT  ?label ?depiction ?comment (GROUP_CONCAT (?type; SEPARATOR = \"###\") AS ?typeList) "
-			+ "(GROUP_CONCAT (?seeAlso; SEPARATOR = \"###\") AS ?seeList) ?lat ?long "
+			+ "(GROUP_CONCAT (?seeAlso; SEPARATOR = \"###\") AS ?seeList) ?lat ?long ?thumbnail "
 			+ "WHERE "
 			+ "{ <%1$s> rdfs:label ?label;"
-			+ "rdf:type ?type;"
+			+ "OPTIONAL{ <%1$s> rdf:type ?type }"
 			+ "OPTIONAL{ <%1$s> rdfs:comment ?comment }"
 			+ "OPTIONAL{ <%1$s> foaf:depiction ?depiction }"
+			+ "OPTIONAL{ <%1$s> dbont:thumbnail ?thumbnail }"
 			+ "OPTIONAL{ <%1$s> rdfs:seeAlso ?seeAlso }"
 			+ "OPTIONAL{ <%1$s> geo:lat ?lat;"
 			+ " geo:long ?long}"
 			+ "FILTER(lang(?label) = 'en')"
 			+ "FILTER(lang(?comment) = 'en')"
 			+ "}"
-			+ "GROUP BY ?label ?comment ?depiction ?lat ?long";
+			+ "GROUP BY ?label ?comment ?depiction ?lat ?long ?thumbnail";
 	
 	
 	public ResultSet getEntityResults(String id){

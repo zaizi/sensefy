@@ -5,7 +5,6 @@ public class MicoItem {
 	private String micoUri;
 	private String solrId;
 	private ContentType contentType;
-	private String language;
 
 
 	public ContentType getContentType() {
@@ -31,13 +30,4 @@ public class MicoItem {
 	public void setSolrId(String solrId) {
 		this.solrId = solrId;
 	}
-
-	public String getLanguage() {
-		return language;
-	}
-
-	public void setLanguage(String language) {
-		this.language = language;
-	}
-
 }
