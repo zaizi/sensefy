@@ -632,7 +632,6 @@
 
                             if (CONSOLEmode) {
                                 var a = setTimeout(function () {
-                                    console.log('entityData with json - '+val);
                                     clearTimeout(a);
                                 }, 250);
                             }

@@ -530,7 +530,7 @@ module.exports = function (grunt) {
                 'copy:dist',
                 'cdnify',
                 'cssmin',
-                'csslint:lax',
+                //'csslint:lax',
                 'jshint',
                 // 'copy:javascripts',
                 // 'rev',
@@ -538,7 +538,7 @@ module.exports = function (grunt) {
                 //'uglify',
                 //'closure-compiler:frontend',
                 //'closure-compiler:vendors',
-                'purifycss',
+                //'purifycss',
                 'autoprefixer',
                 'htmlmin'
             ]);

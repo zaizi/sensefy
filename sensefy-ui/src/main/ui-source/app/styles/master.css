@@ -355,13 +355,15 @@ sub, sup {
     float: left;
     margin-right: 2%;
     width: 31%;
+    position: relative;
 }
+
 .entity-information{
     border-radius: 0.285714rem;
     padding: 8px;
 }
 .entity-information .image {
-    max-width: 40px;
+    max-width: 32px;
     height: auto;
     margin-right: 8px;
     float: left;
@@ -371,7 +373,7 @@ sub, sup {
 .entity-information .brief{
     float: left;
     margin-bottom: 4px;
-    margin-top: 12px;
+    margin-top: 2px;
     /*width: 80%;*/
 }
 
@@ -379,7 +381,12 @@ sub, sup {
     line-height: 16px;
     text-align: justify;
     width: 88%;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    z-index: 1000;
 }
+
 
 .collapse-text-toggle {
     font-size: 0.9em;
@@ -387,7 +394,7 @@ sub, sup {
     cursor: pointer;
 }
 .collapse-text-toggle:hover {
-    color: #222222;
+    color: #222;
 }
 .collapse-text-toggle:before {
     content: '\00a0(';
@@ -737,7 +744,7 @@ table {
 }
 .search-header.searchCompTop{
     top: 0;
-    margin-left: 44px;
+    margin-left: 12px;
 }
 
 .ggl .search-header.searchCompTop {
@@ -970,7 +977,7 @@ i.icon.file {
 #sensefy .document:hover .hover-result {
     display: block;
     top: -2px;
-    left: -6px;
+    left: -7px;
 }
 
 .ui.items > .item > .content.info {
@@ -1569,9 +1576,9 @@ div[data-tree-model] li .selected {
 
 .ui.search {width: 100%;}
 .tag-set li .ui.icon.button {
-    padding: 0.485714em 3.07143em 0.485714em 1.5em !important;
+    padding: 0.485714em 3.07143em 0.485714em 1.6em !important;
 }
-. entity-tag-icon {
+.entity-tag-icon {
     left: -7px !important;
     background-color: rgba(0, 0, 0, 0) !important;
 }

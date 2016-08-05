@@ -156,13 +156,24 @@
                     return false;
                 }
 
-                function capitalizeFirstLetter(string) {
+                $scope.capitalizeFirstLetter = function(string) {
                     return string.charAt(0).toUpperCase() + string.slice(1);
-                }
+                };
+
+                $scope.checkImgAvailable = function (imgData){
+                    var thumb = ''
+                    if(imgData === null || imgData === ''){
+                        thumb = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='
+                    }
+                    else{
+                        thumb = 'data:image/jpeg;base64,'+imgData;
+                    }
+                    return thumb;
+                };
 
                 $http.get('/user/').success(function(data) {
                     $scope.user = data.name;
-                    $scope.nickName = capitalizeFirstLetter(data.name);
+                    $scope.nickName = $scope.capitalizeFirstLetter(data.name);
                 });
 
 
@@ -940,31 +951,45 @@
                         is_person: entity.is_person
                     };
 
-                    entityTagObjPos = $scope.entityTags.indexOf(entityTagObj);
-
-                    if (entityTagObjPos === -1) {
-                        $scope.entityTags.push(entityTagObj);
-                    } else {
-
-                        console.log('\n\n ----------- \nentityTagObjPos has same element\n--------------')
+                    var flag = false;
+                    for ( var i=0, len=$scope.entityTags.length; i < len; i++ ){
+                        if($scope.entityTags[i].id === entity.id){
+                            flag = false;
+                            break;
+                        }
+                        else{
+                            flag = true;
+                        }
                     }
 
+                    if(flag){
+                        $scope.entityTags.push(entityTagObj);
+                        $scope.selectedEntity = entity;
+                        $scope.queryTerm = HTMLtagCleaner(entity.label);
+                        $scope.paramQuery.push($scope.queryTerm.toString());
+                        $scope.selectedEntities.push(entity.id);
+                    }
 
-                    console.log("-----------------");
+                    if($scope.entityTags.length === 0){
+                        $scope.entityTags.push(entityTagObj);
+
+                        $scope.selectedEntity = entity;
+                        $scope.queryTerm = HTMLtagCleaner(entity.label);
+                        $scope.paramQuery.push($scope.queryTerm.toString());
+                        $scope.selectedEntities.push(entity.id);
+                    }
+
+                    console.log("-----------------\n");
                     console.log(JSON.stringify($scope.entityTags));
-                    console.log("-----------------");
+                    console.log("-----------------\n");
 
                     $scope.normalSearch = false;
                     $scope.searching = true;
-                    $scope.selectedEntity = entity;
                     if (removeFilters) {
                         $scope.cleanFilters();
                     }
                     $scope.facets = {};
-                    $scope.queryTerm = HTMLtagCleaner(entity.label);
-                    $scope.paramQuery.push($scope.queryTerm.toString());
 
-                    $scope.selectedEntities.push(entity.id);
 
                     $timeout(function () {
                         angular.element('#searchTerm').val(' ');
@@ -972,35 +997,6 @@
                     }, 100);
 
                     $scope.updateDocumentOffset(removeFilters);
-
-                    /*
-                    return SemanticSearchService.searchByEntity($scope.selectedEntity.id, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true, security=SensefyDocSecurity).then(
-                    function (response) {
-                        if(CONSOLEmode){
-                            console.log('SemanticSearchService.searchByEntity($scope.selectedEntity.id, $scope.documentsOffsetStart, $scope.documentsPerPage, "*", $scope.filters, true, $scope.titleSorting, clustering = true, security=SensefyDocSecurity)');
-                            console.log($scope.selectedEntity.id+' - '+$scope.documentsOffsetStart+' - '+$scope.documentsPerPage+' - * - '+$scope.filters+' - true - '+$scope.titleSorting  );
-                        }
-                        $scope.documents = response.data.searchResults.documents || [];
-                        processHighlightInfo($scope.documents, response.data.searchResults.highlight);
-                        $scope.selectedEntity = response.data.searchResults.entity || $scope.selectedEntity;
-                        $scope.totalDocuments = response.data.searchResults.numFound;
-                        $scope.updateDocumentOffset(false);
-                        parseFacets(response.data);
-                        $scope.responsedData = response.data;
-                        initDataSources(true);
-                    },
-                    function (response) {
-                        if(SensefySearchResponseFailedIsLogout){
-                            $scope.logout();
-                            if(CONSOLEmode){
-                                console.log('$scope.entitySelected = function (entity, removeFilters) {} is fired, but FAILED');
-                            }
-                            if(DEBUGmode){
-                                debugger;
-                            }
-                        }
-                    });
-                    */
                 };
                 $scope.entityUI = false;
                 $scope.entitySelectedQuery = function(){
@@ -1030,6 +1026,9 @@
                             $scope.responsedData = response.data;
                             initDataSources(true);
                             $scope.searching = true;
+                            if(CONSOLEmode){
+                                console.log('$scope.entitySelectedQuery '+JSON.stringify($scope.selectedEntity));
+                            }
                         },
                         function (response) {
                             if(SensefySearchResponseFailedIsLogout){
@@ -1395,7 +1394,7 @@
                         }
                         $location.search('query', a);
                     }
-                    if ($scope.selectedEntity) {
+                    if ($scope.selectedEntities.length !== 0) {
                         entityIds = $scope.selectedEntities.toString();
                         $location.search('entityId', entityIds);
                     }
