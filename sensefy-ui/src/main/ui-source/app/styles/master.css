@@ -373,7 +373,7 @@ sub, sup {
 .entity-information .brief{
     float: left;
     margin-bottom: 4px;
-    margin-top: 2px;
+    margin-top: -2px;
     /*width: 80%;*/
 }
 
@@ -382,10 +382,25 @@ sub, sup {
     text-align: justify;
     width: 88%;
     position: absolute;
-    top: 20px;
-    left: 10px;
+    top: 15px;
+    left: 38px;
     z-index: 1000;
+    background-color: #e9e9e9;
+    border-radius: 4px;
+    color: #999;
+    font-size: 12px;
+    height: 33px;
+    overflow: hidden;
+    padding: 2px;
+    border: 1px solid #e9e9e9;
 }
+.entity-highlight-wrapper:hover .desc.brief{
+    border: 1px solid #ccc;
+    overflow: visible;
+    height: auto;
+}
+
+
 
 
 .collapse-text-toggle {
@@ -827,7 +842,7 @@ html.safari #sensefy .ser-btn {
 
 .group-facet.facets {
     margin-bottom: 16px;
-    padding-bottom: 16px;
+    padding-bottom: 28px;
     margin-top:17px;
 }
 

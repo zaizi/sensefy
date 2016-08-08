@@ -163,7 +163,8 @@
 
                 <div class="text brief" ng-bind="capitalizeFirstLetter('{{entityItem.label}}')"></div>
                 <!--div class="type brief" ng-show="entityItem.type">{{arrayToString(entityItem.type)}}</div-->
-                <div class="desc brief" dd-text-collapse dd-text-collapse-max-length="100" dd-text-collapse-text="{{entityItem.description[0]}}"></div>
+                <!--div class="desc brief" dd-text-collapse dd-text-collapse-max-length="80" dd-text-collapse-text="{{entityItem.description[0]}}" ng-show="entityItem.description[0]"></div-->
+                <div class="desc brief" ng-show="entityItem.description[0]">{{entityItem.description[0]}}</div>
             </div>
         </div>
     </div>
