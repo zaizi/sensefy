@@ -361,6 +361,7 @@ sub, sup {
 .entity-information{
     border-radius: 0.285714rem;
     padding: 8px;
+    padding-bottom: 8px !important;
 }
 .entity-information .image {
     max-width: 32px;

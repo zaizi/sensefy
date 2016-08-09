@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.zaizi.mico.client.DownloadClient;
 import org.zaizi.mico.client.MicoClientFactory;
 import org.zaizi.mico.client.QueryClient;
 import org.zaizi.mico.client.StatusChecker;
@@ -35,6 +36,12 @@ public class MicoConfig {
 	@Autowired
 	public StatusChecker statusChecker(MicoClientFactory micoClientFactory){
 		return micoClientFactory.createStatusChecker();
+	}
+	
+	@Bean
+	@Autowired
+	public DownloadClient downloadClient(MicoClientFactory micoClientFactory){
+		return micoClientFactory.createDownloadClient();
 	}
 
 }
