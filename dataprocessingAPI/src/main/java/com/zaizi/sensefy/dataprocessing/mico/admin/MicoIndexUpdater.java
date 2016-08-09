@@ -221,6 +221,7 @@ public class MicoIndexUpdater {
 						}
 						entityDoc.addField(THUMBNAIL_BINARY_FIELD, thumbnailBase64);
 					}
+					break;
 				}
 				entityDoc.addField(TYPE_FIELD, typesSet);
 				if(typesSet.contains(IS_PERSON_ONT)){
