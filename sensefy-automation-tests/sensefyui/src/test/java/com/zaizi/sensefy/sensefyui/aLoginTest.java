@@ -38,8 +38,8 @@ public class aLoginTest
 	public static final Logger LOGGER = LogManager.getLogger(aLoginTest.class.getName());
 	
 	public static final ExtentReports extent = ExtentReports.get(aLoginTest.class);
-	private static final String TEST_CASE_PROPERTIES_XML = "pom.xml";
 	private String loginURL="http://sensefyqa.zaizicloud.net/auth/login";
+	private static final String TEST_CASE_PROPERTIES_XML = "pom.xml";
 	//private String loginURL="http://192.168.1.72:9099/auth/login";
 	
 	private String username;
@@ -228,7 +228,8 @@ public class aLoginTest
     
   
     @After
-    public void Teardown() {
+    public void Teardown() 
+    {
         driver.quit();
        
     }

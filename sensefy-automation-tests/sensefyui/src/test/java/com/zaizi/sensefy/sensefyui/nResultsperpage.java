@@ -32,10 +32,7 @@ public class nResultsperpage
 	 * Define Webdriver
 	 */
 	public static WebDriver driver;
-	
-
-	private static final String TEST_CASE_PROPERTIES_XML = "pom.xml";
-	
+		
 	/**
 	 * Variable Declaration
 	 */

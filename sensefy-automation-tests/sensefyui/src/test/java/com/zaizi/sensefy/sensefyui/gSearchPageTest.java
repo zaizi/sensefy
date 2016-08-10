@@ -36,11 +36,12 @@ import com.zaizi.sensefy.sensefyui.pages.SearchPage;
 @RunWith(value = Parameterized.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class gSearchPageTest {
+	
+	private static final String TEST_CASE_PROPERTIES_XML = "pom.xml";
 	public static final Logger LOGGER = LogManager.getLogger(gSearchPageTest.class.getName());
 	
 	public static final ExtentReports extent = ExtentReports.get(gSearchPageTest.class);
-	private static final String TEST_CASE_PROPERTIES_XML = "pom.xml";
-	
+
 	private String username;
     private String password;
 
