@@ -519,7 +519,7 @@
                     }
                 });
                 angular.element('.comp-wrapper').on('click',function(){
-                    angular.element('#searchTerm').focus();
+                    //  angular.element('#searchTerm').focus();
                 });
 
                 $scope.infiniteScroll = function () {
@@ -1026,6 +1026,7 @@
                             $scope.responsedData = response.data;
                             initDataSources(true);
                             $scope.searching = true;
+                            $scope.suggestions = [];
                             if(CONSOLEmode){
                                 console.log('$scope.entitySelectedQuery '+JSON.stringify($scope.selectedEntity));
                             }

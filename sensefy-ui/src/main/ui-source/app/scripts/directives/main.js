@@ -75,21 +75,13 @@
                                         console.log('if(selectedQueryObj.type === entity)');
                                     }
                                     $scope.entitySelected(selectedQueryObj.dataSet);
+                                    isEntity = true;
                                 }else {
                                     $scope.queryFunction();
                                 }
                                 if ($scope.queryTerm.length !== 0) {
                                     angular.element('header').removeClass('ggl');
                                 }
-                                /*if ($scope.selectedTitleIndex >= 0) {
-                                    $scope.titleSelected($scope.suggestions.titles[$scope.selectedTitleIndex]);
-                                } else {
-                                    $scope.queryFunction();
-                                }
-                                if ($scope.queryTerm.length !== 0) {
-                                    angular.element('header').removeClass('ggl');
-                                }
-                                return;*/
                             }
                             if (($event != null ? $event.keyCode : void 0) !== 40 && ($event != null ? $event.keyCode : void 0) !== 38) {
                                 switch ($scope.autocompletePhase) {
@@ -227,6 +219,7 @@
                             $scope.suggestions['entityTypes'] = '';
                             $scope.suggestions['titles'] = '';
                             $scope.suggestions['suggestions'] = '';
+                            console.log('$scope.suggestions[entities] '+ $scope.suggestions['entities']);
                         };
                         $scope.entityTypeSelected = function (entityType) {
                             if(CONSOLEmode){

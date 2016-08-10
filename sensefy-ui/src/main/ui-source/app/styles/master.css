@@ -102,11 +102,6 @@ sub, sup {
     margin-bottom: 32px !important;
 }
 
-.ui.footer {
-    bottom: 0;
-    position: fixed;
-}
-
 .ui.full {
     width: 100%;
 }
@@ -362,6 +357,7 @@ sub, sup {
     border-radius: 0.285714rem;
     padding: 8px;
     padding-bottom: 8px !important;
+    min-height: 64px;
 }
 .entity-information .image {
     max-width: 32px;
@@ -390,7 +386,7 @@ sub, sup {
     border-radius: 4px;
     color: #999;
     font-size: 12px;
-    height: 33px;
+    height: 36px;
     overflow: hidden;
     padding: 2px;
     border: 1px solid #e9e9e9;
@@ -1215,6 +1211,8 @@ i.check-icon {
 
 .ui.footer {
     bottom: 0;
+    position: fixed;
+    z-index: 10000;
 }
 
 /*  icon    vendor colors   */
@@ -1597,4 +1595,16 @@ div[data-tree-model] li .selected {
 .entity-tag-icon {
     left: -7px !important;
     background-color: rgba(0, 0, 0, 0) !important;
+}
+
+@media only screen and (min-width: 1439px) and (max-width: 1441px) {
+    .search-header.searchCompTop {
+        margin-left: -28px;
+    }
+    .tag-search {
+        width: 48.0%;
+        margin-left: 8px;
+    }
+    .chrome #sensefy input.prompt {top:-1px;}
+    .chrome #sensefy .ser-btn {top: -1px;}
 }
