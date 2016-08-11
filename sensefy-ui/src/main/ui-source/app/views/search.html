@@ -192,7 +192,7 @@
                 <i class="" ng-class="pickDocIcon('{{document.mimetype}}')"
                    ng-if="document.mimetype"></i>
                 <!-- Set the file title -->
-                <ng-switch on="normalSearch" ng-if="document.hls.name[0] != null && document.hls.name[0] != ''">
+                <ng-switch on="normalSearch" ng-if="document.hls.name[0] !== null && document.hls.name[0] !== ''">
                     <a target="_blank" ng-href="{{document.url}}" tabindex="0" class="header title" ng-show="document.url">
                         <span ng-switch-when="true" ng-bind-html="document.hls.name[0]"></span>
                         <span ng-switch-default ng-bind-html="document.name"></span>
@@ -205,7 +205,7 @@
 
                 <!-- Set the authour -->
                 <span class="gray f-size12"
-                      ng-if="document.author != null && document.author != '' && document.author.length > 0">
+                      ng-if="document.author !== null && document.author !== '' && document.author.length > 0">
                             | by <span title="{{'data.author' | translate}}" ng-bind="document.author[0]"></span>
                         </span>
 
@@ -226,10 +226,10 @@
                 <div class="metadata mgray clearfix">
                     <div class="meta-info-create italic">
                         <span class="underline mgray"
-                              ng-if="document.ds_creator != null && document.ds_creator != '' && document.ds_creator.length > 0">
+                              ng-if="document.ds_creator !== null && document.ds_creator !== '' && document.ds_creator.length > 0">
                             <span title="{{'data.creator' | translate}}" ng-bind="document.ds_creator"></span>
                         </span>
-                        <span ng-if="document.ds_creation_date != null && document.ds_creation_date != ''">
+                        <span ng-if="document.ds_creation_date !== null && document.ds_creation_date !== ''">
                             <span title="{{'data.created'|translate}}">created</span>
 
                                <span title="{{dateTimeFormatterAcc(document.ds_creation_date)}}"
