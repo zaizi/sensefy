@@ -1,6 +1,8 @@
 package com.zaizi.sensefy.dataprocessing.mico.admin;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
@@ -50,7 +52,7 @@ public class MicoIndexUpdater {
 	private static final String THUMBNAIL_FIELD = "thumbnail";
 	private static final String THUMBNAIL_BINARY_FIELD = "thumbnail_base64";
 	private static final String DESCRIPTION_FIELD = "description";
-	private static final String LATITUDE_FIELD ="lat";
+	private static final String LATITUDE_FIELD = "lat";
 	private static final String LONGITUDE_FIELD = "long";
 	private static final String LABELS_FIELD = "label";
 	private static final String TYPE_FIELD = "type";
@@ -59,96 +61,95 @@ public class MicoIndexUpdater {
 	private static final String IS_ORGANISATION_FIELD = "is_organization";
 	private static final String IS_OTHER_FIELD = "is_other";
 	private static final String CONTENT_FIELD = "content";
-	
+
 	private static final String IS_PLACE_ONT = "http://dbpedia.org/ontology/Place";
 	private static final String IS_PERSON_ONT = "http://dbpedia.org/ontology/Person";
 	private static final String IS_ORGANISATION_ONT = "http://dbpedia.org/ontology/Organisation";
 
 	@Autowired
 	private SolrSearchService solrSearchService;
-	
+
 	@Autowired
 	private QueryClient queryClient;
-	
+
 	@Autowired
 	private DbpediaQueryClient dbpediaQueryClient;
-	
+
 	@Autowired
 	private DownloadClient downloadClient;
-	
+
 	@Autowired
 	private StatusChecker statusChecker;
 
-	public void updateSolrIndex(){
+	public void updateSolrIndex() {
 		LOG.info("Running Indexupdate Job....");
 		SolrClient primaryIndexClient = solrSearchService.getPrimaryIndex();
 		SolrClient entityClient = solrSearchService.getEntityCore();
 		SolrQuery solrQuery = new SolrQuery(CHECK_UPDATED_QUERY);
 		List<MicoItem> micoItems = queryDocuments(primaryIndexClient, solrQuery);
-		try{
+		try {
 			for (MicoItem micoItem : micoItems) {
 				List<StatusResponse> statusResponses = statusChecker.checkItemStatus(micoItem.getMicoUri(), true);
-				if (!statusResponses.isEmpty())
-	            {
-	                StatusResponse statusResponse = statusResponses.get(0);
-	                if (!statusResponse.isFinished()){
-	                	continue;
-	                }
-	            }
-				
+				if (!statusResponses.isEmpty()) {
+					StatusResponse statusResponse = statusResponses.get(0);
+					if (!statusResponse.isFinished()) {
+						continue;
+					}
+				}
+
 				SolrInputDocument primaryDoc = new SolrInputDocument();
 				primaryDoc.addField(ID_FIELD, micoItem.getSolrId());
-				
+
 				List<SolrInputDocument> entityDocs;
-				
+
 				switch (micoItem.getContentType()) {
 				case IMAGE:
-					
+
 					break;
 				case VIDEO:
 					entityDocs = addNamedEntities(micoItem, primaryDoc);
-					if(!entityDocs.isEmpty()){
+					if (!entityDocs.isEmpty()) {
 						entityClient.add(entityDocs);
 					}
 					addContent(micoItem, primaryDoc);
 					break;
 				case AUDIO:
 					entityDocs = addNamedEntities(micoItem, primaryDoc);
-					if(!entityDocs.isEmpty()){
+					if (!entityDocs.isEmpty()) {
 						entityClient.add(entityDocs);
 					}
 					addContent(micoItem, primaryDoc);
 					break;
 				case TEXT:
 					entityDocs = addNamedEntities(micoItem, primaryDoc);
-					if(!entityDocs.isEmpty()){
+					if (!entityDocs.isEmpty()) {
 						entityClient.add(entityDocs);
 					}
 					break;
 				default:
 					break;
 				}
-				
+
 				// set primary index field is_processed_mico to true
 				Map<String, Object> fieldModifier = new HashMap<String, Object>();
 				fieldModifier.put("set", true);
 				primaryDoc.addField(MICO_PROSSESED_FIELD, fieldModifier);
 				primaryIndexClient.add(primaryDoc);
 			}
-			
-			primaryIndexClient.commit(true,true);
-			entityClient.commit(true,true);
-		}catch(SolrServerException e){
+
+			primaryIndexClient.commit(true, true);
+			entityClient.commit(true, true);
+		} catch (SolrServerException e) {
 			LOG.error("Solr Server Error", e);
 		} catch (IOException e) {
 			LOG.error("Solr Server Error", e);
 		} catch (MicoClientException e) {
 			LOG.error("Error is checking item status in mico platform", e);
 		}
-		
+
 	}
-	
-	private void addContent(MicoItem micoItem, SolrInputDocument primaryDoc){
+
+	private void addContent(MicoItem micoItem, SolrInputDocument primaryDoc) {
 		try {
 			String assetUrn = queryClient.getAssetLocation(micoItem.getMicoUri(), TEXT_TYPE);
 			String content = downloadClient.downloadTranscript(assetUrn, micoItem.getMicoUri());
@@ -156,62 +157,74 @@ public class MicoIndexUpdater {
 		} catch (MicoClientException e) {
 			LOG.error("Error in adding content to solr doc", e);
 		}
-		
+
 	}
-	
-	private List<SolrInputDocument> addNamedEntities(MicoItem micoItem, SolrInputDocument primaryDoc){
+
+	private List<SolrInputDocument> addNamedEntities(MicoItem micoItem, SolrInputDocument primaryDoc) {
 		List<SolrInputDocument> entityDocs = new ArrayList<>();
 		Set<String> smltEntities = new HashSet<>();
 		Set<String> smltEntityLabels = new HashSet<>();
 		try {
 			List<LinkedEntity> entities = queryClient.getLinkedEntities(micoItem.getMicoUri());
-			
+
 			Set<LinkedEntity> entitySet = new HashSet<>(entities);
 			entitySet.forEach(linkedEntity -> {
 				SolrInputDocument entityDoc = new SolrInputDocument();
-				smltEntities.add(linkedEntity.getEntityReference());
+				
 				smltEntityLabels.add(linkedEntity.getEntityLabel());
-				entityDoc.addField(ID_FIELD, linkedEntity.getEntityReference());
+				
+				String id = linkedEntity.getEntityReference();
+				entityDoc.addField(ID_FIELD, id);
+
+				try {
+					id = URLEncoder.encode(linkedEntity.getEntityReference(), StandardCharsets.UTF_8.name());
+					entityDoc.setField(ID_FIELD, id);
+				} catch (Exception e1) {
+					
+				}
+				
+				smltEntities.add(id);
+
 				entityDoc.addField(DOC_IDS_FIELD, micoItem.getSolrId());
 				entityDoc.addField(LABELS_FIELD, linkedEntity.getEntityLabel());
 				ResultSet results = dbpediaQueryClient.getEntityResults(linkedEntity.getEntityReference());
 				Set<String> typesSet = new HashSet<>();
-				while(results.hasNext()){
+				while (results.hasNext()) {
 					QuerySolution soln = results.nextSolution();
 					Literal literal = null;
 					String[] types = null;
-					if(soln.get("?typeList").isLiteral()){
+					if (soln.get("?typeList").isLiteral()) {
 						types = soln.getLiteral("?typeList").getString().split("###");
 					}
-					if(soln.get("?typeList").isResource()){
+					if (soln.get("?typeList").isResource()) {
 						types = soln.getResource("?typeList").toString().split("###");
 					}
 					List<String> typesList = Arrays.asList(types);
 					typesSet.addAll(typesList);
-					
-					if(soln.get("?comment").isLiteral()){
-						literal = soln.getLiteral("?comment"); 
+
+					if (soln.get("?comment").isLiteral()) {
+						literal = soln.getLiteral("?comment");
 					}
-					if(literal != null){
+					if (literal != null) {
 						String description = literal.getString();
 						entityDoc.addField(DESCRIPTION_FIELD, description);
 					}
 					literal = soln.getLiteral("?lat");
-					if(literal != null){
+					if (literal != null) {
 						String lat = literal.getString();
 						entityDoc.addField(LATITUDE_FIELD, lat);
 						entityDoc.addField(LONGITUDE_FIELD, soln.getLiteral("?long").getString());
 					}
 					Resource resource = soln.getResource("?depiction");
-					if(resource != null){
+					if (resource != null) {
 						entityDoc.addField(THUMBNAIL_FIELD, resource.toString());
 					}
 					resource = soln.getResource("?thumbnail");
-					if(resource != null){
+					if (resource != null) {
 						String thumbnailBase64 = "";
 						try {
 							URIBuilder uriBuilder = new URIBuilder(resource.toString());
-							if(uriBuilder.getScheme().equals("http")){
+							if (uriBuilder.getScheme().equals("http")) {
 								uriBuilder.setScheme("https");
 							}
 							byte[] imageBytes = IOUtils.toByteArray(uriBuilder.build());
@@ -224,16 +237,13 @@ public class MicoIndexUpdater {
 					break;
 				}
 				entityDoc.addField(TYPE_FIELD, typesSet);
-				if(typesSet.contains(IS_PERSON_ONT)){
+				if (typesSet.contains(IS_PERSON_ONT)) {
 					entityDoc.addField(IS_PERSON_FIELD, true);
-				}
-				else if(typesSet.contains(IS_PLACE_ONT)){
+				} else if (typesSet.contains(IS_PLACE_ONT)) {
 					entityDoc.addField(IS_PLACE_FIELD, true);
-				}
-				else if(typesSet.contains(IS_ORGANISATION_ONT)){
+				} else if (typesSet.contains(IS_ORGANISATION_ONT)) {
 					entityDoc.addField(IS_ORGANISATION_FIELD, true);
-				}
-				else{
+				} else {
 					entityDoc.addField(IS_OTHER_FIELD, true);
 				}
 				entityDocs.add(entityDoc);
@@ -245,11 +255,11 @@ public class MicoIndexUpdater {
 		}
 		return entityDocs;
 	}
-	
+
 	public List<MicoItem> queryDocuments(SolrClient client, SolrQuery solrQuery) {
 		List<MicoItem> micoItems = new ArrayList<>();
 		solrQuery.setSort(SortClause.asc(ID_FIELD));
-		solrQuery.set("fl", ID_FIELD+","+MICO_URI_FIELD+","+MIMETYPE);
+		solrQuery.set("fl", ID_FIELD + "," + MICO_URI_FIELD + "," + MIMETYPE);
 		String cursorMark = CursorMarkParams.CURSOR_MARK_START;
 		try {
 			boolean done = false;
@@ -262,7 +272,7 @@ public class MicoIndexUpdater {
 					String id = (String) solrDocument.getFieldValue(ID_FIELD);
 					String micoUri = (String) solrDocument.getFieldValue(MICO_URI_FIELD);
 					String mimetype = (String) solrDocument.getFieldValue(MIMETYPE);
-					if(mimetype == null){
+					if (mimetype == null) {
 						mimetype = "";
 					}
 					String[] types = mimetype.split("/");
@@ -270,15 +280,13 @@ public class MicoIndexUpdater {
 					MicoItem micoItem = new MicoItem();
 					micoItem.setSolrId(id);
 					micoItem.setMicoUri(micoUri);
-					if(baseType.equals("image")){
+					if (baseType.equals("image")) {
 						micoItem.setContentType(ContentType.IMAGE);
-					}else if (baseType.equals("video")) {
+					} else if (baseType.equals("video")) {
 						micoItem.setContentType(ContentType.VIDEO);
-					}
-					else if(baseType.equals("audio")){
+					} else if (baseType.equals("audio")) {
 						micoItem.setContentType(ContentType.AUDIO);
-					}
-					else{
+					} else {
 						micoItem.setContentType(ContentType.TEXT);
 					}
 					micoItems.add(micoItem);
