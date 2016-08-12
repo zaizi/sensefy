@@ -193,7 +193,7 @@ sub, sup {
 .suggestions-wrapper {
     position: absolute;
     width: 100%;
-    z-index: 1000;
+    z-index: 11000;
     top: 34px;
 }
 
