@@ -212,6 +212,19 @@ public class TestCaseValues {
                 	bar[k]=foo;
                 	System.out.println("Values Loaded - Entity Search");                	
                 }
+                else if(("pMultipleEntitySearch").equals(testCaseName))
+                {
+                	Object[] foo = { getValue("username", valueElement), 
+                						getValue("password", valueElement),
+                						getValue("searchTerm_1", valueElement), 
+                						getValue("searchTerm_2", valueElement), 
+                						getValue("searchTerm_3", valueElement), 
+                						getValue("screenshot_name", valueElement)
+                	};
+                	
+                	bar[k]=foo;
+                	System.out.println("Values Loaded - Multiple Entity Search");                	
+                }
                 k++;
             }
         }

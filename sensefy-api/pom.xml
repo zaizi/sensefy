@@ -21,7 +21,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
-		<mcf.version>2.3</mcf.version>
+		<mcf.version>2.4</mcf.version>
 		<httpclient.version>4.4.1</httpclient.version>
 		<slf4j.version>1.7.5</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>

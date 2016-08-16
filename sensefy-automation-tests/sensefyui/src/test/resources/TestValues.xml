@@ -138,4 +138,14 @@
 			<screenshot_name>audioResult</screenshot_name>
 		</test>
 	</oAudioSearch>
+	<pMultipleEntitySearch>
+		<test>
+			<username>admin</username>
+			<password>ulibranxi</password>
+			<searchTerm_1>aa</searchTerm_1>
+			<searchTerm_2>dd</searchTerm_2>
+			<searchTerm_3>ff</searchTerm_3>
+			<screenshot_name>multipleEntity</screenshot_name>
+		</test>
+	</pMultipleEntitySearch>
 </TestData>
