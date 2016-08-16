@@ -136,7 +136,7 @@ public class pMultipleEntitySearch
 	@Test
 	public void b_EntitySearch() throws InterruptedException, IOException
 	{
-		LOGGER.info("Single Entity Search in Sensefy - Search for two Entities");
+		LOGGER.info("Multiple Entity Search in Sensefy - Search for two Entities");
 		extent.startTest("Multiple Entity Search in Sensefy - Search for two Entities");
 		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -145,27 +145,37 @@ public class pMultipleEntitySearch
 		searchField.clearText();
 		Thread.sleep(10000);
 		
-		searchField.enterText("p");
-		Thread.sleep(3000);
-		searchField.enterText("r");
-		Thread.sleep(3000);
-		searchField.enterText("e");
-		Thread.sleep(5000);
-		searchField.enterText("s");
-		Thread.sleep(3000);
-		searchField.enterText("i");
-		Thread.sleep(3000);
-		searchField.enterText("d");
-		Thread.sleep(5000);
-		searchField.enterText("e");
-		Thread.sleep(3000);		
-		searchField.enterText("n");
-		Thread.sleep(3000);
-		searchField.enterText("t");
-		Thread.sleep(10000);
+//		searchField.enterText("p");
+//		Thread.sleep(3000);
+//		searchField.enterText("r");
+//		Thread.sleep(3000);
+//		searchField.enterText("e");
+//		Thread.sleep(5000);
+//		searchField.enterText("s");
+//		Thread.sleep(3000);
+//		searchField.enterText("i");
+//		Thread.sleep(3000);
+//		searchField.enterText("d");
+//		Thread.sleep(5000);
+//		searchField.enterText("e");
+//		Thread.sleep(3000);		
+//		searchField.enterText("n");
+//		Thread.sleep(3000);
+//		searchField.enterText("t");
+//		Thread.sleep(10000);
 		
+		String test_element_1 ="President";
+		
+	    String[] alphabets = test_element_1.split("");
+	    for(String alphabet : alphabets)
+	    {
+	        System.out.println(alphabet);
+	        searchField.enterText(alphabet);
+	        Thread.sleep(3000);
+	    }
+	    
 		String test_element1 = "//div[@class='sub-header'][text()='People']";
-		String test_element2 = "//div[@class='et-table et-wrapper']//following::span[text()='President']";
+		String test_element2 = "//div[@class='et-table et-wrapper']//following::span[text()='"+searchTerm_1+"']";
 		
 		if(Label.isElementPresent(driver, By.xpath(test_element1)))
 		{
@@ -193,21 +203,31 @@ public class pMultipleEntitySearch
 		
 		driver.findElement(By.xpath(test_element2)).click();
 		
-		Thread.sleep(3000);
-		searchField.enterText("s");
-		Thread.sleep(3000);
-		searchField.enterText("e");
-		Thread.sleep(3000);
-		searchField.enterText("n");
-		Thread.sleep(3000);
-		searchField.enterText("d");
-		Thread.sleep(3000);
-		searchField.enterText("a");
-		Thread.sleep(3000);
-		searchField.enterText("i");
-		Thread.sleep(10000);
+//		Thread.sleep(3000);
+//		searchField.enterText("s");
+//		Thread.sleep(3000);
+//		searchField.enterText("e");
+//		Thread.sleep(3000);
+//		searchField.enterText("n");
+//		Thread.sleep(3000);
+//		searchField.enterText("d");
+//		Thread.sleep(3000);
+//		searchField.enterText("a");
+//		Thread.sleep(3000);
+//		searchField.enterText("i");
+//		Thread.sleep(10000);
 		
-		String test_element3 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Sendai']";
+		String test_element_2 ="Sendai";
+		
+	    String[] alphabets_2 = test_element_2.split("");
+	    for(String alphabet : alphabets_2)
+	    {
+	        System.out.println(alphabet);
+	        searchField.enterText(alphabet);
+	        Thread.sleep(3000);
+	    }
+		
+		String test_element3 = "//div[@class='et-cell et-value-wrap']//following::span[text()='"+searchTerm_2+"']";
 		
 		if(Label.isElementPresent(driver, By.xpath(test_element3)))
 		{
@@ -236,8 +256,8 @@ public class pMultipleEntitySearch
 		LOGGER.info("Single Entity Search in Sensefy - Verify the Entity Information");
 		extent.startTest("Multiple Entity Search in Sensefy - Verify the Entity Information");
 		
-		String entity_info_1 = "//div[@id='se-results']/div[3]/div[1]/div/div[text()='President']";
-		String entity_info_2 = "//div[@id='se-results']/div[3]/div[2]/div/div[text()='Sendai']";
+		String entity_info_1 = "//div[@id='se-results']/div[3]/div[1]/div/div[text()='"+searchTerm_1+"']";
+		String entity_info_2 = "//div[@id='se-results']/div[3]/div[2]/div/div[text()='"+searchTerm_2+"']";
 		String entity_Information_1 = driver.findElement(By.xpath(entity_info_1)).getText().toString();
 		String entity_Information_2 = driver.findElement(By.xpath(entity_info_2)).getText().toString();
 		
@@ -278,8 +298,8 @@ public class pMultipleEntitySearch
 		LOGGER.info("Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information");
 		extent.startTest("Multiple Entity Search in Sensefy - Verify the Thumbnail in Entity Information");
 		
-		String entity_info_1 = "//div[@id='se-results']/div[3]/div[1]/div/div[text()='President']";
-		String entity_info_2 = "//div[@id='se-results']/div[3]/div[2]/div/div[text()='Sendai']";
+		String entity_info_1 = "//div[@id='se-results']/div[3]/div[1]/div/div[text()='"+searchTerm_1+"']";
+		String entity_info_2 = "//div[@id='se-results']/div[3]/div[2]/div/div[text()='"+searchTerm_2+"']";
 		String entity_Information_1 = driver.findElement(By.xpath(entity_info_1)).getText().toString();
 		String entity_Information_2 = driver.findElement(By.xpath(entity_info_2)).getText().toString();
 		
@@ -306,8 +326,8 @@ public class pMultipleEntitySearch
 		LOGGER.info("Single Entity Search in Sensefy - Verify the Entity Description");
 		extent.startTest("Multiple Entity Search in Sensefy - Verify the Entity Description");
 		
-		String entity_info_1 = "//div[@id='se-results']/div[3]/div[1]/div/div[text()='President']";
-		String entity_info_2 = "//div[@id='se-results']/div[3]/div[2]/div/div[text()='Sendai']";
+		String entity_info_1 = "//div[@id='se-results']/div[3]/div[1]/div/div[text()='"+searchTerm_1+"']";
+		String entity_info_2 = "//div[@id='se-results']/div[3]/div[2]/div/div[text()='"+searchTerm_2+"']";
 		String entity_Information_1 = driver.findElement(By.xpath(entity_info_1)).getText().toString();
 		String entity_Information_2 = driver.findElement(By.xpath(entity_info_2)).getText().toString();
 		
@@ -349,5 +369,51 @@ public class pMultipleEntitySearch
 		
 		TestCaseProperties.closeDriver(driver);
 	}
+	
+	@Test
+	public void f_EntitySearch() throws InterruptedException, IOException
+	{
+		a_logintoSenefy();
+		
+		LOGGER.info("Multiple Entity Search in Sensefy - Verify Sort By Functionality");
+		extent.startTest("Multiple Entity Search in Sensefy - Verify Sort By Functionality");
+		
+		TextField searchField = new TextField(driver, By.xpath("//input[@id='searchTerm']"));
+		searchField.clearText();
+		Thread.sleep(10000);
+				
+		String test_element1 ="Barack Obama";
+		
+	    String[] alphabets = test_element1.split("");
+	    for(String alphabet : alphabets)
+	    {
+	        System.out.println(alphabet);
+	        searchField.enterText(alphabet);
+	        Thread.sleep(3000);
+	    }
+	    
+	    Thread.sleep(5000);
+	    
+		String test_element_1 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Barack Obama']";
+		
+		if(Label.isElementPresent(driver, By.xpath(test_element_1)))
+		{
+			LOGGER.info("Successful : The 1nd Entity is available");
+    		extent.log(LogStatus.PASS, "Successful :The 1nd Entity is available.");
+    		Element.takescreenshot(driver,className,screenshot_name+"13");
+		}
+		else
+		{
+			LOGGER.info("Unsuccessful : The 1nd Entity is not available");
+    		extent.log(LogStatus.FAIL, "Unsuccessful :The 1nd Entity is not available.");
+    		Element.takescreenshot(driver,className,screenshot_name+"14");
+		}
+		 
+		//driver.findElement(By.xpath(".//*[@id='header']/div[1]/div/div/div/div[2]/ul[2]/li/div/div[2]/div[3]/div/div/div/div/span/span")).click();
+		driver.findElement(By.xpath(test_element_1)).click();
+		
+	}
+
+	
 }
 	
