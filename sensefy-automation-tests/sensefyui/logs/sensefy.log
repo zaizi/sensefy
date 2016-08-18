@@ -2197,3 +2197,1009 @@
 2016-07-15  10:23:39.749 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Successful : .The Audio files are sorted by Language English.
 2016-07-15  10:23:46.414 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Successful : .The Audio files are sorted by Language Estonian.
 2016-07-15  10:23:53.293 [main] INFO  com.zaizi.sensefy.sensefyui.oAudioSearch - Successful : .The Audio files are sorted by Language French.
+2016-08-12  10:42:54.723 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  10:42:55.060 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  10:42:55.082 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  10:43:27.011 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  10:45:01.281 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  10:45:01.415 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  10:45:01.422 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  10:45:18.899 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  10:59:55.825 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  10:59:55.961 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  10:59:55.966 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  11:00:12.560 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  11:00:12.764 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  11:00:22.025 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  11:00:22.105 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The Entity is not available
+2016-08-12  11:01:17.502 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  11:01:17.639 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  11:01:17.644 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  11:01:35.298 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  11:01:35.501 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  11:01:52.000 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  11:01:52.290 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The Entity is not available
+2016-08-12  12:55:34.830 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  12:55:35.112 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  12:55:35.118 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  12:56:07.938 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  12:56:08.224 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  12:56:46.205 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  12:56:46.282 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity is available
+2016-08-12  12:58:34.770 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  12:58:34.908 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  12:58:34.913 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  12:58:56.333 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  12:58:56.554 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  12:59:34.526 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  12:59:34.646 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity is available
+2016-08-12  13:05:19.652 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  13:05:19.795 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  13:05:19.801 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  13:05:42.750 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  13:05:42.950 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  13:06:20.798 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  13:06:20.925 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity is available
+2016-08-12  13:06:50.129 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity is available
+2016-08-12  13:07:41.753 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  13:07:41.887 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  13:07:41.894 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  13:08:02.893 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  13:08:03.088 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  13:08:41.115 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  13:08:41.161 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity is available
+2016-08-12  13:09:10.550 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity is available
+2016-08-12  13:44:19.498 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  13:44:19.689 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  13:44:19.697 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  13:44:39.817 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  13:44:40.014 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  13:45:18.046 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  13:45:18.092 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity is available
+2016-08-12  13:45:47.572 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity is available
+2016-08-12  13:47:08.267 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  13:47:08.394 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  13:47:08.399 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  13:47:25.900 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  13:47:26.100 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  13:48:04.579 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  13:48:04.625 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity is available
+2016-08-12  13:48:33.760 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity is available
+2016-08-12  14:06:13.120 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  14:06:13.244 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  14:06:13.249 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  14:06:32.996 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  14:06:33.185 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  14:07:10.881 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  14:07:10.930 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity is available
+2016-08-12  14:07:39.943 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The Entity is not available
+2016-08-12  14:08:14.857 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  14:08:14.986 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  14:08:14.991 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  14:08:31.492 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  14:08:31.689 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  14:09:10.062 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  14:09:10.106 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity is available
+2016-08-12  14:09:39.345 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity is available
+2016-08-12  14:21:02.307 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  14:21:02.453 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  14:21:02.461 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  14:21:21.506 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  14:21:21.694 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  14:22:00.275 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The Entity type is not available
+2016-08-12  14:22:48.142 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  14:22:48.294 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  14:22:48.299 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  14:23:07.860 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  14:23:08.043 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  14:23:45.961 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  14:23:46.005 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity is available
+2016-08-12  14:24:15.059 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity is available
+2016-08-12  14:25:39.982 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  14:25:40.097 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  14:25:40.102 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  14:25:57.299 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  14:25:57.502 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  14:26:35.492 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  14:26:35.538 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity is available
+2016-08-12  14:27:04.599 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity is available
+2016-08-12  14:31:36.962 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  14:31:37.096 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  14:31:37.102 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  14:31:52.738 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  14:31:52.939 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  14:32:30.691 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  14:32:30.736 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-12  14:33:00.226 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-12  14:33:40.860 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  14:33:40.980 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  14:33:40.987 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  14:33:58.374 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  14:33:58.584 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  14:34:36.698 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  14:34:36.747 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-12  14:35:06.296 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-12  14:36:50.313 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  14:36:50.461 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  14:36:50.469 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  14:37:06.064 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  14:37:06.254 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  14:37:44.402 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  14:37:44.447 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-12  14:38:13.561 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-12  14:45:23.135 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  14:45:23.282 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  14:45:23.290 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  14:45:41.966 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  14:45:42.169 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  14:46:20.020 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  14:46:20.084 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-12  14:46:49.156 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-12  14:53:41.878 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  14:53:42.011 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  14:53:42.016 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  14:54:06.930 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  14:54:07.173 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  14:54:44.965 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  14:54:45.045 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-12  14:55:14.286 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-12  14:56:26.192 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  14:56:26.331 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  14:56:26.338 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  14:56:51.174 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  14:56:51.452 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  14:57:30.128 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  14:57:30.250 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-12  16:25:14.754 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-12  16:25:14.885 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-12  16:25:14.891 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-12  16:25:41.002 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-12  16:25:41.195 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-12  16:26:19.152 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-12  16:26:19.223 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-12  16:26:49.102 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  09:02:23.307 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  09:02:23.667 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  09:02:23.671 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  09:02:52.429 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  09:02:52.714 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  09:03:30.948 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  09:03:30.995 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  09:04:00.181 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  09:05:23.435 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  09:05:23.565 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  09:05:23.571 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  09:05:40.546 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  09:05:40.737 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  09:06:18.917 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  09:06:18.964 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  09:06:48.976 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  09:21:45.427 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  09:21:45.544 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  09:21:45.549 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  09:22:01.290 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  09:22:01.483 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  09:22:39.262 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  09:22:39.308 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  09:23:08.336 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  09:50:17.844 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  09:50:17.970 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  09:50:17.977 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  09:50:36.854 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  09:50:37.049 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  09:51:15.037 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  09:51:15.085 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  09:51:44.380 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  09:53:27.723 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  09:53:27.837 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  09:53:27.843 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  09:53:45.173 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  09:53:45.361 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  09:54:23.141 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  09:54:23.254 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  09:54:52.923 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  10:02:22.079 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  10:02:22.248 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  10:02:22.256 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  10:02:48.587 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  10:02:48.982 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  10:03:26.298 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  10:03:26.334 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  10:03:54.925 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  10:07:18.468 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  10:07:18.596 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  10:07:18.601 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  10:07:37.732 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  10:07:37.947 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  10:08:16.085 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  10:08:16.129 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  10:08:45.491 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  10:11:28.367 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  10:11:28.509 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  10:11:28.516 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  10:11:50.216 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  10:11:50.418 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  10:12:28.199 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  10:12:28.243 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  10:12:57.568 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  10:25:27.592 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  10:25:27.719 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  10:25:27.724 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  10:25:48.533 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  10:25:48.781 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  10:26:26.662 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  10:26:26.741 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  10:26:56.194 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  10:28:33.741 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  10:28:33.866 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  10:28:33.874 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  10:28:58.966 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  10:28:59.156 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  10:29:37.491 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  10:29:37.535 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  10:30:06.694 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  10:30:07.111 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-15  10:31:53.681 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  10:31:53.816 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  10:31:53.822 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  10:32:11.055 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  10:32:11.250 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  10:32:49.018 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  10:32:49.087 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  10:33:18.431 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  10:33:19.058 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-15  10:46:29.909 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  10:46:30.045 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  10:46:30.056 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  10:46:50.247 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  10:46:50.448 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  10:47:28.448 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  10:47:28.492 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  10:47:57.650 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  10:47:58.122 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-15  10:48:01.246 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for [[FirefoxDriver: firefox on MAC (42a23339-fe9d-bd4d-bae6-16dcc2be2964)] -> xpath: //div[@id='se-results']/div[3]/div[1]]
+2016-08-15  10:53:56.264 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  10:53:56.406 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  10:53:56.411 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  10:54:11.385 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  10:54:11.571 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  10:54:49.448 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  10:54:49.495 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  10:55:18.447 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  10:55:18.952 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-15  10:55:22.028 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The Entity Information is available for [[FirefoxDriver: firefox on MAC (2501397f-f97c-7246-bd85-851bd95e5676)] -> xpath: //div[@id='se-results']/div[3]/div[1]]
+2016-08-15  10:57:46.021 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  10:57:46.143 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  10:57:46.148 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  10:58:02.711 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  10:58:02.906 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  10:58:41.279 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  10:58:41.322 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  10:59:10.643 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  10:59:11.133 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-15  10:59:14.211 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The Entity Information is available for [[FirefoxDriver: firefox on MAC (c9b45c78-b8d4-8245-aa99-599649485720)] -> xpath: //div[@id='se-results']/div[3]/div[1]/div/div[2]]
+2016-08-15  11:00:55.781 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  11:00:55.921 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  11:00:55.943 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  11:01:18.714 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  11:01:18.998 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  11:01:56.999 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  11:01:57.079 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  11:02:26.346 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  11:02:26.940 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-15  11:02:39.419 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The Entity Information is available for [[FirefoxDriver: firefox on MAC (3539e204-5eea-3245-91c6-3f244a0a0489)] -> xpath: //div[@id='se-results']/div[3]/div[1]/div/div[text()='President']]
+2016-08-15  11:03:57.080 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  11:03:57.293 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  11:03:57.298 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  11:04:25.506 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  11:04:25.821 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  11:05:04.261 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The Entity type is not available
+2016-08-15  11:05:48.921 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  11:05:49.056 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  11:05:49.062 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  11:06:12.940 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  11:06:13.168 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  11:07:40.193 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  11:07:40.322 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  11:07:40.327 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  11:07:57.456 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  11:07:57.653 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  11:08:35.818 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  11:08:35.864 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  11:09:05.330 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  11:09:05.881 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-15  11:09:19.024 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The Entity Information is available for [[FirefoxDriver: firefox on MAC (e8410851-f0fb-a64c-9f76-b5ad6792f3c4)] -> xpath: //div[@id='se-results']/div[3]/div[1]/div/div[text()='President']]
+2016-08-15  11:10:24.764 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  11:10:24.898 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  11:10:24.907 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  11:10:42.757 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  11:10:42.949 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  11:11:20.694 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The Entity type is not available
+2016-08-15  11:12:51.097 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  11:12:51.228 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  11:12:51.233 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  11:13:20.250 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  11:13:20.442 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  11:14:14.670 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  11:14:14.873 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  11:14:14.879 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  11:14:44.654 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  11:14:44.848 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  11:19:36.594 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  11:19:38.943 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  11:19:38.976 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  11:20:21.493 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  11:20:21.685 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  11:20:59.384 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  11:20:59.431 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  11:21:29.028 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  11:21:29.488 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-15  11:21:44.768 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The Entity Information is available for President
+2016-08-15  11:24:52.251 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  11:24:52.367 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  11:24:52.376 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  11:25:10.295 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  11:25:10.492 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  11:25:47.028 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  11:25:47.165 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  11:25:47.172 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  11:26:07.561 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  11:26:07.794 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  11:26:45.915 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  11:26:45.963 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  11:27:15.320 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 2nd Entity is not available
+2016-08-15  11:28:05.802 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  11:28:05.940 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  11:28:05.946 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  11:28:34.569 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  11:28:34.765 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  11:29:23.624 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  11:29:23.743 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  11:29:23.749 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  11:29:42.142 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  11:29:42.343 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  11:31:55.912 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  11:31:56.053 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  11:31:56.061 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  11:32:22.324 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  11:32:22.537 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  11:40:12.813 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  11:40:12.930 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  11:40:12.936 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  11:40:50.945 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  11:40:51.145 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  11:47:51.768 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  11:47:51.908 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  11:47:51.913 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  11:48:20.450 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  11:48:20.671 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  11:49:37.223 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  11:49:37.339 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  11:49:37.344 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  11:50:05.567 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  11:50:05.852 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  12:00:59.742 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  12:00:59.863 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  12:00:59.868 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  12:01:33.188 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  12:01:33.366 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  12:06:40.831 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  12:06:40.968 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  12:06:40.976 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  12:07:17.337 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  12:07:17.539 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  12:09:54.147 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  12:09:54.274 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  12:09:54.278 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  12:10:17.827 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  12:10:18.025 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  12:17:39.167 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  12:17:39.292 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  12:17:39.298 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  12:18:04.156 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  12:18:04.351 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  12:24:19.991 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  12:24:20.144 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  12:24:20.150 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  12:24:44.352 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  12:24:44.547 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  12:42:22.649 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  12:42:22.796 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  12:42:22.803 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  12:42:53.480 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  12:42:53.674 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  12:43:46.059 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  12:43:46.185 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  12:43:46.191 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  12:44:10.150 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  12:44:10.342 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  12:45:57.133 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  12:45:57.270 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  12:45:57.275 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  12:46:26.496 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  12:46:26.692 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  12:49:31.585 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  12:49:31.711 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  12:49:31.719 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  12:49:55.333 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  12:49:55.531 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  13:39:11.772 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  13:39:11.936 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  13:39:11.975 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  13:39:33.150 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  13:39:33.403 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  13:40:22.509 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  13:40:22.560 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  13:40:51.701 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  13:40:52.234 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-15  13:41:07.448 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-15  13:54:22.879 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  13:54:23.011 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  13:54:23.021 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  13:54:44.212 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  13:54:44.406 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  13:55:33.345 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  13:55:33.424 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  13:56:02.427 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  13:56:02.953 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-15  13:56:19.270 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-15  13:56:19.294 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+Sendai (仙台市, Sendai-shi) is the capital city of Miyagi Prefecture, Japan, and the largest city in the Tōhoku region, and the second largest city north of Tokyo. In 2010, the city had a population of one million, and was one of Japan's 20 designated cities.
+2016-08-15  14:03:43.512 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  14:03:43.638 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  14:03:43.645 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  14:04:05.328 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  14:04:05.529 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  14:04:54.453 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  14:04:54.502 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  14:05:23.604 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  14:05:24.160 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-15  14:05:53.412 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-15  14:05:53.446 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-15  14:09:59.902 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  14:10:00.060 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  14:10:00.069 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  14:10:23.086 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  14:10:23.288 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy
+2016-08-15  14:13:58.571 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  14:13:58.697 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  14:13:58.704 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  14:14:15.919 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  14:14:16.137 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Search for two Entities
+2016-08-15  14:15:05.244 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  14:15:05.289 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  14:15:34.939 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  14:15:35.980 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-15  14:15:38.985 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-15  14:15:51.039 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-15  14:15:51.043 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-15  14:29:54.761 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  14:29:54.899 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  14:29:54.906 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  14:30:16.450 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  14:30:16.701 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Search for two Entities
+2016-08-15  14:31:05.811 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  14:31:05.929 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  14:31:35.178 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  14:31:35.758 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-15  14:31:38.760 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-15  14:31:48.675 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-15  14:31:48.678 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-15  14:31:48.891 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-15  14:31:49.113 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-15  15:09:42.115 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  15:09:42.240 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  15:09:42.245 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  15:10:06.737 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  15:10:06.931 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Search for two Entities
+2016-08-15  15:10:56.849 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  15:10:56.897 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  15:11:26.236 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  15:11:26.710 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-15  15:11:29.711 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-15  15:11:40.763 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-15  15:11:40.766 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-15  15:11:40.903 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-15  15:11:41.023 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-15  15:11:41.144 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-15  15:11:41.340 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-15  15:11:41.345 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-15  15:13:48.147 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  15:13:48.275 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  15:13:48.282 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  15:14:05.233 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  15:14:05.453 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Search for two Entities
+2016-08-15  15:14:54.493 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  15:14:54.915 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  15:15:24.484 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  15:15:25.304 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-15  15:15:28.306 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-15  15:15:39.022 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-15  15:15:39.065 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-15  15:15:39.207 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-15  15:15:39.309 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-15  15:15:39.423 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-15  15:15:39.621 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-15  15:15:39.626 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-15  15:23:31.001 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  15:23:31.124 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  15:23:31.131 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  15:23:51.431 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  15:23:51.622 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Search for two Entities
+2016-08-15  15:24:41.140 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  15:24:41.211 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  15:25:10.369 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  15:25:11.072 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-15  15:25:14.078 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-15  15:25:33.283 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-15  15:25:33.287 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-15  15:25:33.472 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-15  15:25:33.580 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-15  15:25:33.741 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-15  15:25:33.948 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-15  15:25:33.955 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-15  15:46:25.306 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-15  15:46:25.444 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-15  15:46:25.453 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-15  15:46:45.346 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-15  15:46:45.538 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Search for two Entities
+2016-08-15  15:47:34.584 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-15  15:47:34.902 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-15  15:48:05.475 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-15  15:48:06.022 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-15  15:48:09.024 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-15  15:48:24.139 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-15  15:48:24.142 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-15  15:48:24.309 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-15  15:48:24.408 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-15  15:48:24.538 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-15  15:48:24.781 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-15  15:48:24.839 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  08:47:02.471 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  08:47:02.867 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  08:47:02.879 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  08:47:27.789 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  08:47:28.147 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Search for two Entities
+2016-08-16  08:48:17.136 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  08:48:17.183 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  08:48:46.201 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-16  08:48:46.722 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-16  08:48:49.725 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  08:49:00.435 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-16  08:49:00.439 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-16  08:49:00.587 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  08:49:00.705 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-16  08:49:00.838 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  08:49:01.053 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-16  08:49:01.059 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  09:57:36.965 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  09:57:37.118 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  09:57:37.125 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  09:57:54.283 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  09:57:54.476 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Search for two Entities
+2016-08-16  09:58:43.969 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  09:58:44.015 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  09:59:13.362 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-16  09:59:13.868 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-16  09:59:16.875 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  09:59:27.772 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-16  09:59:27.777 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-16  09:59:27.937 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  09:59:28.075 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-16  09:59:28.197 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  09:59:28.409 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-16  09:59:28.414 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  09:59:28.577 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  09:59:28.582 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  09:59:44.540 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  09:59:44.708 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  10:00:42.659 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 1nd Entity is not available
+2016-08-16  10:11:09.207 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  10:11:09.353 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  10:11:09.360 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  10:11:29.877 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  10:11:30.140 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Search for two Entities
+2016-08-16  10:12:19.117 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  10:12:19.166 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  10:12:48.388 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-16  10:12:49.025 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-16  10:12:52.032 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  10:13:01.090 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-16  10:13:01.094 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-16  10:13:01.242 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  10:13:01.389 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-16  10:13:01.517 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  10:13:01.723 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-16  10:13:01.729 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  10:13:01.880 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  10:13:01.885 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  10:13:21.455 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  10:13:21.625 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  10:13:31.724 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 1nd Entity is not available
+2016-08-16  10:21:58.581 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  10:21:58.713 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  10:21:58.719 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  10:22:38.089 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  10:22:38.313 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  10:30:51.266 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  10:30:51.445 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  10:30:51.452 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  10:31:11.613 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  10:31:11.816 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  10:32:51.326 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 1nd Entity is not available
+2016-08-16  10:36:32.621 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  10:36:32.755 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  10:36:32.762 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  10:36:50.380 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  10:36:50.578 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Search for two Entities
+2016-08-16  10:37:28.600 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  10:37:28.645 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  10:37:48.068 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-16  10:37:48.773 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-16  10:37:51.778 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  10:38:00.980 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-16  10:38:00.985 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-16  10:38:01.136 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  10:38:01.326 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-16  10:38:01.478 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  10:38:01.814 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-16  10:38:01.820 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  10:38:02.002 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  10:38:57.859 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  10:38:57.994 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  10:38:58.002 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  10:39:18.260 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  10:39:18.454 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Search for two Entities
+2016-08-16  10:39:56.317 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  10:39:56.361 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  10:40:15.660 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-16  10:40:16.309 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-16  10:40:19.313 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  10:40:27.930 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-16  10:40:27.933 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-16  10:40:28.075 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  10:40:28.200 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-16  10:40:28.324 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  10:40:28.650 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-16  10:40:28.656 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  10:40:28.871 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  10:40:28.875 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  10:40:44.974 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  10:40:45.143 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  10:40:56.631 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 1nd Entity is not available
+2016-08-16  10:44:01.169 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  10:44:01.317 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  10:44:01.324 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  10:44:18.989 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  10:44:19.196 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Search for two Entities
+2016-08-16  10:44:57.638 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  10:44:57.685 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  10:45:17.255 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-16  10:45:17.895 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-16  10:45:20.898 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  10:45:30.830 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-16  10:45:30.836 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-16  10:45:30.991 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  10:45:31.127 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-16  10:45:31.260 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  10:45:31.493 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-16  10:45:31.497 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  10:45:31.653 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  10:45:31.657 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  10:45:48.484 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  10:45:48.664 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  10:47:32.694 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 1nd Entity is not available
+2016-08-16  10:49:02.280 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  10:49:02.447 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  10:49:02.453 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  10:49:20.696 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  10:49:20.895 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Search for two Entities
+2016-08-16  10:49:59.297 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  10:49:59.344 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  10:50:18.669 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-16  10:50:19.492 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-16  10:50:22.494 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  10:50:31.949 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-16  10:50:31.954 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-16  10:50:32.113 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  10:50:32.257 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-16  10:50:32.396 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  10:50:32.666 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-16  10:50:32.675 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  10:50:32.851 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  10:50:32.856 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  10:50:52.674 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  10:50:52.848 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  10:52:12.758 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 1nd Entity is not available
+2016-08-16  10:54:03.196 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  10:54:03.323 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  10:54:03.328 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  10:54:21.970 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  10:54:22.175 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Search for two Entities
+2016-08-16  10:55:00.264 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  10:55:00.311 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  10:55:19.558 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-16  10:55:20.217 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-16  10:55:23.221 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  10:55:34.173 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-16  10:55:34.177 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-16  10:55:34.322 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  10:55:34.449 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-16  10:55:34.578 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  10:55:34.821 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-16  10:55:34.827 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  10:55:34.991 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  10:55:34.995 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  10:55:51.365 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  10:55:51.534 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  10:57:11.842 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 1nd Entity is not available
+2016-08-16  11:02:44.039 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  11:02:44.165 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  11:02:44.170 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  11:03:01.600 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  11:03:01.795 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Search for two Entities
+2016-08-16  11:03:40.249 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  11:03:40.299 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  11:03:59.621 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-16  11:04:00.280 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-16  11:04:03.280 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  11:04:13.996 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-16  11:04:14.000 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-16  11:04:14.146 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  11:04:14.273 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-16  11:04:14.396 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  11:04:14.671 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-16  11:04:14.677 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  11:04:14.862 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  11:04:14.866 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  11:04:30.514 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  11:04:30.678 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  11:06:14.987 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 1nd Entity is not available
+2016-08-16  11:09:17.183 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  11:09:17.344 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  11:09:17.350 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  11:09:35.334 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  11:09:35.528 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  11:09:35.533 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  11:09:52.185 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  11:09:52.396 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  11:11:37.212 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 1nd Entity is not available
+2016-08-16  11:26:19.928 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  11:26:20.055 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  11:26:20.062 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  11:26:45.031 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  11:26:45.249 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  11:26:45.256 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  11:27:07.223 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  11:27:07.453 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  11:28:51.675 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 1nd Entity is not available
+2016-08-16  11:31:47.422 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  11:31:47.590 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  11:31:47.597 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  11:32:11.673 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  11:32:11.908 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Search for two Entities
+2016-08-16  11:32:49.865 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  11:32:49.911 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  11:33:08.913 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-16  11:33:09.431 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-16  11:33:12.436 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  11:33:28.180 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-16  11:33:28.183 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-16  11:33:28.332 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  11:33:28.461 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-16  11:33:28.589 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  11:33:28.802 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-16  11:33:28.809 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  11:33:28.981 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  11:33:28.989 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  11:33:45.930 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  11:33:46.107 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  11:35:30.721 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 1nd Entity is not available
+2016-08-16  12:16:05.169 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  12:16:05.344 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  12:16:05.349 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  12:16:34.898 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  12:16:35.263 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Search for two Entities
+2016-08-16  12:17:14.809 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  12:17:14.932 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  12:17:34.422 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-16  12:17:35.215 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-16  12:17:38.216 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  12:17:48.473 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-16  12:17:48.477 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-16  12:17:48.626 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  12:17:48.951 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-16  12:17:49.439 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  12:17:49.781 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-16  12:17:49.787 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  12:17:49.960 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  12:17:49.965 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  12:18:20.788 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  12:18:20.972 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  12:20:05.425 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 1nd Entity is not available
+2016-08-16  12:21:50.105 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  12:21:50.325 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  12:21:50.332 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  12:22:11.874 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  12:22:12.096 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Search for two Entities
+2016-08-16  12:22:49.976 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  12:22:50.025 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  12:23:09.565 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-16  12:23:10.468 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-16  12:23:13.481 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  12:23:23.527 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-16  12:23:23.531 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-16  12:23:23.693 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  12:23:23.831 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-16  12:23:23.963 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  12:23:24.186 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-16  12:23:24.191 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  12:23:24.357 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  12:23:24.364 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  12:23:45.118 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  12:23:45.312 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  12:25:29.367 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 1nd Entity is not available
+2016-08-16  13:27:51.580 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  13:27:51.774 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  13:27:51.782 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  13:28:16.576 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  13:28:16.902 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Search for two Entities
+2016-08-16  13:28:55.334 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  13:28:55.415 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  13:29:14.714 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-16  13:29:15.413 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-16  13:29:18.419 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  13:29:28.657 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-16  13:29:28.661 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-16  13:29:28.803 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  13:29:28.923 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-16  13:29:29.063 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  13:29:29.275 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-16  13:29:29.279 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  13:29:29.443 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  13:29:29.449 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  13:29:48.440 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  13:29:48.654 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  13:31:32.663 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 1nd Entity is not available
+2016-08-16  14:09:09.642 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  14:09:09.784 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  14:09:09.789 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  14:09:28.347 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  14:09:28.550 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Search for two Entities
+2016-08-16  14:09:44.828 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  14:09:44.847 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  14:09:44.875 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  14:09:44.894 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  14:09:44.901 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  14:10:08.711 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  14:10:08.860 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  14:10:08.867 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  14:10:26.779 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  14:10:26.991 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Search for two Entities
+2016-08-16  14:11:04.906 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  14:11:04.952 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  14:11:24.426 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-16  14:11:25.148 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-16  14:11:28.154 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  14:11:43.527 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-16  14:11:43.530 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-16  14:11:43.675 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  14:11:43.837 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-16  14:11:44.026 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  14:11:44.511 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-16  14:11:44.516 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  14:11:44.717 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  14:11:44.721 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  14:12:08.988 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  14:12:09.168 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  14:14:23.294 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  14:14:23.437 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  14:14:23.444 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  14:14:42.651 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  14:14:42.948 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Search for two Entities
+2016-08-16  14:15:21.569 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  14:15:21.699 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  14:15:41.768 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-16  14:15:42.346 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-16  14:15:45.348 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  14:15:57.836 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-16  14:15:57.860 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-16  14:15:58.119 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  14:15:58.254 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-16  14:15:58.420 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  14:15:58.680 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-16  14:15:58.686 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  14:15:58.844 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  14:15:58.848 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  14:16:22.734 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  14:16:22.927 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  14:17:42.547 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 1nd Entity is not available
+2016-08-16  14:37:05.561 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  14:37:05.753 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  14:37:05.772 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  14:37:25.171 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  14:37:25.385 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Search for two Entities
+2016-08-16  14:38:04.115 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  14:38:04.159 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  14:38:23.854 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-16  14:38:24.715 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-16  14:38:27.717 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  14:38:41.170 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-16  14:38:41.173 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-16  14:38:41.311 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  14:38:41.430 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-16  14:38:41.561 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  14:38:41.775 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-16  14:38:41.780 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  14:38:41.940 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  14:38:41.945 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  14:38:57.258 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  14:38:57.717 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  14:40:17.277 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 1nd Entity is not available
+2016-08-16  15:46:53.830 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  15:46:54.128 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  15:46:54.175 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  15:47:15.163 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  15:47:15.372 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Search for two Entities
+2016-08-16  15:47:54.111 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  15:47:54.157 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  15:48:13.227 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-16  15:48:13.797 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-16  15:48:16.801 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  15:48:29.411 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-16  15:48:29.414 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-16  15:48:29.564 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  15:48:29.698 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-16  15:48:29.832 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  15:48:30.042 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-16  15:48:30.047 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  15:48:30.202 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  15:48:30.208 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  15:48:45.897 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  15:48:46.079 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  15:49:38.017 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 1nd Entity is not available
+2016-08-16  15:51:44.983 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  15:51:45.130 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  15:51:45.169 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  15:52:03.425 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  15:52:03.646 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Search for two Entities
+2016-08-16  15:52:41.545 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The Entity type is not available
+2016-08-16  15:53:00.893 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  15:53:00.952 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  15:53:00.962 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  15:53:00.975 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  15:53:00.979 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  15:53:47.096 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  15:53:47.317 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  15:53:47.324 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  15:54:04.470 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  15:54:04.664 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Search for two Entities
+2016-08-16  15:54:42.794 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  15:54:42.838 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  15:55:13.328 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  15:55:43.378 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  15:56:13.456 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  15:56:16.588 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  15:56:16.603 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  15:58:01.508 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Preparing For pMultipleEntitySearch ...
+2016-08-16  15:58:01.633 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  15:58:01.638 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  15:58:18.354 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  15:58:18.602 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Search for two Entities
+2016-08-16  15:58:56.511 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity type is available
+2016-08-16  15:58:56.559 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 1st Entity is available
+2016-08-16  15:59:16.007 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The 2nd Entity is available
+2016-08-16  15:59:16.512 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - click on the Search
+2016-08-16  15:59:19.514 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Information
+2016-08-16  15:59:30.038 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for President
+2016-08-16  15:59:30.041 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Information is available for Sendai
+2016-08-16  15:59:30.187 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Thumbnail in Entity Information
+2016-08-16  15:59:30.305 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Thumbnail is available in both the Entities President and Sendai
+2016-08-16  15:59:30.435 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Single Entity Search in Sensefy - Verify the Entity Description
+2016-08-16  15:59:30.646 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for President
+2016-08-16  15:59:30.652 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successful : The Entity Description is available for Sendai
+2016-08-16  15:59:30.819 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Login to Sensefy Local
+2016-08-16  15:59:30.823 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Navigate to Sensefy Local Url
+2016-08-16  15:59:48.806 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Successfully Login to Sensefy Local
+2016-08-16  15:59:48.979 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Multiple Entity Search in Sensefy - Verify Sort By Functionality
+2016-08-16  16:00:41.011 [main] INFO  com.zaizi.sensefy.sensefyui.pMultipleEntitySearch - Unsuccessful : The 1nd Entity is not available
