@@ -349,7 +349,7 @@ sub, sup {
     /*border: 1px solid #ccc;*/
     float: left;
     margin-right: 2%;
-    width: 31%;
+    width: 48%;
     position: relative;
 }
 
@@ -1442,8 +1442,14 @@ and (orientation: landscape)
 
 
 i.c.icon:before{content: '\f1c8'}
-
-
+i.c.icon {margin-left: -3px;}
+.icn_brown {color: #864b25;}
+.icn_yellow {color: #f39c12;}
+.icn_orange {color: #fc6e51;}
+.icn_magenta {color: #7a1450;}
+.icn_deepsee {color: #196570;}
+.icn_red {color: #e91010;}
+.icn_pink {color: #c11b88;}
 
 
 
@@ -1608,3 +1614,5 @@ div[data-tree-model] li .selected {
     .chrome #sensefy input.prompt {top:-1px;}
     .chrome #sensefy .ser-btn {top: -1px;}
 }
+
+.ui.form.results-per-page .fields {margin-bottom: 0;}

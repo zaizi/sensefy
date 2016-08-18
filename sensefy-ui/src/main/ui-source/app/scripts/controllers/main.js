@@ -1607,7 +1607,7 @@
                             docIcon = "file word outline icon";
                             break;
                         case 'application/pdf':
-                            docIcon = "file pdf outline icon";
+                            docIcon = "file pdf outline icon icn_red";
                             break;
                         case 'application/vnd.ms-excel':
                             docIcon = "file excel outline icon";
@@ -1622,7 +1622,7 @@
                             docIcon = "file image outline icon";
                             break;
                         case 'text/xml':
-                            docIcon = "file code outline icon";
+                            docIcon = "file code outline icon icn_pink";
                             break;
                         case 'image/png':
                             docIcon = "file image outline icon";
@@ -1637,16 +1637,22 @@
                             docIcon = "file image outline icon";
                             break;
                         case 'video/mp4':
-                            docIcon = "c icon";
+                            docIcon = "c icon icn_brown";
                             break;
                         case 'text/html':
-                            docIcon = "file code outline icon";
+                            docIcon = "file code outline icon icn_yellow";
+                            break;
+                        case 'text/plain':
+                            docIcon = "file code outline icon icn_yellow";
                             break;
                         case 'application/x-javascript':
                             docIcon = "file code outline icon";
                             break;
                         case 'text/css':
-                            docIcon = "file code outline icon";
+                            docIcon = "file code outline icon icn_yellow";
+                            break;
+                        case 'audio/x-wav':
+                            docIcon = "file audio outline icon icn_orange";
                             break;
                         default:
                             docIcon = "file outline icon";
