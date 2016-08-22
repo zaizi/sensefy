@@ -219,6 +219,15 @@ public class TestCaseValues {
                 						getValue("searchTerm_1", valueElement), 
                 						getValue("searchTerm_2", valueElement), 
                 						getValue("searchTerm_3", valueElement), 
+                						getValue("searchTerm_4", valueElement), 
+                						getValue("sortby_Relevance", valueElement), 
+                						getValue("SortByName", valueElement), 
+                						getValue("SortByTitle", valueElement), 
+                						getValue("SortByCreated", valueElement), 
+                						getValue("SortByModified", valueElement), 
+                						getValue("SortByCreator", valueElement), 
+                						getValue("SortByModifier", valueElement),
+                						getValue("FilterByCreator", valueElement),
                 						getValue("screenshot_name", valueElement)
                 	};
                 	

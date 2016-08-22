@@ -18,7 +18,8 @@ import org.junit.runners.Suite.SuiteClasses;
 	lEntitySearch.class,
 	mVideoSearch.class,
 	nResultsperpage.class,
-	oAudioSearch.class
+	oAudioSearch.class,
+	pMultipleEntitySearch.class
 })
 public class testSuite 
 {

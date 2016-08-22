@@ -1,6 +1,5 @@
 package com.zaizi.sensefy.sensefyui;
 
-
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -21,6 +20,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
 import com.zaizi.sensefy.sensefyui.elements.Element;
 import com.zaizi.sensefy.sensefyui.elements.Label;
+import com.zaizi.sensefy.sensefyui.elements.Link;
 import com.zaizi.sensefy.sensefyui.elements.TextField;
 import com.zaizi.sensefy.sensefyui.exceptions.IterableException;
 import com.zaizi.sensefy.sensefyui.info.TestCaseProperties;
@@ -44,6 +44,15 @@ public class pMultipleEntitySearch
 	public String searchTerm_1;
 	public String searchTerm_2;
 	public String searchTerm_3;
+	public String searchTerm_4;
+	public String SortByRelevance;
+	public String SortByName;
+	public String SortByTitle;
+	public String SortByCreated;
+	public String SortByModified;
+	public String SortByCreator;
+	public String SortByModifier;
+	public String FilterByCreator;
 	public String screenshot_name;
 	
 	/**
@@ -61,17 +70,30 @@ public class pMultipleEntitySearch
 	 */
 	public static String className = pMultipleEntitySearch.class.getSimpleName();
 
+	
+	
 	public pMultipleEntitySearch(String username, String password, String searchTerm_1, String searchTerm_2,
-			String searchTerm_3, String screenshot_name) 
+			String searchTerm_3, String searchTerm_4, String sortByRelevance, String sortByName, String sortByTitle,
+			String sortByCreated, String sortByModified, String sortByCreator, String sortByModifier, String FilterByCreator,
+			String screenshot_name) 
 	{
 		this.username = username;
 		this.password = password;
 		this.searchTerm_1 = searchTerm_1;
 		this.searchTerm_2 = searchTerm_2;
 		this.searchTerm_3 = searchTerm_3;
+		this.searchTerm_4 = searchTerm_4;
+		SortByRelevance = sortByRelevance;
+		SortByName = sortByName;
+		SortByTitle = sortByTitle;
+		SortByCreated = sortByCreated;
+		SortByModified = sortByModified;
+		SortByCreator = sortByCreator;
+		SortByModifier = sortByModifier;
+		this.FilterByCreator = FilterByCreator;
 		this.screenshot_name = screenshot_name;
 	}
-	
+
 	/**
 	 * Declares Parameters here
 	 * @return
@@ -144,26 +166,7 @@ public class pMultipleEntitySearch
 		TextField searchField = new TextField(driver, By.xpath("//input[@id='searchTerm']"));
 		searchField.clearText();
 		Thread.sleep(10000);
-		
-//		searchField.enterText("p");
-//		Thread.sleep(3000);
-//		searchField.enterText("r");
-//		Thread.sleep(3000);
-//		searchField.enterText("e");
-//		Thread.sleep(5000);
-//		searchField.enterText("s");
-//		Thread.sleep(3000);
-//		searchField.enterText("i");
-//		Thread.sleep(3000);
-//		searchField.enterText("d");
-//		Thread.sleep(5000);
-//		searchField.enterText("e");
-//		Thread.sleep(3000);		
-//		searchField.enterText("n");
-//		Thread.sleep(3000);
-//		searchField.enterText("t");
-//		Thread.sleep(10000);
-		
+
 		String test_element_1 ="President";
 		
 	    String[] alphabets = test_element_1.split("");
@@ -202,21 +205,7 @@ public class pMultipleEntitySearch
 		}
 		
 		driver.findElement(By.xpath(test_element2)).click();
-		
-//		Thread.sleep(3000);
-//		searchField.enterText("s");
-//		Thread.sleep(3000);
-//		searchField.enterText("e");
-//		Thread.sleep(3000);
-//		searchField.enterText("n");
-//		Thread.sleep(3000);
-//		searchField.enterText("d");
-//		Thread.sleep(3000);
-//		searchField.enterText("a");
-//		Thread.sleep(3000);
-//		searchField.enterText("i");
-//		Thread.sleep(10000);
-		
+
 		String test_element_2 ="Sendai";
 		
 	    String[] alphabets_2 = test_element_2.split("");
@@ -382,36 +371,448 @@ public class pMultipleEntitySearch
 		searchField.clearText();
 		Thread.sleep(10000);
 				
-		String test_element1 ="Barack Obama";
+		String test_element1 = searchTerm_3;
 		
-	    String[] alphabets = test_element1.split("");
-	    for(String alphabet : alphabets)
+	    String[] alphabets1 = test_element1.split("");
+	    for(String alphabet_1 : alphabets1)
 	    {
-	        System.out.println(alphabet);
-	        searchField.enterText(alphabet);
+	        System.out.println(alphabet_1);
+	        searchField.enterText(alphabet_1);
 	        Thread.sleep(3000);
 	    }
 	    
 	    Thread.sleep(5000);
 	    
-		String test_element_1 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Barack Obama']";
+		String test_element_1 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Barack']";
 		
 		if(Label.isElementPresent(driver, By.xpath(test_element_1)))
 		{
-			LOGGER.info("Successful : The 1nd Entity is available");
-    		extent.log(LogStatus.PASS, "Successful :The 1nd Entity is available.");
+			LOGGER.info("Successful : The 1st Entity "+searchTerm_3+" is available");
+    		extent.log(LogStatus.PASS, "Successful :The 1st Entity "+searchTerm_3+" is available.");
     		Element.takescreenshot(driver,className,screenshot_name+"13");
 		}
 		else
 		{
-			LOGGER.info("Unsuccessful : The 1nd Entity is not available");
-    		extent.log(LogStatus.FAIL, "Unsuccessful :The 1nd Entity is not available.");
+			LOGGER.info("Unsuccessful : The 1st Entity "+searchTerm_3+" is not available");
+    		extent.log(LogStatus.FAIL, "Unsuccessful :The 1st Entity "+searchTerm_3+" is not available.");
     		Element.takescreenshot(driver,className,screenshot_name+"14");
 		}
 		 
-		//driver.findElement(By.xpath(".//*[@id='header']/div[1]/div/div/div/div[2]/ul[2]/li/div/div[2]/div[3]/div/div/div/div/span/span")).click();
 		driver.findElement(By.xpath(test_element_1)).click();
 		
+		String test_element2= searchTerm_4;
+		
+		String[] alphabets2 = test_element2.split("");
+		for(String alphabet_2 : alphabets2)
+		{
+			System.out.println(alphabet_2);
+			searchField.enterText(alphabet_2);
+			Thread.sleep(3000);
+		}
+		
+		Thread.sleep(5000);
+		
+		String test_element_2 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Michelle']";
+		
+		if(Label.isElementPresent(driver, By.xpath(test_element_2)))
+		{
+			LOGGER.info("Successful : The 2nd Entity "+searchTerm_4+" is available");
+    		extent.log(LogStatus.PASS, "Successful :The 2nd Entity "+searchTerm_4+" is available");
+    		Element.takescreenshot(driver,className,screenshot_name+"15");
+		}
+		else
+		{
+			LOGGER.info("Unsuccessful : The 2nd Entity "+searchTerm_4+" is not available");
+    		extent.log(LogStatus.FAIL, "Unsuccessful :The 2nd Entity "+searchTerm_4+" is not available.");
+    		Element.takescreenshot(driver,className,screenshot_name+"16");
+		}
+		
+		driver.findElement(By.xpath(test_element_2)).click();
+		driver.findElement(By.xpath("//div[@class='ui yellow button ser-btn']")).click();
+		
+		LOGGER.info("click on the Search");
+		Thread.sleep(3000);
+		
+		String sortby_Relevance = "//body[@id='sensefy']/div[1]/div[3]/div[2]/div[2]/div/div[1]";
+		String sortby_Name = "//body[@id='sensefy']/div[1]/div[3]/div[2]/div[2]/div/div[2]";
+		String sortby_Title = "//body[@id='sensefy']/div[1]/div[3]/div[2]/div[2]/div/div[3]";
+		String sortby_Created = "//body[@id='sensefy']/div[1]/div[3]/div[2]/div[2]/div/div[4]";
+		String sortby_Modified = "//body[@id='sensefy']/div[1]/div[3]/div[2]/div[2]/div/div[5]";
+		String sortby_Creator = "//body[@id='sensefy']/div[1]/div[3]/div[2]/div[2]/div/div[6]";
+		String sortby_Modifier = "//body[@id='sensefy']/div[1]/div[3]/div[2]/div[2]/div/div[7]";
+		
+		//Verify Sort By Relevance
+		new Link(driver, By.xpath("//div[@id='se-results']//following::span[text()='Relevance']")).Click();
+		LOGGER.info("Click on Sort By Button");
+		//Thread.sleep(5000);
+
+		if(Element.isElementPresent(driver, By.xpath(sortby_Relevance)))
+		{
+			LOGGER.info("Successful : The Sort By Relevance is available");
+			extent.log(LogStatus.PASS, "Successful : The Sort By Relevance is available");
+			
+			driver.findElement(By.xpath(sortby_Relevance)).click();
+			Thread.sleep(3000);
+			
+			String relevance_result = driver.findElement(By.xpath("//div[@id='se-results']/div[4]/div[1]/div[2]/ng-switch/a/span")).getText().toString();
+			
+			if(relevance_result.equals(SortByRelevance))
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + SortByRelevance);
+				extent.log(LogStatus.INFO, "Current Results : " + relevance_result);
+				LOGGER.info("Successful : The results are successfully sorted by Relevance.");
+        		extent.log(LogStatus.PASS, "Successful : The results are successfully sorted by Relevance.");
+        		Element.takescreenshot(driver,className,screenshot_name+"17");
+			}
+			else
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + SortByRelevance);
+				extent.log(LogStatus.INFO, "Current Results : " + relevance_result);
+				LOGGER.info("Unsuccessful : The results are not successfully sorted by Relevance.");
+        		extent.log(LogStatus.FAIL, "Unsuccessful : The results are not successfully sorted by Relevance.");
+        		Element.takescreenshot(driver,className,screenshot_name+"18");
+			}		
+		}
+		else
+		{
+			LOGGER.info("Unsuccessful : The Sort By Relevance is not available");
+			extent.log(LogStatus.FAIL, "Unsuccessful : The Sort By Relevance not is available");	
+		}
+		
+		//Verify Sort By Name
+		new Link(driver, By.xpath("//div[@id='se-results']//following::span[text()='Relevance']")).Click();
+		LOGGER.info("Click on Sort By Button");	
+
+		if(Element.isElementPresent(driver, By.xpath(sortby_Name)))
+		{
+			LOGGER.info("Successful : The Sort By Name is available");
+			extent.log(LogStatus.PASS, "Successful : The Sort By Name is available");
+			
+			driver.findElement(By.xpath(sortby_Name)).click();
+			Thread.sleep(5000);
+			
+			String name_result = driver.findElement(By.xpath("//div[@id='se-results']/div[4]/div[1]/div[2]/ng-switch/a/span")).getText().toString();
+			
+			if(name_result.equals(SortByName))
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + SortByName);
+				extent.log(LogStatus.INFO, "Current Results : " + name_result);
+				LOGGER.info("Successful : The results are successfully sorted by Name.");
+        		extent.log(LogStatus.PASS, "Successful : The results are successfully sorted by Name.");
+        		Element.takescreenshot(driver,className,screenshot_name+"19");
+			}
+			else
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + SortByName);
+				extent.log(LogStatus.INFO, "Current Results : " + name_result);
+				LOGGER.info("Unsuccessful : The results are not successfully sorted by Name.");
+        		extent.log(LogStatus.FAIL, "Unsuccessful : The results are not successfully sorted by Name.");
+        		Element.takescreenshot(driver,className,screenshot_name+"20");
+			}		
+		}
+		else
+		{
+			LOGGER.info("Unsuccessful : The Sort By Name is not available");
+			extent.log(LogStatus.FAIL, "Unsuccessful : The Sort By Name not is available");	
+		}
+		
+		//Verify Sort by Title
+		new Link(driver, By.xpath("//div[@id='se-results']//following::span[text()='Name']")).Click();
+		LOGGER.info("Click on Sort By Button");
+		
+		if(Element.isElementPresent(driver, By.xpath(sortby_Title)))
+		{
+			LOGGER.info("Successful : The Sort By Title is available");
+			extent.log(LogStatus.PASS, "Successful : The Sort By Title is available");
+			
+			driver.findElement(By.xpath(sortby_Title)).click();
+			Thread.sleep(5000);
+			
+			String title_result = driver.findElement(By.xpath("//div[@id='se-results']/div[4]/div[1]/div[2]/ng-switch/a/span")).getText().toString();
+			
+			if(title_result.equals(SortByTitle))
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + SortByTitle);
+				extent.log(LogStatus.INFO, "Current Results : " + title_result);
+				LOGGER.info("Successful : The results are successfully sorted by Title.");
+        		extent.log(LogStatus.PASS, "Successful : The results are successfully sorted by Title.");
+        		Element.takescreenshot(driver,className,screenshot_name+"21");
+			}
+			else
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + SortByTitle);
+				extent.log(LogStatus.INFO, "Current Results : " + title_result);
+				LOGGER.info("Unsuccessful : The results are not successfully sorted by Title.");
+        		extent.log(LogStatus.FAIL, "Unsuccessful : The results are not successfully sorted by Title.");
+        		Element.takescreenshot(driver,className,screenshot_name+"22");
+			}		
+		}
+		else
+		{
+			LOGGER.info("Unsuccessful : The Sort By Title is not available");
+			extent.log(LogStatus.FAIL, "Unsuccessful : The Sort By Title not is available");	
+		}
+		
+		//Verify Sort by Created
+		new Link(driver, By.xpath("//div[@id='se-results']//following::span[text()='Title']")).Click();
+		LOGGER.info("Click on Sort By Button");
+		
+		if(Element.isElementPresent(driver, By.xpath(sortby_Created)))
+		{
+			LOGGER.info("Successful : The Sort By Created is available");
+			extent.log(LogStatus.PASS, "Successful : The Sort By Created is available");
+			
+			driver.findElement(By.xpath(sortby_Created)).click();
+			Thread.sleep(5000);
+			
+			String created_result = driver.findElement(By.xpath("//div[@id='se-results']/div[4]/div[1]/div[2]/ng-switch/a/span")).getText().toString();
+			
+			if(created_result.equals(SortByCreated))
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + SortByCreated);
+				extent.log(LogStatus.INFO, "Current Results : " + created_result);
+				LOGGER.info("Successful : The results are successfully sorted by Created.");
+        		extent.log(LogStatus.PASS, "Successful : The results are successfully sorted by Created.");
+        		Element.takescreenshot(driver,className,screenshot_name+"23");
+			}
+			else
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + SortByCreated);
+				extent.log(LogStatus.INFO, "Current Results : " + created_result);
+				LOGGER.info("Unsuccessful : The results are not successfully sorted by Created.");
+        		extent.log(LogStatus.FAIL, "Unsuccessful : The results are not successfully sorted by Created.");
+        		Element.takescreenshot(driver,className,screenshot_name+"24");
+			}		
+		}
+		else
+		{
+			LOGGER.info("Unsuccessful : The Sort By Created is not available");
+			extent.log(LogStatus.FAIL, "Unsuccessful : The Sort By Created not is available");	
+		}
+		
+		//Verify the Sort by Modified
+		new Link(driver, By.xpath("//div[@id='se-results']//following::span[text()='Created']")).Click();
+		LOGGER.info("Click on Sort By Button");
+		
+		if(Element.isElementPresent(driver, By.xpath(sortby_Modified)))
+		{
+			LOGGER.info("Successful : The Sort By Modified is available");
+			extent.log(LogStatus.PASS, "Successful : The Sort By Modified is available");
+			
+			driver.findElement(By.xpath(sortby_Modified)).click();
+			Thread.sleep(5000);
+			
+			String modified_result = driver.findElement(By.xpath("//div[@id='se-results']/div[4]/div[1]/div[2]/ng-switch/a/span")).getText().toString();
+			
+			if(modified_result.equals(SortByModified))
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + SortByModified);
+				extent.log(LogStatus.INFO, "Current Results : " + modified_result);
+				LOGGER.info("Successful : The results are successfully sorted by Modified.");
+        		extent.log(LogStatus.PASS, "Successful : The results are successfully sorted by Modified.");
+        		Element.takescreenshot(driver,className,screenshot_name+"25");
+			}
+			else
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + SortByModified);
+				extent.log(LogStatus.INFO, "Current Results : " + modified_result);
+				LOGGER.info("Unsuccessful : The results are not successfully sorted by Modified.");
+        		extent.log(LogStatus.FAIL, "Unsuccessful : The results are not successfully sorted by Modified.");
+        		Element.takescreenshot(driver,className,screenshot_name+"26");
+			}		
+		}
+		else
+		{
+			LOGGER.info("Unsuccessful : The Sort By Modified is not available");
+			extent.log(LogStatus.FAIL, "Unsuccessful : The Sort By Modified not is available");	
+		}
+		
+		//Verify Sort By Creator
+		new Link(driver, By.xpath("//div[@id='se-results']//following::span[text()='Modified']")).Click();
+		LOGGER.info("Click on Sort By Button");
+		
+		if(Element.isElementPresent(driver, By.xpath(sortby_Creator)))
+		{
+			LOGGER.info("Successful : The Sort By Creator is available");
+			extent.log(LogStatus.PASS, "Successful : The Sort By Creator is available");
+			
+			driver.findElement(By.xpath(sortby_Creator)).click();
+			Thread.sleep(5000);
+			
+			String creator_result = driver.findElement(By.xpath("//div[@id='se-results']/div[4]/div[1]/div[2]/ng-switch/a/span")).getText().toString();
+			
+			if(creator_result.equals(SortByCreator))
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + SortByCreator);
+				extent.log(LogStatus.INFO, "Current Results : " + creator_result);
+				LOGGER.info("Successful : The results are successfully sorted by Creator.");
+        		extent.log(LogStatus.PASS, "Successful : The results are successfully sorted by Creator.");
+        		Element.takescreenshot(driver,className,screenshot_name+"27");
+			}
+			else
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + SortByCreator);
+				extent.log(LogStatus.INFO, "Current Results : " + creator_result);
+				LOGGER.info("Unsuccessful : The results are not successfully sorted by Creator.");
+        		extent.log(LogStatus.FAIL, "Unsuccessful : The results are not successfully sorted by Creator.");
+        		Element.takescreenshot(driver,className,screenshot_name+"28");
+			}		
+		}
+		else
+		{
+			LOGGER.info("Unsuccessful : The Sort By Creator is not available");
+			extent.log(LogStatus.FAIL, "Unsuccessful : The Sort By Creator not is available");	
+		}
+		
+		//Verify Sort By Modifier
+		new Link(driver, By.xpath("//div[@id='se-results']//following::span[text()='Creator']")).Click();
+		LOGGER.info("Click on Sort By Button");
+		
+		if(Element.isElementPresent(driver, By.xpath(sortby_Modifier)))
+		{
+			LOGGER.info("Successful : The Sort By Modifier is available");
+			extent.log(LogStatus.PASS, "Successful : The Sort By Modifier is available");
+			
+			driver.findElement(By.xpath(sortby_Modifier)).click();
+			Thread.sleep(5000);
+			
+			String Modifier_result = driver.findElement(By.xpath("//div[@id='se-results']/div[4]/div[1]/div[2]/ng-switch/a/span")).getText().toString();
+			
+			if(Modifier_result.equals(SortByCreator))
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + SortByModifier);
+				extent.log(LogStatus.INFO, "Current Results : " + Modifier_result);
+				LOGGER.info("Successful : The results are successfully sorted by Modifier.");
+        		extent.log(LogStatus.PASS, "Successful : The results are successfully sorted by Modifier.");
+        		Element.takescreenshot(driver,className,screenshot_name+"29");
+			}
+			else
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + SortByModifier);
+				extent.log(LogStatus.INFO, "Current Results : " + Modifier_result);
+				LOGGER.info("Unsuccessful : The results are not successfully sorted by Modifier.");
+        		extent.log(LogStatus.FAIL, "Unsuccessful : The results are not successfully sorted by Modifier.");
+        		Element.takescreenshot(driver,className,screenshot_name+"30");
+			}		
+		}
+		else
+		{
+			LOGGER.info("Unsuccessful : The Sort By Modifier is not available");
+			extent.log(LogStatus.FAIL, "Unsuccessful : The Sort By Modifier not is available");	
+		}
+		TestCaseProperties.closeDriver(driver);	
+	}
+	
+	@Test
+	public void g_EntitySearch() throws InterruptedException, IOException
+	{	
+		a_logintoSenefy();
+		
+		LOGGER.info("Multiple Entity Search in Sensefy - Verify Filter By Functionality");
+		extent.startTest("Multiple Entity Search in Sensefy - Verify Filter By Functionality");
+			
+		TextField searchField = new TextField(driver, By.xpath("//input[@id='searchTerm']"));
+		searchField.clearText();
+		Thread.sleep(10000);
+				
+		String test_element1 = searchTerm_3;
+		
+	    String[] alphabets1 = test_element1.split("");
+	    for(String alphabet_1 : alphabets1)
+	    {
+	        System.out.println(alphabet_1);
+	        searchField.enterText(alphabet_1);
+	        Thread.sleep(3000);
+	    }
+	    
+	    Thread.sleep(5000);
+	    
+		String test_element_1 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Barack']";
+		
+		if(Label.isElementPresent(driver, By.xpath(test_element_1)))
+		{
+			LOGGER.info("Successful : The 1st Entity "+searchTerm_3+" is available");
+    		extent.log(LogStatus.PASS, "Successful :The 1st Entity "+searchTerm_3+" is available.");
+    		Element.takescreenshot(driver,className,screenshot_name+"31");
+		}
+		else
+		{
+			LOGGER.info("Unsuccessful : The 1st Entity "+searchTerm_3+" is not available");
+    		extent.log(LogStatus.FAIL, "Unsuccessful :The 1st Entity "+searchTerm_3+" is not available.");
+    		Element.takescreenshot(driver,className,screenshot_name+"32");
+		}
+		 
+		driver.findElement(By.xpath(test_element_1)).click();
+		
+		String test_element2= searchTerm_4;
+		
+		String[] alphabets2 = test_element2.split("");
+		for(String alphabet_2 : alphabets2)
+		{
+			System.out.println(alphabet_2);
+			searchField.enterText(alphabet_2);
+			Thread.sleep(3000);
+		}
+		
+		Thread.sleep(5000);
+		
+		String test_element_2 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Michelle']";
+		
+		if(Label.isElementPresent(driver, By.xpath(test_element_2)))
+		{
+			LOGGER.info("Successful : The 2nd Entity "+searchTerm_4+" is available");
+    		extent.log(LogStatus.PASS, "Successful :The 2nd Entity "+searchTerm_4+" is available");
+    		Element.takescreenshot(driver,className,screenshot_name+"33");
+		}
+		else
+		{
+			LOGGER.info("Unsuccessful : The 2nd Entity "+searchTerm_4+" is not available");
+    		extent.log(LogStatus.FAIL, "Unsuccessful :The 2nd Entity "+searchTerm_4+" is not available.");
+    		Element.takescreenshot(driver,className,screenshot_name+"34");
+		}
+		
+		driver.findElement(By.xpath(test_element_2)).click();
+		driver.findElement(By.xpath("//div[@class='ui yellow button ser-btn']")).click();
+		
+		LOGGER.info("click on the Search");
+		Thread.sleep(3000);
+		
+		//Filter by Creator
+		String filter_admin ="//div[@class='ui segment']//div//div[1]//ul//li//span//span//span[text()='admin']";
+		
+		if(Element.isElementPresent(driver, By.xpath(filter_admin)))
+		{
+			LOGGER.info("Successful : The Filter By Creator " +driver.findElement(By.xpath(filter_admin)).getText().toString()+" is available");
+			extent.log(LogStatus.PASS, "Successful : The Filter By Creator " +driver.findElement(By.xpath(filter_admin)).getText().toString()+" is available");
+			driver.findElement(By.xpath(filter_admin)).click();
+			
+			
+			String filter_admin_result = driver.findElement(By.xpath("//div[@id='se-results']/div[4]/div[1]/div[2]/ng-switch/a/span")).getText().toString();
+			
+			if(filter_admin_result.equals(FilterByCreator))
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + FilterByCreator);
+				extent.log(LogStatus.INFO, "Current Results : " + filter_admin_result);
+				LOGGER.info("Successful : The results are successfully Filtered by Creator "+driver.findElement(By.xpath(filter_admin)).getText().toString());
+        		extent.log(LogStatus.PASS, "Successful : The results are successfully Filtered by Creator "+driver.findElement(By.xpath(filter_admin)).getText().toString());
+        		Element.takescreenshot(driver,className,screenshot_name+"35");
+			}
+			else
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + FilterByCreator);
+				extent.log(LogStatus.INFO, "Current Results : " + filter_admin_result);
+				LOGGER.info("Unsuccessful : The results are not successfully Filtered by Creator "+driver.findElement(By.xpath(filter_admin)).getText().toString());
+        		extent.log(LogStatus.FAIL, "Unsuccessful : The results are  notsuccessfully Filtered by Creator "+driver.findElement(By.xpath(filter_admin)).getText().toString());
+        		Element.takescreenshot(driver,className,screenshot_name+"36");
+			}			
+		}
+		else
+		{
+			LOGGER.info("Unsuccessful : The Filter By Creator " +driver.findElement(By.xpath(filter_admin)).getText().toString()+" is not available");
+			extent.log(LogStatus.FAIL, "Unsuccessful : The Filter By Creator " +driver.findElement(By.xpath(filter_admin)).getText().toString()+" is not available");	
+		}
+		
+		TestCaseProperties.closeDriver(driver);	
 	}
 
 	

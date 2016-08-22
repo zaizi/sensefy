@@ -144,7 +144,16 @@
 			<password>ulibranxi</password>
 			<searchTerm_1>President</searchTerm_1>
 			<searchTerm_2>Sendai</searchTerm_2>
-			<searchTerm_3>ff</searchTerm_3>
+			<searchTerm_3>Barack Obama</searchTerm_3>
+			<searchTerm_4>Michelle Obama</searchTerm_4>
+			<sortby_Relevance>michelle.obama.12&#46;txt</sortby_Relevance>
+			<SortByName>michelle.obama.101&#46;txt</SortByName>
+			<SortByTitle>michelle.obama.12&#46;txt</SortByTitle>
+			<SortByCreated>michelle.obama.139&#46;txt</SortByCreated>
+			<SortByModified>michelle.obama.139&#46;txt</SortByModified>
+			<SortByCreator>michelle.obama.12&#46;txt</SortByCreator>
+			<SortByModifier>michelle.obama.12&#46;txt</SortByModifier>
+			<FilterByCreator>michelle.obama.80&#46;txt</FilterByCreator>
 			<screenshot_name>multipleEntity</screenshot_name>
 		</test>
 	</pMultipleEntitySearch>
