@@ -99,7 +99,6 @@ public class MicoIndexUpdater {
 
 				SolrInputDocument primaryDoc = new SolrInputDocument();
 				primaryDoc.addField(ID_FIELD, micoItem.getSolrId());
-
 				List<SolrInputDocument> entityDocs;
 
 				switch (micoItem.getContentType()) {
@@ -186,7 +185,7 @@ public class MicoIndexUpdater {
 				smltEntities.add(id);
 
 				entityDoc.addField(DOC_IDS_FIELD, micoItem.getSolrId());
-				entityDoc.addField(LABELS_FIELD, linkedEntity.getEntityLabel());
+				String label = linkedEntity.getEntityLabel();
 				ResultSet results = dbpediaQueryClient.getEntityResults(linkedEntity.getEntityReference());
 				Set<String> typesSet = new HashSet<>();
 				while (results.hasNext()) {
@@ -201,6 +200,14 @@ public class MicoIndexUpdater {
 					}
 					List<String> typesList = Arrays.asList(types);
 					typesSet.addAll(typesList);
+					
+					
+					if(soln.get("?label").isLiteral()){
+						label = soln.getLiteral("?label").getString();
+					}
+					if(soln.get("?label").isResource()){
+						label = soln.getResource("?label").toString();
+					}
 
 					if (soln.get("?comment").isLiteral()) {
 						literal = soln.getLiteral("?comment");
@@ -236,6 +243,7 @@ public class MicoIndexUpdater {
 					}
 					break;
 				}
+				entityDoc.addField(LABELS_FIELD, label);
 				entityDoc.addField(TYPE_FIELD, typesSet);
 				if (typesSet.contains(IS_PERSON_ONT)) {
 					entityDoc.addField(IS_PERSON_FIELD, true);
@@ -259,7 +267,7 @@ public class MicoIndexUpdater {
 	public List<MicoItem> queryDocuments(SolrClient client, SolrQuery solrQuery) {
 		List<MicoItem> micoItems = new ArrayList<>();
 		solrQuery.setSort(SortClause.asc(ID_FIELD));
-		solrQuery.set("fl", ID_FIELD + "," + MICO_URI_FIELD + "," + MIMETYPE);
+		solrQuery.setFields(ID_FIELD,MICO_URI_FIELD,MIMETYPE);
 		String cursorMark = CursorMarkParams.CURSOR_MARK_START;
 		try {
 			boolean done = false;

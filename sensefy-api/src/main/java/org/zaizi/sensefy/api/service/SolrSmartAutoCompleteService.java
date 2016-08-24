@@ -75,6 +75,10 @@ public class SolrSmartAutoCompleteService extends SolrService {
 	public static final int SPELLCHECKING_DISTANCE = 2;
 	public static final String DOCUMENT_SUGGESTION = "document_suggestion";
 	public static final String SHINGLE_AUTOCOMPLETE_NAME = "ShingleAutocomplete";
+	public static final String PERSON_FILTER_QUERY = "is_person:true";
+	public static final String LOCATION_FILTER_QUERY = "is_place:true";
+	public static final String ORG_FILTER_QUERY = "is_organization:true";
+	public static final String OTHER_FILTER_QUERY = "is_other:true";
 
 	public SolrSmartAutoCompleteService() {
 	}
@@ -129,15 +133,22 @@ public class SolrSmartAutoCompleteService extends SolrService {
 			if (semantic) {
 				// First query to suggest named entities, showing mini details
 				// <field>:<value>
-				numberOfSuggestions = 8;
-				QueryResponse namedEntitiesQueryResponse = getSmartSuggestions(termToComplete, numberOfSuggestions,
-						this.getEntityCore());
-
+				numberOfSuggestions = 3;
+				
+				QueryResponse namedEntitiesQueryResponse;
+				List<SolrDocument> entitiesRetrieved = new ArrayList<>();
+				String[] filterQueries = new String[]{PERSON_FILTER_QUERY,LOCATION_FILTER_QUERY,ORG_FILTER_QUERY,OTHER_FILTER_QUERY};
+				for (String filterQuery : filterQueries) {
+					namedEntitiesQueryResponse = getSmartSuggestions(termToComplete, numberOfSuggestions,
+							this.getEntityCore(), filterQuery);
+					entitiesRetrieved.addAll(namedEntitiesQueryResponse.getResults());
+				}
+				
 				// Second query to suggest entity types, showing mini details on
 				// attributes
 				QueryResponse entityTypesQueryResponse = getSmartSuggestions(termToComplete, numberOfSuggestions,
-						this.getEntityTypeCore());
-				List<SolrDocument> entitiesRetrieved = namedEntitiesQueryResponse.getResults();
+						this.getEntityTypeCore(), "");
+				
 				responseContent.setEntities(entitiesRetrieved);
 				// This part is related to the multi-language feature. As we
 				// have to identify for the entity type which
@@ -264,12 +275,15 @@ public class SolrSmartAutoCompleteService extends SolrService {
 	 * @return
 	 * @throws SolrServerException
 	 */
-	private QueryResponse getSmartSuggestions(String termToComplete, Integer numberOfSuggestions, SolrClient core)
+	private QueryResponse getSmartSuggestions(String termToComplete, Integer numberOfSuggestions, SolrClient core, String filterQuery)
 			throws SolrServerException, SolrException, IOException {
 		SolrQuery namedEntitiesQuery = new SolrQuery();
 		this.buildAutocompleteQuery(namedEntitiesQuery, termToComplete);
 		namedEntitiesQuery.addSort(SEMANTIC_SORTING_FIELD, SolrQuery.ORDER.desc);
 		namedEntitiesQuery.setRows(numberOfSuggestions);
+		if(filterQuery != null && !(filterQuery.isEmpty())){
+			namedEntitiesQuery.addFilterQuery(filterQuery);
+		}
 		QueryResponse namedEntitiesQueryResponse;
 		namedEntitiesQuery.setRequestHandler("/suggest");
 		namedEntitiesQueryResponse = core.query(namedEntitiesQuery);

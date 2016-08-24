@@ -1,11 +1,12 @@
 package com.zaizi.sensefy.dataprocessing.mico.admin;
 
+import java.util.List;
+
 public class MicoItem {
 
 	private String micoUri;
 	private String solrId;
 	private ContentType contentType;
-
 
 	public ContentType getContentType() {
 		return contentType;
