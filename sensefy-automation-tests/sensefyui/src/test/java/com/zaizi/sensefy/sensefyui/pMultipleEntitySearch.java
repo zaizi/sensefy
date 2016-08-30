@@ -167,7 +167,7 @@ public class pMultipleEntitySearch
 		searchField.clearText();
 		Thread.sleep(10000);
 
-		String test_element_1 ="President";
+		String test_element_1 = searchTerm_1;
 		
 	    String[] alphabets = test_element_1.split("");
 	    for(String alphabet : alphabets)
@@ -178,7 +178,7 @@ public class pMultipleEntitySearch
 	    }
 	    
 		String test_element1 = "//div[@class='sub-header'][text()='People']";
-		String test_element2 = "//div[@class='et-table et-wrapper']//following::span[text()='"+searchTerm_1+"']";
+		String test_element2 = "//div[@class='et-table et-wrapper']//following::span[text()='Michelle']";
 		
 		if(Label.isElementPresent(driver, By.xpath(test_element1)))
 		{
@@ -206,7 +206,7 @@ public class pMultipleEntitySearch
 		
 		driver.findElement(By.xpath(test_element2)).click();
 
-		String test_element_2 ="Sendai";
+		String test_element_2 = searchTerm_2;
 		
 	    String[] alphabets_2 = test_element_2.split("");
 	    for(String alphabet : alphabets_2)
@@ -216,7 +216,7 @@ public class pMultipleEntitySearch
 	        Thread.sleep(3000);
 	    }
 		
-		String test_element3 = "//div[@class='et-cell et-value-wrap']//following::span[text()='"+searchTerm_2+"']";
+		String test_element3 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Sri']";
 		
 		if(Label.isElementPresent(driver, By.xpath(test_element3)))
 		{
@@ -383,7 +383,7 @@ public class pMultipleEntitySearch
 	    
 	    Thread.sleep(5000);
 	    
-		String test_element_1 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Barack']";
+		String test_element_1 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Political']";
 		
 		if(Label.isElementPresent(driver, By.xpath(test_element_1)))
 		{
@@ -398,6 +398,7 @@ public class pMultipleEntitySearch
     		Element.takescreenshot(driver,className,screenshot_name+"14");
 		}
 		 
+		Thread.sleep(3000);
 		driver.findElement(By.xpath(test_element_1)).click();
 		
 		String test_element2= searchTerm_4;
@@ -412,7 +413,7 @@ public class pMultipleEntitySearch
 		
 		Thread.sleep(5000);
 		
-		String test_element_2 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Michelle']";
+		String test_element_2 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Debate']";
 		
 		if(Label.isElementPresent(driver, By.xpath(test_element_2)))
 		{
@@ -727,7 +728,7 @@ public class pMultipleEntitySearch
 	    
 	    Thread.sleep(5000);
 	    
-		String test_element_1 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Barack']";
+		String test_element_1 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Political']";
 		
 		if(Label.isElementPresent(driver, By.xpath(test_element_1)))
 		{
@@ -756,7 +757,7 @@ public class pMultipleEntitySearch
 		
 		Thread.sleep(5000);
 		
-		String test_element_2 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Michelle']";
+		String test_element_2 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Debate']";
 		
 		if(Label.isElementPresent(driver, By.xpath(test_element_2)))
 		{

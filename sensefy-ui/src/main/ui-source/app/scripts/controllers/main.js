@@ -212,97 +212,49 @@
                     if (isForce == null) {
                         isForce = false;
                     }
-                    var facet, sources, _i, _k, _len, _ref, _lenK;
-                    sources = [];
-                    $scope.isDatasourceTab = false;
-                    if(dataSources.data.facets && !isForce){
-                        if(CONSOLEmode){
-                            var a = '';
-                            if(isJSON) {
-                                a = JSON.stringify(dataSources.data.facets);
-                            }
-                            else{
-                                a = dataSources.data.facets;
-                            }
-                            console.log('initDataSources -> dataSources.data.facets : '+ a)
-                        }
+                    var facet, sources, _i, _k, _len, _ref, _lenK, _p, _lenP, sourceP=[],
+                    sources = [],
+                    tabSources = [];
+                    //$scope.isDatasourceTab = false;
+                    if(dataSources.data.facets && !isForce) {
                         _ref = dataSources.data.facets;
-                        $scope.sources = [];
-                        $scope.allOccurrence = 0;
-                        $scope.isDatasourceTab = true;
-                        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-                            facet = _ref[_i];
-                            if (facet.label === 'Data Source') {
-                                sources = facet.facetItems;
-                                for (_k = 0, _lenK = sources.length; _k < _lenK; _k++) {
-                                    $scope.allOccurrence += eval(sources[_k].occurrence);
-                                }
-                            }
-                        }
-                        allSource.occurrence = $scope.allOccurrence;
-                        sources.unshift(allSource);
-                        if(CONSOLEmode){
-                            var a = '';
-                            if(isJSON) {
-                                a = JSON.stringify(sources);
-                            }
-                            else{
-                                a = sources;
-                            }
-                            console.log('initDataSources -> dataSources.data.facets -> @param:isForce=false - $scope.sources : '+ a)
-                        }
-                        $timeout(function () {
-                            $scope.isDatasourceTab = false;
-                        }, 0);
-                        return $scope.sources = sources;
                     }
 
                     if($scope.responsedData && isForce){
-                        if(CONSOLEmode){
-                            var a = '';
-                            if(isJSON) {
-                                a = JSON.stringify($scope.responsedData.facets);
-                            }
-                            else{
-                                a = $scope.responsedData.facets;
-                            }
-                            console.log('initDataSources -> $scope.responsedData.facets : '+a)
-                        }
-                        $scope.sources = [];
-                        $scope.isDatasourceTab = true;
-
                         _ref = $scope.responsedData.facets;
-                        $scope.sources = [];
-                        $scope.allOccurrence = 0;
-                        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-                            facet = _ref[_i];
-                            if (facet.label === 'Data Source') {
-                                sources = facet.facetItems;
-                                for (_k = 0, _lenK = sources.length; _k < _lenK; _k++) {
-                                    $scope.allOccurrence += eval(sources[_k].occurrence);
-                                }
-                            }
-                        }
-                        allSource.occurrence = $scope.allOccurrence;
-                        sources.unshift(allSource);
-
-                        if(CONSOLEmode){
-                            var a = '';
-                            if(isJSON) {
-                                a = JSON.stringify(sources);
-                            }
-                            else{
-                                a = sources;
-                            }
-                            console.log('initDataSources -> $scope.responsedData.facets -> @param:isForce=true - $scope.sources : '+a)
-                        }
-
-                        $timeout(function () {
-                            $scope.isDatasourceTab = false;
-                        }, 0);
-
-                        $scope.sources = sources;
                     }
+                    
+                    $scope.sources = [];
+                    $scope.allOccurrence = 0;
+                    //$scope.isDatasourceTab = true;
+                    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                        facet = _ref[_i];
+                        if (facet.label === 'Data Source') {
+                            sources = facet.facetItems;
+                            for (_k = 0, _lenK = sources.length; _k < _lenK; _k++) {
+                                $scope.allOccurrence += eval(sources[_k].occurrence);
+                            }
+                        }
+                    }
+                    allSource.occurrence = $scope.allOccurrence;
+                    sources.unshift(allSource);
+
+                    for (_p = 0, _lenP = sources.length; _p < _lenP; _p++) {
+                        sourceP = sources[_p];
+                        if(sourceP.value === $scope.activeSource){
+                            sourceP.active = true;
+                        }
+                        else{
+                            sourceP.active = false;
+                        }
+                        tabSources.push(sourceP);
+                    }
+                    //$scope.activeSource
+
+                    $timeout(function () {
+                        //$scope.isDatasourceTab = false;
+                    }, 0);
+                    return $scope.sources = tabSources;
                 };
                 getActiveSource = function (defaultSource) {
                     var active, s, _i, _len, _ref;
@@ -337,7 +289,7 @@
                 $scope.originalCluster = [];
                 parseFacets = function (response) {
                     var activeSource, facet, _i, _len, _ref;
-                    activeSource = getActiveSource();
+                    //  activeSource = getActiveSource();
 
                     if(CONSOLEmode){
                         var a = '';
@@ -550,6 +502,7 @@
                         return $scope.filtersToShow = [];
                     }
                 };
+                $scope.activeSource = null;
                 $scope.setActiveSource = function (source, runQuery) {
                     var activeSource, pos, s, _i, _len, _ref;
                     if (runQuery == null) {
@@ -568,6 +521,8 @@
                                 s.active = false;
                             }
                             source.active = true;
+                            $scope.activeSource = source.value;
+
                             if (source.filter !== '') {
                                 $scope.filters.push(source.filter);
                             }
@@ -1640,7 +1595,7 @@
                             docIcon = "c icon icn_brown";
                             break;
                         case 'text/html':
-                            docIcon = "file code outline icon icn_yellow";
+                            docIcon = "file code outline icon icn_blue";
                             break;
                         case 'text/plain':
                             docIcon = "file code outline icon icn_yellow";
@@ -1674,6 +1629,10 @@
                         mimetype = 'text/plain';
                     }
 
+                    if(mimetypeParam === 'text/html; charset=utf-8'){
+                        mimetype = 'text/html';
+                    }
+
 
 
                     switch (mimetype) {
@@ -1687,6 +1646,10 @@
                             break;
                         case 'text/plain':
                             $scope.thumbType = "text";
+                            $scope.isThumb = true;
+                            break;
+                        case 'text/html':
+                            $scope.thumbType = "html";
                             $scope.isThumb = true;
                             break;
                         default:
