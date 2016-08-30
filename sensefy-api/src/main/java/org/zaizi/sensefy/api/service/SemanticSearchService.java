@@ -73,7 +73,7 @@ public class SemanticSearchService extends SolrService {
 	}
 	// this field stores in each entity all the document ids containing the entity
 	protected static final String DOC_ID_FIELD = "doc_ids";
-	protected static final String ENTITY_DRIVEN_HIGHLIGH_FIELD = "label";
+	protected static final String ENTITY_DRIVEN_HIGHLIGH_FIELD = "label_highlight";
 	   protected static final String ENTITY_DRIVEN_HIGHLIGH_QUERY_PARAM = "hl.q";
 
 
@@ -289,7 +289,7 @@ public class SemanticSearchService extends SolrService {
 			SolrQuery entityQuery = new SolrQuery();
 			entityQuery.setRequestHandler("/get");
 			entityQuery.set("ids", entityId);
-			entityQuery.setFields("description","thumbnail","label", "id", "thumbnail_base64");
+			entityQuery.setFields("description","thumbnail","label", "id", "thumbnail_base64", "label_highlight");
 			QueryResponse entityResponse;
 			entityResponse = this.getEntityCore().query(entityQuery);
 			List<SolrDocument> entities = entityResponse.getResults();

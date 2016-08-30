@@ -61,6 +61,7 @@ public class MicoIndexUpdater {
 	private static final String IS_ORGANISATION_FIELD = "is_organization";
 	private static final String IS_OTHER_FIELD = "is_other";
 	private static final String CONTENT_FIELD = "content";
+	private static final String LABELS_HIGHLIGHT_FIELD = "label_highlight";
 
 	private static final String IS_PLACE_ONT = "http://dbpedia.org/ontology/Place";
 	private static final String IS_PERSON_ONT = "http://dbpedia.org/ontology/Person";
@@ -186,6 +187,7 @@ public class MicoIndexUpdater {
 
 				entityDoc.addField(DOC_IDS_FIELD, micoItem.getSolrId());
 				String label = linkedEntity.getEntityLabel();
+				entityDoc.addField(LABELS_HIGHLIGHT_FIELD, label);
 				ResultSet results = dbpediaQueryClient.getEntityResults(linkedEntity.getEntityReference());
 				Set<String> typesSet = new HashSet<>();
 				while (results.hasNext()) {
