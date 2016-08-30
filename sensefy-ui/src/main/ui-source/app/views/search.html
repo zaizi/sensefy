@@ -76,7 +76,7 @@
                     <div class="ui tabular menu sources" id="ds-tabs">
                         <a ng-repeat="source in sources" data-datasource-tab="{{source.value}}"
                            data-dynamic-class="{{source.value}}"
-                           ng-class="{active: source.active, hideorshow:isDatasourceTab}"
+                           ng-class="{active: source.active}"
                            ng-click="setActiveSource(source)" tabindex="0"
                            class="item">
                             <span class="labelinfo" translate="{{source.value}}"></span>
