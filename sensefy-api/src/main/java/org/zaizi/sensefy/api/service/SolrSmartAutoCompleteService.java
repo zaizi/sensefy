@@ -133,7 +133,7 @@ public class SolrSmartAutoCompleteService extends SolrService {
 			if (semantic) {
 				// First query to suggest named entities, showing mini details
 				// <field>:<value>
-				numberOfSuggestions = 3;
+				numberOfSuggestions = 10;
 				
 				QueryResponse namedEntitiesQueryResponse;
 				List<SolrDocument> entitiesRetrieved = new ArrayList<>();
