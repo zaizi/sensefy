@@ -357,6 +357,7 @@ sub, sup {
     margin-right: 2%;
     width: 48%;
     position: relative;
+    margin-bottom:16px;
 }
 
 .entity-information{
@@ -388,7 +389,7 @@ sub, sup {
     top: 15px;
     left: 38px;
     z-index: 1000;
-    background-color: #e9e9e9;
+    background-color: #ddd;
     border-radius: 4px;
     color: #555;
     font-size: 12px;
@@ -401,6 +402,7 @@ sub, sup {
     border: 1px solid #ccc;
     overflow: visible;
     height: auto;
+    z-index: 1001;
 }
 
 
