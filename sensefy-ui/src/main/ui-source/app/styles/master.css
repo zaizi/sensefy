@@ -209,6 +209,12 @@ sub, sup {
 .suggestions-wrapper .sub-header {
     min-height: 10px;
     padding: 8px 15px 8px 6px;
+    cursor: default;
+}
+.suggestions-wrapper .sub-header span {
+    position: absolute;
+    right: 8px;
+    cursor: pointer;
 }
 
 .suggestions-wrapper .suggestion {
@@ -289,7 +295,7 @@ sub, sup {
     margin-top: -1px !important;
 }
 
-.entity, .entity-type, .suggestion {
+.entity, .entity-type, .suggestion .et-cell.et-value-wrap {
     cursor: pointer;
 }
 
@@ -1616,3 +1622,9 @@ div[data-tree-model] li .selected {
 }
 
 .ui.form.results-per-page .fields {margin-bottom: 0;}
+
+
+
+.readyToHide{
+    display: none !important;
+}

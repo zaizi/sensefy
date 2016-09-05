@@ -103,6 +103,159 @@
                                 clnresult = body.replace(regex, "");
                             $scope.queryTerm = clnresult;
                         };
+
+
+
+
+
+
+
+                        var isOrgExpand = false, isPplExpand = false, isPlcExpand = false, isConExpand = false;
+                        var entityExpand, entityCollapse, clearEntity;
+                        $scope.pplLebal = 'Show more';
+                        $scope.plcLebal = 'Show more';
+                        $scope.conLebal = 'Show more';
+                        $scope.orgLebal = 'Show more';
+                        //ppl,plc,con,org
+
+                        entityExpand = function(entityCat, elementEntityVisible){
+                            $(elementEntityVisible).removeClass('readyToHide');console.log('121 entityExpand');
+                        };
+
+                        entityCollapse = function(entityCat, elementEntity){ console.log('125 entityCollapse');
+                            $(elementEntity).each(function(i,e){
+                                if(i>=3){
+                                    $(this).addClass('readyToHide');
+                                }
+                            });
+                        };
+
+                        clearEntity = function(entitySet){
+                            var a; console.log('133 clearEntity');
+
+                            a = '.'+entitySet+' .et-value:visible';
+                            $(a).each(function(i,e){
+                                if(i>=3){
+                                    $(this).addClass('readyToHide');
+                                }
+                            });
+                        };
+
+
+                        $scope.orgEntity = function(entityCat){
+                            $(".suggestions-wrapper").fadeIn();
+                            console.log('145 '+entityCat);
+
+                            if(isOrgExpand){
+                                entityCollapse(entityCat, '.org .et-value:visible');
+                                isOrgExpand = false;
+                                $scope.orgLebal = 'Show more';
+                            }
+                            else{
+                                clearEntity('ppl');
+                                clearEntity('plc');
+                                clearEntity('con');
+                                $scope.pplLebal = 'Show more';
+                                $scope.plcLebal = 'Show more';
+                                $scope.conLebal = 'Show more';
+
+                                entityExpand(entityCat, '.org .et-value');
+                                isOrgExpand = true;
+                                $scope.orgLebal = 'Show less';
+
+                                isPplExpand = false;
+                                isPlcExpand = false;
+                                isConExpand = false;
+                            }
+                        };
+
+                        $scope.pplEntity = function(entityCat){
+                            $(".suggestions-wrapper").fadeIn();
+                            console.log('165 '+entityCat);
+
+                            if(isPplExpand){
+                                entityCollapse(entityCat, '.ppl .et-value:visible');
+                                isPplExpand = false;
+                                $scope.pplLebal = 'Show more';
+                            }
+                            else{
+                                clearEntity('org');
+                                clearEntity('plc');
+                                clearEntity('con');
+                                $scope.orgLebal = 'Show more';
+                                $scope.plcLebal = 'Show more';
+                                $scope.conLebal = 'Show more';
+
+                                entityExpand(entityCat, '.ppl .et-value');
+                                isPplExpand = true;
+                                $scope.pplLebal = 'Show less';
+
+                                isOrgExpand = false;
+                                isPlcExpand = false;
+                                isConExpand = false;
+                            }
+                        };
+
+                        $scope.plcEntity = function(entityCat){
+                            $(".suggestions-wrapper").fadeIn();
+                            console.log('185 '+entityCat);
+
+                            if(isPlcExpand){
+                                entityCollapse(entityCat, '.plc .et-value:visible');
+                                isPlcExpand = false;
+                                $scope.plcLebal = 'Show more';
+                            }
+                            else{
+                                clearEntity('ppl');
+                                clearEntity('org');
+                                clearEntity('con');
+                                $scope.pplLebal = 'Show more';
+                                $scope.orgLebal = 'Show more';
+                                $scope.conLebal = 'Show more';
+
+                                entityExpand(entityCat, '.plc .et-value');
+                                isPlcExpand = true;
+                                $scope.plcLebal = 'Show less';
+
+                                isPplExpand = false;
+                                isOrgExpand = false;
+                                isConExpand = false;
+                            }
+                        };
+
+                        $scope.conEntity = function(entityCat){
+                            $(".suggestions-wrapper").fadeIn();
+                            console.log('205 '+entityCat);
+
+                            if(isConExpand){
+                                entityCollapse(entityCat, '.con .et-value:visible');
+                                isConExpand = false;
+                                $scope.conLebal = 'Show more';
+                            }
+                            else{
+                                clearEntity('ppl');
+                                clearEntity('plc');
+                                clearEntity('org');
+                                $scope.pplLebal = 'Show more';
+                                $scope.plcLebal = 'Show more';
+                                $scope.orgLebal = 'Show more';
+
+                                entityExpand(entityCat, '.con .et-value');
+                                isConExpand = true;
+                                $scope.conLebal = 'Show less';
+
+                                isPplExpand = false;
+                                isPlcExpand = false;
+                                isOrgExpand = false;
+                            }
+                        };
+
+
+
+
+
+
+
                         phase1 = function () {
                             if ($scope.queryTerm.length === 0) {
                                 return 0;
@@ -502,7 +655,7 @@
                             input.prop('readonly', false);
                             return input.attr('placeholder', placeholder);
                         });
-                        return scope.$on('entityTypeAttributeValueCleaned', function () {
+                        scope.$on('entityTypeAttributeValueCleaned', function () {
                             var filtersWidth;
                             scope.autocomplete();
                             suggestionsWrapper.fadeIn();
@@ -602,10 +755,7 @@
                     controller: function ($scope) {
                     },
                     link: function (scope, element, attrs) {
-
                         attrs.$observe('entityDataSet', function (val) {
-
-                            console.log(val);
 
                             var b = setTimeout(function () {
                                 $('.et-row').removeClass('hide-it');
@@ -618,6 +768,35 @@
                                         $(this).addClass('hide-it');
                                     }
                                 });
+
+                                var defaultEntitySize = 3;
+
+                                $('.org .et-value:visible').each(function(i,e){
+                                    console.log('org i '+i);
+                                    if(i>=defaultEntitySize){
+                                        $(this).addClass('readyToHide');
+                                    }
+                                });
+                                $('.ppl .et-value:visible').each(function(i,e){
+                                    console.log('ppl i '+i);
+                                    if(i>=defaultEntitySize){
+                                        $(this).addClass('readyToHide');
+                                    }
+                                });
+                                $('.plc .et-value:visible').each(function(i,e){
+                                    console.log('plc i '+i);
+                                    if(i>=defaultEntitySize){
+                                        $(this).addClass('readyToHide');
+                                    }
+                                });
+                                $('.con .et-value:visible').each(function(i,e){
+                                    console.log('con i '+i);
+                                    if(i>=defaultEntitySize){
+                                        $(this).addClass('readyToHide');
+                                    }
+                                });
+                                console.log('entityDataSet is closed');
+
                                 clearTimeout(b);
                             }, 250);
 

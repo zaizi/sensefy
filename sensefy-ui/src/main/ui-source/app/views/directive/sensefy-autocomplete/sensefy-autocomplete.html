@@ -35,9 +35,9 @@
                 <li class="entity suggestion" entity-is-available entity-data-set="{{suggestions.entities}}">
                     <div class="et-table et-wrapper">
                         <div class="et-row one">
-                            <div class="sub-header"><i class="user icon"></i>People</div>
+                            <div class="sub-header"><i class="user icon"></i>People <span ng-click="pplEntity('ppl')">{{pplLebal}} <i class="caret right icon"></i></span> </div>
                             <div class="et-cell et-label-wrap"></div>
-                            <div class="et-cell et-value-wrap">
+                            <div class="et-cell et-value-wrap ppl">
                                 <div class="et-value"
                                      ng-repeat="entity in suggestions.entities"
                                      ng-include="'views/partial/entity-template-people.html'"
@@ -45,9 +45,9 @@
                             </div>
                         </div>
                         <div class="et-row two">
-                            <div class="sub-header"><i class="pin icon"></i>Places</div>
+                            <div class="sub-header"><i class="pin icon"></i>Places <span ng-click="plcEntity('plc')">{{plcLebal}} <i class="caret right icon"></i></span> </div>
                             <div class="et-cell et-label-wrap"></div>
-                            <div class="et-cell et-value-wrap">
+                            <div class="et-cell et-value-wrap plc">
                                 <div class="et-value"
                                      ng-repeat="entity in suggestions.entities"
                                      ng-include="'views/partial/entity-template-place.html'"
@@ -55,19 +55,19 @@
                             </div>
                         </div>
                         <div class="et-row three" >
-                            <div class="sub-header"><i class="sitemap icon"></i>Organizations</div>
+                            <div class="sub-header"><i class="sitemap icon"></i>Organizations <span ng-click="orgEntity('org')">{{orgLebal}} <i class="caret right icon"></i></span> </div>
                             <div class="et-cell et-label-wrap"></div>
-                            <div class="et-cell et-value-wrap">
-                                <div class="et-value"
+                            <div class="et-cell et-value-wrap org">
+                                <div class="et-value entity-item"
                                      ng-repeat="entity in suggestions.entities"
                                      ng-include="'views/partial/entity-template-org.html'"
                                      ng-show="entity.is_organization"></div>
                             </div>
                         </div>
                         <div class="et-row three" >
-                            <div class="sub-header"><i class="idea icon"></i>Concepts</div>
+                            <div class="sub-header"><i class="idea icon"></i>Concepts <span ng-click="conEntity('con')">{{conLebal}} <i class="caret right icon"></i></span> </div>
                             <div class="et-cell et-label-wrap"></div>
-                            <div class="et-cell et-value-wrap">
+                            <div class="et-cell et-value-wrap con">
                                 <div class="et-value"
                                      ng-repeat="entity in suggestions.entities"
                                      ng-include="'views/partial/entity-template-other.html'"

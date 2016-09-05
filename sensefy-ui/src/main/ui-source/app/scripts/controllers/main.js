@@ -215,7 +215,7 @@
                     var facet, sources, _i, _k, _len, _ref, _lenK, _p, _lenP, sourceP=[],
                     sources = [],
                     tabSources = [];
-                    //$scope.isDatasourceTab = false;
+                    $scope.isDatasourceTab = true;
                     if(dataSources.data.facets && !isForce) {
                         _ref = dataSources.data.facets;
                     }
@@ -223,10 +223,9 @@
                     if($scope.responsedData && isForce){
                         _ref = $scope.responsedData.facets;
                     }
-                    
+
                     $scope.sources = [];
                     $scope.allOccurrence = 0;
-                    //$scope.isDatasourceTab = true;
                     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
                         facet = _ref[_i];
                         if (facet.label === 'Data Source') {
@@ -249,11 +248,10 @@
                         }
                         tabSources.push(sourceP);
                     }
-                    //$scope.activeSource
 
                     $timeout(function () {
-                        //$scope.isDatasourceTab = false;
-                    }, 0);
+                        $scope.isDatasourceTab = false;
+                    }, 10);
                     return $scope.sources = tabSources;
                 };
                 getActiveSource = function (defaultSource) {
