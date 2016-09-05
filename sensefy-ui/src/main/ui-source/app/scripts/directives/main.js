@@ -110,8 +110,11 @@
 
 
 
-                        var isOrgExpand = false, isPplExpand = false, isPlcExpand = false, isConExpand = false;
-                        var entityExpand, entityCollapse, clearEntity;
+                        $scope.isOrgExpand = false;
+                        $scope.isPplExpand = false;
+                        $scope.isPlcExpand = false;
+                        $scope.isConExpand = false;
+                        var entityExpand, entityCollapse;
                         $scope.pplLebal = 'Show more';
                         $scope.plcLebal = 'Show more';
                         $scope.conLebal = 'Show more';
@@ -130,7 +133,7 @@
                             });
                         };
 
-                        clearEntity = function(entitySet){
+                        $scope.clearEntity = function(entitySet){
                             var a; console.log('133 clearEntity');
 
                             a = '.'+entitySet+' .et-value:visible';
@@ -146,26 +149,26 @@
                             $(".suggestions-wrapper").fadeIn();
                             console.log('145 '+entityCat);
 
-                            if(isOrgExpand){
+                            if($scope.isOrgExpand){
                                 entityCollapse(entityCat, '.org .et-value:visible');
-                                isOrgExpand = false;
+                                $scope.isOrgExpand = false;
                                 $scope.orgLebal = 'Show more';
                             }
                             else{
-                                clearEntity('ppl');
-                                clearEntity('plc');
-                                clearEntity('con');
+                                $scope.clearEntity('ppl');
+                                $scope.clearEntity('plc');
+                                $scope.clearEntity('con');
                                 $scope.pplLebal = 'Show more';
                                 $scope.plcLebal = 'Show more';
                                 $scope.conLebal = 'Show more';
 
                                 entityExpand(entityCat, '.org .et-value');
-                                isOrgExpand = true;
+                                $scope.isOrgExpand = true;
                                 $scope.orgLebal = 'Show less';
 
-                                isPplExpand = false;
-                                isPlcExpand = false;
-                                isConExpand = false;
+                                $scope.isPplExpand = false;
+                                $scope.isPlcExpand = false;
+                                $scope.isConExpand = false;
                             }
                         };
 
@@ -173,26 +176,26 @@
                             $(".suggestions-wrapper").fadeIn();
                             console.log('165 '+entityCat);
 
-                            if(isPplExpand){
+                            if($scope.isPplExpand){
                                 entityCollapse(entityCat, '.ppl .et-value:visible');
-                                isPplExpand = false;
+                                $scope.isPplExpand = false;
                                 $scope.pplLebal = 'Show more';
                             }
                             else{
-                                clearEntity('org');
-                                clearEntity('plc');
-                                clearEntity('con');
+                                $scope.clearEntity('org');
+                                $scope.clearEntity('plc');
+                                $scope.clearEntity('con');
                                 $scope.orgLebal = 'Show more';
                                 $scope.plcLebal = 'Show more';
                                 $scope.conLebal = 'Show more';
 
                                 entityExpand(entityCat, '.ppl .et-value');
-                                isPplExpand = true;
+                                $scope.isPplExpand = true;
                                 $scope.pplLebal = 'Show less';
 
-                                isOrgExpand = false;
-                                isPlcExpand = false;
-                                isConExpand = false;
+                                $scope.isOrgExpand = false;
+                                $scope.isPlcExpand = false;
+                                $scope.isConExpand = false;
                             }
                         };
 
@@ -200,26 +203,26 @@
                             $(".suggestions-wrapper").fadeIn();
                             console.log('185 '+entityCat);
 
-                            if(isPlcExpand){
+                            if($scope.isPlcExpand){
                                 entityCollapse(entityCat, '.plc .et-value:visible');
-                                isPlcExpand = false;
+                                $scope.isPlcExpand = false;
                                 $scope.plcLebal = 'Show more';
                             }
                             else{
-                                clearEntity('ppl');
-                                clearEntity('org');
-                                clearEntity('con');
+                                $scope.clearEntity('ppl');
+                                $scope.clearEntity('org');
+                                $scope.clearEntity('con');
                                 $scope.pplLebal = 'Show more';
                                 $scope.orgLebal = 'Show more';
                                 $scope.conLebal = 'Show more';
 
                                 entityExpand(entityCat, '.plc .et-value');
-                                isPlcExpand = true;
+                                $scope.isPlcExpand = true;
                                 $scope.plcLebal = 'Show less';
 
-                                isPplExpand = false;
-                                isOrgExpand = false;
-                                isConExpand = false;
+                                $scope.isPplExpand = false;
+                                $scope.isOrgExpand = false;
+                                $scope.isConExpand = false;
                             }
                         };
 
@@ -227,26 +230,26 @@
                             $(".suggestions-wrapper").fadeIn();
                             console.log('205 '+entityCat);
 
-                            if(isConExpand){
+                            if($scope.isConExpand){
                                 entityCollapse(entityCat, '.con .et-value:visible');
-                                isConExpand = false;
+                                $scope.isConExpand = false;
                                 $scope.conLebal = 'Show more';
                             }
                             else{
-                                clearEntity('ppl');
-                                clearEntity('plc');
-                                clearEntity('org');
+                                $scope.clearEntity('ppl');
+                                $scope.clearEntity('plc');
+                                $scope.clearEntity('org');
                                 $scope.pplLebal = 'Show more';
                                 $scope.plcLebal = 'Show more';
                                 $scope.orgLebal = 'Show more';
 
                                 entityExpand(entityCat, '.con .et-value');
-                                isConExpand = true;
+                                $scope.isConExpand = true;
                                 $scope.conLebal = 'Show less';
 
-                                isPplExpand = false;
-                                isPlcExpand = false;
-                                isOrgExpand = false;
+                                $scope.isPplExpand = false;
+                                $scope.isPlcExpand = false;
+                                $scope.isOrgExpand = false;
                             }
                         };
 
@@ -309,6 +312,23 @@
                                 if (CONSOLEmode) {
                                     console.log('SmartAutocompleteService.phase1($scope.queryTerm).then(function (response) {}')
                                 }
+
+                                $timeout(function () {
+                                    $scope.clearEntity('ppl');
+                                    $scope.clearEntity('plc');
+                                    $scope.clearEntity('org');
+                                    $scope.clearEntity('con');
+                                    $scope.pplLebal = 'Show more1';
+                                    $scope.plcLebal = 'Show more1';
+                                    $scope.orgLebal = 'Show more1';
+                                    $scope.conLebal = 'Show more1';
+
+                                    $scope.isPplExpand = false;
+                                    $scope.isPlcExpand = false;
+                                    $scope.isOrgExpand = false;
+                                    $scope.isConExpand = false;
+                                    console.log('cleanEntity() is fired inside phace 01');
+                                }, 250);
 
                             }, function (response) {
                                 $scope.$parent.logout();
@@ -466,6 +486,24 @@
                             if (scope.autocompletePhase !== "") {
                                 suggestionsWrapper.fadeIn();
                             }
+                            if(scope.queryTerm !==''){
+                                $timeout(function () {
+                                    scope.clearEntity('ppl');
+                                    scope.clearEntity('plc');
+                                    scope.clearEntity('org');
+                                    scope.clearEntity('con');
+                                    scope.pplLebal = 'Show more1';
+                                    scope.plcLebal = 'Show more1';
+                                    scope.orgLebal = 'Show more1';
+                                    scope.conLebal = 'Show more1';
+
+                                    scope.isPplExpand = false;
+                                    scope.isPlcExpand = false;
+                                    scope.isOrgExpand = false;
+                                    scope.isConExpand = false;
+                                }, 250);
+                                console.log('scope.queryTerm !== is fired for scope.clearEntity');
+                            }
                         });
                         input.on('blur', function () {
                             scope.showSuggestions = false;
@@ -532,58 +570,6 @@
                                         angular.element('body').removeClass('ggl');
                                     }
                                 }
-
-
-                                /*$(".button.stop").on("click",function(){
-                                    $(".selection-container").keySelection("stop");
-                                    return false;
-                                });
-                                $(".button.start").on("click",function(){
-                                    $(".selection-container").keySelection("start");
-                                    return false;
-                                });
-                                $(".button.select").on("click",function(){
-                                    $(".selection-container").keySelection("select");
-                                    return false;
-                                })*/;
-
-                                /*validTitle = scope.suggestions.titles !== null && scope.suggestions.titles !== void 0 && scope.suggestions.titles.length > 0;
-
-                                validSuggestion = scope.suggestions.suggestions;
-
-                                if (!validTitle && !validSuggestion) {
-                                    //return;
-                                }
-                                maxTitles = scope.suggestions.titles.length - 1;
-                                if (scope.selectedTitleIndex >= 0) {
-                                    scope.suggestions.titles[scope.selectedTitleIndex].selected = false;
-                                }
-                                if ((event != null ? event.keyCode : void 0) === 40) {
-                                    scope.selectedTitleIndex = scope.selectedTitleIndex < maxTitles ? scope.selectedTitleIndex + 1 : -1;
-                                } else if ((event != null ? event.keyCode : void 0) === 38) {
-                                    scope.selectedTitleIndex = scope.selectedTitleIndex > -1 ? scope.selectedTitleIndex - 1 : scope.selectedTitleIndex = maxTitles;
-                                }
-                                if (scope.selectedTitleIndex >= 0) {
-                                    scope.suggestions.titles[scope.selectedTitleIndex].selected = true;
-
-                                    var regex = /(<([^>]+)>)/ig,
-                                        body = scope.suggestions.titles[scope.selectedTitleIndex].document_suggestion,
-                                        clnresult = body.replace(regex, "");
-                                    scope.queryTerm = clnresult;
-                                    if (DEBUGmode) {
-                                        console.log('scope.queryTerm scope.selectedTitleIndex >=0, this appears on search box ' + scope.queryTerm);
-                                    }
-                                }
-                                if (scope.selectedTitleIndex === -1) {
-
-                                    var regex = /(<([^>]+)>)/ig,
-                                        body = scope.originalAutocompleteQueryTerm,
-                                        clnresult = body.replace(regex, "");
-                                    scope.queryTerm = clnresult;
-                                    if (DEBUGmode) {
-                                        console.log('scope.queryTerm scope.selectedTitleIndex === -1, this appears on search box ' + scope.queryTerm);
-                                    }
-                                }*/
                                 scope.$digest();
                             }
                         });
@@ -795,7 +781,7 @@
                                         $(this).addClass('readyToHide');
                                     }
                                 });
-                                console.log('entityDataSet is closed');
+                                console.log('entityDataSet is called');
 
                                 clearTimeout(b);
                             }, 250);
