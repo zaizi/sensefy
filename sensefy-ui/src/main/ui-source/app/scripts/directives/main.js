@@ -119,22 +119,27 @@
                         $scope.plcLebal = 'Show more';
                         $scope.conLebal = 'Show more';
                         $scope.orgLebal = 'Show more';
+
+                        $scope.isPplEntity = true;
+                        $scope.isPlcEntity = true;
+                        $scope.isOrgEntity = true;
+                        $scope.isComEntity = true;
                         //ppl,plc,con,org
 
                         entityExpand = function(entityCat, elementEntityVisible){
-                            $(elementEntityVisible).removeClass('readyToHide');console.log('121 entityExpand');
+                            $(elementEntityVisible).removeClass('readyToHide');console.log('entityExpand');
                         };
-
-                        entityCollapse = function(entityCat, elementEntity){ console.log('125 entityCollapse');
+                        entityCollapse = function(entityCat, elementEntity, entityScop){ console.log('entityCollapse');
                             $(elementEntity).each(function(i,e){
                                 if(i>=3){
                                     $(this).addClass('readyToHide');
+                                    console.log('entityCollapse');
                                 }
                             });
                         };
 
                         $scope.clearEntity = function(entitySet){
-                            var a; console.log('133 clearEntity');
+                            var a; console.log('clearEntity');
 
                             a = '.'+entitySet+' .et-value:visible';
                             $(a).each(function(i,e){
@@ -147,10 +152,10 @@
 
                         $scope.orgEntity = function(entityCat){
                             $(".suggestions-wrapper").fadeIn();
-                            console.log('145 '+entityCat);
+                            console.log('orgEntity '+entityCat);
 
                             if($scope.isOrgExpand){
-                                entityCollapse(entityCat, '.org .et-value:visible');
+                                entityCollapse(entityCat, '.org .et-value:visible', 'org');
                                 $scope.isOrgExpand = false;
                                 $scope.orgLebal = 'Show more';
                             }
@@ -174,10 +179,10 @@
 
                         $scope.pplEntity = function(entityCat){
                             $(".suggestions-wrapper").fadeIn();
-                            console.log('165 '+entityCat);
+                            console.log('pplEntity '+entityCat);
 
                             if($scope.isPplExpand){
-                                entityCollapse(entityCat, '.ppl .et-value:visible');
+                                entityCollapse(entityCat, '.ppl .et-value:visible', 'ppl');
                                 $scope.isPplExpand = false;
                                 $scope.pplLebal = 'Show more';
                             }
@@ -201,10 +206,10 @@
 
                         $scope.plcEntity = function(entityCat){
                             $(".suggestions-wrapper").fadeIn();
-                            console.log('185 '+entityCat);
+                            console.log('plcEntity '+entityCat);
 
                             if($scope.isPlcExpand){
-                                entityCollapse(entityCat, '.plc .et-value:visible');
+                                entityCollapse(entityCat, '.plc .et-value:visible', 'plc');
                                 $scope.isPlcExpand = false;
                                 $scope.plcLebal = 'Show more';
                             }
@@ -228,10 +233,10 @@
 
                         $scope.conEntity = function(entityCat){
                             $(".suggestions-wrapper").fadeIn();
-                            console.log('205 '+entityCat);
+                            console.log('conEntity '+entityCat);
 
                             if($scope.isConExpand){
-                                entityCollapse(entityCat, '.con .et-value:visible');
+                                entityCollapse(entityCat, '.con .et-value:visible', 'con');
                                 $scope.isConExpand = false;
                                 $scope.conLebal = 'Show more';
                             }
@@ -251,6 +256,22 @@
                                 $scope.isPlcExpand = false;
                                 $scope.isOrgExpand = false;
                             }
+                        };
+                        $scope.resetEntitySug = function(){
+                            $scope.clearEntity('ppl');
+                            $scope.clearEntity('plc');
+                            $scope.clearEntity('org');
+                            $scope.clearEntity('con');
+                            $scope.pplLebal = 'Show more';
+                            $scope.plcLebal = 'Show more';
+                            $scope.orgLebal = 'Show more';
+                            $scope.conLebal = 'Show more';
+
+                            $scope.isPplExpand = false;
+                            $scope.isPlcExpand = false;
+                            $scope.isOrgExpand = false;
+                            $scope.isConExpand = false;
+                            console.log('resetEntitySug');
                         };
 
 
@@ -314,20 +335,8 @@
                                 }
 
                                 $timeout(function () {
-                                    $scope.clearEntity('ppl');
-                                    $scope.clearEntity('plc');
-                                    $scope.clearEntity('org');
-                                    $scope.clearEntity('con');
-                                    $scope.pplLebal = 'Show more1';
-                                    $scope.plcLebal = 'Show more1';
-                                    $scope.orgLebal = 'Show more1';
-                                    $scope.conLebal = 'Show more1';
-
-                                    $scope.isPplExpand = false;
-                                    $scope.isPlcExpand = false;
-                                    $scope.isOrgExpand = false;
-                                    $scope.isConExpand = false;
-                                    console.log('cleanEntity() is fired inside phace 01');
+                                    $scope.resetEntitySug();
+                                    console.log('cleanEntity() is fired inside phase1');
                                 }, 250);
 
                             }, function (response) {
@@ -488,19 +497,7 @@
                             }
                             if(scope.queryTerm !==''){
                                 $timeout(function () {
-                                    scope.clearEntity('ppl');
-                                    scope.clearEntity('plc');
-                                    scope.clearEntity('org');
-                                    scope.clearEntity('con');
-                                    scope.pplLebal = 'Show more1';
-                                    scope.plcLebal = 'Show more1';
-                                    scope.orgLebal = 'Show more1';
-                                    scope.conLebal = 'Show more1';
-
-                                    scope.isPplExpand = false;
-                                    scope.isPlcExpand = false;
-                                    scope.isOrgExpand = false;
-                                    scope.isConExpand = false;
+                                    scope.resetEntitySug();
                                 }, 250);
                                 console.log('scope.queryTerm !== is fired for scope.clearEntity');
                             }
@@ -734,8 +731,8 @@
                     }
                 };
             }
-        ]).directive("entityIsAvailable", ['$parse', 'DEBUGmode', 'CONSOLEmode', 'isJSON',
-            function ($parse, DEBUGmode, CONSOLEmode, isJSON) {
+        ]).directive("entityIsAvailable", ['$parse', 'DEBUGmode', 'CONSOLEmode', 'isJSON', '$timeout',
+            function ($parse, DEBUGmode, CONSOLEmode, isJSON, $timeout) {
                 return {
                     restrict: "EA",
                     controller: function ($scope) {
@@ -758,25 +755,21 @@
                                 var defaultEntitySize = 3;
 
                                 $('.org .et-value:visible').each(function(i,e){
-                                    console.log('org i '+i);
                                     if(i>=defaultEntitySize){
                                         $(this).addClass('readyToHide');
                                     }
                                 });
                                 $('.ppl .et-value:visible').each(function(i,e){
-                                    console.log('ppl i '+i);
                                     if(i>=defaultEntitySize){
                                         $(this).addClass('readyToHide');
                                     }
                                 });
                                 $('.plc .et-value:visible').each(function(i,e){
-                                    console.log('plc i '+i);
                                     if(i>=defaultEntitySize){
                                         $(this).addClass('readyToHide');
                                     }
                                 });
                                 $('.con .et-value:visible').each(function(i,e){
-                                    console.log('con i '+i);
                                     if(i>=defaultEntitySize){
                                         $(this).addClass('readyToHide');
                                     }
@@ -785,6 +778,42 @@
 
                                 clearTimeout(b);
                             }, 250);
+
+                            $timeout(function(){
+                                if($('.con .et-value:visible').length > 2){
+                                    scope.isConEntity = true;
+                                    console.log("$(.con .et-value:visible).length "+$('.con .et-value:visible').length);
+                                }
+                                else{
+                                    scope.isConEntity = false;
+                                    console.log('com else');
+                                }
+                                if($('.org .et-value:visible').length > 2){
+                                    scope.isOrgEntity = true;
+                                    console.log("$(.org .et-value:visible).length "+$('.org .et-value:visible').length);
+                                }
+                                else{
+                                    scope.isOrgEntity = false;
+                                    console.log('org else');
+                                }
+                                if($('.ppl .et-value:visible').length > 2){
+                                    scope.isPplEntity = true;
+                                    console.log("$(.ppl .et-value:visible).length "+$('.ppl .et-value:visible').length);
+                                }
+                                else{
+                                    scope.isPplEntity = false;
+                                    console.log('ppl else');
+                                }
+                                if($('.plc .et-value:visible').length > 2){
+                                    scope.isPlcEntity = true;
+                                    console.log("$(.plc .et-value:visible).length "+$('.plc .et-value:visible').length);
+                                }
+                                else{
+                                    scope.isPlcEntity = false;
+                                    console.log('plc else');
+                                }
+                                console.log('$timeout with 500ms is called');
+                            },500);
 
 
 

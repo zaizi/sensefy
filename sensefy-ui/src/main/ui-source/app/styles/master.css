@@ -389,7 +389,7 @@ sub, sup {
     top: 15px;
     left: 38px;
     z-index: 1000;
-    background-color: #ddd;
+    background-color: #E9E9E9;
     border-radius: 4px;
     color: #555;
     font-size: 12px;
@@ -403,6 +403,7 @@ sub, sup {
     overflow: visible;
     height: auto;
     z-index: 1001;
+    background-color: #ddd;
 }
 
 
