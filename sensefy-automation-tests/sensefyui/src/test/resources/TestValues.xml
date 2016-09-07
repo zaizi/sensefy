@@ -146,14 +146,17 @@
 			<searchTerm_2>Sri Lanka</searchTerm_2>
 			<searchTerm_3>Political campaign</searchTerm_3>
 			<searchTerm_4>Debate</searchTerm_4>
-			<sortby_Relevance>02.700k.&#46;mp4</sortby_Relevance>
-			<SortByName>01.700k.&#46;mp4</SortByName>
-			<SortByTitle>01.700k.&#46;mp4</SortByTitle>
-			<SortByCreated>03.700k.&#46;mp4</SortByCreated>
-			<SortByModified>03.700k.&#46;mp4</SortByModified>
-			<SortByCreator>02.700k.&#46;mp4</SortByCreator>
-			<SortByModifier>02.700k.&#46;mp4</SortByModifier>
-			<FilterByCreator>02.700k.&#46;mp4</FilterByCreator>
+			<sortby_Relevance>02.700k&#46;mp4</sortby_Relevance>
+			<SortByName>01.700k&#46;mp4</SortByName>
+			<SortByTitle>01.700k&#46;mp4</SortByTitle>
+			<SortByCreated>03.700k&#46;wav</SortByCreated>
+			<SortByModified>03.700k&#46;wav</SortByModified>
+			<SortByCreator>02.700k&#46;mp4</SortByCreator>
+			<SortByModifier>02.700k&#46;mp4</SortByModifier>
+			<FilterByCreator>02.700k&#46;mp4</FilterByCreator>
+			<FilterByDocumentType1>02.700k&#46;wav</FilterByDocumentType1>
+			<FilterByDocumentType2>02.700k&#46;mp4</FilterByDocumentType2>
+			<FilterByLanguage>02.700k&#46;mp4</FilterByLanguage>
 			<screenshot_name>multipleEntity</screenshot_name>
 		</test>
 	</pMultipleEntitySearch>

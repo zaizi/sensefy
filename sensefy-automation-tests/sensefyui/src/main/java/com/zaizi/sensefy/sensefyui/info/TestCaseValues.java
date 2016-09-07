@@ -228,6 +228,9 @@ public class TestCaseValues {
                 						getValue("SortByCreator", valueElement), 
                 						getValue("SortByModifier", valueElement),
                 						getValue("FilterByCreator", valueElement),
+                						getValue("FilterByDocumentType1", valueElement),
+                						getValue("FilterByDocumentType2", valueElement),
+                						getValue("FilterByLanguage", valueElement),
                 						getValue("screenshot_name", valueElement)
                 	};
                 	
