@@ -57,6 +57,9 @@ public class pMultipleEntitySearch
 	public String FilterByDocumentType1;
 	public String FilterByDocumentType2;
 	public String FilterByLanguage;
+	public String FilterBySize1;
+	public String FilterBySize2;
+	public String FilterBySize3;
 	public String screenshot_name;
 	
 	/**
@@ -75,11 +78,35 @@ public class pMultipleEntitySearch
 	public static String className = pMultipleEntitySearch.class.getSimpleName();
 
 	
-	
+	/**
+	 * 
+	 * @param username
+	 * @param password
+	 * @param searchTerm_1
+	 * @param searchTerm_2
+	 * @param searchTerm_3
+	 * @param searchTerm_4
+	 * @param sortByRelevance
+	 * @param sortByName
+	 * @param sortByTitle
+	 * @param sortByCreated
+	 * @param sortByModified
+	 * @param sortByCreator
+	 * @param sortByModifier
+	 * @param FilterByCreator
+	 * @param FilterByDocumentType1
+	 * @param FilterByDocumentType2
+	 * @param FilterByLanguage
+	 * @param FilterBySize1
+	 * @param FilterBySize2
+	 * @param FilterBySize3
+	 * @param screenshot_name
+	 */
 	public pMultipleEntitySearch(String username, String password, String searchTerm_1, String searchTerm_2,
 			String searchTerm_3, String searchTerm_4, String sortByRelevance, String sortByName, String sortByTitle,
 			String sortByCreated, String sortByModified, String sortByCreator, String sortByModifier, String FilterByCreator,
-			String FilterByDocumentType1, String FilterByDocumentType2, String FilterByLanguage,String screenshot_name) 
+			String FilterByDocumentType1, String FilterByDocumentType2, String FilterByLanguage,String FilterBySize1,
+			String FilterBySize2, String FilterBySize3, String screenshot_name) 
 	{
 		this.username = username;
 		this.password = password;
@@ -98,6 +125,9 @@ public class pMultipleEntitySearch
 		this.FilterByDocumentType1 =FilterByDocumentType1;
 		this.FilterByDocumentType2 = FilterByDocumentType2;
 		this.FilterByLanguage = FilterByLanguage;
+		this.FilterBySize1 = FilterBySize1;
+		this.FilterBySize2 = FilterBySize2;
+		this.FilterBySize3 = FilterBySize3;
 		this.screenshot_name = screenshot_name;
 	}
 
@@ -134,7 +164,7 @@ public class pMultipleEntitySearch
 		
 		LOGGER.info("Navigate to Sensefy Local Url");
 		driver = TestCaseProperties.getSensefyLocalHost();
-		//driver.manage().window().setSize(new Dimension(1920, 1920));
+		driver.manage().window().setSize(new Dimension(1920, 1920));
 		
 		String currentUrl1 = driver.getCurrentUrl().toString();
 		
@@ -168,7 +198,7 @@ public class pMultipleEntitySearch
 		LOGGER.info("Multiple Entity Search in Sensefy - Search for two Entities");
 		extent.startTest("Multiple Entity Search in Sensefy - Search for two Entities");
 		
-		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		 
 		TextField searchField = new TextField(driver, By.xpath("//input[@id='searchTerm']"));
 		searchField.clearText();
@@ -390,7 +420,6 @@ public class pMultipleEntitySearch
 	    
 	    Thread.sleep(10000);
 	    
-//		String test_element_1 = "//div[@id='header']//div[1]//div//div//div//div[2]//ul[2]//li//div//div[4]//div[3]//div[10]//div//div//div//span//span";
 		String test_element_1="//div[@id='header']//div[1]/div//div//div//div[2]//ul[2]//li//div//div[4]//div[3]//div//div//div//div//span//span[2]";
 		
 		if(Label.isElementPresent(driver, By.xpath(test_element_1)))
@@ -405,11 +434,7 @@ public class pMultipleEntitySearch
     		extent.log(LogStatus.FAIL, "Unsuccessful :The 1st Entity "+searchTerm_3+" is not available.");
     		Element.takescreenshot(driver,className,screenshot_name+"14");
 		}
-		 
-//		JavascriptExecutor js = (JavascriptExecutor)driver;
-//		js.executeScript("arguments[0].click();", test_element_1);
-		//Thread.sleep(5000);
-		//test_element_1.
+
 		driver.findElement(By.xpath(test_element_1)).click();
 		
 		String test_element2= searchTerm_4;
@@ -425,8 +450,7 @@ public class pMultipleEntitySearch
 		Thread.sleep(5000);
 		
 		String test_element_2 = "//div[@id='header']//div[1]//div//div//div//div[2]//ul[2]//li//div//div[4]//div[3]//div[10]//div//div//div//span//span";
-//		String test_element_2 = "//div[@id='header']//div[1]//div//div//div//div[2]//ul[2]//li//div//div[4]//div[3]//div[7]//div//div//div//span//span";
-		
+	
 		if(Label.isElementPresent(driver, By.xpath(test_element_2)))
 		{
 			LOGGER.info("Successful : The 2nd Entity "+searchTerm_4+" is available");
@@ -738,7 +762,7 @@ public class pMultipleEntitySearch
 	        Thread.sleep(3000);
 	    }
 	    
-	    //Thread.sleep(5000);
+	    Thread.sleep(5000);
 	    
 		String test_element_1 = "//div[@id='header']//div[1]/div//div//div//div[2]//ul[2]//li//div//div[4]//div[3]//div//div//div//div//span//span[2]";
 		
@@ -766,10 +790,8 @@ public class pMultipleEntitySearch
 			searchField.enterText(alphabet_2);
 			Thread.sleep(3000);
 		}
-		
-		//Thread.sleep(3000);
+				
 		String test_element_2 = "//div[@id='header']//div[1]//div//div//div//div[2]//ul[2]//li//div//div[4]//div[3]//div[10]//div//div//div//span//span";
-//		String test_element_2 = "//div[@id='header']//div[1]//div//div//div//div[2]//ul[2]//li//div//div[4]//div[3]//div[7]//div//div//div//span//span";
 		
 		if(Label.isElementPresent(driver, By.xpath(test_element_2)))
 		{
@@ -826,10 +848,7 @@ public class pMultipleEntitySearch
 		}
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(filter_admin)).click();
-		//div[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//li[2]
-		//TestCaseProperties.closeDriver(driver);	
-		System.out.println("okkkkk");
-		
+
 		Thread.sleep(3000);
 		//Filter by Document type
 		String fiter_WAVAudio = ".//*[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[2]/ul/li[1]/span[1]/span//span[text()='WAV Audio']";
@@ -894,8 +913,7 @@ public class pMultipleEntitySearch
 				LOGGER.info("Unsuccessful : The results are not successfully Filtered by Document Type "+driver.findElement(By.xpath(filter_MPEG4)).getText().toString());
         		extent.log(LogStatus.FAIL, "Unsuccessful : The results are  notsuccessfully Filtered by Document Type "+driver.findElement(By.xpath(filter_MPEG4)).getText().toString());
         		Element.takescreenshot(driver,className,screenshot_name+"40");
-			}	
-			System.out.println("okkkkk");		
+			}		
 		}
 		else
 		{
@@ -920,7 +938,7 @@ public class pMultipleEntitySearch
 			
 			String filter_English_result = driver.findElement(By.xpath("//div[@id='se-results']/div[4]/div[1]/div[2]/ng-switch/a/span")).getText().toString();
 			System.out.println("okkkkk");
-			if(filter_English_result.equals(FilterByDocumentType2))
+			if(filter_English_result.equals(FilterByLanguage))
 			{
 				extent.log(LogStatus.INFO, "Expected Results : " + FilterByLanguage);
 				extent.log(LogStatus.INFO, "Current Results : " + filter_English_result);
@@ -933,10 +951,9 @@ public class pMultipleEntitySearch
 				extent.log(LogStatus.INFO, "Expected Results : " + FilterByLanguage);
 				extent.log(LogStatus.INFO, "Current Results : " + filter_English_result);
 				LOGGER.info("Unsuccessful : The results are not successfully Filtered by Language "+driver.findElement(By.xpath(filter_English)).getText().toString());
-        		extent.log(LogStatus.FAIL, "Unsuccessful : The results are  notsuccessfully Filtered by Language "+driver.findElement(By.xpath(filter_English)).getText().toString());
+        		extent.log(LogStatus.FAIL, "Unsuccessful : The results are  not successfully Filtered by Language "+driver.findElement(By.xpath(filter_English)).getText().toString());
         		Element.takescreenshot(driver,className,screenshot_name+"42");
 			}	
-			System.out.println("okkkkk");		
 		}
 		else
 		{
@@ -949,6 +966,100 @@ public class pMultipleEntitySearch
 		System.out.println("okkkkk");
 		Thread.sleep(3000);
 		
+		//FIlter by Size
+		String filter_10to20MB = "//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[4]//ul//li[1]//span[1]//span//span";
+		
+		if(Element.isElementPresent(driver, By.xpath(filter_10to20MB)))
+		{
+			LOGGER.info("Successful : The Filter By Size " +driver.findElement(By.xpath(filter_10to20MB)).getText().toString()+" is available");
+			extent.log(LogStatus.PASS, "Successful : The Filter By Size " +driver.findElement(By.xpath(filter_10to20MB)).getText().toString()+" is available");
+			driver.findElement(By.xpath(filter_10to20MB)).click();
+			Thread.sleep(3000);
+			
+			String filter_10to20MB_result = driver.findElement(By.xpath("//div[@id='se-results']/div[4]/div[1]/div[2]/ng-switch/a/span")).getText().toString();
+			
+			if(filter_10to20MB_result.equals(FilterBySize1))
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + FilterBySize1);
+				extent.log(LogStatus.INFO, "Current Results : " + filter_10to20MB_result);
+				LOGGER.info("Successful : The results are successfully Filtered by Size "+driver.findElement(By.xpath(filter_10to20MB)).getText().toString());
+        		extent.log(LogStatus.PASS, "Successful : The results are successfully Filtered by Size "+driver.findElement(By.xpath(filter_10to20MB)).getText().toString());
+        		Element.takescreenshot(driver,className,screenshot_name+"43");
+			}
+			else
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + FilterBySize1);
+				extent.log(LogStatus.INFO, "Current Results : " + filter_10to20MB_result);
+				LOGGER.info("Unsuccessful : The results are not successfully Filtered by Size "+driver.findElement(By.xpath(filter_10to20MB)).getText().toString());
+        		extent.log(LogStatus.FAIL, "Unsuccessful : The results are  not successfully Filtered by Size "+driver.findElement(By.xpath(filter_10to20MB)).getText().toString());
+        		Element.takescreenshot(driver,className,screenshot_name+"44");
+			}	
+			
+			driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[4]//ul//li[1]//span[1]//span//span")).click();
+			Thread.sleep(3000);
+		}
+		
+		String filter_20to30MB = "//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[4]/ul/li[2]/span[1]/span";
+		
+		if(Element.isElementPresent(driver, By.xpath(filter_20to30MB)))
+		{
+			LOGGER.info("Successful : The Filter By Size " +driver.findElement(By.xpath(filter_20to30MB)).getText().toString()+" is available");
+			extent.log(LogStatus.PASS, "Successful : The Filter By Size " +driver.findElement(By.xpath(filter_20to30MB)).getText().toString()+" is available");
+			driver.findElement(By.xpath(filter_20to30MB)).click();
+			Thread.sleep(3000);
+			
+			String filter_20to30MB_result = driver.findElement(By.xpath("//div[@id='se-results']/div[4]/div[1]/div[2]/ng-switch/a/span")).getText().toString();
+			
+			if(filter_20to30MB_result.equals(FilterBySize2))
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + FilterBySize2);
+				extent.log(LogStatus.INFO, "Current Results : " + filter_20to30MB_result);
+				LOGGER.info("Successful : The results are successfully Filtered by Size "+driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[4]//ul//li[1]//span[1]//span//span")).getText().toString());
+        		extent.log(LogStatus.PASS, "Successful : The results are successfully Filtered by Size "+driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[4]//ul//li[1]//span[1]//span//span")).getText().toString());
+        		Element.takescreenshot(driver,className,screenshot_name+"45");
+			}
+			else
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + FilterBySize2);
+				extent.log(LogStatus.INFO, "Current Results : " + filter_20to30MB_result);
+				LOGGER.info("Unsuccessful : The results are not successfully Filtered by Size "+driver.findElement(By.xpath(filter_20to30MB)).getText().toString());
+        		extent.log(LogStatus.FAIL, "Unsuccessful : The results are  not successfully Filtered by Size "+driver.findElement(By.xpath(filter_20to30MB)).getText().toString());
+        		Element.takescreenshot(driver,className,screenshot_name+"46");
+			}	
+			
+			driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[4]//ul//li[1]//span[1]//span//span")).click();
+		}
+		
+		String filter_30to40MB = "//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[4]/ul/li[3]/span[1]/span";
+		
+		if(Element.isElementPresent(driver, By.xpath(filter_30to40MB)))
+		{
+			LOGGER.info("Successful : The Filter By Size " +driver.findElement(By.xpath(filter_30to40MB)).getText().toString()+" is available");
+			extent.log(LogStatus.PASS, "Successful : The Filter By Size " +driver.findElement(By.xpath(filter_30to40MB)).getText().toString()+" is available");
+			driver.findElement(By.xpath(filter_30to40MB)).click();
+			Thread.sleep(3000);
+			
+			String filter_30to40MB_result = driver.findElement(By.xpath("//div[@id='se-results']/div[4]/div[1]/div[2]/ng-switch/a/span")).getText().toString();
+			
+			if(filter_30to40MB_result.equals(FilterBySize3))
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + FilterBySize3);
+				extent.log(LogStatus.INFO, "Current Results : " + filter_30to40MB_result);
+				LOGGER.info("Successful : The results are successfully Filtered by Size "+driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[4]//ul//li[1]//span[1]//span//span")).getText().toString());
+        		extent.log(LogStatus.PASS, "Successful : The results are successfully Filtered by Size "+driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[4]//ul//li[1]//span[1]//span//span")).getText().toString());
+        		Element.takescreenshot(driver,className,screenshot_name+"47");
+			}
+			else
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + FilterBySize3);
+				extent.log(LogStatus.INFO, "Current Results : " + filter_30to40MB_result);
+				LOGGER.info("Unsuccessful : The results are not successfully Filtered by Size "+driver.findElement(By.xpath(filter_30to40MB)).getText().toString());
+        		extent.log(LogStatus.FAIL, "Unsuccessful : The results are  not successfully Filtered by Size "+driver.findElement(By.xpath(filter_30to40MB)).getText().toString());
+        		Element.takescreenshot(driver,className,screenshot_name+"48");
+			}	
+
+			driver.findElement(By.xpath("//body[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[4]//ul//li[1]//span[1]//span//span")).click();
+		}
 	}
 }
 	

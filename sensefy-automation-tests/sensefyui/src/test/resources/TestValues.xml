@@ -157,6 +157,9 @@
 			<FilterByDocumentType1>02.700k&#46;wav</FilterByDocumentType1>
 			<FilterByDocumentType2>02.700k&#46;mp4</FilterByDocumentType2>
 			<FilterByLanguage>02.700k&#46;mp4</FilterByLanguage>
+			<FilterBySize1>02.700k&#46;mp4</FilterBySize1>
+			<FilterBySize2>16.700k&#46;wav</FilterBySize2>
+			<FilterBySize3>02.700k&#46;wav</FilterBySize3>
 			<screenshot_name>multipleEntity</screenshot_name>
 		</test>
 	</pMultipleEntitySearch>

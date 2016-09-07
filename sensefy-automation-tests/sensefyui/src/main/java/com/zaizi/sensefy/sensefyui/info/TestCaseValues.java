@@ -231,6 +231,9 @@ public class TestCaseValues {
                 						getValue("FilterByDocumentType1", valueElement),
                 						getValue("FilterByDocumentType2", valueElement),
                 						getValue("FilterByLanguage", valueElement),
+                						getValue("FilterBySize1", valueElement),
+                						getValue("FilterBySize2", valueElement),
+                						getValue("FilterBySize3", valueElement),
                 						getValue("screenshot_name", valueElement)
                 	};
                 	
