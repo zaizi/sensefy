@@ -14,6 +14,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 import com.relevantcodes.extentreports.ExtentReports;
@@ -53,6 +54,9 @@ public class pMultipleEntitySearch
 	public String SortByCreator;
 	public String SortByModifier;
 	public String FilterByCreator;
+	public String FilterByDocumentType1;
+	public String FilterByDocumentType2;
+	public String FilterByLanguage;
 	public String screenshot_name;
 	
 	/**
@@ -75,7 +79,7 @@ public class pMultipleEntitySearch
 	public pMultipleEntitySearch(String username, String password, String searchTerm_1, String searchTerm_2,
 			String searchTerm_3, String searchTerm_4, String sortByRelevance, String sortByName, String sortByTitle,
 			String sortByCreated, String sortByModified, String sortByCreator, String sortByModifier, String FilterByCreator,
-			String screenshot_name) 
+			String FilterByDocumentType1, String FilterByDocumentType2, String FilterByLanguage,String screenshot_name) 
 	{
 		this.username = username;
 		this.password = password;
@@ -91,6 +95,9 @@ public class pMultipleEntitySearch
 		SortByCreator = sortByCreator;
 		SortByModifier = sortByModifier;
 		this.FilterByCreator = FilterByCreator;
+		this.FilterByDocumentType1 =FilterByDocumentType1;
+		this.FilterByDocumentType2 = FilterByDocumentType2;
+		this.FilterByLanguage = FilterByLanguage;
 		this.screenshot_name = screenshot_name;
 	}
 
@@ -127,7 +134,7 @@ public class pMultipleEntitySearch
 		
 		LOGGER.info("Navigate to Sensefy Local Url");
 		driver = TestCaseProperties.getSensefyLocalHost();
-		driver.manage().window().setSize(new Dimension(1920, 1920));
+		//driver.manage().window().setSize(new Dimension(1920, 1920));
 		
 		String currentUrl1 = driver.getCurrentUrl().toString();
 		
@@ -161,7 +168,7 @@ public class pMultipleEntitySearch
 		LOGGER.info("Multiple Entity Search in Sensefy - Search for two Entities");
 		extent.startTest("Multiple Entity Search in Sensefy - Search for two Entities");
 		
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		 
 		TextField searchField = new TextField(driver, By.xpath("//input[@id='searchTerm']"));
 		searchField.clearText();
@@ -381,9 +388,10 @@ public class pMultipleEntitySearch
 	        Thread.sleep(3000);
 	    }
 	    
-	    Thread.sleep(5000);
+	    Thread.sleep(10000);
 	    
-		String test_element_1 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Political']";
+//		String test_element_1 = "//div[@id='header']//div[1]//div//div//div//div[2]//ul[2]//li//div//div[4]//div[3]//div[10]//div//div//div//span//span";
+		String test_element_1="//div[@id='header']//div[1]/div//div//div//div[2]//ul[2]//li//div//div[4]//div[3]//div//div//div//div//span//span[2]";
 		
 		if(Label.isElementPresent(driver, By.xpath(test_element_1)))
 		{
@@ -398,7 +406,10 @@ public class pMultipleEntitySearch
     		Element.takescreenshot(driver,className,screenshot_name+"14");
 		}
 		 
-		Thread.sleep(3000);
+//		JavascriptExecutor js = (JavascriptExecutor)driver;
+//		js.executeScript("arguments[0].click();", test_element_1);
+		//Thread.sleep(5000);
+		//test_element_1.
 		driver.findElement(By.xpath(test_element_1)).click();
 		
 		String test_element2= searchTerm_4;
@@ -413,7 +424,8 @@ public class pMultipleEntitySearch
 		
 		Thread.sleep(5000);
 		
-		String test_element_2 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Debate']";
+		String test_element_2 = "//div[@id='header']//div[1]//div//div//div//div[2]//ul[2]//li//div//div[4]//div[3]//div[10]//div//div//div//span//span";
+//		String test_element_2 = "//div[@id='header']//div[1]//div//div//div//div[2]//ul[2]//li//div//div[4]//div[3]//div[7]//div//div//div//span//span";
 		
 		if(Label.isElementPresent(driver, By.xpath(test_element_2)))
 		{
@@ -445,7 +457,7 @@ public class pMultipleEntitySearch
 		//Verify Sort By Relevance
 		new Link(driver, By.xpath("//div[@id='se-results']//following::span[text()='Relevance']")).Click();
 		LOGGER.info("Click on Sort By Button");
-		//Thread.sleep(5000);
+		Thread.sleep(5000);
 
 		if(Element.isElementPresent(driver, By.xpath(sortby_Relevance)))
 		{
@@ -714,7 +726,7 @@ public class pMultipleEntitySearch
 			
 		TextField searchField = new TextField(driver, By.xpath("//input[@id='searchTerm']"));
 		searchField.clearText();
-		Thread.sleep(10000);
+		Thread.sleep(3000);
 				
 		String test_element1 = searchTerm_3;
 		
@@ -726,9 +738,9 @@ public class pMultipleEntitySearch
 	        Thread.sleep(3000);
 	    }
 	    
-	    Thread.sleep(5000);
+	    //Thread.sleep(5000);
 	    
-		String test_element_1 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Political']";
+		String test_element_1 = "//div[@id='header']//div[1]/div//div//div//div[2]//ul[2]//li//div//div[4]//div[3]//div//div//div//div//span//span[2]";
 		
 		if(Label.isElementPresent(driver, By.xpath(test_element_1)))
 		{
@@ -755,9 +767,9 @@ public class pMultipleEntitySearch
 			Thread.sleep(3000);
 		}
 		
-		Thread.sleep(5000);
-		
-		String test_element_2 = "//div[@class='et-cell et-value-wrap']//following::span[text()='Debate']";
+		//Thread.sleep(3000);
+		String test_element_2 = "//div[@id='header']//div[1]//div//div//div//div[2]//ul[2]//li//div//div[4]//div[3]//div[10]//div//div//div//span//span";
+//		String test_element_2 = "//div[@id='header']//div[1]//div//div//div//div[2]//ul[2]//li//div//div[4]//div[3]//div[7]//div//div//div//span//span";
 		
 		if(Label.isElementPresent(driver, By.xpath(test_element_2)))
 		{
@@ -812,10 +824,131 @@ public class pMultipleEntitySearch
 			LOGGER.info("Unsuccessful : The Filter By Creator " +driver.findElement(By.xpath(filter_admin)).getText().toString()+" is not available");
 			extent.log(LogStatus.FAIL, "Unsuccessful : The Filter By Creator " +driver.findElement(By.xpath(filter_admin)).getText().toString()+" is not available");	
 		}
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(filter_admin)).click();
+		//div[@id='sensefy']//div[1]//div[3]//div[2]//div[4]//div[3]//div[1]//ul//li//span[1]//span//li[2]
+		//TestCaseProperties.closeDriver(driver);	
+		System.out.println("okkkkk");
 		
-		TestCaseProperties.closeDriver(driver);	
+		Thread.sleep(3000);
+		//Filter by Document type
+		String fiter_WAVAudio = ".//*[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[2]/ul/li[1]/span[1]/span//span[text()='WAV Audio']";
+		
+		if(Element.isElementPresent(driver, By.xpath(fiter_WAVAudio)))
+		{
+			LOGGER.info("Successful : The Filter By Document Type " +driver.findElement(By.xpath(fiter_WAVAudio)).getText().toString()+" is available");
+			extent.log(LogStatus.PASS, "Successful : The Filter By Document Type " +driver.findElement(By.xpath(fiter_WAVAudio)).getText().toString()+" is available");
+			driver.findElement(By.xpath(fiter_WAVAudio)).click();
+			
+			String filter_WAVAudio_result = driver.findElement(By.xpath("//div[@id='se-results']/div[4]/div[1]/div[2]/ng-switch/a/span")).getText().toString();
+			
+			if(filter_WAVAudio_result.equals(FilterByDocumentType1))
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + FilterByDocumentType1);
+				extent.log(LogStatus.INFO, "Current Results : " + filter_WAVAudio_result);
+				LOGGER.info("Successful : The results are successfully Filtered by Document Type "+driver.findElement(By.xpath(fiter_WAVAudio)).getText().toString());
+        		extent.log(LogStatus.PASS, "Successful : The results are successfully Filtered by Document Type "+driver.findElement(By.xpath(fiter_WAVAudio)).getText().toString());
+        		Element.takescreenshot(driver,className,screenshot_name+"37");
+			}
+			else
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + FilterByDocumentType1);
+				extent.log(LogStatus.INFO, "Current Results : " + filter_WAVAudio_result);
+				LOGGER.info("Unsuccessful : The results are not successfully Filtered by Document Type "+driver.findElement(By.xpath(fiter_WAVAudio)).getText().toString());
+        		extent.log(LogStatus.FAIL, "Unsuccessful : The results are  notsuccessfully Filtered by Document Type "+driver.findElement(By.xpath(fiter_WAVAudio)).getText().toString());
+        		Element.takescreenshot(driver,className,screenshot_name+"38");
+			}			
+		}
+		else
+		{
+			LOGGER.info("Unsuccessful : The Filter By Document Type " +driver.findElement(By.xpath(fiter_WAVAudio)).getText().toString()+" is not available");
+			extent.log(LogStatus.FAIL, "Unsuccessful : The Filter By Document Type " +driver.findElement(By.xpath(fiter_WAVAudio)).getText().toString()+" is not available");	
+		}
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(fiter_WAVAudio)).click();
+		Thread.sleep(3000);
+		
+		//filter by Document Type
+		String filter_MPEG4 = ".//*[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[2]/ul/li[2]/span[1]/span";
+		
+		if(Element.isElementPresent(driver, By.xpath(filter_MPEG4)))
+		{
+			LOGGER.info("Successful : The Filter By Document Type " +driver.findElement(By.xpath(filter_MPEG4)).getText().toString()+" is available");
+			extent.log(LogStatus.PASS, "Successful : The Filter By Document Type " +driver.findElement(By.xpath(filter_MPEG4)).getText().toString()+" is available");
+			driver.findElement(By.xpath(filter_MPEG4)).click();
+			Thread.sleep(3000);
+			String filter_MPEG4_result = driver.findElement(By.xpath("//div[@id='se-results']/div[4]/div[1]/div[2]/ng-switch/a/span")).getText().toString();
+			System.out.println("okkkkk");
+			if(filter_MPEG4_result.equals(FilterByDocumentType2))
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + FilterByDocumentType2);
+				extent.log(LogStatus.INFO, "Current Results : " + filter_MPEG4_result);
+				LOGGER.info("Successful : The results are successfully Filtered by Document Type "+driver.findElement(By.xpath(filter_MPEG4)).getText().toString());
+        		extent.log(LogStatus.PASS, "Successful : The results are successfully Filtered by Document Type "+driver.findElement(By.xpath(filter_MPEG4)).getText().toString());
+        		Element.takescreenshot(driver,className,screenshot_name+"39");
+			}
+			else
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + FilterByDocumentType2);
+				extent.log(LogStatus.INFO, "Current Results : " + filter_MPEG4_result);
+				LOGGER.info("Unsuccessful : The results are not successfully Filtered by Document Type "+driver.findElement(By.xpath(filter_MPEG4)).getText().toString());
+        		extent.log(LogStatus.FAIL, "Unsuccessful : The results are  notsuccessfully Filtered by Document Type "+driver.findElement(By.xpath(filter_MPEG4)).getText().toString());
+        		Element.takescreenshot(driver,className,screenshot_name+"40");
+			}	
+			System.out.println("okkkkk");		
+		}
+		else
+		{
+			LOGGER.info("Unsuccessful : The Filter By Document Type " +driver.findElement(By.xpath(filter_MPEG4)).getText().toString()+" is not available");
+			extent.log(LogStatus.FAIL, "Unsuccessful : The Filter By Document Type " +driver.findElement(By.xpath(filter_MPEG4)).getText().toString()+" is not available");	
+		}
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath(".//*[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[2]/ul/li[1]/span[1]/span")).click();
+		System.out.println("okkkkk");
+		Thread.sleep(3000);
+		
+		//Filter by Language
+		String filter_English = ".//*[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[3]/ul/li/span[1]/span/span";
+		
+		if(Element.isElementPresent(driver, By.xpath(filter_English)))
+		{
+			LOGGER.info("Successful : The Filter By Language " +driver.findElement(By.xpath(filter_English)).getText().toString()+" is available");
+			extent.log(LogStatus.PASS, "Successful : The Filter By Language " +driver.findElement(By.xpath(filter_English)).getText().toString()+" is available");
+			driver.findElement(By.xpath(filter_English)).click();
+			Thread.sleep(3000);
+			
+			String filter_English_result = driver.findElement(By.xpath("//div[@id='se-results']/div[4]/div[1]/div[2]/ng-switch/a/span")).getText().toString();
+			System.out.println("okkkkk");
+			if(filter_English_result.equals(FilterByDocumentType2))
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + FilterByLanguage);
+				extent.log(LogStatus.INFO, "Current Results : " + filter_English_result);
+				LOGGER.info("Successful : The results are successfully Filtered by Language "+driver.findElement(By.xpath(filter_English)).getText().toString());
+        		extent.log(LogStatus.PASS, "Successful : The results are successfully Filtered by Language "+driver.findElement(By.xpath(filter_English)).getText().toString());
+        		Element.takescreenshot(driver,className,screenshot_name+"41");
+			}
+			else
+			{
+				extent.log(LogStatus.INFO, "Expected Results : " + FilterByLanguage);
+				extent.log(LogStatus.INFO, "Current Results : " + filter_English_result);
+				LOGGER.info("Unsuccessful : The results are not successfully Filtered by Language "+driver.findElement(By.xpath(filter_English)).getText().toString());
+        		extent.log(LogStatus.FAIL, "Unsuccessful : The results are  notsuccessfully Filtered by Language "+driver.findElement(By.xpath(filter_English)).getText().toString());
+        		Element.takescreenshot(driver,className,screenshot_name+"42");
+			}	
+			System.out.println("okkkkk");		
+		}
+		else
+		{
+			LOGGER.info("Unsuccessful : The Filter By Language " +driver.findElement(By.xpath(filter_English)).getText().toString()+" is not available");
+			extent.log(LogStatus.FAIL, "Unsuccessful : The Filter By Language " +driver.findElement(By.xpath(filter_English)).getText().toString()+" is not available");	
+		}
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath(".//*[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[3]/ul/li/span[1]/span")).click();
+		System.out.println("okkkkk");
+		Thread.sleep(3000);
+		
 	}
-
-	
 }
 	
