@@ -127,7 +127,7 @@ private static final Logger LOGGER = LogManager.getLogger(SearchLogin.class);
     public boolean footerNote()
     {
     	Boolean match=null;
-    	String footNote="© 2007 - 2015 Zaizi Limited. All rights reserved.";
+    	String footNote="© 2007 - 2016 Zaizi Limited. All rights reserved.";
     	String note=driver.findElement(By.xpath(footerNote)).getText();
     	if(note.equals(footNote))
     	{

@@ -147,7 +147,7 @@ public class nResultsperpage
 		TextField searchfield = new TextField(driver, By.xpath("//input[@id='searchTerm']"));
 		searchfield.clearText();
 		searchfield.enterText(searchTerm);
-		driver.findElement(By.xpath("//div[@id='header']/div[1]/div/div[1]/div[2][text()='Search']")).click();
+		driver.findElement(By.xpath("//div[@id='header']//div[1]//div//div//div//div[1]//div[2]//span")).click();
 		Thread.sleep(3000);
 			
 		String displayed_result1 = "//div[@id='se-results']//div[4]//div[1]//div[2]//ng-switch//a[@class='header title']//span";
@@ -173,10 +173,10 @@ public class nResultsperpage
    				LOGGER.info("Successful : Results per page 10");
            		extent.log(LogStatus.PASS, "Successful :  Results per page 10");
             		
-           		String default_feature2 = "//div[@id='se-results']/div[1]/div/div/div[1]/span[text()='Showing results 1-10 of 121']";
+           		String default_feature2 = "//div[@id='se-results']/div[1]/div/div/div[1]/span[text()='Showing results 1-10 of 622']";
            		String default_feature2_result = driver.findElement(By.xpath(default_feature2)).getText().toString();
            		System.out.println(default_feature2_result);
-           		String expected_result2 = "Showing results 1-10 of 121";
+           		String expected_result2 = "Showing results 1-10 of 622";
             		
            		if(expected_result2.equals(default_feature2_result))
            		{
@@ -240,10 +240,10 @@ public class nResultsperpage
    				LOGGER.info("Successful : Results per page 10");
            		extent.log(LogStatus.PASS, "Successful :  Results per page 10");
            		
-           		String default_feature4 = "//div[@id='se-results']/div[1]/div/div/div[1]/span[text()='Showing results 10-20 of 121']";
+           		String default_feature4 = "//div[@id='se-results']/div[1]/div/div/div[1]/span[text()='Showing results 10-20 of 622']";
            		String default_feature4_result = driver.findElement(By.xpath(default_feature4)).getText().toString();
            		System.out.println(default_feature4_result);
-           		String expected_result4 = "Showing results 10-20 of 121";
+           		String expected_result4 = "Showing results 10-20 of 622";
            		
            		if(expected_result4.equals(default_feature4_result))
            		{

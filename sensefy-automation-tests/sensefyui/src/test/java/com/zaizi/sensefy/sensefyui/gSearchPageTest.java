@@ -53,8 +53,8 @@ public class gSearchPageTest {
     }
 	
 	@BeforeClass
-    public static void beforeClass() {
-        //extent.init("/Users/deranthika/Desktop/myreport1.html", true);
+    public static void beforeClass() 
+    {
 		extent.init("logs/sensefy.html", false);
         extent.config().documentTitle("SensefyUI Automation Test Report");
         extent.config().reportTitle("SensefyUI Automation Results");
@@ -74,32 +74,27 @@ public class gSearchPageTest {
     {
 		LOGGER.info("Running Verify Footer Test");
     	extent.startTest("Verify Footer Test");
-        try
+    
+    	driver = TestCaseProperties.getWebDriverForSearch();
+        SearchLogin loginPage = new SearchLogin(driver);
+        loginPage.searchuiLogin(username, password);
+        Thread.sleep(2000);
+        SearchPage sp=new SearchPage(driver);
+        Boolean val=sp.footerNote();
+        if(val==true)
         {
-        	driver = TestCaseProperties.getWebDriverForSearch();
-            SearchLogin loginPage = new SearchLogin(driver);
-            loginPage.searchuiLogin(username, password);
-            Thread.sleep(2000);
-        	SearchPage sp=new SearchPage(driver);
-        	Boolean val=sp.footerNote();
-        	if(val==true)
-        	{
-        		LOGGER.info("Footer Verified Successfully");
-        		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "Footer Verified Successfully");
-        		extent.log(LogStatus.PASS, "Footer Verified Successfully");
-        	}
-        	else
-        	{
-        		extent.log(LogStatus.FAIL, "Footer Verification Failed");
-        		LOGGER.error("Footer Verification Failed");
-        	}
-        	
+        	LOGGER.info("Footer Verified Successfully");
+        	LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "Footer Verified Successfully");
+        	extent.log(LogStatus.PASS, "Footer Verified Successfully");
         }
-        catch(Exception e)
+        else
         {
         	extent.log(LogStatus.FAIL, "Footer Verification Failed");
         	LOGGER.error("Footer Verification Failed");
-        } 
+        }
+        	
+     	LOGGER.error("Footer Verification Failed");
+         
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
     }

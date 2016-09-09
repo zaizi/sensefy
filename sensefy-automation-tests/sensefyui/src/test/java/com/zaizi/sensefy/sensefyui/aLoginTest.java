@@ -38,10 +38,9 @@ public class aLoginTest
 	public static final Logger LOGGER = LogManager.getLogger(aLoginTest.class.getName());
 	
 	public static final ExtentReports extent = ExtentReports.get(aLoginTest.class);
-	private String loginURL="http://sensefyqa.zaizicloud.net/auth/login";
+	private String loginURL="http://sensefyqa.zaizicloud.net/auth/login#/";
 	private static final String TEST_CASE_PROPERTIES_XML = "pom.xml";
-	//private String loginURL="http://192.168.1.72:9099/auth/login";
-	
+		
 	private String username;
     private String password;
         
@@ -58,8 +57,8 @@ public class aLoginTest
     }
 	
 	@BeforeClass
-    public static void beforeClass() {
-        //extent.init("/Users/deranthika/Desktop/myreport1.html", true);
+    public static void beforeClass() 
+	{       
 		extent.init("logs/sensefy.html", true);
         extent.config().documentTitle("SensefyUI Automation Test Report");
         extent.config().reportTitle("SensefyUI Automation");
