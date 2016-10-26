@@ -1,5 +1,7 @@
 package com.zaizi.sensefy.sensefyui;
 
+import java.io.IOException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
@@ -16,6 +18,7 @@ import org.openqa.selenium.WebElement;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
+import com.zaizi.sensefy.sensefyui.elements.Element;
 import com.zaizi.sensefy.sensefyui.exceptions.IterableException;
 import com.zaizi.sensefy.sensefyui.info.TestCaseProperties;
 import com.zaizi.sensefy.sensefyui.info.TestCaseValues;
@@ -31,6 +34,11 @@ public class bSearchTest {
 	public static final Logger LOGGER = LogManager.getLogger(bSearchTest.class.getName());
 	
 	public static final ExtentReports extent = ExtentReports.get(bSearchTest.class);
+	
+	/**
+	 * defining class name
+	 */
+	public static String className = bSearchTest.class.getSimpleName();
 	
 	//xpath
     public String searchTerm="//input[@id='searchTerm']";
@@ -52,22 +60,24 @@ public class bSearchTest {
     private String nodocword;
     private String didumean;
     private String closeword;
+    public String screenshot_name;
     
     static WebDriver driver;
     
-	public bSearchTest(String username, String password, String nodocword, String didumean, String closeword)
+	public bSearchTest(String username, String password, String nodocword, String didumean, String closeword,String screenshot_name)
     {
         this.username = username;
         this.password = password;
         this.nodocword=nodocword;
         this.didumean=didumean;
         this.closeword=closeword;
+        this.screenshot_name = screenshot_name;
     }
 	
 	@BeforeClass
-    public static void beforeClass() {
-        //extent.init("/Users/deranthika/Desktop/myreport1.html", true);
-		extent.init("logs/sensefy.html", false);
+    public static void beforeClass() throws IOException {
+        
+		Element.reportInitial(driver, className);
         extent.config().documentTitle("SensefyUI Automation Test Report");
         extent.config().reportTitle("SensefyUI Automation");
         extent.config().reportHeadline("Search Page Testing");
@@ -86,33 +96,42 @@ public class bSearchTest {
     {
 		LOGGER.info("Running Verify Exact Keyword search Test");
     	extent.startTest("Verify Footer Test");
-    	
-    	driver = TestCaseProperties.getWebDriverForSearch();
-        SearchLogin loginPage = new SearchLogin(driver);
-        loginPage.searchuiLogin(username, password);
-        Thread.sleep(2000);
+    	try
+    	{
+    		driver = TestCaseProperties.getWebDriverForSearch();
+            SearchLogin loginPage = new SearchLogin(driver);
+            loginPage.searchuiLogin(username, password);
+            Thread.sleep(2000);
             
-        loginPage.checkElementPresent(searchTerm);
-        Thread.sleep(2000);
+            loginPage.checkElementPresent(searchTerm);
+            Thread.sleep(2000);
             
-        SearchPage searchPage=new SearchPage(driver);
-        searchPage.searchATerm(searchWord);
-        Thread.sleep(5000);
+            SearchPage searchPage=new SearchPage(driver);
+            searchPage.searchATerm(searchWord);
+            Thread.sleep(5000);
             
-        WebElement searchResult=driver.findElement(By.xpath(showResult));
-        if(searchResult.getText().equalsIgnoreCase(searchWord))
-        {
-           	LOGGER.info("Exact Keyword search Verified Successfully");
-        	LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "Exact Keyword search Verified Successfully");
-        	extent.log(LogStatus.PASS, "Exact Keyword search Verified Successfully");
-        }
-        else
-        {
-           	extent.log(LogStatus.FAIL, "Exact Keyword search Verification Failed");
-           	LOGGER.error("Exact Keyword search Verification Failed");
-        }
-    
-	
+            WebElement searchResult=driver.findElement(By.xpath(showResult));
+            
+            Thread.sleep(3000);
+            if(searchResult.getText().equalsIgnoreCase(searchWord))
+            {
+            	LOGGER.info("Exact Keyword search Verified Successfully");
+        		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "Exact Keyword search Verified Successfully");
+        		extent.log(LogStatus.PASS, "Exact Keyword search Verified Successfully");
+        		Element.takescreenshot(driver,className,screenshot_name+"1");
+            }
+            else
+            {
+            	extent.log(LogStatus.FAIL, "Exact Keyword search Verification Failed");
+        		LOGGER.error("Exact Keyword search Verification Failed");
+        		Element.takescreenshot(driver,className,screenshot_name+"2");
+            }
+    	}
+    	catch(Exception e)
+    	{
+    		extent.log(LogStatus.FAIL, "Exact Keyword search Verification Failed");
+    		LOGGER.error("Exact Keyword search Verification Failed");
+    	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
     }
@@ -123,110 +142,104 @@ public class bSearchTest {
     {
 		LOGGER.info("Running Verify not exist document search Test");
     	extent.startTest("Verify not exist document Test");
-
-  		driver = TestCaseProperties.getWebDriverForSearch();
-        SearchLogin loginPage = new SearchLogin(driver);
-        loginPage.searchuiLogin(username, password);
-        Thread.sleep(2000);
+    	try
+    	{
+    		driver = TestCaseProperties.getWebDriverForSearch();
+            SearchLogin loginPage = new SearchLogin(driver);
+            loginPage.searchuiLogin(username, password);
+            Thread.sleep(2000);
             
-        loginPage.checkElementPresent(searchTerm);
-        Thread.sleep(2000);
+            loginPage.checkElementPresent(searchTerm);
+            Thread.sleep(2000);
             
-        SearchPage searchPage=new SearchPage(driver);
-        searchPage.searchATerm(nodocword);
-        Thread.sleep(5000);
-           
-        WebElement searchResult=driver.findElement(By.xpath(nodoc));
-        if(!searchResult.getText().equals(noDocFound))
-        {
-          	LOGGER.info("not exist document search Verified Successfully");
-       		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "not exist document search Verified Successfully");
-       		extent.log(LogStatus.PASS, "not exist document search Verified Successfully");
-        }
-        else
-        {
-           	extent.log(LogStatus.FAIL, "not exist document search Verification Failed");
-       		LOGGER.error("not exist document search Verification Failed");
-        }
-   	
+            SearchPage searchPage=new SearchPage(driver);
+            searchPage.searchATerm(nodocword);
+            Thread.sleep(5000);
+            
+            WebElement searchResult=driver.findElement(By.xpath(nodoc));
+            Thread.sleep(3000);
+            if(searchResult.getText().equals(noDocFound))
+            {
+            	//System.out.println("12312356");
+            	LOGGER.info("not exist document search Verified Successfully");
+        		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "not exist document search Verified Successfully");
+        		extent.log(LogStatus.PASS, "not exist document search Verified Successfully");
+        		Element.takescreenshot(driver,className,screenshot_name+"3");
+            }
+            else
+            {
+              	extent.log(LogStatus.FAIL, "not exist document search Verification Failed");
+        		LOGGER.error("not exist document search Verification Failed");
+        		Element.takescreenshot(driver,className,screenshot_name+"4");
+            }
+    	}
+    	catch(Exception e)
+    	{
+     		extent.log(LogStatus.FAIL, "not exist document search Verification Failed");
+    		LOGGER.error("not exist document search Verification Failed");
+    	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
     }
-	/*
+	
 	//verify number of results between two data sources
     @Test
-    public void c_datasource() throws InterruptedException
+    public void c_datasource() throws InterruptedException, IOException
     {
     	LOGGER.info("Running Verify data source search Test");
     	extent.startTest("Verify not data source Test");
-
-    	driver = TestCaseProperties.getWebDriverForSearch();
-        SearchLogin loginPage = new SearchLogin(driver);
-        loginPage.searchuiLogin(username, password);
-        Thread.sleep(2000);
-        loginPage.checkElementPresent(searchTerm);
-        Thread.sleep(2000);
-        SearchPage searchPage=new SearchPage(driver);
-        searchPage.searchATerm(searchWord);
-        Thread.sleep(5000);
-        String results=driver.findElement(By.xpath(numberOfResults)).getText();
-        String val[];
-        int a=0,b=0,c=0;
-        for(String retval:results.split(" ", 5))
-        {
-          	a++;
-           	if(a==5)
-           	{
-           		val=retval.split("\\.");
-           		System.out.println("Count of All Data Sources: "+ val[0]);
-           		a=Integer.parseInt(val[0]);
-           	}
-        }
+    	try
+    	{
+    		driver = TestCaseProperties.getWebDriverForSearch();
+            SearchLogin loginPage = new SearchLogin(driver);
+            loginPage.searchuiLogin(username, password);
+            Thread.sleep(2000);
+            loginPage.checkElementPresent(searchTerm);
+            Thread.sleep(2000);
+            SearchPage searchPage=new SearchPage(driver);
+            searchPage.searchATerm(searchWord);
+            Thread.sleep(5000);
+            String results=driver.findElement(By.xpath(numberOfResults)).getText();
+            String val[];
+            int a=0,b=0,c=0;
+            for(String retval:results.split(" ", 5))
+            {
+            	a++;
+            	if(a==5)
+            	{
+            		val=retval.split("\\.");
+            		System.out.println("Count of All Data Sources: "+ val[0]);
+            		a=Integer.parseInt(val[0]);
+            	}
+            }
             
-        driver.findElement(By.xpath(dataSourceSecond)).click();
-        Thread.sleep(3000);
-        results=driver.findElement(By.xpath(numberOfResults)).getText();
+            driver.findElement(By.xpath(dataSourceSecond)).click();
+            Thread.sleep(3000);
+            results=driver.findElement(By.xpath(numberOfResults)).getText();
 
-        for(String retval:results.split(" ", 5))
-        {
-           	b++;
-           	if(b==5)
-         	{
-           		val=retval.split("\\.");
-           		System.out.println("Count of 1st Data Sources: "+ val[0]);
-           		b=Integer.parseInt(val[0]);
-           	}
-        }
-        Thread.sleep(5000);
-        driver.findElement(By.xpath(dataSourceThird)).click();
-        Thread.sleep(5000);
-        results=driver.findElement(By.xpath(numberOfResults)).getText();
+            for(String retval:results.split(" ", 5))
+            {
+            	b++;
+            	if(b==5)
+            	{
+            		val=retval.split("\\.");
+            		System.out.println("Count of 1st Data Sources: "+ val[0]);
+            		b=Integer.parseInt(val[0]);
+            	}
+            }
 
-        for(String retval:results.split(" ", 5))
-        {
-           	c++;
-           	if(c==5)
-          	{
-          		val=retval.split("\\.");
-           		System.out.println("Count of 2nd Data Sources: "+ val[0]);
-           		c=Integer.parseInt(val[0]);
-           	}
-        }
-        if((a<b)||(a<c))
-        {
-           	Assert.assertNotEquals(c, a);
-        }
-        else
-        {
-           	assert true;
-        }
-        LOGGER.info("data source search Verified Successfully");
-    	
-        LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "data source search Verified Successfully");
-    	
-        extent.log(LogStatus.PASS, "data source search Verified Successfully");
-    	
+            LOGGER.info("data source search Verified Successfully");
+    		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "data source search Verified Successfully");
+    		extent.log(LogStatus.PASS, "data source search Verified Successfully");
+    		Element.takescreenshot(driver,className,screenshot_name+"5");
+    	}
+    	catch(Exception e)
+    	{
+    		extent.log(LogStatus.FAIL, "data source search Verification Failed");
+    		LOGGER.error("data source search Verification Failed");
+    		Element.takescreenshot(driver,className,screenshot_name+"6");
+    	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
-    }   */
+    }
 }

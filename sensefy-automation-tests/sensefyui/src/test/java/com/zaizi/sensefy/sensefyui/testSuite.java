@@ -5,7 +5,6 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 
-
 @RunWith(Suite.class) 
 @SuiteClasses({ 
 	aLoginTest.class,
@@ -15,13 +14,9 @@ import org.junit.runners.Suite.SuiteClasses;
 	eLanguageChangeTest.class,
 	fFacetsTest.class,
 	gSearchPageTest.class,
-	lEntitySearch.class,
-	mVideoSearch.class,
-	nResultsperpage.class,
-	oAudioSearch.class,
-	pMultipleEntitySearch.class
-})
-public class testSuite 
-{
+	lEntitySearch.class
 	
+})
+public class testSuite {
+
 }

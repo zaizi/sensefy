@@ -25,6 +25,7 @@ import org.xml.sax.SAXException;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
+import com.zaizi.sensefy.sensefyui.elements.Element;
 import com.zaizi.sensefy.sensefyui.exceptions.IterableException;
 import com.zaizi.sensefy.sensefyui.info.TestCaseProperties;
 import com.zaizi.sensefy.sensefyui.info.TestCaseValues;
@@ -38,11 +39,17 @@ public class aLoginTest
 	public static final Logger LOGGER = LogManager.getLogger(aLoginTest.class.getName());
 	
 	public static final ExtentReports extent = ExtentReports.get(aLoginTest.class);
+	
 	private String loginURL="http://sensefyqa.zaizicloud.net/auth/login#/";
-	private static final String TEST_CASE_PROPERTIES_XML = "pom.xml";
-		
+	
+	/**
+	 * defining class name
+	 */
+	public static String className = aLoginTest.class.getSimpleName();
+	
 	private String username;
     private String password;
+    public String screenshot_name;
         
     //xpaths
     public String searchTerm="//input[@id='searchTerm']";
@@ -50,16 +57,19 @@ public class aLoginTest
     private String loginErrorURL="http://sensefyqa.zaizicloud.net/auth/login?error";
     
     static WebDriver driver;
-	public aLoginTest(String username, String password)
+	public aLoginTest(String username, String password,String screenshot_name)
     {
         this.username = username;
         this.password = password;
+        this.screenshot_name = screenshot_name;
     }
 	
 	@BeforeClass
-    public static void beforeClass() 
-	{       
-		extent.init("logs/sensefy.html", true);
+    public static void beforeClass() throws IOException 
+	{
+        
+		//extent.init("logs/sensefy.html", true);
+		Element.reportInitial(driver, className);
         extent.config().documentTitle("SensefyUI Automation Test Report");
         extent.config().reportTitle("SensefyUI Automation");
         extent.config().reportHeadline("Search Page Testing");
@@ -75,46 +85,42 @@ public class aLoginTest
     
     //Verify Sensefy URL
     @Test
-    public void a_sensefyURL()
+    public void a_sensefyURL() throws IOException
     {
     	LOGGER.info("Running Verify SensefyURL Test");
     	extent.startTest("Verify SensefyURL Test");
-    	try
+  
+    	extent.startTest("Verify SensefyURL");
+            
+    	System.out.println("Running Test for Sensefy URL");
+            
+    	driver = TestCaseProperties.getWebDriverForSearch();
+            
+    	String currentUrl = driver.getCurrentUrl().toString();
+            
+    	System.out.println(currentUrl);
+            
+    	if(driver.getCurrentUrl().equals(loginURL))
     	{
-    		extent.startTest("Verify SensefyURL");
-            
-    		System.out.println("Running Test for Sensefy URL");
-            
-            driver = TestCaseProperties.getWebDriverForSearch();
-            
-            String currentUrl = driver.getCurrentUrl().toString();
-            
-            System.out.println(currentUrl);
-            
-            if(driver.getCurrentUrl().equals(loginURL))
-            {
-            	LOGGER.info("Current URL : "+driver.getCurrentUrl().toString());
-        		LOGGER.info("SensefyURL Verified Successfully");
-        		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "SensefyURL Verified Successfully");
-        		extent.log(LogStatus.PASS, "SensefyURL Verified Successfully");
-            }
-            else
-            {
-            	extent.log(LogStatus.FAIL, "SensefyURL Verification Failed");
-        		LOGGER.error("SensefyURL Verification Failed");
-            }
+    		LOGGER.info("Current URL : "+driver.getCurrentUrl().toString());
+    		LOGGER.info("SensefyURL Verified Successfully");
+    		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "SensefyURL Verified Successfully");
+    		extent.log(LogStatus.PASS, "SensefyURL Verified Successfully");
+    		Element.takescreenshot(driver,className,screenshot_name+"1");
     	}
-    	catch(Exception e)
+    	else
     	{
     		extent.log(LogStatus.FAIL, "SensefyURL Verification Failed");
     		LOGGER.error("SensefyURL Verification Failed");
+    		Element.takescreenshot(driver,className,screenshot_name+"2");
     	}
-    	
     }
-   
+
+    	
+    
     //Valid login scenario
    @Test
-    public void b_validLog() throws InterruptedException
+    public void b_validLog() throws InterruptedException, IOException
     {
     	LOGGER.info("Running Verify Valid logging Test");
     	extent.startTest("Verify Valid logging Test");
@@ -129,11 +135,15 @@ public class aLoginTest
             LOGGER.info("Valid logging Verified Successfully");
     		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "Valid logging Verified Successfully");
     		extent.log(LogStatus.PASS, "Valid logging Verified Successfully");
+    		Element.takescreenshot(driver,className,screenshot_name+"3");
+
     	}
     	catch(Exception e)
     	{
     		extent.log(LogStatus.FAIL, "Valid logging Verification Failed");
     		LOGGER.error("Valid logging Verification Failed");
+    		Element.takescreenshot(driver,className,screenshot_name+"4");
+
     	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
@@ -141,7 +151,7 @@ public class aLoginTest
     
     //Trying to log without entering username and password
     @Test
-    public void c_emptyLogin() throws InterruptedException
+    public void c_emptyLogin() throws InterruptedException, IOException
     {
     	LOGGER.info("Running Verify empty logging Test");
     	extent.startTest("Verify empty logging Test");
@@ -155,11 +165,15 @@ public class aLoginTest
             LOGGER.info("empty logging Verified Successfully");
     		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "empty logging Verified Successfully");
     		extent.log(LogStatus.PASS, "empty logging Verified Successfully");
+    		Element.takescreenshot(driver,className,screenshot_name+"5");
+
     	}
     	catch(Exception e)
     	{
     		extent.log(LogStatus.FAIL, "empty logging Verification Failed");
     		LOGGER.error("empty logging Verification Failed");
+    		Element.takescreenshot(driver,className,screenshot_name+"6");
+
     	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
@@ -183,11 +197,15 @@ public class aLoginTest
             	LOGGER.info("Invalid logging Verified Successfully");
         		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "Invalid logging Verified Successfully");
         		extent.log(LogStatus.PASS, "Invalid logging Verified Successfully");
+        		Element.takescreenshot(driver,className,screenshot_name+"7");
+
             }
             else
             {
             	extent.log(LogStatus.FAIL, "Invalid logging Verification Failed");
         		LOGGER.error("Invalid logging Verification Failed");
+        		Element.takescreenshot(driver,className,screenshot_name+"8");
+
             }
     	}
     	catch(Exception e)
@@ -201,7 +219,7 @@ public class aLoginTest
    
     //Loging out scenario
     @Test
-    public void e_loginout() throws InterruptedException
+    public void e_loginout() throws InterruptedException, IOException
     {
     	LOGGER.info("Running Verify Logingout Test");
     	extent.startTest("Verify Logingout Test");
@@ -215,11 +233,15 @@ public class aLoginTest
             LOGGER.info("Logingout Verified Successfully");
     		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "Logingout Verified Successfully");
     		extent.log(LogStatus.PASS, "Logingout Verified Successfully");
+    		Element.takescreenshot(driver,className,screenshot_name+"9");
+
     	}
     	catch(Exception e)
     	{
     		extent.log(LogStatus.FAIL, "Logingout Verification Failed");
     		LOGGER.error("Logingout Verification Failed");
+    		Element.takescreenshot(driver,className,screenshot_name+"10");
+
     	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
@@ -227,8 +249,7 @@ public class aLoginTest
     
   
     @After
-    public void Teardown() 
-    {
+    public void Teardown() {
         driver.quit();
        
     }
@@ -236,7 +257,7 @@ public class aLoginTest
     
     private static Node getProperty(String propertyName) throws ParserConfigurationException, SAXException, IOException
 	 {
-	     File testValues = new File(TEST_CASE_PROPERTIES_XML);
+	     File testValues = new File(TestCaseProperties.returnTestPropertiesXml());
 	     DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	     DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 	     Document doc = dBuilder.parse(testValues);

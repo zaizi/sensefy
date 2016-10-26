@@ -25,6 +25,7 @@ import org.xml.sax.SAXException;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
+import com.zaizi.sensefy.sensefyui.elements.Element;
 import com.zaizi.sensefy.sensefyui.exceptions.IterableException;
 import com.zaizi.sensefy.sensefyui.info.TestCaseProperties;
 import com.zaizi.sensefy.sensefyui.info.TestCaseValues;
@@ -36,26 +37,31 @@ import com.zaizi.sensefy.sensefyui.pages.SearchPage;
 @RunWith(value = Parameterized.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class gSearchPageTest {
-	
-	private static final String TEST_CASE_PROPERTIES_XML = "pom.xml";
 	public static final Logger LOGGER = LogManager.getLogger(gSearchPageTest.class.getName());
 	
 	public static final ExtentReports extent = ExtentReports.get(gSearchPageTest.class);
-
+	
+	/**
+	 * defining class name
+	 */
+	public static String className = gSearchPageTest.class.getSimpleName();
+		
 	private String username;
     private String password;
+	public String screenshot_name;
 
     static WebDriver driver;
-	public gSearchPageTest(String username, String password)
+	public gSearchPageTest(String username, String password, String screenshot_name)
     {
         this.username = username;
         this.password = password;
+        this.screenshot_name = screenshot_name;
     }
 	
 	@BeforeClass
-    public static void beforeClass() 
-    {
-		extent.init("logs/sensefy.html", false);
+    public static void beforeClass() throws IOException 
+	{  
+		Element.reportInitial(driver, className);
         extent.config().documentTitle("SensefyUI Automation Test Report");
         extent.config().reportTitle("SensefyUI Automation Results");
         extent.config().reportHeadline("Sensefy");
@@ -74,27 +80,34 @@ public class gSearchPageTest {
     {
 		LOGGER.info("Running Verify Footer Test");
     	extent.startTest("Verify Footer Test");
-    
-    	driver = TestCaseProperties.getWebDriverForSearch();
-        SearchLogin loginPage = new SearchLogin(driver);
-        loginPage.searchuiLogin(username, password);
-        Thread.sleep(2000);
-        SearchPage sp=new SearchPage(driver);
-        Boolean val=sp.footerNote();
-        if(val==true)
+        try
         {
-        	LOGGER.info("Footer Verified Successfully");
-        	LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "Footer Verified Successfully");
-        	extent.log(LogStatus.PASS, "Footer Verified Successfully");
+        	driver = TestCaseProperties.getWebDriverForSearch();
+            SearchLogin loginPage = new SearchLogin(driver);
+            loginPage.searchuiLogin(username, password);
+            Thread.sleep(2000);
+        	SearchPage sp=new SearchPage(driver);
+        	Boolean val=sp.footerNote();
+        	if(val==true)
+        	{
+        		LOGGER.info("Footer Verified Successfully");
+        		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "Footer Verified Successfully");
+        		extent.log(LogStatus.PASS, "Footer Verified Successfully");
+        		Element.takescreenshot(driver,className,screenshot_name+"1");
+        	}
+        	else
+        	{
+        		extent.log(LogStatus.FAIL, "Footer Verification Failed");
+        		LOGGER.error("Footer Verification Failed");
+        		Element.takescreenshot(driver,className,screenshot_name+"2");
+        	}
+        	
         }
-        else
+        catch(Exception e)
         {
         	extent.log(LogStatus.FAIL, "Footer Verification Failed");
         	LOGGER.error("Footer Verification Failed");
-        }
-        	
-     	LOGGER.error("Footer Verification Failed");
-         
+        } 
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
     }
@@ -106,7 +119,7 @@ public class gSearchPageTest {
     
     private static Node getProperty(String propertyName) throws ParserConfigurationException, SAXException, IOException
 	 {
-	     File testValues = new File(TEST_CASE_PROPERTIES_XML);
+	     File testValues = new File(TestCaseProperties.returnTestPropertiesXml());
 	     DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	     DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 	     Document doc = dBuilder.parse(testValues);

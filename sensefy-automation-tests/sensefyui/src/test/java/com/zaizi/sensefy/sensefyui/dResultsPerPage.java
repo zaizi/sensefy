@@ -1,5 +1,7 @@
 package com.zaizi.sensefy.sensefyui;
 
+import java.io.IOException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.After;
@@ -15,6 +17,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
+import com.zaizi.sensefy.sensefyui.elements.Element;
 import com.zaizi.sensefy.sensefyui.exceptions.IterableException;
 import com.zaizi.sensefy.sensefyui.info.TestCaseProperties;
 import com.zaizi.sensefy.sensefyui.info.TestCaseValues;
@@ -30,6 +33,11 @@ public class dResultsPerPage {
 	public static final Logger LOGGER = LogManager.getLogger(dResultsPerPage.class.getName());
 	
 	public static final ExtentReports extent = ExtentReports.get(dResultsPerPage.class);
+		
+	/**
+	 * defining class name
+	 */
+	public static String className = dResultsPerPage.class.getSimpleName();
 	
 	public String searchTerm="//input[@id='searchTerm']";
 	
@@ -38,17 +46,19 @@ public class dResultsPerPage {
 	private String username;
     private String password;
     public String searchWord="Ephesoft Marketing";
+    public String screenshot_name;
 	
-	public dResultsPerPage(String username, String password)
+	public dResultsPerPage(String username, String password,String screenshot_name)
     {
         this.username = username;
         this.password = password;
+        this.screenshot_name = screenshot_name;
     }
 	
 	@BeforeClass
-    public static void beforeClass() {
-        //extent.init("/Users/deranthika/Desktop/myreport1.html", true);
-		extent.init("logs/sensefy.html", false);
+    public static void beforeClass() throws IOException 
+	{
+		Element.reportInitial(driver, className);
         extent.config().documentTitle("SensefyUI Automation Test Report");
         extent.config().reportTitle("SensefyUI Automation");
         extent.config().reportHeadline("Search Page Testing");
@@ -64,10 +74,10 @@ public class dResultsPerPage {
 	
 	//Test Ten results per page
 	@Test
-    public void a_tenresultsperpage() throws InterruptedException
+    public void a_tenresultsperpage() throws InterruptedException, IOException
     {
-		LOGGER.info("Running Verify 10ResultsPerPage Test");
-    	extent.startTest("Verify 10ResultsPerPage Test");
+		LOGGER.info("Running Verify 10 ResultsPerPage Test");
+    	extent.startTest("Verify 10 ResultsPerPage Test");
     	try
     	{
     		int actualResults;
@@ -87,13 +97,15 @@ public class dResultsPerPage {
             System.out.println("Expected: "+ expectedResults+"  |  Actual: "+actualResults);
             Assert.assertEquals(expectedResults, actualResults);
             LOGGER.info("10ResultsPerPage Verified Successfully");
-    		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "10ResultsPerPage Verified Successfully");
-    		extent.log(LogStatus.PASS, "10ResultsPerPage Verified Successfully");
+    		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "10 ResultsPerPage Verified Successfully");
+    		extent.log(LogStatus.PASS, "10 ResultsPerPage Verified Successfully");
+    		Element.takescreenshot(driver,className,screenshot_name+"1");
     	}
     	catch(Exception e)
     	{
-    		extent.log(LogStatus.FAIL, "10ResultsPerPage Verification Failed");
-    		LOGGER.error("10ResultsPerPage Verification Failed");
+    		extent.log(LogStatus.FAIL, "10 ResultsPerPage Verification Failed");
+    		LOGGER.error("10 ResultsPerPage Verification Failed");
+    		Element.takescreenshot(driver,className,screenshot_name+"2");
     	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
@@ -101,10 +113,10 @@ public class dResultsPerPage {
 	
 	//Test 20 results per page
 	@Test
-    public void b_twentyresultsperpage() throws InterruptedException
+    public void b_twentyresultsperpage() throws InterruptedException, IOException
     {
-		LOGGER.info("Running Verify 20ResultsPerPage Test");
-    	extent.startTest("Verify 20ResultsPerPage Test");
+		LOGGER.info("Running Verify 20 ResultsPerPage Test");
+    	extent.startTest("Verify 20 ResultsPerPage Test");
     	try
     	{
     		int actualResults;
@@ -126,13 +138,15 @@ public class dResultsPerPage {
             System.out.println("Expected: "+ expectedResults+"  |  Actual: "+actualResults);
             Assert.assertEquals(expectedResults, actualResults);
             LOGGER.info("20ResultsPerPage Verified Successfully");
-    		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "20ResultsPerPage Verified Successfully");
-    		extent.log(LogStatus.PASS, "20ResultsPerPage Verified Successfully");
+    		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "20 ResultsPerPage Verified Successfully");
+    		extent.log(LogStatus.PASS, "20 ResultsPerPage Verified Successfully");
+    		Element.takescreenshot(driver,className,screenshot_name+"3");
     	}
     	catch(Exception e)
     	{
-    		extent.log(LogStatus.FAIL, "20ResultsPerPage Verification Failed");
-    		LOGGER.error("20ResultsPerPage Verification Failed");
+    		extent.log(LogStatus.FAIL, "20 ResultsPerPage Verification Failed");
+    		LOGGER.error("20 ResultsPerPage Verification Failed");
+    		Element.takescreenshot(driver,className,screenshot_name+"4");
     	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
@@ -140,7 +154,7 @@ public class dResultsPerPage {
 	
 	//Test 50 results per page
 	@Test
-    public void c_fiftyresultsperpage() throws InterruptedException
+    public void c_fiftyresultsperpage() throws InterruptedException, IOException
     {
 		LOGGER.info("Running Verify 50ResultsPerPage Test");
     	extent.startTest("Verify 50ResultsPerPage Test");
@@ -165,13 +179,15 @@ public class dResultsPerPage {
             System.out.println("Expected: "+ expectedResults+"  |  Actual: "+actualResults);
             Assert.assertEquals(expectedResults, actualResults);
             LOGGER.info("50ResultsPerPage Verified Successfully");
-    		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "50ResultsPerPage Verified Successfully");
-    		extent.log(LogStatus.PASS, "50ResultsPerPage Verified Successfully");
+    		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "50 ResultsPerPage Verified Successfully");
+    		extent.log(LogStatus.PASS, "50 ResultsPerPage Verified Successfully");
+    		Element.takescreenshot(driver,className,screenshot_name+"5");
     	}
     	catch(Exception e)
     	{
-    		extent.log(LogStatus.FAIL, "50ResultsPerPage Verification Failed");
-    		LOGGER.error("50ResultsPerPage Verification Failed");
+    		extent.log(LogStatus.FAIL, "50 ResultsPerPage Verification Failed");
+    		LOGGER.error("50 ResultsPerPage Verification Failed");
+    		Element.takescreenshot(driver,className,screenshot_name+"6");
     	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
@@ -179,10 +195,10 @@ public class dResultsPerPage {
 	
 	//Test 100 results per page
 	@Test
-    public void d_hundradresultsperpage() throws InterruptedException
+    public void d_hundradresultsperpage() throws InterruptedException, IOException
     {
-		LOGGER.info("Running Verify 100ResultsPerPage Test");
-    	extent.startTest("Verify 100ResultsPerPage Test");
+		LOGGER.info("Running Verify 100 ResultsPerPage Test");
+    	extent.startTest("Verify 100 ResultsPerPage Test");
     	try
     	{
     		int actualResults;
@@ -205,13 +221,15 @@ public class dResultsPerPage {
             System.out.println("Expected: "+ expectedResults+"  |  Actual: "+actualResults);
             Assert.assertEquals(expectedResults, actualResults);
             LOGGER.info("100ResultsPerPage Verified Successfully");
-    		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "100ResultsPerPage Verified Successfully");
-    		extent.log(LogStatus.PASS, "100ResultsPerPage Verified Successfully");
+    		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "100 ResultsPerPage Verified Successfully");
+    		extent.log(LogStatus.PASS, "100 ResultsPerPage Verified Successfully");
+    		Element.takescreenshot(driver,className,screenshot_name+"7");
     	}
     	catch(Exception e)
     	{
-    		extent.log(LogStatus.FAIL, "100ResultsPerPage Verification Failed");
-    		LOGGER.error("100ResultsPerPage Verification Failed");
+    		extent.log(LogStatus.FAIL, "100 ResultsPerPage Verification Failed");
+    		LOGGER.error("100 esultsPerPage Verification Failed");
+    		Element.takescreenshot(driver,className,screenshot_name+"8");
     	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");

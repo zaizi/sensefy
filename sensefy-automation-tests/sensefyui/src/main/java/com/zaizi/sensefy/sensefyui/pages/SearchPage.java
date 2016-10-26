@@ -15,7 +15,7 @@ import com.zaizi.sensefy.sensefyui.info.TestCaseProperties;
 
 public class SearchPage {
 
-private static final Logger LOGGER = LogManager.getLogger(SearchLogin.class);
+	private static final Logger LOGGER = LogManager.getLogger(SearchLogin.class);
 	
 	//xpath initiation for searchui login page
 	private static final String username = "//input[@id='username']";
@@ -90,10 +90,11 @@ private static final Logger LOGGER = LogManager.getLogger(SearchLogin.class);
     	}
     }
     
-    public void searchATerm(String Term)
+    public void searchATerm(String Term) throws InterruptedException
     {
     	driver.findElement(By.xpath(searchBar)).sendKeys(Term);
     	driver.findElement(By.xpath(searchButton)).click();
+    	Thread.sleep(3000);
     }
     
     public void logout()
@@ -224,7 +225,7 @@ private static final Logger LOGGER = LogManager.getLogger(SearchLogin.class);
     //Select Creator Facet
     public void selectCreatorFacet(String creator) throws InterruptedException
     {
-    	String creatorName1 ="//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[1]/ul/li/span/span[@translate='";
+    	String creatorName1 ="//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[1]/ul/li/span/span/span[@translate='";
     	String creatorName2="']";
     	String creatorName=creatorName1+creator+creatorName2;
     	String expaned="//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[1]/div/i[@class='add circle icon']";
@@ -285,7 +286,7 @@ private static final Logger LOGGER = LogManager.getLogger(SearchLogin.class);
     //Selecting Modified Date Facet
     public void selectLastModifiedDateFacet(String modifiedDate) throws InterruptedException
     {
-    	String modified1 ="//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[6]/ul/li/span/span[contains(.,'";
+    	String modified1 ="//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[6]/ul/li/span/span/span[contains(.,'";
     	String modified2="')]";
     	String modifiedType=modified1+modifiedDate+modified2;
     	
@@ -296,7 +297,7 @@ private static final Logger LOGGER = LogManager.getLogger(SearchLogin.class);
     //Selecting Creation Date Facet
     public void selectCreationDateFacet(String creationDate) throws InterruptedException
     {
-    	String creation1 ="//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[7]/ul/li/span/span[contains(.,'";
+    	String creation1 ="//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[7]/ul/li/span/span/span[contains(.,'";
     	String creation2="')]";
     	String creationType=creation1+creationDate+creation2;
     	
@@ -307,7 +308,7 @@ private static final Logger LOGGER = LogManager.getLogger(SearchLogin.class);
     //Selecting Topic Facet
     public void selectTopicFacet(String topic) throws InterruptedException
     {
-    	String topic1 ="//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[8]/ul/li/span/span[contains(.,'";
+    	String topic1 ="//body[@id='sensefy']/div[1]/div[3]/div[2]/div[4]/div[3]/div[8]/ul/li/span/span/span[contains(.,'";
     	String topic2="')]";
     	String topicType=topic1+topic+topic2;
     	

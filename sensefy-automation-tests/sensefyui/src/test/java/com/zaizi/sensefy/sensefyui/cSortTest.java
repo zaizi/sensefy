@@ -1,5 +1,7 @@
 package com.zaizi.sensefy.sensefyui;
 
+import java.io.IOException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.BeforeClass;
@@ -13,6 +15,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
+import com.zaizi.sensefy.sensefyui.elements.Element;
 import com.zaizi.sensefy.sensefyui.exceptions.IterableException;
 import com.zaizi.sensefy.sensefyui.info.TestCaseProperties;
 import com.zaizi.sensefy.sensefyui.info.TestCaseValues;
@@ -28,25 +31,32 @@ public class cSortTest {
 	
 	public static final ExtentReports extent = ExtentReports.get(cSortTest.class);
 	
+	/**
+	 * defining class name
+	 */
+	public static String className = cSortTest.class.getSimpleName();
+	
 	private String username;
     private String password;
     public String searchWord;
+    public String screenshot_name;
     
     public String searchTerm="//input[@id='searchTerm']";
     
     static WebDriver driver;
     
-    public cSortTest(String username, String password, String searchWord)
+    public cSortTest(String username, String password, String searchWord,String screenshot_name)
     {
         this.username = username;
         this.password = password;
         this.searchWord=searchWord;
+        this.screenshot_name = screenshot_name;
     }
     
     @BeforeClass
-    public static void beforeClass() {
-        //extent.init("/Users/deranthika/Desktop/myreport1.html", true);
-		extent.init("logs/sensefy.html", false);
+    public static void beforeClass() throws IOException {
+    	
+    	Element.reportInitial(driver, className);
         extent.config().documentTitle("SensefyUI Automation Test Report");
         extent.config().reportTitle("SensefyUI Automation");
         extent.config().reportHeadline("Search Page Testing");
@@ -61,7 +71,7 @@ public class cSortTest {
     
     //Test sort by creator
     @Test
-    public void a_sortbyCreator() throws InterruptedException
+    public void a_sortbyCreator() throws InterruptedException, IOException
     {
     	LOGGER.info("Running Verify SortByCreator Test");
     	extent.startTest("Verify SortByCreator Test");
@@ -82,11 +92,13 @@ public class cSortTest {
             LOGGER.info("SortByCreator Verified Successfully");
     		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "SortByCreator Verified Successfully");
     		extent.log(LogStatus.PASS, "SortByCreator Verified Successfully");
+    		Element.takescreenshot(driver,className,screenshot_name+"1");
     	}
     	catch(Exception e)
     	{
     		extent.log(LogStatus.FAIL, "SortByCreator Verification Failed");
     		LOGGER.error("SortByCreator Verification Failed");
+    		Element.takescreenshot(driver,className,screenshot_name+"2");
     	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
@@ -94,7 +106,7 @@ public class cSortTest {
 	
     //Test sort by name
     @Test
-    public void b_sortbyName() throws InterruptedException
+    public void b_sortbyName() throws InterruptedException, IOException
     {
     	LOGGER.info("Running Verify SortByName Test");
     	extent.startTest("Verify SortByName Test");
@@ -115,11 +127,13 @@ public class cSortTest {
             LOGGER.info("SortByName Verified Successfully");
     		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "SortByName Verified Successfully");
     		extent.log(LogStatus.PASS, "SortByName Verified Successfully");
+    		Element.takescreenshot(driver,className,screenshot_name+"3");
     	}
     	catch(Exception e)
     	{
     		extent.log(LogStatus.FAIL, "SortByName Verification Failed");
     		LOGGER.error("SortByName Verification Failed");
+    		Element.takescreenshot(driver,className,screenshot_name+"4");
     	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
@@ -127,7 +141,7 @@ public class cSortTest {
     
     //Test sort by created 
     @Test
-    public void c_sortbyCreated() throws InterruptedException
+    public void c_sortbyCreated() throws InterruptedException, IOException
     {
     	LOGGER.info("Running Verify SortByCreated Test");
     	extent.startTest("Verify SortByCreated Test");
@@ -148,11 +162,13 @@ public class cSortTest {
             LOGGER.info("SortByCreated Verified Successfully");
     		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "SortByCreated Verified Successfully");
     		extent.log(LogStatus.PASS, "SortByCreated Verified Successfully");
+    		Element.takescreenshot(driver,className,screenshot_name+"5");
     	}
     	catch(Exception e)
     	{
     		extent.log(LogStatus.FAIL, "SortByCreated Verification Failed");
     		LOGGER.error("SortByCreated Verification Failed");
+    		Element.takescreenshot(driver,className,screenshot_name+"6");
     	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
@@ -160,7 +176,7 @@ public class cSortTest {
 	
     //Test sort by Modifier
     @Test
-    public void d_sortbyModifier() throws InterruptedException
+    public void d_sortbyModifier() throws InterruptedException, IOException
     {
     	LOGGER.info("Running Verify SortByModifier Test");
     	extent.startTest("Verify SortByModifier Test");
@@ -181,11 +197,13 @@ public class cSortTest {
             LOGGER.info("SortByModifier Verified Successfully");
     		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "SortByModifier Verified Successfully");
     		extent.log(LogStatus.PASS, "SortByModifier Verified Successfully");
+    		Element.takescreenshot(driver,className,screenshot_name+"7");
     	}
     	catch(Exception e)
     	{
     		extent.log(LogStatus.FAIL, "SortByModifier Verification Failed");
     		LOGGER.error("SortByModifier Verification Failed");
+    		Element.takescreenshot(driver,className,screenshot_name+"8");
     	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
@@ -193,7 +211,7 @@ public class cSortTest {
 
     //Test sort by Modified
     @Test
-    public void e_sortbyModified() throws InterruptedException
+    public void e_sortbyModified() throws InterruptedException, IOException
     {
     	LOGGER.info("Running Verify SortByModified Test");
     	extent.startTest("Verify SortByModified Test");
@@ -214,11 +232,13 @@ public class cSortTest {
             LOGGER.info("SortByModified Verified Successfully");
     		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "SortByModified Verified Successfully");
     		extent.log(LogStatus.PASS, "SortByModified Verified Successfully");
+    		Element.takescreenshot(driver,className,screenshot_name+"9");
     	}
     	catch(Exception e)
     	{
     		extent.log(LogStatus.FAIL, "SortByModified Verification Failed");
     		LOGGER.error("SortByModified Verification Failed");
+    		Element.takescreenshot(driver,className,screenshot_name+"10");
     	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
@@ -226,7 +246,7 @@ public class cSortTest {
     
     //Test sort by Relevance
     @Test
-    public void f_sortbyRelevance() throws InterruptedException
+    public void f_sortbyRelevance() throws InterruptedException, IOException
     {
     	LOGGER.info("Running Verify SortByRelevance Test");
     	extent.startTest("Verify SortByRelevance Test");
@@ -247,11 +267,13 @@ public class cSortTest {
             LOGGER.info("SortByRelevance Verified Successfully");
     		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "SortByRelevance Verified Successfully");
     		extent.log(LogStatus.PASS, "SortByRelevance Verified Successfully");
+    		Element.takescreenshot(driver,className,screenshot_name+"10");
     	}
     	catch(Exception e)
     	{
     		extent.log(LogStatus.FAIL, "SortByRelevance Verification Failed");
     		LOGGER.error("SortByRelevance Verification Failed");
+    		Element.takescreenshot(driver,className,screenshot_name+"11");
     	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");
@@ -259,7 +281,7 @@ public class cSortTest {
     
     //Test sort by Title
     @Test
-    public void g_sortbyTitle() throws InterruptedException
+    public void g_sortbyTitle() throws InterruptedException, IOException
     {
     	LOGGER.info("Running Verify SortByTitle Test");
     	extent.startTest("Verify SortByTitle Test");
@@ -280,11 +302,13 @@ public class cSortTest {
             LOGGER.info("SortByTitle Verified Successfully");
     		LOGGER.info(TestCaseProperties.TEXT_TEST_PASS, "SortByTitle Verified Successfully");
     		extent.log(LogStatus.PASS, "SortByTitle Verified Successfully");
+    		Element.takescreenshot(driver,className,screenshot_name+"12");
     	}
     	catch(Exception e)
     	{
     		extent.log(LogStatus.FAIL, "SortByTitle Verification Failed");
     		LOGGER.error("SortByTitle Verification Failed");
+    		Element.takescreenshot(driver,className,screenshot_name+"13");
     	}
     	TestCaseProperties.closeDriver(driver);
     	LOGGER.info("---------------------------");

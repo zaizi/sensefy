@@ -1,32 +1,9 @@
 <div class="row">
     <div class="column">
         <div class="ui inverted blue menu" id="header">
-            <img src="{{desktopLogo}}" alt="Sensefy main Logo" class="open left cur-hand" ng-click="logoClick()">
-            <img src="{{deviceLogo}}" alt="Sensefy device Logo" class="mob cur-hand" ng-click="logoClick()">
-
-            <div class="tag-search" ng-class="{tagSearch: entityTags.length === 0}">
-                <div class="comp-wrapper clearfix">
-                    <ul class="tag-set" ng-show="entityTags.length > 0">
-                        <li ng-repeat="entityTag in entityTags">
-                            <button class="ui right labeled icon button blue" ng-click="removeEntityTagObj(entityTag)">
-                                <i ng-show="entityTag.is_place" class="pin icon entity-tag-icon"></i>
-                                <i ng-show="entityTag.is_other" class="idea icon entity-tag-icon"></i>
-                                <i ng-show="entityTag.is_organization" class="sitemap icon entity-tag-icon"></i>
-                                <i ng-show="entityTag.is_person" class="user icon entity-tag-icon"></i>
-
-                                <span ng-bind="entityTag.label"></span>
-                                <i class="right close icon"></i>
-                            </button>
-                        </li>
-                    </ul>
-
-                    <sensefy-autocomplete
-                            query-term="queryTerm"
-                            query-function="query()"
-                            ng-class="{searchCompTop: entityTags.length === 0}">
-                    </sensefy-autocomplete>
-                </div>
-            </div>
+            <img src="{{desktopLogo}}" alt="Sensefy main Logo" class="open left" ng-click="logoClick()">
+            <img src="{{deviceLogo}}" alt="Sensefy device Logo" class="mob" ng-click="logoClick()">
+            <sensefy-autocomplete query-term="queryTerm" query-function="query()"></sensefy-autocomplete>
 
             <div class="right menu" id="menu">
                 <div class="ui mobile dropdown link item top-right-menu">
@@ -59,7 +36,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="one column row ds-wrapper" ng-show="(totalDocuments && totalDocuments > 0)">
     <div class="sixteen wide column data-sources">
@@ -147,25 +123,24 @@
     </div>
 
 
-
     <div class="ui divider" ng-show="documents.length > 0"></div>
 
     <!--div ng-include="'views/partial/entity-info-template.html'"></div -->
     <div class="group-facet facets entity-information clearfix"
-         ng-show="entityUI && selectedEntity !== null && searching">
-        <div ng-repeat="entityItem in selectedEntity" class="clearfix entity-highlight-wrapper">
-            <!--header translate="{{entityItem.label | translate}}"></header-->
-            <div class="entity-info-brief">
-                <div image-switch="entityItem.thumbnail[0]"></div>
-                <!--img class="image pe-check-image" ng-src="{{entityItem.thumbnail[0]}}" thumbpath="{{entityItem.thumbnail[0]}}" -->
+         ng-show="selectedEntity != null">
+        <header translate="{{selectedEntity.label | translate}}"></header>
 
-                <img class="image" ng-src="{{checkImgAvailable(entityItem.thumbnail_base64)}}">
 
-                <div class="text brief" ng-bind="capitalizeFirstLetter('{{entityItem.label}}')"></div>
-                <!--div class="type brief" ng-show="entityItem.type">{{arrayToString(entityItem.type)}}</div-->
-                <!--div class="desc brief" dd-text-collapse dd-text-collapse-max-length="80" dd-text-collapse-text="{{entityItem.description[0]}}" ng-show="entityItem.description[0]"></div-->
-                <div class="desc brief" ng-show="entityItem.description[0]">{{entityItem.description[0]}}</div>
-            </div>
+
+        <div class="entity-info-brief">
+
+            <div image-switch="selectedEntity.thumbnail[0]"></div>
+
+            <img class="image pe-check-image" ng-src="{{selectedEntity.thumbnail[0]}}" thumbpath="{{selectedEntity.thumbnail[0]}}">
+
+            <div class="text brief">{{selectedEntity.label}}</div>
+            <div class="type brief" ng-show="selectedEntity.type">{{arrayToString(selectedEntity.type)}}</div>
+            <div class="desc brief" ng-show="selectedEntity.description">{{selectedEntity.description[0]}}</div>
         </div>
     </div>
 
@@ -179,20 +154,28 @@
              pagination-id="mainResults"
              total-items="totalDocuments"
              current-page="currentPage">
+            <!--div class="link item  document"
+                 ng-repeat="document in documents" style="position: relative;"
+                 ng-show="documents.length > 0"
+                 ng-click="highlight();"
+                 data-result-set="{{document.data_source}}"
+                 data-datasource-relation="{{document.data_source}}"
+                 pagination-id="mainResults"
+                 total-items="totalDocuments"
+                 current-page="currentPage"-->
             <!-- Set the carent icon when hover to result -->
-            <div class="doc-thumb" ng-if="pickThumbnail(document.mimetype)">
-                <img src="images/{{thumbType}}.png" ng-show="isThumb">
-                <img src="data:image/jpeg;base64,{{document.thumbnail_base64}}" ng-show="!isThumb">
+            <div class="doc-thumb" ng-show="document.thumbnail_base64">
+                <img src="data:image/jpeg;base64,{{document.thumbnail_base64}}">
             </div>
 
             <i class="caret right icon hover-result"></i>
             <div class="content info">
 
                 <!-- Set the file file type icon -->
-                <i class="" ng-class="pickDocIcon('{{document.mimetype}}')"
+                <i class="file outline icon c-word" ng-class="pickDocIcon('{{document.mimetype}}')"
                    ng-if="document.mimetype"></i>
                 <!-- Set the file title -->
-                <ng-switch on="normalSearch" ng-if="document.hls.name[0] !== null && document.hls.name[0] !== ''">
+                <ng-switch on="normalSearch" ng-if="document.hls.name[0] != null && document.hls.name[0] != ''">
                     <a target="_blank" ng-href="{{document.url}}" tabindex="0" class="header title" ng-show="document.url">
                         <span ng-switch-when="true" ng-bind-html="document.hls.name[0]"></span>
                         <span ng-switch-default ng-bind-html="document.name"></span>
@@ -205,7 +188,7 @@
 
                 <!-- Set the authour -->
                 <span class="gray f-size12"
-                      ng-if="document.author !== null && document.author !== '' && document.author.length > 0">
+                      ng-if="document.author != null && document.author != '' && document.author.length > 0">
                             | by <span title="{{'data.author' | translate}}" ng-bind="document.author[0]"></span>
                         </span>
 
@@ -213,23 +196,28 @@
                 <div class="meta-breadcrumb channel-l italic" ng-if="document.path">
                     <p class="channel-d underline cursor-default" ng-bind="urlTruncate('{{document.path}}')"></p>
                 </div>
+                <!-- Set the content -->
                 <div class="content-wrapper" ng-if="document.hls.content && document.hls.content.length > 0">
-                    <div class="content snippet" ng-bind-html="document.hls.content[0].trim() | excerpt:300"></div>
-                </div>
-
-
-                <div class="content-wrapper" ng-if="document.hls.content && document.hls.content.length > 0 && !document.content && !document.content.length > 0">
-                    <div class="content excerpt" ng-bind-html="document.content[0].trim() | excerpt:300"></div>
+                    <ng-switch on="normalSearch">
+                        <div ng-switch-when="true">
+                            <div class="content snippet" ng-bind-html="document.hls.content[0].trim() | excerpt:300">
+                            </div>
+                        </div>
+                        <div ng-switch-default>
+                            <div class="content excerpt" ng-bind-html="document.content[0].trim() | excerpt:300">
+                            </div>
+                        </div>
+                    </ng-switch>
                 </div>
 
                 <!-- Set the metadata -->
                 <div class="metadata mgray clearfix">
                     <div class="meta-info-create italic">
                         <span class="underline mgray"
-                              ng-if="document.ds_creator !== null && document.ds_creator !== '' && document.ds_creator.length > 0">
+                              ng-if="document.ds_creator != null && document.ds_creator != '' && document.ds_creator.length > 0">
                             <span title="{{'data.creator' | translate}}" ng-bind="document.ds_creator"></span>
                         </span>
-                        <span ng-if="document.ds_creation_date !== null && document.ds_creation_date !== ''">
+                        <span ng-if="document.ds_creation_date != null && document.ds_creation_date != ''">
                             <span title="{{'data.created'|translate}}">created</span>
 
                                <span title="{{dateTimeFormatterAcc(document.ds_creation_date)}}"
@@ -294,9 +282,16 @@
         <span class="text" ng-model="selectSortings" translate="relevance"></span>
 
         <div class="menu" tabindex="-1">
+            <!--div class="header"> Sorting options </div
+
+            <select title="{{'sorting.hint'|translate}}" class="sort-select" ng-model="selectSortings"
+                    ng-options="s.sortOption | translate for s in sortings track by s.id">
+            </select>-->
+
             <div class="item" ng-repeat="s in sortings track by s.id" ng-bind="s.sortOption | translate"
                  data-value="{{s.sortId}}, {{s.defaultSort}}"
                  ng-model="selectSortings">
+                <!--<div class="ui green empty circular label"></div>-->
                 Relevance
             </div>
         </div>
