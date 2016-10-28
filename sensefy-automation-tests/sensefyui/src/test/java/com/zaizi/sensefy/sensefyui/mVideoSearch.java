@@ -131,8 +131,10 @@ public class mVideoSearch
 		
 
 		LOGGER.info("Navigate to Sensefy Mico Url");
-		driver = TestCaseProperties.getSensefyMico();
-        driver.manage().window().setSize(new Dimension(1920, 1920)); 
+		//driver = TestCaseProperties.getSensefyMico();
+		driver = TestCaseProperties.getSensefyQa();
+        
+		driver.manage().window().setSize(new Dimension(1920, 1920)); 
         String currentUrl1 = driver.getCurrentUrl().toString();
             
         System.out.println(currentUrl1);
