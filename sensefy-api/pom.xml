@@ -22,7 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<mcf.version>1.8</mcf.version>
-		<httpclient.version>4.4.1</httpclient.version>
+		<httpclient.version>4.5.13</httpclient.version>
 		<slf4j.version>1.7.5</slf4j.version>
 		<log4j.version>2.1</log4j.version>
 		<solr.version>4.9.0</solr.version>
